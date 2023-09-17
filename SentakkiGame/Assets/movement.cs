@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class movement : MonoBehaviour
 {
+    public static movement instance;
+
     private float horizontal;
     public float speed;
     public float jumpingPower;
@@ -19,9 +21,9 @@ public class movement : MonoBehaviour
     private float oriGravity;
     private float fallingGravity = 8f;
 
-    private bool moveKeyPress;
+    public bool moveKeyPress;
+    private bool iframe = false;
 /*    private bool m_Started;*/
-
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -31,6 +33,7 @@ public class movement : MonoBehaviour
     {
 /*        m_Started = true;*/
         oriGravity = rb.gravityScale;
+        instance = this;
     }
 
     
@@ -45,18 +48,19 @@ public class movement : MonoBehaviour
 
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
-            Debug.Log("Press");
+/*            Debug.Log("Press");*/
             moveKeyPress = true;
         }
         else 
         {
-            Debug.Log("NotPress");
+/*            Debug.Log("NotPress");*/
             moveKeyPress = false;
         }
 
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             rb.AddForce(Vector2.up * jumpingPower, ForceMode2D.Impulse);
+            
         }
 
         if(Input.GetKeyDown(KeyCode.LeftShift) && canDash && IsGrounded() && moveKeyPress)
@@ -106,6 +110,7 @@ public class movement : MonoBehaviour
         Debug.Log("Dash");
         canDash = false;
         isDashing = true;
+        iframe = true;
 /*        float oriGravity = rb.gravityScale;
         rb.gravityScale = 0f;*/
         Vector2 velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
@@ -113,6 +118,7 @@ public class movement : MonoBehaviour
         yield return new WaitForSeconds(dashingTime);
 /*        rb.gravityScale = oriGravity;*/
         isDashing = false;
+        iframe = false;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
