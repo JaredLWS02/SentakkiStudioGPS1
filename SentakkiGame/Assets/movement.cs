@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
@@ -11,9 +12,10 @@ public class movement : MonoBehaviour
     public float speed;
     public float jumpingPower;
     private bool isFacingRight = true;
+    public bool isMoving;
 
     private bool canDash = true;
-    private bool isDashing;
+    public bool isDashing;
     public float dashingPower;
     public float dashingTime;
     public float dashingCooldown;
@@ -21,9 +23,9 @@ public class movement : MonoBehaviour
     private float oriGravity;
     private float fallingGravity = 8f;
 
-    public bool moveKeyPress;
+    private bool moveKeyPress;
     private bool iframe = false;
-/*    private bool m_Started;*/
+    private bool m_Started;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -31,7 +33,7 @@ public class movement : MonoBehaviour
 
     private void Start()
     {
-/*        m_Started = true;*/
+        m_Started = true;
         oriGravity = rb.gravityScale;
         instance = this;
     }
@@ -39,7 +41,7 @@ public class movement : MonoBehaviour
     
     private void Update()
     {
-        if(isDashing)
+        if(isDashing || attack.instance.isPlunging)
         {
             return;
         }
@@ -60,7 +62,6 @@ public class movement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             rb.AddForce(Vector2.up * jumpingPower, ForceMode2D.Impulse);
-            
         }
 
         if(Input.GetKeyDown(KeyCode.LeftShift) && canDash && IsGrounded() && moveKeyPress)
@@ -81,14 +82,15 @@ public class movement : MonoBehaviour
         }
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
-        return Physics2D.OverlapBox(groundCheck.position, new Vector2(0.8f, 0.1f), 0f, groundLayer);
+        return Physics2D.OverlapBox(groundCheck.position, new Vector2(1.5f, 0.1f), 0f, groundLayer);
     }
+
 
    private void FixedUpdate()
     {
-        if (isDashing)
+        if (isDashing ||attack.instance.isPlunging)
         {
             return;
         }
@@ -123,11 +125,10 @@ public class movement : MonoBehaviour
         canDash = true;
     }
 
-/*    void OnDrawGizmos()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         if (m_Started)
-            Gizmos.DrawWireCube(groundCheck.position, new Vector2(1, 0.1f));
-        *//*            Gizmos.DrawWireSphere(groundCheck.position,0.4f);*//*
-    }*/
+            Gizmos.DrawWireCube(groundCheck.position, new Vector2(1.5f, 0.1f));
+    }
 }
