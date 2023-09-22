@@ -7,6 +7,8 @@ public class SwitchMechanic : MonoBehaviour
     public GameObject CharPos;
     public GameObject Player1;
     public GameObject Player2;
+    public AudioSource p1;
+    public AudioSource p2;
     public PlayerController player1Control;
     public PlayerController player2Control;
     public SpriteRenderer P1Sprite;
@@ -16,6 +18,8 @@ public class SwitchMechanic : MonoBehaviour
     void Start()
     {
         P1Sprite.enabled = true;
+        p1.volume = 1.0f;
+        p2.volume = 0.0f;
     }
     void Update()
     {
@@ -38,10 +42,12 @@ public class SwitchMechanic : MonoBehaviour
     {
         if (player1Active)
         {
-            Player1.SetActive(false);
+            Player1.GetComponent<Collider2D>().enabled = false;
             player1Control.enabled = false;
             P1Sprite.enabled = false;
-            Player2.SetActive(true);
+            p1.volume = 0.0f;
+            p2.volume = 1.0f;
+            Player2.GetComponent<Collider2D>().enabled = true;
             Player2.transform.position = CharPos.transform.position;
             player2Control.enabled = true;
             P2Sprite.enabled = true;
@@ -49,11 +55,13 @@ public class SwitchMechanic : MonoBehaviour
         }
         else
         {
-            Player1.SetActive(true);
+            Player1.GetComponent<Collider2D>().enabled = true; 
             Player1.transform.position = CharPos.transform.position;
             player1Control.enabled = true;
             P1Sprite.enabled = true;
-            Player2.SetActive(false);
+            p1.volume = 1.0f;
+            p2.volume = 0.0f;
+            Player2.GetComponent<Collider2D>().enabled = false; 
             player2Control.enabled = false;
             P2Sprite.enabled = false;
             player1Active = true;
