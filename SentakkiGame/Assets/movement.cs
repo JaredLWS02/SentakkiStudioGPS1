@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class movement : MonoBehaviour
@@ -24,7 +21,6 @@ public class movement : MonoBehaviour
     private float fallingGravity = 8f;
 
     private bool moveKeyPress;
-    private bool iframe = false;
     private bool m_Started;
 
     [SerializeField] private Rigidbody2D rb;
@@ -41,21 +37,28 @@ public class movement : MonoBehaviour
     
     private void Update()
     {
-        if(isDashing || attack.instance.isPlunging)
+        if (isDashing)
         {
+            return;
+        }
+
+        if (attack.instance.isAttacking)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
             return;
         }
 
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
-/*            Debug.Log("Press");*/
             moveKeyPress = true;
         }
         else 
         {
-/*            Debug.Log("NotPress");*/
             moveKeyPress = false;
         }
 
@@ -88,14 +91,16 @@ public class movement : MonoBehaviour
     }
 
 
-   private void FixedUpdate()
+/*   private void FixedUpdate()
     {
-        if (isDashing ||attack.instance.isPlunging)
+        if (isDashing)
         {
             return;
         }
+
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-    }
+
+    }*/
 
     private void Flip()
     {
@@ -112,15 +117,15 @@ public class movement : MonoBehaviour
         Debug.Log("Dash");
         canDash = false;
         isDashing = true;
-        iframe = true;
-/*        float oriGravity = rb.gravityScale;
-        rb.gravityScale = 0f;*/
-        Vector2 velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        gameObject.layer = LayerMask.NameToLayer("ghostplayer");
+        /*        float oriGravity = rb.gravityScale;
+                rb.gravityScale = 0f;*/
+        Vector2 velocity = new Vector2(transform.localScale.x * dashingPower, 0);
         rb.AddForce(velocity, ForceMode2D.Impulse);
         yield return new WaitForSeconds(dashingTime);
 /*        rb.gravityScale = oriGravity;*/
         isDashing = false;
-        iframe = false;
+        gameObject.layer = LayerMask.NameToLayer("player");
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }

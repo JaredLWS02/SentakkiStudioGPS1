@@ -1,28 +1,37 @@
-using JetBrains.Annotations;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using TMPro;
 
 public class attack : MonoBehaviour
 {
     public static attack instance;
 
     private bool canAttack;
-    private bool plungeAttack;
-    private bool attackCooldown = false;
-    private bool plungeCooldown = false;
-    public bool isPlunging;
+    public bool isAttacking;
+    private bool attackcooldown = false;
+    private int combocounter;
+    private int innercombocounter;
+
+    /*    private bool plungeAttack;*/
+    /*    private bool plungeCooldown = false;*/
+    /*    public bool isPlunging;*/
+
+    private float combotimeConstant = 0.6f;
+    private float attacktimer;
+    private bool isCombo;
 
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject playerattackhitbox;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private TextMeshProUGUI combo;
+
 
     private void Start()
     {
+        innercombocounter = 0;
+        combo.text = "x 0";
         instance = this;
     }
 
@@ -34,66 +43,181 @@ public class attack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.J))
             {
-                if (Physics2D.Raycast(player.transform.position, Vector2.down, 2.5f, groundLayer))
-                {
-                    if(movement.instance.IsGrounded() && !attackCooldown)
+/*                if (Physics2D.Raycast(player.transform.position, Vector2.down, 2.5f, groundLayer))
+                {*/
+                    if(movement.instance.IsGrounded() && !attackcooldown)
                     {
-                        StartCoroutine(Attack());
+                        Attack();
+                        StartCoroutine(checkattackcooldown());
                     }
-                }
-                else
+/*                }*/
+/*                else
                 {
                     if(!plungeCooldown && !isPlunging)
                     {
                         StartCoroutine(PlungeAttack());
                     }
-                }
+                }*/
                 
             }
         }
 
     }
 
-/*    private void FixedUpdate()
+    private IEnumerator checkattackcooldown()
     {
-        Debug.Log(rb.velocity.y);
-    }*/
-    private IEnumerator Attack()
-    {
-        attackCooldown = true;
-        if(canAttack)
+        attackcooldown = true;
+        if(isCombo)
         {
-            Debug.Log("Hit");
+            yield return new WaitForSeconds(0.15f);
+            isAttacking = false;
+            yield return new WaitForSeconds(0.25f);
+            attackcooldown = false;
         }
         else
         {
-            Debug.Log("miss");
+            yield return new WaitForSeconds(0.15f);
+            isAttacking = false;
+            yield return new WaitForSeconds(0.2f);
+            attackcooldown = false;
         }
-        yield return new WaitForSeconds(0.3f);
-        attackCooldown = false;
     }
-
-    private IEnumerator PlungeAttack()
+    private void Attack()
     {
-        isPlunging = true;
-        plungeCooldown = true;
-        rb.AddForce(Vector2.down * 40f, ForceMode2D.Impulse);
+        isAttacking = true;
+        if (attacktimer <= 0)
+        {
+            attacktimer = Time.time;
+        }
 
-        if (Physics2D.Raycast(playerattackhitbox.transform.position, Vector2.down, 7f, enemyLayer))
+        if (isCombo)
         {
-            plungeAttack = true;
-            Debug.Log(plungeAttack);
+            if((Time.time - attacktimer) < combotimeConstant)
+            {
+                combocounter += 1;
+                combo.text = "x " + combocounter.ToString();
+                attacktimer = Time.time;
+                innercombocounter += 1;
+                if (innercombocounter == 1)
+                {
+                    Attack2();
+                }
+                else if (innercombocounter == 2)
+                {
+                    Attack3();
+                }
+                else if (innercombocounter == 3)
+                {
+                    Attack4();
+                }
+                else
+                {
+                    Debug.Log("Combo reset");
+                    innercombocounter = 0;
+                    Attack1();
+                }
+            }
+            else
+            {
+                innercombocounter = 0;
+                isCombo = false;
+                combocounter = 0;
+                combo.text = "x " + combocounter.ToString();
+                attacktimer = Time.time;
+                Debug.Log("fail combo");
+            }
         }
-        else 
+        else
         {
-            plungeAttack = false;
-            Debug.Log(plungeAttack);
+            isCombo = true;
+            if(canAttack)
+            {
+                combocounter += 1;
+                combo.text = "x " + combocounter.ToString();
+            }
+            else
+            {
+                combo.text = "x " + combocounter.ToString();
+            }
+                attacktimer = Time.time;
+                Attack1();
         }
-        yield return new WaitForSeconds(0.22f);
-        isPlunging = false;
-        yield return new WaitForSeconds(0.4f);
-        plungeCooldown = false;
+ 
     }
+
+    private void Attack1()
+    {
+        if(canAttack) 
+        {
+            Debug.Log("Hit1");
+        }
+        else
+        {
+            isCombo = false;
+            Debug.Log("Miss1");
+        }
+    }
+
+    private void Attack2()
+    {
+        if (canAttack)
+        {
+            Debug.Log("Hit2");
+        }
+        else
+        {
+            isCombo = false;
+            Debug.Log("Miss2");
+        }
+    }
+
+    private void Attack3()
+    {
+        if (canAttack)
+        {
+            Debug.Log("Hit3");
+        }
+        else
+        {
+            isCombo = false;
+            Debug.Log("Miss3");
+        }
+    }
+
+    private void Attack4()
+    {
+        if (canAttack)
+        {
+            Debug.Log("Hit4");
+        }
+        else
+        {
+            isCombo = false;
+            Debug.Log("Miss4");
+        }
+    }
+
+    /*    private IEnumerator PlungeAttack()
+        {
+            isPlunging = true;
+            plungeCooldown = true;
+            rb.AddForce(Vector2.down * 40f, ForceMode2D.Impulse);
+
+            if (Physics2D.Raycast(playerattackhitbox.transform.position, Vector2.down, 7f, enemyLayer))
+            {
+                plungeAttack = true;
+                Debug.Log(plungeAttack);
+            }
+            else 
+            {
+                plungeAttack = false;
+                Debug.Log(plungeAttack);
+            }
+            yield return new WaitForSeconds(0.1f);
+            isPlunging = false;
+            yield return new WaitForSeconds(0.4f);
+            plungeCooldown = false;
+        }*/
 
     private void OnTriggerEnter2D(Collider2D attackenemy)
     {
