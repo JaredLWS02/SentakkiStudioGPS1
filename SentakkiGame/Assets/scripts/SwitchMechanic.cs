@@ -9,8 +9,8 @@ public class SwitchMechanic : MonoBehaviour
     public GameObject Player2;
     public AudioSource p1;
     public AudioSource p2;
-    public PlayerController player1Control;
-    public PlayerController player2Control;
+    public movement player1Control;
+    public movement player2Control;
     public SpriteRenderer P1Sprite;
     public SpriteRenderer P2Sprite;
     public bool player1Active = true;
