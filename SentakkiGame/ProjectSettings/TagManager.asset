@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - p1
-  - p2
+  - playerHitbox
+  - playerAttackHitbox
+  - enemyHitbox
+  - enemyAttackHitbox
   layers:
   - Default
   - TransparentFX
@@ -13,10 +15,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - ghostplayer
+  - ground
+  - player
+  - enemy
   - 
   - 
   - 
