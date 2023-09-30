@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class movement : MonoBehaviour
@@ -26,6 +27,7 @@ public class movement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Animator moveanim;
 
     private void Start()
     {
@@ -34,7 +36,7 @@ public class movement : MonoBehaviour
         instance = this;
     }
 
-    
+
     private void Update()
     {
         if (isDashing)
@@ -42,24 +44,17 @@ public class movement : MonoBehaviour
             return;
         }
 
-        if (attack.instance.isAttacking)
-        {
-            rb.velocity = new Vector2(0, rb.velocity.y);
-            return;
-        }
-
         horizontal = Input.GetAxisRaw("Horizontal");
-
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             moveKeyPress = true;
+            moveanim.SetBool("move", true);
         }
         else 
         {
             moveKeyPress = false;
+            moveanim.SetBool("move", false);
         }
 
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
@@ -83,6 +78,7 @@ public class movement : MonoBehaviour
         {
             rb.gravityScale = fallingGravity;
         }
+
     }
 
     public bool IsGrounded()
@@ -91,16 +87,22 @@ public class movement : MonoBehaviour
     }
 
 
-/*   private void FixedUpdate()
+    private void FixedUpdate()
     {
         if (isDashing)
         {
             return;
         }
 
+        if (playerattack.isAttacking)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            return;
+        }
+
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
-    }*/
+    }
 
     private void Flip()
     {
@@ -114,6 +116,7 @@ public class movement : MonoBehaviour
     }
     private IEnumerator Dash()
     {
+        moveanim.SetTrigger("dash");
         Debug.Log("Dash");
         canDash = false;
         isDashing = true;
@@ -123,12 +126,14 @@ public class movement : MonoBehaviour
         Vector2 velocity = new Vector2(transform.localScale.x * dashingPower, 0);
         rb.AddForce(velocity, ForceMode2D.Impulse);
         yield return new WaitForSeconds(dashingTime);
-/*        rb.gravityScale = oriGravity;*/
+        /*        rb.gravityScale = oriGravity;*/
         isDashing = false;
         gameObject.layer = LayerMask.NameToLayer("player");
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
+
+
 
     void OnDrawGizmos()
     {

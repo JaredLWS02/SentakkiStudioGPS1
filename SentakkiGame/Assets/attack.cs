@@ -1,24 +1,24 @@
-using System.Collections;
+/*using System.Collections;
 using UnityEngine;
 using TMPro;
+using System;
+using System.Collections.Generic;
 
 public class attack : MonoBehaviour
 {
     public static attack instance;
 
     private bool canAttack;
-    public bool isAttacking;
     private bool attackcooldown = false;
     private int combocounter;
     private int innercombocounter;
 
-    /*    private bool plungeAttack;*/
+    *//*    private bool plungeAttack;*/
     /*    private bool plungeCooldown = false;*/
-    /*    public bool isPlunging;*/
+    /*    public bool isPlunging;*//*
 
-    private float combotimeConstant = 0.6f;
-    private float attacktimer;
-    private bool isCombo;
+    private float lastclickedtime = 0f;
+    private float maxcombodelay = 3f;
 
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject playerattackhitbox;
@@ -26,7 +26,8 @@ public class attack : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TextMeshProUGUI combo;
-
+    [SerializeField] private TextMeshProUGUI hit;
+    [SerializeField] private Animator attackanim;
 
     private void Start()
     {
@@ -37,167 +38,131 @@ public class attack : MonoBehaviour
 
     void Update()
     {
+
         Debug.DrawRay(player.transform.position, Vector3.down * 2.5f, Color.blue);
+
+        if (attackanim.GetBool("idle2"))
+        {
+            attackanim.SetBool("idle2", false);
+        }
+
+
+        if (Time.time - lastclickedtime > maxcombodelay)
+        {
+            innercombocounter = 0;
+        }
 
         if (!movement.instance.isDashing)
         {
             if (Input.GetKeyDown(KeyCode.J))
             {
-/*                if (Physics2D.Raycast(player.transform.position, Vector2.down, 2.5f, groundLayer))
-                {*/
+*//*                if (Physics2D.Raycast(player.transform.position, Vector2.down, 2.5f, groundLayer))
+                {*//*
                     if(movement.instance.IsGrounded() && !attackcooldown)
                     {
+                        Debug.Log("pressed");
                         Attack();
-                        StartCoroutine(checkattackcooldown());
                     }
-/*                }*/
+*//*                }*/
 /*                else
                 {
                     if(!plungeCooldown && !isPlunging)
                     {
                         StartCoroutine(PlungeAttack());
                     }
-                }*/
-                
+                }*//*                
             }
         }
 
+        if (attackanim.GetCurrentAnimatorStateInfo(0).IsName("placedholder") || attackanim.GetCurrentAnimatorStateInfo(0).IsName("move") || attackanim.GetCurrentAnimatorStateInfo(0).IsName("dash"))
+        {
+            return;
+        }
+        else
+        {
+            if (attackanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f)
+            {
+                endcooldown();
+                Debug.Log(attackanim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+                attackanim.SetBool("idle2", true);
+            }
+        }
     }
 
-    private IEnumerator checkattackcooldown()
+    private void startcooldown()
     {
         attackcooldown = true;
-        if(isCombo)
-        {
-            yield return new WaitForSeconds(0.15f);
-            isAttacking = false;
-            yield return new WaitForSeconds(0.25f);
-            attackcooldown = false;
-        }
-        else
-        {
-            yield return new WaitForSeconds(0.15f);
-            isAttacking = false;
-            yield return new WaitForSeconds(0.2f);
-            attackcooldown = false;
-        }
     }
+
+    private void endcooldown()
+    {
+        Debug.Log("cooldown reset");
+        attackcooldown = false;
+    }
+
     private void Attack()
     {
-        isAttacking = true;
-        if (attacktimer <= 0)
+        attackanim.SetBool("move", false);
+        lastclickedtime = Time.time;
+        innercombocounter++;
+        if(innercombocounter > 5)
         {
-            attacktimer = Time.time;
+            innercombocounter = 2;
         }
 
-        if (isCombo)
+        if(attackanim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
         {
-            if((Time.time - attacktimer) < combotimeConstant)
-            {
-                combocounter += 1;
-                combo.text = "x " + combocounter.ToString();
-                attacktimer = Time.time;
-                innercombocounter += 1;
-                if (innercombocounter == 1)
-                {
-                    Attack2();
-                }
-                else if (innercombocounter == 2)
-                {
-                    Attack3();
-                }
-                else if (innercombocounter == 3)
-                {
-                    Attack4();
-                }
-                else
-                {
-                    Debug.Log("Combo reset");
-                    innercombocounter = 0;
-                    Attack1();
-                }
-            }
-            else
-            {
-                innercombocounter = 0;
-                isCombo = false;
-                combocounter = 0;
-                combo.text = "x " + combocounter.ToString();
-                attacktimer = Time.time;
-                Debug.Log("fail combo");
-            }
+            return;
         }
-        else
-        {
-            isCombo = true;
-            if(canAttack)
-            {
-                combocounter += 1;
-                combo.text = "x " + combocounter.ToString();
-            }
-            else
-            {
-                combo.text = "x " + combocounter.ToString();
-            }
-                attacktimer = Time.time;
-                Attack1();
-        }
- 
-    }
 
-    private void Attack1()
-    {
-        if(canAttack) 
+        if (innercombocounter >= 1 && (attackanim.GetCurrentAnimatorStateInfo(0).IsName("placedholder") || attackanim.GetCurrentAnimatorStateInfo(0).IsName("move")))
         {
             Debug.Log("Hit1");
+            attackanim.SetTrigger("hit 1");
         }
-        else
+
+        if (innercombocounter >= 2 && attackanim.GetCurrentAnimatorStateInfo(0).IsName("placeholder2"))
         {
-            isCombo = false;
-            Debug.Log("Miss1");
+            Debug.Log("hit2");
+            attackanim.SetTrigger("hit 2");
+        }
+
+        if (innercombocounter >= 3 && attackanim.GetCurrentAnimatorStateInfo(0).IsName("placeholder3"))
+        {
+            Debug.Log("hit3");
+            attackanim.SetTrigger("hit 3");
+        }
+
+        if (innercombocounter >= 4 && attackanim.GetCurrentAnimatorStateInfo(0).IsName("placeholder4"))
+        {
+            Debug.Log("hit4");
+            attackanim.SetTrigger("hit 4");
+        }
+
+        if (innercombocounter >= 5 && attackanim.GetCurrentAnimatorStateInfo(0).IsName("placeholder5"))
+        {
+            Debug.Log("hit4");
+            attackanim.SetTrigger("hit 1");
         }
     }
 
-    private void Attack2()
+    private IEnumerator freezeframe()
     {
         if (canAttack)
         {
-            Debug.Log("Hit2");
-        }
-        else
-        {
-            isCombo = false;
-            Debug.Log("Miss2");
+            attackanim.enabled = false;
+            yield return new WaitForSeconds(0.2f);
+            attackanim.enabled = true;
         }
     }
 
-    private void Attack3()
+    private void checkidle()
     {
-        if (canAttack)
-        {
-            Debug.Log("Hit3");
-        }
-        else
-        {
-            isCombo = false;
-            Debug.Log("Miss3");
-        }
+        attackanim.SetBool("idle2", true);
+        innercombocounter = 0;
     }
 
-    private void Attack4()
-    {
-        if (canAttack)
-        {
-            Debug.Log("Hit4");
-        }
-        else
-        {
-            isCombo = false;
-            Debug.Log("Miss4");
-        }
-    }
-
-    /*    private IEnumerator PlungeAttack()
+    *//*    private IEnumerator PlungeAttack()
         {
             isPlunging = true;
             plungeCooldown = true;
@@ -217,7 +182,7 @@ public class attack : MonoBehaviour
             isPlunging = false;
             yield return new WaitForSeconds(0.4f);
             plungeCooldown = false;
-        }*/
+        }*//*
 
     private void OnTriggerEnter2D(Collider2D attackenemy)
     {
@@ -232,3 +197,4 @@ public class attack : MonoBehaviour
         canAttack = false;
     }
 }
+*/
