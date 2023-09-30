@@ -31,6 +31,7 @@ public class playerattack : MonoBehaviour
         combotext.text = ("x " + innercomboUI);
         if (Input.GetKeyDown(KeyCode.J))
         {
+            Debug.Log("is Attacking");
             if (movement.instance.IsGrounded())
             {
                 Attack();

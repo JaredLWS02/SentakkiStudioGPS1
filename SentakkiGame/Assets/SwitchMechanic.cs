@@ -18,7 +18,7 @@ public class SwitchMechanic : MonoBehaviour
     void Start()
     {
         P1Sprite.enabled = true;
-        p1.volume = 1.0f;
+        p1.volume = 0.2f;
         p2.volume = 0.0f;
     }
     void Update()
@@ -46,7 +46,7 @@ public class SwitchMechanic : MonoBehaviour
             player1Control.enabled = false;
             P1Sprite.enabled = false;
             p1.volume = 0.0f;
-            p2.volume = 1.0f;
+            p2.volume = 0.2f;
             Player2.GetComponent<Collider2D>().enabled = true;
             Player2.transform.position = CharPos.transform.position;
             player2Control.enabled = true;
@@ -59,7 +59,7 @@ public class SwitchMechanic : MonoBehaviour
             Player1.transform.position = CharPos.transform.position;
             player1Control.enabled = true;
             P1Sprite.enabled = true;
-            p1.volume = 1.0f;
+            p1.volume = 0.2f;
             p2.volume = 0.0f;
             Player2.GetComponent<Collider2D>().enabled = false; 
             player2Control.enabled = false;
