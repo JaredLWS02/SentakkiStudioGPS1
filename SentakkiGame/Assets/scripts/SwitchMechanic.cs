@@ -42,12 +42,12 @@ public class SwitchMechanic : MonoBehaviour
     {
         if (player1Active)
         {
-            Player1.GetComponent<Collider2D>().enabled = false;
-            player1Control.enabled = false;
+            Player1.GetComponent<Rigidbody2D>().simulated = false;
             P1Sprite.enabled = false;
+            player1Control.enabled = false;
             p1.volume = 0.0f;
             p2.volume = 1.0f;
-            Player2.GetComponent<Collider2D>().enabled = true;
+            Player2.GetComponent<Rigidbody2D>().simulated = true;
             Player2.transform.position = CharPos.transform.position;
             player2Control.enabled = true;
             P2Sprite.enabled = true;
@@ -55,13 +55,13 @@ public class SwitchMechanic : MonoBehaviour
         }
         else
         {
-            Player1.GetComponent<Collider2D>().enabled = true; 
+            Player1.GetComponent<Rigidbody2D>().simulated = true;
             Player1.transform.position = CharPos.transform.position;
             player1Control.enabled = true;
             P1Sprite.enabled = true;
             p1.volume = 1.0f;
             p2.volume = 0.0f;
-            Player2.GetComponent<Collider2D>().enabled = false; 
+            Player2.GetComponent<Rigidbody2D>().simulated = false;
             player2Control.enabled = false;
             P2Sprite.enabled = false;
             player1Active = true;

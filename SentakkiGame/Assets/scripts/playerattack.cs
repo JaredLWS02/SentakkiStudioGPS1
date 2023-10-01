@@ -9,30 +9,28 @@ public class playerattack : MonoBehaviour
     private bool canAttack;
     public static bool isAttacking;
     [SerializeField] private GameObject playerattackhitbox;
-    [SerializeField] private TextMeshProUGUI combotext;
 
     public List<attackscirptableobject> combo;
     private float lastclickedTime;
     private float lastcomboEnd;
     private int combocounter;
-    private int innercomboUI;
 
     private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        combotext.text = "x 0";
     }
 
     // Update is called once per frame
     void Update()
     {
-        combotext.text = ("x " + innercomboUI);
+
         if (Input.GetKeyDown(KeyCode.J))
         {
             if (movement.instance.IsGrounded())
             {
+                Debug.Log("attack");
                 Attack();
             }
         }
@@ -45,15 +43,20 @@ public class playerattack : MonoBehaviour
         {
             CancelInvoke("EndCombo");
 
-            if(Time.time - lastclickedTime >= 0.6f)
+            if(Time.time - lastclickedTime >= 0.8f)
             {
+                Debug.Log("1");
                 isAttacking = true;
                 Debug.Log("attack combo");
                 anim.runtimeAnimatorController = combo[combocounter].animatorOV;
                 anim.Play("attack", 0, 0);
                 combocounter++;
-                innercomboUI++;
                 lastclickedTime = Time.time;
+
+                if(canAttack)
+                {
+                    combomanagerUI.instance.innercomboUI++;
+                }
 
                 if(combocounter >= combo.Count)
                 {
@@ -76,8 +79,7 @@ public class playerattack : MonoBehaviour
         Debug.Log("endcombo");
         combocounter = 0;
         lastcomboEnd = Time.time;
-        innercomboUI = 0;
-
+        combomanagerUI.instance.innercomboUI = 0;
     }
 
     private IEnumerator freezeframe()
