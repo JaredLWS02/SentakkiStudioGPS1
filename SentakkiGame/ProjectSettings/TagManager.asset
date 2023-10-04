@@ -8,6 +8,7 @@ TagManager:
   - playerAttackHitbox
   - enemyHitbox
   - enemyAttackHitbox
+  - interactables
   layers:
   - Default
   - TransparentFX

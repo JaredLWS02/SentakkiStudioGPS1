@@ -7,16 +7,15 @@ public class movement : MonoBehaviour
     public static movement instance;
 
     private float horizontal;
-    public float speed;
-    public float jumpingPower;
+    [SerializeField] private float speed;
+    [SerializeField] private float jumpingPower;
     private bool isFacingRight = true;
-    public bool isMoving;
 
     private bool canDash = true;
     public bool isDashing;
-    public float dashingPower;
-    public float dashingTime;
-    public float dashingCooldown;
+    [SerializeField] private float dashingPower;
+    [SerializeField] private float dashingTime;
+    [SerializeField] private float dashingCooldown;
 
     private float oriGravity;
     private float fallingGravity = 8f;
@@ -29,6 +28,11 @@ public class movement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Animator moveanim;
 
+
+    private void OnDisable()
+    {
+        rb.velocity = Vector2.zero;
+    }
     private void Start()
     {
         m_Started = true;
@@ -62,23 +66,18 @@ public class movement : MonoBehaviour
             rb.AddForce(Vector2.up * jumpingPower, ForceMode2D.Impulse);
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && canDash && IsGrounded() && moveKeyPress)
+        if(Input.GetKeyDown(KeyCode.LeftShift) && canDash && moveKeyPress)
         {
             Debug.Log("Dashing");
             StartCoroutine(Dash());
         }
 
-        Flip();
-
-        if(rb.velocity.y >= 0f)
+        if(IsGrounded())
         {
             rb.gravityScale = oriGravity;
         }
-        else
-        {
-            rb.gravityScale = fallingGravity;
-        }
 
+        Flip();
     }
 
     public bool IsGrounded()
@@ -94,11 +93,11 @@ public class movement : MonoBehaviour
             return;
         }
 
-        if (playerattack.isAttacking)
+/*        if (playerattack.isAttacking)
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
             return;
-        }
+        }*/
 
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
@@ -121,18 +120,23 @@ public class movement : MonoBehaviour
         canDash = false;
         isDashing = true;
         gameObject.layer = LayerMask.NameToLayer("ghostplayer");
-        /*        float oriGravity = rb.gravityScale;
-                rb.gravityScale = 0f;*/
-        Vector2 velocity = new Vector2(transform.localScale.x * dashingPower, 0);
-        rb.AddForce(velocity, ForceMode2D.Impulse);
+        float oriGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+/*        rb.AddForce(velocity, ForceMode2D.Impulse);*/
         yield return new WaitForSeconds(dashingTime);
-        /*        rb.gravityScale = oriGravity;*/
+        rb.gravityScale = oriGravity;
         isDashing = false;
         gameObject.layer = LayerMask.NameToLayer("player");
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
 
+    private void gravitypull()
+    {
+        Debug.Log("switch");
+        rb.gravityScale = fallingGravity;
+    }
 
 
     void OnDrawGizmos()
