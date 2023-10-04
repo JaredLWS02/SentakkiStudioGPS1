@@ -25,16 +25,16 @@ public class playerattack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.J))
         {
             if (movement.instance.IsGrounded())
             {
+                Debug.Log("attack");
                 Attack();
             }
         }
-
         ExitAttack();
-
     }
 
     void Attack()
@@ -43,8 +43,9 @@ public class playerattack : MonoBehaviour
         {
             CancelInvoke("EndCombo");
 
-            if (Time.time - lastclickedTime >= 0.8f)
+            if(Time.time - lastclickedTime >= 0.8f)
             {
+                Debug.Log("1");
                 isAttacking = true;
                 Debug.Log("attack combo");
                 anim.runtimeAnimatorController = combo[combocounter].animatorOV;
@@ -52,21 +53,15 @@ public class playerattack : MonoBehaviour
                 combocounter++;
                 lastclickedTime = Time.time;
 
+                if(canAttack)
+                {
+                    combomanagerUI.instance.innercomboUI++;
+                }
+
                 if(combocounter >= combo.Count)
                 {
                     combocounter = 0;
                 }
-
-                if (canAttack)
-                {
-                    combomanagerUI.instance.innercomboUI++;
-                }
-                else
-                {
-                    combocounter = 0;
-                }
-                
-
             }
         }
     }
