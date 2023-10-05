@@ -7,8 +7,8 @@ public class spriteDisplay : MonoBehaviour
 {
     public SwapScript swap;
     public GameObject Character;
-    public SpriteRenderer skin1;
-    public SpriteRenderer skin2;
+    [SerializeField] private Sprite skin1;
+    [SerializeField] private Sprite skin2;
     public AudioSource p1;
     public AudioSource p2;
     public movement playerControl;
@@ -16,7 +16,7 @@ public class spriteDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        skin = swap.character1;
+        /*        skin = swap.character1;*/
         p1.volume = 0.2f;
         p2.volume = 0.0f;
     }
@@ -34,14 +34,14 @@ public class spriteDisplay : MonoBehaviour
     {
         if (player1Active)
         {
-            skin = swap.character1;
+            GetComponent<SpriteRenderer>().sprite = swap.character1;
             p1.volume = 0.0f;
             p2.volume = 0.2f;
             player1Active = false;
         }
         else
         {
-            skin = swap.character2;
+            GetComponent<SpriteRenderer>().sprite = swap.character2;
             p1.volume = 0.2f;
             p2.volume = 0.0f;
             player1Active = true;
