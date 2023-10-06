@@ -12,6 +12,7 @@ public class EnemyAi : MonoBehaviour
     private float hp;
     private float atk;
     private float speed;
+    private float rotationSpeed = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,8 @@ public class EnemyAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target1.transform.position - transform.position), rotationSpeed * Time.deltaTime);
+        transform.position += transform.forward * Time.deltaTime * speed;
     }
 
     void fixedUpdate()
