@@ -17,6 +17,7 @@ public class playerattack : MonoBehaviour
     public bool player1Active = true;
     public bool canSwap = true;
     // attack script
+    public float atkDmg = 20;
     private bool canAttack;
     private bool failattack;
     private bool reseted;
