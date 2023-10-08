@@ -4,9 +4,18 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerattack : MonoBehaviour
 {
+    // swap script
+    public SwapScript swap;
+    public AudioSource p1;
+    public AudioSource p2;
+    public movement playerControl;
+    public Animator animplayer2;
+    public bool player1Active = true;
+    // attack script
     private bool canAttack;
     private bool failattack;
     private bool reseted;
@@ -20,15 +29,22 @@ public class playerattack : MonoBehaviour
 
     private Animator anim;
     
-    // Start is called before the first frame update
     void Start()
     {
+        p1.volume = 0.2f;
+        p2.volume = 0.0f;
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // switch input
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            SwitchPlayer();
+        }
+
+        // Attack input
         if (Input.GetKeyDown(KeyCode.J))
         {
             if (movement.instance.IsGrounded())
@@ -37,12 +53,14 @@ public class playerattack : MonoBehaviour
             }
         }
 
+        // combo interrupted
         if(reseted)
         {
             ExitAttack();
         }
     }
 
+    // attack mechanic
     void Attack()
     {
         if (Time.time - lastcomboEnd > 0.5f && combocounter <= combo.Count)
@@ -88,6 +106,7 @@ public class playerattack : MonoBehaviour
 
     }
 
+    // reset script
     void ExitAttack()
     {
         if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && anim.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
@@ -97,6 +116,7 @@ public class playerattack : MonoBehaviour
             Invoke("EndCombo", 2);
         }
     }
+
     void EndCombo()
     {
         //combomanagerUI.removeAplhaCombo();
@@ -107,6 +127,7 @@ public class playerattack : MonoBehaviour
         combomanagerUI.x = 0;
     }
 
+    // Attack sensor
     private void OnTriggerEnter2D(Collider2D attackenemy)
     {
         if (attackenemy.CompareTag("enemyHitbox") && playerattackhitbox.CompareTag("playerAttackHitbox"))
@@ -141,5 +162,28 @@ public class playerattack : MonoBehaviour
     private void enablemovement()
     {
         GetComponent<movement>().enabled = true;
+    }
+
+    // switch mechanic
+    public void SwitchPlayer()
+    {
+        if (player1Active)
+        {
+            GetComponent<Animator>().enabled = true;
+            GetComponent<SpriteRenderer>().sprite = swap.character1;
+            Attack();
+            p1.volume = 0.0f;
+            p2.volume = 0.2f;
+            player1Active = false;
+        }
+        else
+        {
+            GetComponent<Animator>().enabled = false;
+            GetComponent<SpriteRenderer>().sprite = swap.character2;
+            Attack();
+            p1.volume = 0.2f;
+            p2.volume = 0.0f;
+            player1Active = true;
+        }
     }
 }
