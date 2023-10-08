@@ -12,11 +12,11 @@ public class playerattack : MonoBehaviour
     private bool reseted;
     [SerializeField] private GameObject playerattackhitbox;
 
-    public List<attackscirptableobject> combo;
+    [SerializeField] private List<attackscirptableobject> combo;
     private float lastclickedTime;
     private float lastcomboEnd;
     private int combocounter;
-    private bool ishit = true;
+    [SerializeField] private combomanagerUI combomanagerUI;
 
     private Animator anim;
     
@@ -73,12 +73,14 @@ public class playerattack : MonoBehaviour
 
                 if (combocounter >= combo.Count)
                 {
-                    combocounter = 0;
+                    combocounter = 1;
                 }
 
                 if (!failattack)
                 {
-                    combomanagerUI.instance.innercomboUI++;
+                    combomanagerUI.innercomboUI++;
+                    combomanagerUI.checkcombostatus();
+                    //combomanagerUI.restoreAplha();
                 }
 
             }
@@ -97,10 +99,12 @@ public class playerattack : MonoBehaviour
     }
     void EndCombo()
     {
+        //combomanagerUI.removeAplhaCombo();
         Debug.Log("endcombo");
         combocounter = 0;
         lastcomboEnd = Time.time;
-        combomanagerUI.instance.innercomboUI = 0;
+        combomanagerUI.innercomboUI = 0;
+        combomanagerUI.x = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D attackenemy)
