@@ -15,6 +15,7 @@ public class playerattack : MonoBehaviour
     public movement playerControl;
     public Animator animplayer2;
     public bool player1Active = true;
+    public bool canSwap = true;
     // attack script
     private bool canAttack;
     private bool failattack;
@@ -41,8 +42,13 @@ public class playerattack : MonoBehaviour
         // switch input
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            SwitchPlayer();
+            if(canSwap)
+            {
+                SwitchPlayer();
+            }
         }
+
+
 
         // Attack input
         if (Input.GetKeyDown(KeyCode.J))
@@ -175,6 +181,7 @@ public class playerattack : MonoBehaviour
             p1.volume = 0.0f;
             p2.volume = 0.2f;
             player1Active = false;
+            StartCoroutine(swapCooldown());
         }
         else
         {
@@ -184,6 +191,14 @@ public class playerattack : MonoBehaviour
             p1.volume = 0.2f;
             p2.volume = 0.0f;
             player1Active = true;
+            StartCoroutine(swapCooldown());
         }
+    }
+
+    IEnumerator swapCooldown()
+    {
+        canSwap = false;
+        yield return new WaitForSeconds(5);
+        canSwap = true;
     }
 }
