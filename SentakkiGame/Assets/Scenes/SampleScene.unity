@@ -349,7 +349,6 @@ GameObject:
   - component: {fileID: 269279563}
   - component: {fileID: 269279562}
   - component: {fileID: 269279561}
-  - component: {fileID: 269279560}
   m_Layer: 8
   m_Name: player
   m_TagString: Player
@@ -357,24 +356,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &269279560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 269279559}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e608df7e44ac31429488166a0dfa997, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swap: {fileID: 11400000, guid: 97dee9f883daedd4bb7b815a75c449c6, type: 2}
-  p1: {fileID: 851695565}
-  p2: {fileID: 1927231812}
-  playerControl: {fileID: 269279565}
-  animplayer2: {fileID: 0}
-  player1Active: 1
 --- !u!114 &269279561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,7 +399,7 @@ MonoBehaviour:
   swap: {fileID: 11400000, guid: 97dee9f883daedd4bb7b815a75c449c6, type: 2}
   p1: {fileID: 851695565}
   p2: {fileID: 1927231812}
-  playerControl: {fileID: 269279565}
+  playerControl: {fileID: 0}
   animplayer2: {fileID: 0}
   player1Active: 1
   canSwap: 1
@@ -1812,7 +1793,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -735.27, y: 469.1679}
+  m_AnchoredPosition: {x: -734, y: 469}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1391198336
@@ -3004,7 +2985,6 @@ MonoBehaviour:
   - Perfect
   - PURE
   - THIS IS SICK!!!!!
-  x: 0
   tween: 30
   sfx: {fileID: 11400000, guid: 85b37aff1043adf49b327221fcc6df8a, type: 2}
   comboAudioSource: {fileID: 758833753}

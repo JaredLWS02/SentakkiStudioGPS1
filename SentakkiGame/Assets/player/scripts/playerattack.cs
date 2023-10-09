@@ -30,15 +30,10 @@ public class playerattack : MonoBehaviour
     [SerializeField] private combomanagerUI combomanagerUI;
 
     private Animator anim;
-<<<<<<< HEAD:SentakkiGame/Assets/scripts/player/playerattack.cs
-    
-=======
 
     public float attackcooldown;
     [SerializeField] private AudioSource comboSource;
 
-    // Start is called before the first frame update
->>>>>>> nyak2's-Branch:SentakkiGame/Assets/player/scripts/playerattack.cs
     void Start()
     {
         p1.volume = 0.2f;
