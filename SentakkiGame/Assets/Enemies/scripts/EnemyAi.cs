@@ -41,7 +41,7 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
-    void takeDamage(float damage)
+    public void takeDamage(float damage)
     {
         // Detect attack from enemy(player)
         // play knock back animation
@@ -57,6 +57,7 @@ public class EnemyAi : MonoBehaviour
     void death()
     {
         Debug.Log("Died");
+        Destroy(gameObject);
         // play death animation
         // +point to progress bar
         // delete game object

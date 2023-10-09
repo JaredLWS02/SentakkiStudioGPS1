@@ -5,34 +5,39 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class playerattack : MonoBehaviour
 {
     // swap script
-    public SwapScript swap;
-    public AudioSource p1;
-    public AudioSource p2;
-    public movement playerControl;
-    public Animator animplayer2;
+    [SerializeField] private SwapScript swap;
+    [SerializeField] private AudioSource p1;
+    [SerializeField] private AudioSource p2;
+    [SerializeField] private Animator animplayer2;
     public bool player1Active = true;
     public bool canSwap = true;
+
     // attack script
     public float atkDmg = 20;
-    private bool canAttack;
     private bool failattack;
     private bool reseted;
-    [SerializeField] private GameObject playerattackhitbox;
 
-    [SerializeField] private List<attackscirptableobject> combo;
     private float lastclickedTime;
     private float lastcomboEnd;
     private int combocounter;
-    [SerializeField] private combomanagerUI combomanagerUI;
 
     private Animator anim;
 
     public float attackcooldown;
-    [SerializeField] private AudioSource comboSource;
+
+    [SerializeField] private List<attackscirptableobject> combo;
+    [SerializeField] private combomanagerUI combomanagerUI;
+    [SerializeField] private AudioSource comboAudioSource;
+
+    [SerializeField] private Transform attackpoint;
+    [SerializeField] private float attackrange;
+    [SerializeField] private LayerMask enemylayer;
+    [SerializeField] private Collider2D [] hitenemies;
 
     void Start()
     {
@@ -52,8 +57,6 @@ public class playerattack : MonoBehaviour
             }
         }
 
-
-
         // Attack input
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -64,7 +67,7 @@ public class playerattack : MonoBehaviour
         }
 
         // combo interrupted
-        if(reseted)
+        if(reseted) 
         {
             ExitAttack();
         }
@@ -75,9 +78,13 @@ public class playerattack : MonoBehaviour
     {
         if (Time.time - lastcomboEnd > 0.5f && combocounter <= combo.Count)
         {
-            if (canAttack)
+            hitenemies = Physics2D.OverlapCircleAll(attackpoint.position, attackrange, enemylayer);
+
+            if (hitenemies.Length >= 1)
             {
-                failattack = false;
+               failattack = false;
+               reseted = true;
+               CancelInvoke("EndCombo");
             }
             else
             {
@@ -85,11 +92,6 @@ public class playerattack : MonoBehaviour
                 failattack = true;
             }
 
-            if (!failattack)
-            {
-                reseted = true;
-                CancelInvoke("EndCombo");
-            }
 
             if (Time.time - lastclickedTime >= attackcooldown)
             {
@@ -98,15 +100,16 @@ public class playerattack : MonoBehaviour
                 anim.Play("attack", 0, 0);
                 combocounter++;
                 lastclickedTime = Time.time;
-                comboSource.Play();
+                comboAudioSource.Play();
 
                 if (combocounter >= combo.Count)
                 {
                     combocounter = 1;
                 }
 
-                if (!failattack)
+                foreach (Collider2D enemy in hitenemies)
                 {
+                    enemy.GetComponent<EnemyAi>().takeDamage(atkDmg);
                     combomanagerUI.innercomboUI++;
                     combomanagerUI.checkcombostatus();
                 }
@@ -123,7 +126,7 @@ public class playerattack : MonoBehaviour
         {
             Debug.Log("A");
             reseted = false;
-            Invoke("EndCombo", 2);
+            Invoke("EndCombo", 1);
         }
     }
 
@@ -137,19 +140,6 @@ public class playerattack : MonoBehaviour
         combomanagerUI.x = 0;
     }
 
-    // Attack sensor
-    private void OnTriggerEnter2D(Collider2D attackenemy)
-    {
-        if (attackenemy.CompareTag("enemyHitbox") && playerattackhitbox.CompareTag("playerAttackHitbox"))
-        {
-            canAttack = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D attackenemy)
-    {
-        canAttack = false;
-    }
 
     private void disablemovement()
     {
@@ -157,14 +147,14 @@ public class playerattack : MonoBehaviour
     }
     private void startfreezeframe()
     {
-        if (canAttack)
+        if (!failattack)
         {
             anim.speed = 0.65f;
         }
     }
     private void endfreezeframe()
     {
-        if (canAttack)
+        if (!failattack)
         {
             anim.speed = 1;
         }
@@ -204,5 +194,10 @@ public class playerattack : MonoBehaviour
         canSwap = false;
         yield return new WaitForSeconds(5);
         canSwap = true;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(attackpoint.position, attackrange);
     }
 }

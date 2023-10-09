@@ -119,15 +119,14 @@ public class movement : MonoBehaviour
         Debug.Log("Dash");
         canDash = false;
         isDashing = true;
-        gameObject.layer = LayerMask.NameToLayer("ghostplayer");
+        //gameObject.layer = LayerMask.NameToLayer("ghostplayer");
         float oriGravity = rb.gravityScale;
         rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
-/*        rb.AddForce(velocity, ForceMode2D.Impulse);*/
         yield return new WaitForSeconds(dashingTime);
         rb.gravityScale = oriGravity;
         isDashing = false;
-        gameObject.layer = LayerMask.NameToLayer("player");
+        //gameObject.layer = LayerMask.NameToLayer("player");
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }

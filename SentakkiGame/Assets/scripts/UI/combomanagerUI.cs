@@ -61,7 +61,7 @@ public class combomanagerUI : MonoBehaviour
         {
             x = 5;
             shake();
-            playaudio(x);
+            playaudio(x + 1);
         }
 
     }
