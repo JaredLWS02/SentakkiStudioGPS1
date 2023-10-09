@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:SentakkiGame/Assets/Enemies.meta
 guid: 1d9ad5232adf20242bd601c08c6e4b61
+========
+guid: 31e3bd9b4c58cee46b30e1c24166c203
+>>>>>>>> nyak2's-Branch:SentakkiGame/Assets/player.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -6,12 +6,14 @@ using UnityEngine;
 public class combomanagerUI : MonoBehaviour
 {
     public int innercomboUI;
+    public int x;
     [SerializeField] private TextMeshProUGUI combonum;
     [SerializeField] private GameObject combotextObject;
 
     [SerializeField] private List<string> combotypes;
-    public int x;
     [SerializeField] public LeanTweenType tween;
+    [SerializeField] private combosfxscriptableobject sfx;
+    [SerializeField] private AudioSource comboAudioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,16 +38,19 @@ public class combomanagerUI : MonoBehaviour
         {
             x = 1;
             shake();
+            playaudio(x);
         }
         else if (innercomboUI == 6)
         {
             x = 2;
             shake();
+            playaudio(x);
         }
         else if (innercomboUI == 12)
         {
             x = 3;
             shake();
+            playaudio(x);
         }
         else if (innercomboUI == 18)
         {
@@ -56,6 +61,7 @@ public class combomanagerUI : MonoBehaviour
         {
             x = 5;
             shake();
+            playaudio(x);
         }
 
     }
@@ -64,6 +70,12 @@ public class combomanagerUI : MonoBehaviour
     {
         LeanTween.moveX(combotextObject, 230f, 0.2f);
         LeanTween.moveX(combotextObject, 261f, 0.3f).setEase(tween).setDelay(0.2f);
+    }
+
+    private void playaudio(int num)
+    {
+        comboAudioSource.clip = sfx.audioClips[num - 1];
+        comboAudioSource.Play();
     }
 
 /*    public void restoreAplha()
