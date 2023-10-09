@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269061c855e6de245ac0b6f54a48492e, type: 3}
+  m_Name: combosfx
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 2c0194bb303db3d499703ff13401687f, type: 3}
+  - {fileID: 8300000, guid: e954cc2f297eac843b8576f9ab10036d, type: 3}
+  - {fileID: 8300000, guid: 53a8844a81f8d2743980d1377d3ba0ef, type: 3}
+  - {fileID: 8300000, guid: c9ea84d1bd555654391fac696dad0a6e, type: 3}
+  audioSource: {fileID: 7346925189417478153, guid: 1b96b0068d5347a4ebcacb02505dd65a, type: 3}

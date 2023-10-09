@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d127ee0ebeb0c1d468c04da3a4560ee7
+guid: 35ba529c66acd05459aaa02989ebd6a0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,7 +149,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: attack3_0
+      name: attack3 1_0
       rect:
         serializedVersion: 2
         x: 21
@@ -163,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a568df6b43a1504f90d5a3a8a1b5134
-      internalID: 1878696277
+      spriteID: ae3c51aab4d35874ba14edfe1bacf5a2
+      internalID: 996198167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack3_1
+      name: attack3 1_1
       rect:
         serializedVersion: 2
         x: 179
@@ -184,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebaf80cd7af9a85439e5f70e9113d19d
-      internalID: 997243295
+      spriteID: fc973d55398ca424d814a019667de39b
+      internalID: 1678699999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack3_2
+      name: attack3 1_2
       rect:
         serializedVersion: 2
         x: 348
@@ -205,14 +205,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba31766d91c19824aa80aadd28e1a8d3
-      internalID: -1336445818
+      spriteID: f3411d3eb57a3324fb3f52c4a2639b70
+      internalID: 1474426017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack3_3
+      name: attack3 1_3
       rect:
         serializedVersion: 2
         x: 508
@@ -226,14 +226,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90326d895fc54f54382d5c192b14be0b
-      internalID: 1558019221
+      spriteID: b8606a717b0b8664ea68715ee56a4765
+      internalID: 688457120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack3_4
+      name: attack3 1_4
       rect:
         serializedVersion: 2
         x: 666
@@ -247,8 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2bda6b3ab46aa748a85d51498100baf
-      internalID: 1723427239
+      spriteID: 8192cda5d44fbe441bac9739bed9d893
+      internalID: 1956252459
       vertices: []
       indices: 
       edges: []
@@ -264,11 +264,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      attack3_0: 1878696277
-      attack3_1: 997243295
-      attack3_2: -1336445818
-      attack3_3: 1558019221
-      attack3_4: 1723427239
+      attack3 1_0: 996198167
+      attack3 1_1: 1678699999
+      attack3 1_2: 1474426017
+      attack3 1_3: 688457120
+      attack3 1_4: 1956252459
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -21,7 +21,8 @@ public class playerattack : MonoBehaviour
     private Animator anim;
 
     public float attackcooldown;
-    
+    [SerializeField] private AudioSource comboSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +73,7 @@ public class playerattack : MonoBehaviour
                 anim.Play("attack", 0, 0);
                 combocounter++;
                 lastclickedTime = Time.time;
+                comboSource.Play();
 
                 if (combocounter >= combo.Count)
                 {
@@ -82,7 +84,6 @@ public class playerattack : MonoBehaviour
                 {
                     combomanagerUI.innercomboUI++;
                     combomanagerUI.checkcombostatus();
-                    //combomanagerUI.restoreAplha();
                 }
 
             }
@@ -130,7 +131,7 @@ public class playerattack : MonoBehaviour
     {
         if (canAttack)
         {
-            anim.speed = 0.6f;
+            anim.speed = 0.65f;
         }
     }
     private void endfreezeframe()
