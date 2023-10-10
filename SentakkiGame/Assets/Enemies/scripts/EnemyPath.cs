@@ -13,6 +13,7 @@ public class EnemyPath : MonoBehaviour
     void Start()
     {
         target = GameObject.Find("player");
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class EnemyPath : MonoBehaviour
 
         if(target.transform.position.x > transform.position.x)
         {
+            flip = true;
             anim.SetBool("isMoving", true);
             scale.x = Mathf.Abs(scale.x) * -1 * (flip? - 1 : 1);
             transform.Translate(x: speed * Time.deltaTime, y: 0, z: 0);
@@ -29,6 +31,7 @@ public class EnemyPath : MonoBehaviour
         }
         else
         {
+            flip = false;
             anim.SetBool("isMoving", true);
             scale.x = Mathf.Abs(scale.x) * (flip? -1 : 1);
             transform.Translate(x: speed * Time.deltaTime * 1, y: 0, z: 0);

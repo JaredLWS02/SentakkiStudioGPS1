@@ -125,12 +125,12 @@ public class EnemyAi : MonoBehaviour
     void death()
     {
         Debug.Log("Died");
-        animator.SetBool("Attacking", false);
-        animator.SetBool("FinishedAttack", false);
-        animator.SetBool("isMoving", false);
-        animator.SetTrigger("died");
-        movement.enabled = false;
-        AttackSensor.SetActive(false);
+        //animator.SetBool("Attacking", false);
+        //animator.SetBool("FinishedAttack", false);
+        //animator.SetBool("isMoving", false);
+        //animator.SetTrigger("died");
+        //movement.enabled = false;
+        //AttackSensor.SetActive(false);
         Destroy(gameObject);
         // play death animation
         // +point to progress bar

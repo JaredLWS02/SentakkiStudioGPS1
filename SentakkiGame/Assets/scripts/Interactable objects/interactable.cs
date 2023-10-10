@@ -7,7 +7,7 @@ public class interactable : MonoBehaviour
 {
     private bool caninteract;
     public float objectspeed;
-    public float atkdamg;
+    public float atkdmg;
     private bool thrown;
     [SerializeField] private GameObject prompttext;
     [SerializeField] private Transform interactarea;
@@ -56,6 +56,7 @@ public class interactable : MonoBehaviour
 
         if (collision.CompareTag("enemy") && thrown)
         {
+            collision.GetComponent<EnemyAi>().takeDamage(atkdmg);
             Destroy(gameObject);
         }
     }
