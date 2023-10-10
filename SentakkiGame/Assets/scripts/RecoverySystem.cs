@@ -16,6 +16,7 @@ private void OnTriggerEnter2D(Collider2D col)
             Destroy(gameObject);
             HealthBar.RestoreHealthPoints(hpRestore);
         }
+        
      if (gaugePoint.gaugePointAmount < gaugePoint.maxGaugePointAmount)
         {
             Destroy(gameObject);
