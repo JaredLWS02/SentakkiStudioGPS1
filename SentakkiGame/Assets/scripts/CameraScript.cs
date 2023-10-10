@@ -13,8 +13,9 @@ public class CameraScript : MonoBehaviour
     {
         if (isFollowing && target != null)
         {
-            Vector3 newPosition = new Vector3(target.position.x, target.position.y, -2f);
-            transform.position = Vector3.Slerp(transform.position, newPosition, followSpeed * Time.deltaTime);
+            Vector3 newPosition = new Vector3(target.position.x, 0, -10f);
+            transform.position = newPosition;
+            //transform.position = Vector3.Lerp(transform.position, newPosition, followSpeed * Time.deltaTime);
         }
     }
 

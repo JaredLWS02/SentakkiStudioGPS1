@@ -8,6 +8,8 @@ public class Ambush : MonoBehaviour
     public GameObject enemyPrefab;
     public Spawn spawnScript; // Reference to your Spawn script.
     private int defeatedEnemies = 0;
+    public GameObject goui;
+    public bool ambushstart;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -26,7 +28,8 @@ public class Ambush : MonoBehaviour
                 spawnScript.SpawnEnemiesFromAbove(6);
 
                 Debug.Log("Ambush event triggered.");
-                this.gameObject.SetActive(false);
+
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
             }
             else
             {
@@ -42,7 +45,9 @@ public class Ambush : MonoBehaviour
 
         if (defeatedEnemies >= 6)
         {
+            goui.SetActive(true);
             cameraScript.ResumeFollowing(); // Update this line to match your CameraScript method.
+            Spawn.instance.ResumeSpawning();
         }
     }
 }

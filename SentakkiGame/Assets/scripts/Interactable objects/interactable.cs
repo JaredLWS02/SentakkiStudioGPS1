@@ -8,6 +8,7 @@ public class interactable : MonoBehaviour
     private bool caninteract;
     public float objectspeed;
     public float atkdamg;
+    private bool thrown;
     [SerializeField] private GameObject prompttext;
     [SerializeField] private Transform interactarea;
     [SerializeField] private float attackrange;
@@ -34,10 +35,12 @@ public class interactable : MonoBehaviour
 
         if(hitplayer.GetComponent<Transform>().localScale.x > 0)
         {
+            thrown = true;
             GetComponent<Rigidbody2D>().AddForce(new Vector2(objectspeed, 0), ForceMode2D.Impulse);
         }
         else
         {
+            thrown = true;
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0 - objectspeed, 0), ForceMode2D.Impulse);
         }
 
@@ -51,7 +54,7 @@ public class interactable : MonoBehaviour
             caninteract = true;
         }
 
-        if (collision.CompareTag("enemy"))
+        if (collision.CompareTag("enemy") && thrown)
         {
             Destroy(gameObject);
         }
