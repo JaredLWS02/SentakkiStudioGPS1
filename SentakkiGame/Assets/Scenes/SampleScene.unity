@@ -179,7 +179,7 @@ Transform:
   m_GameObject: {fileID: 37318481}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.306, y: -0.042, z: 2.459964}
+  m_LocalPosition: {x: -0.002, y: -0.042, z: 2.459964}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 269279563}
   - component: {fileID: 269279562}
   - component: {fileID: 269279561}
+  - component: {fileID: 269279570}
   m_Layer: 8
   m_Name: player
   m_TagString: Player
@@ -464,7 +465,7 @@ MonoBehaviour:
   animplayer2: {fileID: 0}
   player1Active: 1
   canSwap: 1
-  atkDmg: 1
+  atkDmg: 10
   attackcooldown: 0.5
   freezeframeduration: 0.6
   combo:
@@ -660,14 +661,38 @@ Transform:
   m_GameObject: {fileID: 269279559}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.83, y: -0.9940002, z: 0}
+  m_LocalPosition: {x: -4.46, y: -0.9940002, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 867101081}
   - {fileID: 1298171902}
+  - {fileID: 939889321}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &269279570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269279559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15173f3d897b804dbde34bd0199f822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gaugePoint: {fileID: 269279562}
+  animationskill: {fileID: 269279564}
+  skillcooldown: 1
+  skilldmg: 20
+  skillanim: {fileID: 11400000, guid: 7414861fa9fc603438b2fe4333927011, type: 2}
+  skillattackpoint: {fileID: 939889321}
+  skillattackrange: 2.5
+  hitenemiesSkill: []
+  enemylayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &390655634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,11 +1173,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0e64101f33a194cb557608574fd2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectspeed: 10
+  objectspeed: 20
+  atkdamg: 0
   prompttext: {fileID: 1391198336}
-  rightside: {fileID: 1320396981}
-  leftside: {fileID: 37318482}
-  attackrange: 0.3
+  interactarea: {fileID: 37318482}
+  attackrange: 1
   playerlayer:
     serializedVersion: 2
     m_Bits: 256
@@ -1262,12 +1287,11 @@ Transform:
   m_GameObject: {fileID: 595121016}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.85, y: -2.23, z: 0}
+  m_LocalPosition: {x: -6.85, y: -2.32, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1391198337}
-  - {fileID: 1320396981}
   - {fileID: 37318482}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1820,6 +1844,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935626958}
   m_CullTransparentMesh: 1
+--- !u!1 &939889320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 939889321}
+  m_Layer: 0
+  m_Name: playerskillhitbox
+  m_TagString: playerAttackHitbox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &939889321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939889320}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.037, y: -0.204, z: -0.021412874}
+  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 269279569}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &989440535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,37 +2108,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 269279569}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1320396980
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1320396981}
-  m_Layer: 0
-  m_Name: rightsidehitbox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1320396981
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320396980}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.289, y: -0.034, z: 2.459964}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 595121020}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1391198336
 GameObject:

@@ -33,10 +33,10 @@ public class GaugePoint : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U) && gaugePointAmount > 32)
+/*        if (Input.GetKeyDown(KeyCode.U) && gaugePointAmount > 32)
         {
             TakeDamage(33);
-        }
+        }*/
         if (Input.GetKeyDown(KeyCode.K) && gaugePointAmount == 100)
         {
             TakeDamage(100);

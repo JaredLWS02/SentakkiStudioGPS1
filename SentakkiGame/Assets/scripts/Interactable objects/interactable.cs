@@ -7,11 +7,9 @@ public class interactable : MonoBehaviour
 {
     private bool caninteract;
     public float objectspeed;
-    private bool righthit;
-    private bool lefthit;
+    public float atkdamg;
     [SerializeField] private GameObject prompttext;
-    [SerializeField] private Transform rightside;
-    [SerializeField] private Transform leftside;
+    [SerializeField] private Transform interactarea;
     [SerializeField] private float attackrange;
     [SerializeField] private LayerMask playerlayer;
 
@@ -24,70 +22,52 @@ public class interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(checkrightside() || checkleftside())
+        if (Input.GetKeyDown(KeyCode.J) && caninteract)
         {
-            prompttext.SetActive(true);
+            checkside();
+        }
+    }
 
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                if (righthit)
-                {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0 - objectspeed, 0), ForceMode2D.Impulse);
-                }
-                else if (lefthit)
-                {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(objectspeed, 0), ForceMode2D.Impulse);
-                }
-            }
+    private void checkside()
+    {
+        Collider2D hitplayer = Physics2D.OverlapCircle(interactarea.position, attackrange, playerlayer);
+
+        if(hitplayer.GetComponent<Transform>().localScale.x > 0)
+        {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(objectspeed, 0), ForceMode2D.Impulse);
         }
         else
         {
-            prompttext.SetActive(false);
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0 - objectspeed, 0), ForceMode2D.Impulse);
         }
 
 
     }
-
-    private bool checkrightside()
-    {
-        righthit = true;
-        lefthit = false;
-        return Physics2D.OverlapCircle(rightside.position, attackrange, playerlayer);
-    }
-
-    private bool checkleftside()
-    {
-        lefthit = true;
-        righthit = false;
-        return Physics2D.OverlapCircle(leftside.position, attackrange, playerlayer);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-/*        if(collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             prompttext.SetActive(true);
             caninteract = true;
-        }*/
+        }
 
-        if(collision.CompareTag("enemy"))
+        if (collision.CompareTag("enemy"))
         {
             Destroy(gameObject);
         }
     }
 
-/*    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             prompttext.SetActive(false);
             caninteract = false;
         }
-    }*/
+    }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(rightside.position, attackrange);
-        Gizmos.DrawWireSphere(leftside.position, attackrange);
+        Gizmos.DrawWireSphere(interactarea.position, attackrange);
     }
 }

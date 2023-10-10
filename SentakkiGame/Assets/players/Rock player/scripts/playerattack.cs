@@ -127,7 +127,7 @@ public class playerattack : MonoBehaviour
         {
             Debug.Log("A");
             reseted = false;
-            Invoke("EndCombo", 1);
+            Invoke("EndCombo", 2);
         }
     }
 
