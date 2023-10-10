@@ -29,6 +29,7 @@ public class playerattack : MonoBehaviour
     private Animator anim;
 
     public float attackcooldown;
+    public float freezeframeduration;
 
     [SerializeField] private List<attackscirptableobject> combo;
     [SerializeField] private combomanagerUI combomanagerUI;
@@ -149,7 +150,7 @@ public class playerattack : MonoBehaviour
     {
         if (!failattack)
         {
-            anim.speed = 0.65f;
+            anim.speed = freezeframeduration;
         }
     }
     private void endfreezeframe()

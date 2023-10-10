@@ -18,10 +18,9 @@ public class movement : MonoBehaviour
     [SerializeField] private float dashingCooldown;
 
     private float oriGravity;
-    private float fallingGravity = 8f;
+    public float fallingGravity;
 
     private bool moveKeyPress;
-    private bool m_Started;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -35,7 +34,6 @@ public class movement : MonoBehaviour
     }
     private void Start()
     {
-        m_Started = true;
         oriGravity = rb.gravityScale;
         instance = this;
     }
@@ -63,6 +61,7 @@ public class movement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
+            moveanim.SetTrigger("jump");
             rb.AddForce(Vector2.up * jumpingPower, ForceMode2D.Impulse);
         }
 
@@ -82,7 +81,7 @@ public class movement : MonoBehaviour
 
     public bool IsGrounded()
     {
-        return Physics2D.OverlapBox(groundCheck.position, new Vector2(1.5f, 0.1f), 0f, groundLayer);
+        return Physics2D.OverlapBox(groundCheck.position, new Vector2(1.5f, 0.05f), 0f, groundLayer);
     }
 
 
@@ -92,12 +91,6 @@ public class movement : MonoBehaviour
         {
             return;
         }
-
-/*        if (playerattack.isAttacking)
-        {
-            rb.velocity = new Vector2(0, rb.velocity.y);
-            return;
-        }*/
 
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
@@ -120,11 +113,10 @@ public class movement : MonoBehaviour
         canDash = false;
         isDashing = true;
         //gameObject.layer = LayerMask.NameToLayer("ghostplayer");
-        float oriGravity = rb.gravityScale;
         rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
         yield return new WaitForSeconds(dashingTime);
-        rb.gravityScale = oriGravity;
+        rb.gravityScale = fallingGravity;
         isDashing = false;
         //gameObject.layer = LayerMask.NameToLayer("player");
         yield return new WaitForSeconds(dashingCooldown);
@@ -141,7 +133,6 @@ public class movement : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        if (m_Started)
-            Gizmos.DrawWireCube(groundCheck.position, new Vector2(1.5f, 0.1f));
+        Gizmos.DrawWireCube(groundCheck.position, new Vector2(1.5f, 0.05f));
     }
 }

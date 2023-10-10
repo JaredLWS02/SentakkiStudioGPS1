@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class combomanagerUI : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class combomanagerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI combonum;
     [SerializeField] private GameObject combotextObject;
 
-    [SerializeField] private List<string> combotypes;
+    [SerializeField] private List<Sprite> combotypes;
     [SerializeField] public LeanTweenType tween;
     [SerializeField] private combosfxscriptableobject sfx;
     [SerializeField] private AudioSource comboAudioSource;
@@ -25,7 +26,7 @@ public class combomanagerUI : MonoBehaviour
     void Update()
     {
         combonum.text = ("x " + innercomboUI);
-        combotextObject.GetComponent<TextMeshProUGUI>().text= combotypes[x];
+        combotextObject.GetComponent<Image>().sprite = combotypes[x];
     }
 
     public void checkcombostatus()
@@ -37,40 +38,40 @@ public class combomanagerUI : MonoBehaviour
         else if (innercomboUI == 1)
         {
             x = 1;
-            shake();
+            //shake();
             playaudio(x);
         }
         else if (innercomboUI == 6)
         {
             x = 2;
-            shake();
+            //shake();
             playaudio(x);
         }
         else if (innercomboUI == 12)
         {
             x = 3;
-            shake();
+            //shake();
             playaudio(x);
         }
         else if (innercomboUI == 18)
         {
             x = 4;
-            shake();
+            //shake();
         }
         else if (innercomboUI == 24)
         {
             x = 5;
-            shake();
+            //shake();
             playaudio(x + 1);
         }
 
     }
 
-    private void shake()
+/*    private void shake()
     {
         LeanTween.moveX(combotextObject, 230f, 0.2f);
         LeanTween.moveX(combotextObject, 261f, 0.3f).setEase(tween).setDelay(0.2f);
-    }
+    }*/
 
     private void playaudio(int num)
     {
