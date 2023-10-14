@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class RecoverySystem : MonoBehaviour
 {
-    public float hpRestore;
-    public float gaugePointRestore;
-    public healthPoint HealthBar;
-    public GaugePoint gaugePoint;
+    [SerializeField] private playerstats stats;
+    [SerializeField] private healthPoint HealthBar;
+    [SerializeField] private GaugePoint gaugePoint;
 
 private void OnTriggerEnter2D(Collider2D col)
 {
@@ -14,13 +13,13 @@ private void OnTriggerEnter2D(Collider2D col)
         if (HealthBar.healthAmount < HealthBar.maxHealthAmount)
         {
             Destroy(gameObject);
-            HealthBar.RestoreHealthPoints(hpRestore);
+            HealthBar.RestoreHealthPoints(stats.healthrestore);
         }
 
         if (gaugePoint.gaugePointAmount < gaugePoint.maxGaugePointAmount)
         {
                 Destroy(gameObject);
-            gaugePoint.RestoreGaugePoints(gaugePointRestore);
+            gaugePoint.RestoreGaugePoints(stats.gaugerestore);
         }
     }
 }

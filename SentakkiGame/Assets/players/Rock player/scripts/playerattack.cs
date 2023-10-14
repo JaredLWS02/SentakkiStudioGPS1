@@ -9,16 +9,7 @@ using UnityEngine.UIElements;
 
 public class playerattack : MonoBehaviour
 {
-    // swap script
-    [SerializeField] private SwapScript swap;
-    [SerializeField] private AudioSource p1;
-    [SerializeField] private AudioSource p2;
-    [SerializeField] private Animator animplayer2;
-    public bool player1Active = true;
-    public bool canSwap = true;
-
     // attack script
-    public float atkDmg = 20;
     private bool failattack;
     private bool reseted;
 
@@ -26,38 +17,24 @@ public class playerattack : MonoBehaviour
     private float lastcomboEnd;
     private int combocounter;
 
-    private Animator anim;
+    private Collider2D[] hitenemies;
 
-    public float attackcooldown;
     public float freezeframeduration;
 
-    [SerializeField] private List<attackscirptableobject> combo;
+    [SerializeField] private playerstats stats;
+
+    [SerializeField] private Animator atkanim;
     [SerializeField] private combomanagerUI combomanagerUI;
     [SerializeField] private AudioSource comboAudioSource;
-
     [SerializeField] private Transform attackpoint;
-    [SerializeField] private float attackrange;
-    [SerializeField] private LayerMask enemylayer;
-    [SerializeField] private Collider2D [] hitenemies;
 
     void Start()
     {
-        p1.volume = 0.2f;
-        p2.volume = 0.0f;
-        anim = GetComponent<Animator>();
+
     }
 
     void Update()
     {
-        // switch input
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if(canSwap)
-            {
-                SwitchPlayer();
-            }
-        }
-
         // Attack input
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -75,11 +52,11 @@ public class playerattack : MonoBehaviour
     }
 
     // attack mechanic
-    void Attack()
+    public void Attack()
     {
-        if (Time.time - lastcomboEnd > 0.5f && combocounter <= combo.Count)
+        if (Time.time - lastcomboEnd > 0.5f && combocounter <= stats.combo.Count)
         {
-            hitenemies = Physics2D.OverlapCircleAll(attackpoint.position, attackrange, enemylayer);
+            hitenemies = Physics2D.OverlapCircleAll(attackpoint.position, stats.atkrange, stats.enemylayer);
 
             if (hitenemies.Length >= 1)
             {
@@ -93,24 +70,23 @@ public class playerattack : MonoBehaviour
                 failattack = true;
             }
 
-
-            if (Time.time - lastclickedTime >= attackcooldown)
+            if (Time.time - lastclickedTime >= stats.atkcooldown)
             {
                 Debug.Log("attack combo");
-                anim.runtimeAnimatorController = combo[combocounter].animatorOV;
-                anim.Play("attack", 0, 0);
+                atkanim.runtimeAnimatorController = stats.combo[combocounter].animatorOV;
+                atkanim.Play("attack", 0, 0);
                 combocounter++;
                 lastclickedTime = Time.time;
                 comboAudioSource.Play();
 
-                if (combocounter >= combo.Count)
+                if (combocounter >= stats.combo.Count)
                 {
                     combocounter = 1;
                 }
 
                 foreach (Collider2D enemy in hitenemies)
                 {
-                    enemy.GetComponent<EnemyAi>().takeDamage(atkDmg);
+                    enemy.GetComponent<EnemyAi>().takeDamage(stats.atkdmg);
                     combomanagerUI.innercomboUI++;
                     combomanagerUI.checkcombostatus();
                 }
@@ -123,9 +99,8 @@ public class playerattack : MonoBehaviour
     // reset script
     void ExitAttack()
     {
-        if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && anim.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
+        if(atkanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && atkanim.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
         {
-            Debug.Log("A");
             reseted = false;
             Invoke("EndCombo", 2);
         }
@@ -141,7 +116,6 @@ public class playerattack : MonoBehaviour
         combomanagerUI.x = 0;
     }
 
-
     private void disablemovement()
     {
         GetComponent<movement>().enabled = false;
@@ -150,14 +124,14 @@ public class playerattack : MonoBehaviour
     {
         if (!failattack)
         {
-            anim.speed = freezeframeduration;
+            atkanim.speed = freezeframeduration;
         }
     }
     private void endfreezeframe()
     {
         if (!failattack)
         {
-            anim.speed = 1;
+            atkanim.speed = 1;
         }
     }
     private void enablemovement()
@@ -165,40 +139,9 @@ public class playerattack : MonoBehaviour
         GetComponent<movement>().enabled = true;
     }
 
-    // switch mechanic
-    public void SwitchPlayer()
-    {
-        if (player1Active)
-        {
-            GetComponent<Animator>().enabled = true;
-            GetComponent<SpriteRenderer>().sprite = swap.character1;
-            Attack();
-            p1.volume = 0.0f;
-            p2.volume = 0.2f;
-            player1Active = false;
-            StartCoroutine(swapCooldown());
-        }
-        else
-        {
-            GetComponent<Animator>().enabled = false;
-            GetComponent<SpriteRenderer>().sprite = swap.character2;
-            Attack();
-            p1.volume = 0.2f;
-            p2.volume = 0.0f;
-            player1Active = true;
-            StartCoroutine(swapCooldown());
-        }
-    }
-
-    IEnumerator swapCooldown()
-    {
-        canSwap = false;
-        yield return new WaitForSeconds(5);
-        canSwap = true;
-    }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(attackpoint.position, attackrange);
+        Gizmos.DrawWireSphere(attackpoint.position, stats.atkrange);
     }
 }

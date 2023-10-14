@@ -5,17 +5,15 @@ using UnityEngine;
 
 public class skillandultimate : MonoBehaviour
 {
-    public GaugePoint gaugePoint;
-    private bool reseted;
-    public Animator animationskill;
-    public float skillcooldown;
     private float lastskillclickedtime;
-    public float skilldmg;
+    private Collider2D[] hitenemiesSkill;
+
     [SerializeField] private attackscirptableobject skillanim;
+    [SerializeField] private playerstats stats;
+
+    [SerializeField] private GaugePoint gaugePoint;
+    [SerializeField] private Animator animationskill;
     [SerializeField] private Transform skillattackpoint;
-    [SerializeField] private float skillattackrange;
-    [SerializeField] private Collider2D[] hitenemiesSkill;
-    [SerializeField] private LayerMask enemylayer;
 
     // Start is called before the first frame update
     void Start()
@@ -33,13 +31,21 @@ public class skillandultimate : MonoBehaviour
                 skill();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.K) && gaugePoint.gaugePointAmount == 100)
+        {
+            if (movement.instance.IsGrounded() && !movement.instance.isDashing)
+            {
+                ultimate();
+            }
+        }
     }
 
     void skill()
     {
-        if (Time.time - lastskillclickedtime >= skillcooldown)
+        if (Time.time - lastskillclickedtime >= stats.skillcooldown)
         {
-            hitenemiesSkill = Physics2D.OverlapCircleAll(skillattackpoint.position, skillattackrange, enemylayer);
+            hitenemiesSkill = Physics2D.OverlapCircleAll(skillattackpoint.position, stats.skillrange, stats.enemylayer);
             gaugePoint.TakeDamage(33);
             animationskill.runtimeAnimatorController = skillanim.animatorOV;
             animationskill.Play("skill", 0, 0);
@@ -47,16 +53,21 @@ public class skillandultimate : MonoBehaviour
 
             foreach (Collider2D enemy in hitenemiesSkill)
             {
-                enemy.GetComponent<EnemyAi>().takeDamage(skilldmg);
+                enemy.GetComponent<EnemyAi>().takeDamage(stats.skilldmg);
             }
         }
     }
+
+    void ultimate()
+    {
+        
+    }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(skillattackpoint.position, skillattackrange);
+        Gizmos.DrawWireSphere(skillattackpoint.position, stats.skillrange);
     }
     void ExitSkill()
     {
-       animationskill.SetTrigger("skill");
+        animationskill.Play("idle", 0, 0);
     }
 }

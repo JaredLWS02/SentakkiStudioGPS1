@@ -8,9 +8,9 @@ public class GaugePoint : MonoBehaviour
     public Image gaugeBar;
     public float maxGaugePointAmount = 100f;
 
-    public static GaugePoint Instance { get; private set; }
+    public static GaugePoint Instance;
 
-    public float gaugePointAmount { get; private set; }
+    public float gaugePointAmount;
 
     private void Awake()  
      {

@@ -8,9 +8,9 @@ public class healthPoint : MonoBehaviour
     public Image healthBar;
     public float maxHealthAmount = 100f;
 
-    public static healthPoint Instance { get; private set; }
+    public static healthPoint Instance;
 
-    public float healthAmount { get; private set; }
+    public float healthAmount;
 
     private void Awake()  
      {

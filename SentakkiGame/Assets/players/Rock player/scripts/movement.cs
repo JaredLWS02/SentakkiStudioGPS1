@@ -7,24 +7,19 @@ public class movement : MonoBehaviour
     public static movement instance;
 
     private float horizontal;
-    [SerializeField] private float speed;
-    [SerializeField] private float jumpingPower;
     private bool isFacingRight = true;
 
     private bool canDash = true;
     public bool isDashing;
-    [SerializeField] private float dashingPower;
-    [SerializeField] private float dashingTime;
-    [SerializeField] private float dashingCooldown;
 
     private float oriGravity;
     public float fallingGravity;
 
     private bool moveKeyPress;
 
+    [SerializeField] private playerstats stats;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Animator moveanim;
 
 
@@ -38,11 +33,15 @@ public class movement : MonoBehaviour
         instance = this;
     }
 
-
     private void Update()
     {
         if (isDashing)
         {
+            if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+            {
+                moveanim.Play("jump", 0, 0);
+                rb.AddForce(Vector2.up * stats.jumpingPower, ForceMode2D.Impulse);
+            }
             return;
         }
 
@@ -59,31 +58,24 @@ public class movement : MonoBehaviour
             moveanim.SetBool("move", false);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            moveanim.SetTrigger("jump");
-            rb.AddForce(Vector2.up * jumpingPower, ForceMode2D.Impulse);
+            moveanim.Play("jump", 0, 0);
+            rb.AddForce(Vector2.up * stats.jumpingPower, ForceMode2D.Impulse);
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && canDash && moveKeyPress)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && moveKeyPress)
         {
-            Debug.Log("Dashing");
             StartCoroutine(Dash());
         }
 
-        if(IsGrounded())
+        if (IsGrounded())
         {
             rb.gravityScale = oriGravity;
         }
 
         Flip();
     }
-
-    public bool IsGrounded()
-    {
-        return Physics2D.OverlapBox(groundCheck.position, new Vector2(1.5f, 0.05f), 0f, groundLayer);
-    }
-
 
     private void FixedUpdate()
     {
@@ -92,8 +84,12 @@ public class movement : MonoBehaviour
             return;
         }
 
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        rb.velocity = new Vector2(horizontal * stats.speed, rb.velocity.y);
 
+    }
+    public bool IsGrounded()
+    {
+        return Physics2D.OverlapBox(groundCheck.position, new Vector2(1.5f, 0.05f), 0f, stats.groundlayer);
     }
 
     private void Flip()
@@ -108,19 +104,24 @@ public class movement : MonoBehaviour
     }
     private IEnumerator Dash()
     {
-        moveanim.SetTrigger("dash");
-        Debug.Log("Dash");
+        moveanim.Play("dash",0,0);
         canDash = false;
         isDashing = true;
         //gameObject.layer = LayerMask.NameToLayer("ghostplayer");
-        rb.gravityScale = 0f;
-        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
-        yield return new WaitForSeconds(dashingTime);
-        rb.gravityScale = fallingGravity;
+        //rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * stats.dashingPower, 0f);
+        //rb.AddForce(Vector2.right * transform.localScale.x * stats.dashingPower, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(stats.dashingTime);
+        //rb.gravityScale = fallingGravity;
         isDashing = false;
         //gameObject.layer = LayerMask.NameToLayer("player");
-        yield return new WaitForSeconds(dashingCooldown);
+        yield return new WaitForSeconds(stats.dashingCooldown);
         canDash = true;
+    }
+
+    private void enddashanim()
+    {
+        moveanim.Play("idle", 0, 0);
     }
 
     private void gravitypull()

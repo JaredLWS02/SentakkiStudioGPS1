@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public float followSpeed = 2f;
+    public float followSpeed;
     public Transform target;
 
     private bool isFollowing = true;
 
-    void Update()
+    void FixedUpdate()
     {
         if (isFollowing && target != null)
         {
-            Vector3 newPosition = new Vector3(target.position.x, 0, -10f);
-            transform.position = newPosition;
-            //transform.position = Vector3.Lerp(transform.position, newPosition, followSpeed * Time.deltaTime);
+            transform.position = new Vector3(target.position.x, 0, target.position.z);
         }
     }
 

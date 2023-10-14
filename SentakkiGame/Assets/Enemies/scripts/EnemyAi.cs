@@ -59,6 +59,7 @@ public class EnemyAi : MonoBehaviour
         //animator.SetTrigger("Attack");
         // Detect enemy(player) in range of attack
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.position, new Vector2(sizex,sizey), angle, playerLayers);
+        Debug.Log(hitEnemies[0]);
         //Damage the enemy(player)
         foreach (Collider2D enemy in hitEnemies)
         {

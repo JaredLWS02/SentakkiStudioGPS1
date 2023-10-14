@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class swapmechanic : MonoBehaviour
 {
-    public SwapScript swap;
-    public AudioSource p1;
-    public AudioSource p2;
-    public movement playerControl;
-    public Animator animplayer2;
+    [SerializeField] private SwapScript swap;
+    [SerializeField] private AudioSource p1;
+    [SerializeField] private AudioSource p2;
+    [SerializeField] private movement playerControl;
+    [SerializeField] private Animator animplayer2;
+    [SerializeField] private playerattack playerattack;
+
     public bool player1Active = true;
     // Start is called before the first frame update
     void Start()
@@ -32,16 +34,18 @@ public class swapmechanic : MonoBehaviour
     {
         if (player1Active)
         {
-            GetComponent<Animator>().enabled = true;
-            GetComponent<SpriteRenderer>().sprite = swap.character1;
+            playerattack.Attack();
+            //GetComponent<Animator>().enabled = true;
+            //GetComponent<SpriteRenderer>().sprite = swap.character1
             p1.volume = 0.0f;
             p2.volume = 0.2f;
             player1Active = false;
         }
         else
         {
-            GetComponent<Animator>().enabled = false;
-            GetComponent<SpriteRenderer>().sprite = swap.character2;
+            playerattack.Attack();
+            //GetComponent<Animator>().enabled = false;
+            //GetComponent<SpriteRenderer>().sprite = swap.character2;
             p1.volume = 0.2f;
             p2.volume = 0.0f;
             player1Active = true;
