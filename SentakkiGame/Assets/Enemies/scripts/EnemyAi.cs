@@ -20,7 +20,7 @@ public class EnemyAi : MonoBehaviour
     public float maxHealth;
     float currentHealth;
     public EnemyPath movement;
-    public float chargeSpd = 5;
+    public float chargeSpd = 3;
     private Vector2 lastPos;
     private Vector2 curPos;
 
@@ -144,8 +144,8 @@ public class EnemyAi : MonoBehaviour
         AttackSensor.SetActive(false);
         yield return new WaitForSeconds(2);
         rb.AddForce(new Vector2(2 * chargeSpd, 0), ForceMode2D.Impulse);
-        yield return new WaitForSeconds(2);
         enemyAttack();
+        yield return new WaitForSeconds(2);
         movement.enabled = true;
         AttackSensor.SetActive(true);
         animator.SetBool("Attacking", false);
