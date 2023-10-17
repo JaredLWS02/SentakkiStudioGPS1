@@ -27,6 +27,8 @@ public class playerattack : MonoBehaviour
     [SerializeField] private combomanagerUI combomanagerUI;
     [SerializeField] private AudioSource comboAudioSource;
     [SerializeField] private Transform attackpoint;
+    [SerializeField] private Transform plungeattackpoint;
+    [SerializeField] private Rigidbody2D rb;
 
     void Start()
     {
@@ -35,12 +37,20 @@ public class playerattack : MonoBehaviour
 
     void Update()
     {
+        //Debug.DrawRay(plungeattackpoint.position, Vector2.down * 4f, Color.blue);
         // Attack input
         if (Input.GetKeyDown(KeyCode.J))
         {
-            if (movement.instance.IsGrounded() && !movement.instance.isDashing)
+            if(!movement.instance.isDashing)
             {
-                Attack();
+                if (movement.instance.IsGrounded())
+                {
+                    Attack();
+                }
+                else
+                {
+                    PlungeAttack();
+                }
             }
         }
 
@@ -96,6 +106,38 @@ public class playerattack : MonoBehaviour
 
     }
 
+    void PlungeAttack()
+    {
+        Collider2D[] enemieshit = Physics2D.OverlapBoxAll(plungeattackpoint.position, new Vector2(2,3),1f,stats.enemylayer);
+        if (enemieshit.Length >= 1)
+        {
+            failattack = false;
+            reseted = true;
+            CancelInvoke("EndCombo");
+        }
+        else
+        {
+            combocounter = 0;
+            failattack = true;
+        }
+        atkanim.Play("attack", 0, 0);
+
+        if (combocounter >= stats.combo.Count)
+        {
+            combocounter = 1;
+        }
+
+
+        foreach (Collider2D enemy in enemieshit)
+        {
+            enemy.GetComponent<EnemyAi>().takeDamage(stats.atkdmg);
+            combomanagerUI.innercomboUI++;
+            combomanagerUI.checkcombostatus();
+        }
+
+
+    }
+
     // reset script
     void ExitAttack()
     {
@@ -143,5 +185,6 @@ public class playerattack : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(attackpoint.position, stats.atkrange);
+        Gizmos.DrawWireCube(plungeattackpoint.position, new Vector2(2, 3));
     }
 }
