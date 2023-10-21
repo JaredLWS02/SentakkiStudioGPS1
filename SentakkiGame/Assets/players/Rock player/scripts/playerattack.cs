@@ -105,7 +105,6 @@ public class playerattack : MonoBehaviour
                     combomanagerUI.innercomboUI++;
                     combomanagerUI.checkcombostatus();
                 }
-
             }
         }
 

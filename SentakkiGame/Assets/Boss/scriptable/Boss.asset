@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8d510d9bf79d9f4fadffcc2265f1548, type: 3}
-  m_Name: Enemy1(pounce)
+  m_Name: Boss
   m_EditorClassIdentifier: 
   skin: {fileID: 0}
-  maxhp: 100
-  atk: 10
-  speed: 6
-  chargeSpd: 5
+  maxhp: 1000
+  atk: 20
+  speed: 0
+  chargeSpd: 0
   playerLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
