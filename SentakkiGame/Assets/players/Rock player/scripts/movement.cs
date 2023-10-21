@@ -15,7 +15,7 @@ public class movement : MonoBehaviour
     private float oriGravity;
     public float fallingGravity;
 
-    private bool moveKeyPress;
+    public bool moveKeyPress;
 
     [SerializeField] private playerstats stats;
     [SerializeField] private Rigidbody2D rb;
@@ -107,19 +107,19 @@ public class movement : MonoBehaviour
         moveanim.Play("dash",0,0);
         canDash = false;
         isDashing = true;
-        //gameObject.layer = LayerMask.NameToLayer("ghostplayer");
+        gameObject.layer = LayerMask.NameToLayer("ghostplayer");
         //rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * stats.dashingPower, 0f);
         //rb.AddForce(Vector2.right * transform.localScale.x * stats.dashingPower, ForceMode2D.Impulse);
         yield return new WaitForSeconds(stats.dashingTime);
         //rb.gravityScale = fallingGravity;
         isDashing = false;
-        //gameObject.layer = LayerMask.NameToLayer("player");
+        gameObject.layer = LayerMask.NameToLayer("player");
         yield return new WaitForSeconds(stats.dashingCooldown);
         canDash = true;
     }
 
-    private void enddashanim()
+    private void idle()
     {
         moveanim.Play("idle", 0, 0);
     }

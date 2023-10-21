@@ -21,24 +21,25 @@ public class EnemyPath : MonoBehaviour
     {
         Vector3 scale = transform.localScale;
 
-        if(target.transform.position.x > transform.position.x)
+        if(target.transform.position.x > transform.position.x) // right
         {
             flip = true;
-            anim.SetBool("isMoving", true);
-            scale.x = Mathf.Abs(scale.x) * -1 * (flip? - 1 : 1);
-            transform.Translate(x: speed * Time.deltaTime, y: 0, z: 0);
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            //scale.x = Mathf.Abs(scale.x) * -1 * (flip? - 1 : 1);
+            transform.Translate(x: speed * Time.deltaTime , y: 0, z: 0);
+           // transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.localScale = new Vector2(4, 4);
         }
-        else
+        else // left
         {
             flip = false;
-            anim.SetBool("isMoving", true);
-            scale.x = Mathf.Abs(scale.x) * (flip? -1 : 1);
-            transform.Translate(x: speed * Time.deltaTime * 1, y: 0, z: 0);
-            transform.eulerAngles = new Vector3(0, 180, 0);
+            //scale.x = Mathf.Abs(scale.x) * (flip? -1 : 1);
+            transform.Translate(x: -speed * Time.deltaTime, y: 0, z: 0);
+            //transform.eulerAngles = new Vector3(0, 180, 0);
+            transform.localScale = new Vector2(-4, 4);
         }
+        //transform.Translate(x: speed * Time.deltaTime, y: 0, z: 0);
 
-        transform.localScale = scale;
+        //transform.localScale = scale;
 
 
     }

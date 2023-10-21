@@ -37,18 +37,20 @@ public class Spawn : MonoBehaviour
 
     private void Update()
     {
-        if(!isSpawningPaused && enemycounter < 3 && !isspawning)
+        if(!isSpawningPaused && enemycounter <= 3 && !isspawning)
         {
             StartCoroutine(SpawnEnemiesContinuously());
         }
     }
     private IEnumerator SpawnEnemiesContinuously()
     {
+        
             isspawning = true;
             float spawnX = mainCamera.transform.position.x + mainCamera.orthographicSize * mainCamera.aspect + 2.0f;
 
             Vector3 spawnPosition = new Vector3(spawnX,player.transform.position.y, 0);
             GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        Debug.Log("spawn");
             enemycounter += 1;
 
             //StartCoroutine(MoveEnemyOntoScreen(newEnemy));

@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Enemy1(pounce)
   m_EditorClassIdentifier: 
   skin: {fileID: 0}
-  hp: 100
-  atk: 25
-  speed: 5
+  maxhp: 50
+  atk: 10
+  speed: 6
+  chargeSpd: 5
+  playerLayers:
+    serializedVersion: 2
+    m_Bits: 256

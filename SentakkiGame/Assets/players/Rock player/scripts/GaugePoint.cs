@@ -37,10 +37,10 @@ public class GaugePoint : MonoBehaviour
         {
             TakeDamage(33);
         }*/
-        if (Input.GetKeyDown(KeyCode.K) && gaugePointAmount == 100)
+/*        if (Input.GetKeyDown(KeyCode.K) && gaugePointAmount == 100)
         {
             TakeDamage(100);
-        }
+        }*/
     }
 
     public void TakeDamage(float damage)
@@ -66,6 +66,7 @@ public class GaugePoint : MonoBehaviour
 
     private void UpdateGauge()
     {
+        Debug.Log(gaugeBar.fillAmount);
         gaugeBar.fillAmount = gaugePointAmount / maxGaugePointAmount;
     }
 }

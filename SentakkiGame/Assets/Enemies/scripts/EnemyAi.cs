@@ -1,40 +1,52 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.SceneTemplate;
 using UnityEngine;
 
 public class EnemyAi : MonoBehaviour
 {
-    public enemyStats stats;
-    public GameObject target;
-    public GameObject AttackSensor;
-    public Animator animator; 
-    public Rigidbody2D rb;
-    public SpriteRenderer sprite;
-    public LayerMask playerLayers;
-    public Transform attackPoint;
+    [SerializeField] private enemyStats stats;
+    [SerializeField] private GameObject target;
+    [SerializeField] private GameObject AttackSensor;
+    [SerializeField] private Animator enemyanim; 
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private Transform attackPoint;
     //public float attackRange = 0.2f;
-    public float sizex = 4.0f;
-    public float sizey = 2.0f;
-    public float angle;
-    public bool isFaceRight = false;
-    public float maxHealth;
-    float currentHealth;
-    public EnemyPath movement;
-    public float chargeSpd = 3;
+    [SerializeField] private float sizex;
+    [SerializeField] private float sizey;
+    private float angle;
+    //private bool isFaceRight = false;
+    [SerializeField] private float currentHealth;
+    [SerializeField] private EnemyPath movement;
     private Vector2 lastPos;
     private Vector2 curPos;
+
+    private bool hit;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = stats.maxhp;
     }
 
     // Update is called once per frame
     void Update()
     {
-        lastPos.x = curPos.x;
-        curPos.x = transform.position.x;
+        //lastPos.x = curPos.x;
+        //curPos.x = transform.position.x;
+
+
+        if (enemyanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && enemyanim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
+        {
+            Destroy(gameObject);
+        }
+
+        if ((rb.velocity.x == 10 || rb.velocity.x == -10) && !hit)
+        {
+            enemyAttack();
+        }
     }
 
     void FixedUpdate()
@@ -42,28 +54,32 @@ public class EnemyAi : MonoBehaviour
         if (lastPos.x < curPos.x)
         {
             angle = 180.0f;
-            isFaceRight = true;
+            //isFaceRight = true;
 
         }
         else if (lastPos.x > curPos.x)
         {
             angle = 0f;
-            isFaceRight = false;
-
+            //isFaceRight = false;
         }
+
     }
 
     void enemyAttack()
     {
         // play attack animation
-        //animator.SetTrigger("Attack");
         // Detect enemy(player) in range of attack
-        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.position, new Vector2(sizex,sizey), angle, playerLayers);
-        Debug.Log(hitEnemies[0]);
+        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.position, new Vector2(sizex, sizey), angle, stats.playerLayers);
+        //Debug.Log(hitEnemies[0]);
         //Damage the enemy(player)
-        foreach (Collider2D enemy in hitEnemies)
+        if(hitEnemies.Length > 0)
         {
-            Debug.Log("Player hit!!!" + enemy.name);
+            hit = true;
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                healthPoint.Instance.TakeDamage(stats.atk);
+                Debug.Log("Player hit!!!" + enemy.name);
+            }
         }
     }
 
@@ -73,20 +89,50 @@ public class EnemyAi : MonoBehaviour
         // play knock back animation
         // knockback
         // take damage
-        animator.SetTrigger("takedmg");
+        enemyanim.Play("EnemyKnockBack", 0, 0);
+
+        if (transform.localScale.x >= 1)
+        {
+            Debug.Log("R");
+            rb.AddForce(new Vector2(-8, -4), ForceMode2D.Impulse);
+        }
+        else
+        {
+            Debug.Log("L");
+            rb.AddForce(new Vector2(8, 4), ForceMode2D.Impulse);
+        }
+        StopAllCoroutines();
+        Invoke("hitreset", 1.1f);
+
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            death();
+            gameObject.layer = LayerMask.NameToLayer("ghostenemy");
+            enemyanim.Play("EnemyDeath", 0, 0);
+            movement.enabled = false;
+            AttackSensor.SetActive(false);
+            stopmoving();
+            Spawn.instance.enemycounter -= 1;
         }
+    }
+
+    public void hitreset()
+    {
+        movement.enabled = true;
+        AttackSensor.SetActive(true);
+        resetmove();
+    }
+
+    public void stopmoving()
+    {
+        rb.velocity = Vector2.zero;
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.CompareTag("Player"))
         {
-            animator.SetBool("Attacking", true);
-            if (isFaceRight)
+            if (transform.localScale.x >= 1)
             {
                 StartCoroutine(chargeAtkRight());
                 Debug.Log("Moved right");
@@ -96,7 +142,6 @@ public class EnemyAi : MonoBehaviour
                 StartCoroutine(chargeAtkLeft());
                 Debug.Log("Moved left");
             }
-
         }
     }
 
@@ -109,48 +154,43 @@ public class EnemyAi : MonoBehaviour
 
     IEnumerator chargeAtkLeft()
     {
+        hit = false;
+        enemyanim.Play("EnemyAttack", 0, 0);
+        stopmoving();
         movement.enabled = false;
         AttackSensor.SetActive(false);
-        yield return new WaitForSeconds(2);
-        rb.AddForce(new Vector2(-2 * chargeSpd, 0), ForceMode2D.Impulse);
-        enemyAttack();
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
+        rb.AddForce(new Vector2(-2 * stats.chargeSpd, 0), ForceMode2D.Impulse);
+        //enemyAttack();
+        yield return new WaitForSeconds(1.1f);
+        stopmoving();
         movement.enabled = true;
         AttackSensor.SetActive(true);
-        animator.SetBool("Attacking", false);
-        animator.SetBool("FinishedAttack", true);
-        yield return new WaitForSeconds(1);
-        animator.SetBool("FinishedAttack", false);
-    }
-
-    void death()
-    {
-        Debug.Log("Died");
-        //animator.SetBool("Attacking", false);
-        //animator.SetBool("FinishedAttack", false);
-        //animator.SetBool("isMoving", false);
-        //animator.SetTrigger("died");
-        //movement.enabled = false;
-        //AttackSensor.SetActive(false);
-        Destroy(gameObject);
-        // play death animation
-        // +point to progress bar
-        // delete game object
     }
 
     IEnumerator chargeAtkRight()
     {
+        hit = false;
+        enemyanim.Play("EnemyAttack", 0, 0);
+        stopmoving();
         movement.enabled = false;
         AttackSensor.SetActive(false);
-        yield return new WaitForSeconds(2);
-        rb.AddForce(new Vector2(2 * chargeSpd, 0), ForceMode2D.Impulse);
-        enemyAttack();
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
+        rb.AddForce(new Vector2(2 * stats.chargeSpd, 0), ForceMode2D.Impulse);
+        //enemyAttack();
+        yield return new WaitForSeconds(1.1f);
+        stopmoving();
         movement.enabled = true;
         AttackSensor.SetActive(true);
-        animator.SetBool("Attacking", false);
-        animator.SetBool("FinishedAttack", true);
-        yield return new WaitForSeconds(1);
-        animator.SetBool("FinishedAttack", false);
+    }
+
+    public void finishattack()
+    {
+        enemyanim.Play("EnemyAtkRec", 0, 0);
+    }
+
+    public void resetmove()
+    {
+        enemyanim.Play("EnemyWalk", 0, 0);
     }
 }

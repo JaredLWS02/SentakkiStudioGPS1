@@ -29,6 +29,7 @@ public class playerattack : MonoBehaviour
     [SerializeField] private Transform attackpoint;
     [SerializeField] private Transform plungeattackpoint;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private AudioSource combosource;
 
     void Start()
     {
@@ -59,6 +60,7 @@ public class playerattack : MonoBehaviour
         {
             ExitAttack();
         }
+       
     }
 
     // attack mechanic
@@ -84,10 +86,13 @@ public class playerattack : MonoBehaviour
             {
                 Debug.Log("attack combo");
                 atkanim.runtimeAnimatorController = stats.combo[combocounter].animatorOV;
+                combosource.clip = stats.combosfx[combocounter];
+                combosource.Play();
                 atkanim.Play("attack", 0, 0);
                 combocounter++;
                 lastclickedTime = Time.time;
                 comboAudioSource.Play();
+                //GaugePoint.Instance.RestoreGaugePoints(stats.gaugerestoreHit);
 
                 if (combocounter >= stats.combo.Count)
                 {
@@ -121,6 +126,7 @@ public class playerattack : MonoBehaviour
             failattack = true;
         }
         atkanim.Play("attack", 0, 0);
+        rb.AddForce(Vector2.down * 3);
 
         if (combocounter >= stats.combo.Count)
         {
@@ -166,14 +172,15 @@ public class playerattack : MonoBehaviour
     {
         if (!failattack)
         {
-            atkanim.speed = freezeframeduration;
+            atkanim.SetFloat("slow",0.6f);
+            //atkanim.speed = freezeframeduration;
         }
     }
     private void endfreezeframe()
     {
         if (!failattack)
         {
-            atkanim.speed = 1;
+            atkanim.SetFloat("slow", 1f);
         }
     }
     private void enablemovement()

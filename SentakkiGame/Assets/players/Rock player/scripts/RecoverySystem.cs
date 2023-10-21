@@ -19,7 +19,7 @@ private void OnTriggerEnter2D(Collider2D col)
         if (gaugePoint.gaugePointAmount < gaugePoint.maxGaugePointAmount)
         {
                 Destroy(gameObject);
-            gaugePoint.RestoreGaugePoints(stats.gaugerestore);
+            gaugePoint.RestoreGaugePoints(stats.gaugerestoreItem);
         }
     }
 }

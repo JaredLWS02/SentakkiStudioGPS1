@@ -14,6 +14,7 @@ public class skillandultimate : MonoBehaviour
     [SerializeField] private GaugePoint gaugePoint;
     [SerializeField] private Animator animationskill;
     [SerializeField] private Transform skillattackpoint;
+    [SerializeField] private AudioSource skillAndUltisfx;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,8 @@ public class skillandultimate : MonoBehaviour
     {
         if (Time.time - lastskillclickedtime >= stats.skillcooldown)
         {
+            skillAndUltisfx.clip = stats.skillsfx;
+            skillAndUltisfx.Play();
             hitenemiesSkill = Physics2D.OverlapCircleAll(skillattackpoint.position, stats.skillrange, stats.enemylayer);
             gaugePoint.TakeDamage(33);
             animationskill.runtimeAnimatorController = skillanim.animatorOV;

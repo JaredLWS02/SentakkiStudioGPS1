@@ -13,25 +13,34 @@ MonoBehaviour:
   m_Name: rockplayerstats
   m_EditorClassIdentifier: 
   health: 100
-  atkdmg: 10
+  atkdmg: 50
   atkcooldown: 0.5
   atkrange: 1
   skilldmg: 30
   skillcooldown: 1
   skillrange: 3
+  skillsfx: {fileID: 8300000, guid: 9aba6f674a09b604ca1f0b6af23bb34f, type: 3}
   ultdmg: 50
   ultrange: 0
+  ultsfx: {fileID: 0}
   enemylayer:
     serializedVersion: 2
     m_Bits: 512
   healthrestore: 10
-  gaugerestore: 33
+  gaugerestoreItem: 30
+  gaugerestoreHit: 10
   combo:
   - {fileID: 11400000, guid: 70b8fb5aa0c9a4443aba1b4fa6fa5ddb, type: 2}
   - {fileID: 11400000, guid: bba4b968e267ab04aa54481ac82d4c83, type: 2}
   - {fileID: 11400000, guid: c7ab03bc9c3d5e74a9efe643da910490, type: 2}
   - {fileID: 11400000, guid: 5ed70494886d4754b827907133baab80, type: 2}
   - {fileID: 11400000, guid: 84ec39efc90453e4a9a30c57e6ec68e5, type: 2}
+  combosfx:
+  - {fileID: 8300000, guid: dc5c4a79c462ccf4ebf7ddb1a9fe80ce, type: 3}
+  - {fileID: 8300000, guid: d3decba2da42034478db2642e0133227, type: 3}
+  - {fileID: 8300000, guid: 3822ba01e3010454ca633d267e461cf7, type: 3}
+  - {fileID: 8300000, guid: a9d05758691f1224e93a7f8dc317399d, type: 3}
+  - {fileID: 8300000, guid: 97f17515fd08aaf45882f82874ce188e, type: 3}
   speed: 6
   jumpingPower: 20
   dashingPower: 5

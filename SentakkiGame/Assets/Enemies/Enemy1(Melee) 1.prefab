@@ -176,7 +176,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8869006305162616559}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: d15f3efca0d4ade49905204e1e832a57, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -248,20 +248,14 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 6db37132540344a4d8ba026db481bf72, type: 2}
   target: {fileID: 0}
   AttackSensor: {fileID: 8512514215000631768}
-  animator: {fileID: 8433838795985469621}
+  enemyanim: {fileID: 8433838795985469621}
   rb: {fileID: 3598896137680400149}
   sprite: {fileID: 9137647042074065758}
-  playerLayers:
-    serializedVersion: 2
-    m_Bits: 256
   attackPoint: {fileID: 8719227009357374026}
   sizex: 4
   sizey: 2
-  angle: 0
-  isFaceRight: 0
-  maxHealth: 50
+  currentHealth: 0
   movement: {fileID: 2473885576011572881}
-  chargeSpd: 5
 --- !u!50 &3598896137680400149
 Rigidbody2D:
   serializedVersion: 4
@@ -278,7 +272,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: d15f3efca0d4ade49905204e1e832a57, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -302,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  flip: 1
+  flip: 0
   speed: 2
   anim: {fileID: 8433838795985469621}
   isFacingRight: 0

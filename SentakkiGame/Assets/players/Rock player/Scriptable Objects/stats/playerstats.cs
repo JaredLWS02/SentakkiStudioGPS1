@@ -14,14 +14,18 @@ public class playerstats : ScriptableObject
     public float skilldmg;
     public float skillcooldown;
     public float skillrange;
+    public AudioClip skillsfx;
 
     public float ultdmg;
     public float ultrange;
+    public AudioClip ultsfx;
 
     public LayerMask enemylayer;
     public float healthrestore;
-    public float gaugerestore;
+    public float gaugerestoreItem;
+    public float gaugerestoreHit;
     public List<attackscirptableobject> combo;
+    public List<AudioClip> combosfx;
 
     //movement
     public float speed;

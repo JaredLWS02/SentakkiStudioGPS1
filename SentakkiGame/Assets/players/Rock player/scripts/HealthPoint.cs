@@ -38,8 +38,8 @@ public class healthPoint : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
-
+        healthAmount -= damage;
+        UpdateHealth();
     }
 
 public void RestoreHealthPoints(float amountToRestore)

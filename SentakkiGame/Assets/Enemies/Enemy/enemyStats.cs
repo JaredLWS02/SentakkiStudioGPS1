@@ -6,7 +6,9 @@ using UnityEngine;
 public class enemyStats : ScriptableObject
 {
     public Sprite skin; 
-    public float hp;
+    public float maxhp;
     public float atk;
     public float speed;
+    public float chargeSpd;
+    public LayerMask playerLayers;
 }
