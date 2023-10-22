@@ -10,6 +10,7 @@ TagManager:
   - enemyAttackHitbox
   - interactables
   - enemy
+  - enemyMelee
   layers:
   - Default
   - TransparentFX
