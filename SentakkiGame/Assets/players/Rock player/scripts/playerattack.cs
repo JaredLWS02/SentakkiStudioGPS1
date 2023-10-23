@@ -101,7 +101,15 @@ public class playerattack : MonoBehaviour
 
                 foreach (Collider2D enemy in hitenemies)
                 {
-                    enemy.GetComponent<EnemyAi>().takeDamage(stats.atkdmg);
+                    if(enemy.CompareTag("enemy"))
+                    {
+                        enemy.GetComponent<EnemyAi>().takeDamage(stats.atkdmg);
+                    }
+                    else if(enemy.CompareTag("enemyMelee"))
+                    {
+                        enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.atkdmg);
+                    }
+
                     combomanagerUI.innercomboUI++;
                     combomanagerUI.checkcombostatus();
                 }
@@ -171,16 +179,18 @@ public class playerattack : MonoBehaviour
     {
         if (!failattack)
         {
-            atkanim.SetFloat("slow",0.6f);
+            Time.timeScale = 0.5f;
+            //atkanim.SetFloat("slow",0.6f);
             //atkanim.speed = freezeframeduration;
         }
     }
     private void endfreezeframe()
     {
-        if (!failattack)
-        {
-            atkanim.SetFloat("slow", 1f);
-        }
+        //if (!failattack)
+        //{
+            Time.timeScale = 1f;
+            //atkanim.SetFloat("slow", 1f);
+        //}
     }
     private void enablemovement()
     {
