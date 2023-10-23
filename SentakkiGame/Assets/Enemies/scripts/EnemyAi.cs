@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.SceneTemplate;
@@ -62,7 +62,6 @@ public class EnemyAi : MonoBehaviour
             angle = 0f;
             //isFaceRight = false;
         }
-
     }
 
     void enemyAttack()
@@ -107,13 +106,18 @@ public class EnemyAi : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            gameObject.layer = LayerMask.NameToLayer("ghostenemy");
-            enemyanim.Play("EnemyDeath", 0, 0);
-            movement.enabled = false;
-            AttackSensor.SetActive(false);
-            stopmoving();
-            Spawn.instance.enemycounter -= 1;
+            death();
         }
+    }
+
+    void death()
+    {
+        gameObject.layer = LayerMask.NameToLayer("ghostenemy");
+        enemyanim.Play("EnemyDeath", 0, 0);
+        movement.enabled = false;
+        AttackSensor.SetActive(false);
+        stopmoving();
+        Spawn.instance.enemycounter -= 1;
     }
 
     public void hitreset()
