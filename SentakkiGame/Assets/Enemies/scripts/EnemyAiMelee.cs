@@ -42,8 +42,6 @@ public class EnemyAiMelee : MonoBehaviour
         {
             Destroy(gameObject);
         }
-            enemyAttack();
-        
     }
 
 /*    void FixedUpdate()
@@ -136,12 +134,12 @@ public class EnemyAiMelee : MonoBehaviour
             if (transform.localScale.x >= 1)
             {
                 StartCoroutine(swingAtkRight());
-                Debug.Log("Moved right");
+                Debug.Log("Attacked right");
             }
             else
             {
                 StartCoroutine(swingAtkLeft());
-                Debug.Log("Moved left");
+                Debug.Log("Attacked left");
             }
         }
     }
@@ -158,13 +156,13 @@ public class EnemyAiMelee : MonoBehaviour
         hit = false;
         enemyanim.Play("EnemyAttack", 0, 0);
         stopmoving();
-        //movement.enabled = false;
+        movement.enabled = false;
         AttackSensor.SetActive(false);
         yield return new WaitForSeconds(1.5f);
         enemyAttack();
         yield return new WaitForSeconds(1.1f);
         stopmoving();
-        //movement.enabled = true;
+        movement.enabled = true;
         yield return new WaitForSeconds(stats.atkcooldown);
         AttackSensor.SetActive(true);
     }
@@ -174,13 +172,13 @@ public class EnemyAiMelee : MonoBehaviour
         hit = false;
         enemyanim.Play("EnemyAttack", 0, 0);
         stopmoving();
-       // movement.enabled = false;
+        movement.enabled = false;
         AttackSensor.SetActive(false);
         yield return new WaitForSeconds(1.5f);
         enemyAttack();
         yield return new WaitForSeconds(1.1f);
         stopmoving();
-        // movement.enabled = true;
+        movement.enabled = true;
         yield return new WaitForSeconds(stats.atkcooldown);
         AttackSensor.SetActive(true);
     }
