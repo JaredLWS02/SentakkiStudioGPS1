@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6212006304000070094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4870826810414225620}
+  m_Layer: 9
+  m_Name: enemyattackhitbox
+  m_TagString: enemyAttackHitbox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4870826810414225620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6212006304000070094}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.215, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 394720041076113555}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8512514215000631768
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,8 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8719227009357374026}
   - component: {fileID: 248315883477159244}
-  m_Layer: 0
-  m_Name: enemyattackhitbox
+  m_Layer: 9
+  m_Name: enemyattacksensor
   m_TagString: enemyAttackHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,6 +144,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8719227009357374026}
+  - {fileID: 4870826810414225620}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9137647042074065758
@@ -176,7 +208,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8869006305162616559}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d15f3efca0d4ade49905204e1e832a57, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -248,11 +280,13 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 6db37132540344a4d8ba026db481bf72, type: 2}
   target: {fileID: 0}
   AttackSensor: {fileID: 8512514215000631768}
+  AttackHtibox: {fileID: 6212006304000070094}
   enemyanim: {fileID: 8433838795985469621}
   rb: {fileID: 3598896137680400149}
   sprite: {fileID: 9137647042074065758}
   attackPoint: {fileID: 8719227009357374026}
-  sizex: 4
+  attackHitbox: {fileID: 4870826810414225620}
+  sizex: 2
   sizey: 2
   currentHealth: 0
   movement: {fileID: 2473885576011572881}
