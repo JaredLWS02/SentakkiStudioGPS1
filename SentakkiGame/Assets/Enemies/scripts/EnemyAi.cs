@@ -9,10 +9,12 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] private enemyStats stats;
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject AttackSensor;
+    [SerializeField] private GameObject AttackHtibox;
     [SerializeField] private Animator enemyanim; 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private Transform attackPoint;
+    [SerializeField] private Transform attackHitbox;
     //public float attackRange = 0.2f;
     [SerializeField] private float sizex;
     [SerializeField] private float sizey;
@@ -43,7 +45,7 @@ public class EnemyAi : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if ((rb.velocity.x == 10 || rb.velocity.x == -10) && !hit)
+        if ((rb.velocity.x >= 9 || rb.velocity.x <= -9) && !hit)
         {
             enemyAttack();
         }
@@ -70,7 +72,7 @@ public class EnemyAi : MonoBehaviour
     {
         // play attack animation
         // Detect enemy(player) in range of attack
-        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.position, new Vector2(sizex, sizey), angle, stats.playerLayers);
+        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackHitbox.position, new Vector2(sizex, sizey), angle, stats.playerLayers);
         //Debug.Log(hitEnemies[0]);
         //Damage the enemy(player)
         if(hitEnemies.Length > 0)
@@ -104,13 +106,13 @@ public class EnemyAi : MonoBehaviour
         else
         {
             enemyanim.Play("EnemyKnockBack", 0, 0);
-            StartCoroutine(hitreset());
-            //Invoke("hitreset", 1.2f);
+            StartCoroutine(hitknockback());
+            //Invoke("hitknockback", 1.2f);
         }
 
     }
 
-    private IEnumerator hitreset()
+    private IEnumerator hitknockback()
     {
         if (transform.localScale.x > 1)
         {
@@ -120,8 +122,9 @@ public class EnemyAi : MonoBehaviour
         {
             rb.AddForce(stats.knockbackForce, ForceMode2D.Impulse);
         }
-
-        yield return new WaitForSeconds(0.3f);
+        gameObject.layer = LayerMask.NameToLayer("ghostenemy");
+        yield return new WaitForSecondsRealtime(0.5f);
+        gameObject.layer = LayerMask.NameToLayer("enemy");
         stopmoving();
         movement.enabled = true;
         resetmove();
@@ -156,7 +159,8 @@ public class EnemyAi : MonoBehaviour
     {
         if (attackPoint == null)
             return;
-        Gizmos.DrawWireCube(attackPoint.position, new Vector2(sizex,sizey));
+        //Gizmos.DrawWireCube(attackPoint.position, new Vector2(sizex,sizey));
+        Gizmos.DrawWireCube(attackHitbox.position, new Vector2(sizex, sizey));
     }
 
     private IEnumerator chargeAtkLeft()
@@ -167,9 +171,11 @@ public class EnemyAi : MonoBehaviour
         movement.enabled = false;
         AttackSensor.SetActive(false);
         yield return new WaitForSeconds(1.5f);
+        //AttackHtibox.SetActive(true);
         rb.AddForce(new Vector2(-2 * stats.chargeSpd, 0), ForceMode2D.Impulse);
         //enemyAttack();
         yield return new WaitForSeconds(1.1f);
+        //AttackHtibox.SetActive(false);
         stopmoving();
         movement.enabled = true;
         yield return new WaitForSeconds(stats.atkcooldown);
@@ -184,9 +190,11 @@ public class EnemyAi : MonoBehaviour
         movement.enabled = false;
         AttackSensor.SetActive(false);
         yield return new WaitForSeconds(1.5f);
+        //AttackHtibox.SetActive(true);
         rb.AddForce(new Vector2(2 * stats.chargeSpd, 0), ForceMode2D.Impulse);
         //enemyAttack();
         yield return new WaitForSeconds(1.1f);
+        //AttackHtibox.SetActive(false);
         stopmoving();
         movement.enabled = true;
         yield return new WaitForSeconds(stats.atkcooldown);

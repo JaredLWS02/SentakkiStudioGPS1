@@ -39,19 +39,19 @@ public class combomanagerUI : MonoBehaviour
         {
             x = 1;
             //shake();
-            playaudio(x);
+            //playaudio(x);
         }
         else if (innercomboUI == 6)
         {
             x = 2;
             //shake();
-            playaudio(x);
+            //playaudio(x);
         }
         else if (innercomboUI == 12)
         {
             x = 3;
             //shake();
-            playaudio(x);
+            //playaudio(x);
         }
         else if (innercomboUI == 18)
         {
@@ -62,7 +62,7 @@ public class combomanagerUI : MonoBehaviour
         {
             x = 5;
             //shake();
-            playaudio(x + 1);
+            //playaudio(x + 1);
         }
 
     }

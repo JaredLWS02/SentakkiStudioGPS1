@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class movement : MonoBehaviour
@@ -17,11 +18,10 @@ public class movement : MonoBehaviour
 
     public bool moveKeyPress;
 
-    [SerializeField] private playerstats stats;
+    public playerstats stats;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Animator moveanim;
-
 
     private void OnDisable()
     {
@@ -51,6 +51,11 @@ public class movement : MonoBehaviour
         {
             moveKeyPress = true;
             moveanim.SetBool("move", true);
+            if (moveanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f && moveanim.GetCurrentAnimatorStateInfo(0).IsTag("move"))
+            {
+                moveanim.Play("walk loop", 0, 0);
+            }
+
         }
         else 
         {
@@ -122,12 +127,18 @@ public class movement : MonoBehaviour
     private void idle()
     {
         moveanim.Play("idle", 0, 0);
+        this.enabled = true;
     }
 
     private void gravitypull()
     {
         Debug.Log("switch");
         rb.gravityScale = fallingGravity;
+    }
+    
+    private void disablemovescript()
+    {
+        this.enabled =false;
     }
 
 
