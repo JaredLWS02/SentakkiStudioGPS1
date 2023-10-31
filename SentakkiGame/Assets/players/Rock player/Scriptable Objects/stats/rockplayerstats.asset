@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fded09839600d345b0f9c1354f9d7c8, type: 3}
   m_Name: rockplayerstats
   m_EditorClassIdentifier: 
-  maxhealth: 100
-  atkdmg: 1
+  health: 100
+  atkdmg: 10
   atkcooldown: 0.5
   atkrange: 1
   skilldmg: 30
@@ -49,4 +49,3 @@ MonoBehaviour:
   groundlayer:
     serializedVersion: 2
     m_Bits: 128
-  XknockbackForce: 2

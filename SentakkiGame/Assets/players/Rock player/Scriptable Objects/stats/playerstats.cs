@@ -6,7 +6,7 @@ using UnityEngine;
 public class playerstats : ScriptableObject
 {
     //atack
-    public float maxhealth;
+    public float health;
     public float atkdmg;
     public float atkcooldown;
     public float atkrange;
@@ -36,5 +36,4 @@ public class playerstats : ScriptableObject
     public float dashingCooldown;
 
     public LayerMask groundlayer;
-    public float XknockbackForce;
 }

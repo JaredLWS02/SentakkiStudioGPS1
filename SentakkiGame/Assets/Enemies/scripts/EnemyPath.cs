@@ -15,13 +15,11 @@ public class EnemyPath : MonoBehaviour
     {
         target = GameObject.Find("player");
         anim = gameObject.GetComponent<Animator>();
-        float tempSpeed = speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         Vector3 scale = transform.localScale;
 
         if(target.transform.position.x > (transform.position.x + distanceOffset)) // right

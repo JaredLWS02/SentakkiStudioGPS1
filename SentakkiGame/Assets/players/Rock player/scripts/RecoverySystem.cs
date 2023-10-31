@@ -10,29 +10,17 @@ private void OnTriggerEnter2D(Collider2D col)
 {
     if (col.CompareTag("Player"))
     {
-            if(healthPoint.Instance.swaped)
-            {
-                if (HealthBar.currenthealthAmountP2 < HealthBar.maxHealthAmount)
-                {
-                    Destroy(gameObject);
-                    HealthBar.RestoreHealthPoints(stats.healthrestore);
-                }
-            }
-            else
-            {
-                if (HealthBar.currenthealthAmountP1 < HealthBar.maxHealthAmount)
-                {
-                    Destroy(gameObject);
-                    HealthBar.RestoreHealthPoints(stats.healthrestore);
-                }
-            }
-
-            if (gaugePoint.gaugePointAmount < gaugePoint.maxGaugePointAmount)
-            {
-                Destroy(gameObject);
-                gaugePoint.RestoreGaugePoints(stats.gaugerestoreItem);
-            }
-
+        if (HealthBar.healthAmount < HealthBar.maxHealthAmount)
+        {
+            Destroy(gameObject);
+            HealthBar.RestoreHealthPoints(stats.healthrestore);
         }
+
+        if (gaugePoint.gaugePointAmount < gaugePoint.maxGaugePointAmount)
+        {
+                Destroy(gameObject);
+            gaugePoint.RestoreGaugePoints(stats.gaugerestoreItem);
+        }
+    }
 }
 }
