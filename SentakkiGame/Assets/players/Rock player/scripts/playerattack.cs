@@ -84,7 +84,7 @@ public class playerattack : MonoBehaviour
 
             if (Time.time - lastclickedTime >= stats.atkcooldown)
             {
-                Debug.Log("attack combo");
+                //Debug.Log("attack combo");
                 atkanim.runtimeAnimatorController = stats.combo[combocounter].animatorOV;
                 combosource.clip = stats.combosfx[combocounter];
                 combosource.Play();
@@ -164,7 +164,7 @@ public class playerattack : MonoBehaviour
     void EndCombo()
     {
         //combomanagerUI.removeAplhaCombo();
-        Debug.Log("endcombo");
+        //Debug.Log("endcombo");
         combocounter = 0;
         lastcomboEnd = Time.time;
         combomanagerUI.innercomboUI = 0;

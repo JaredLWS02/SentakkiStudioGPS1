@@ -24,6 +24,7 @@ public class EnemyAi : MonoBehaviour
     private Vector2 curPos;
 
     private bool hit;
+    public ProgressBar progressBar;
 
     // Start is called before the first frame update
     void Start()
@@ -79,7 +80,7 @@ public class EnemyAi : MonoBehaviour
             foreach (Collider2D enemy in hitEnemies)
             {
                 healthPoint.Instance.TakeDamage(stats.dmg);
-                Debug.Log("Player hit!!!" + enemy.name);
+               // Debug.Log("Player hit!!!" + enemy.name);
             }
         }
     }
@@ -100,6 +101,7 @@ public class EnemyAi : MonoBehaviour
             movement.enabled = false;
             AttackSensor.SetActive(false);
             Spawn.instance.enemycounter -= 1;
+            progressBar.UpdateProgressBar();
         }
         else
         {
@@ -142,12 +144,12 @@ public class EnemyAi : MonoBehaviour
             if (transform.localScale.x >= 1)
             {
                 StartCoroutine(chargeAtkRight());
-                Debug.Log("Moved right");
+               // Debug.Log("Moved right");
             }
             else
             {
                 StartCoroutine(chargeAtkLeft());
-                Debug.Log("Moved left");
+                //Debug.Log("Moved left");
             }
         }
     }
