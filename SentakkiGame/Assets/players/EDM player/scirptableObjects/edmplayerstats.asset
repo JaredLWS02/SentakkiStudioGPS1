@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fded09839600d345b0f9c1354f9d7c8, type: 3}
+  m_Name: edmplayerstats
+  m_EditorClassIdentifier: 
+  maxhealth: 100
+  atkdmg: 10
+  atkcooldown: 0.5
+  atkrange: 1
+  skilldmg: 30
+  skillcooldown: 1
+  skillrange: 3
+  skillsfx: {fileID: 8300000, guid: 9aba6f674a09b604ca1f0b6af23bb34f, type: 3}
+  ultdmg: 50
+  ultrange: 0
+  ultsfx: {fileID: 0}
+  enemylayer:
+    serializedVersion: 2
+    m_Bits: 512
+  healthrestore: 10
+  gaugerestoreItem: 30
+  gaugerestoreHit: 10
+  combo:
+  - {fileID: 11400000, guid: 70b8fb5aa0c9a4443aba1b4fa6fa5ddb, type: 2}
+  - {fileID: 11400000, guid: bba4b968e267ab04aa54481ac82d4c83, type: 2}
+  - {fileID: 11400000, guid: c7ab03bc9c3d5e74a9efe643da910490, type: 2}
+  combosfx:
+  - {fileID: 8300000, guid: dc5c4a79c462ccf4ebf7ddb1a9fe80ce, type: 3}
+  - {fileID: 8300000, guid: d3decba2da42034478db2642e0133227, type: 3}
+  - {fileID: 8300000, guid: 3822ba01e3010454ca633d267e461cf7, type: 3}
+  speed: 10
+  jumpingPower: 20
+  dashingPower: 5
+  dashingTime: 0.2
+  dashingCooldown: 0.5
+  groundlayer:
+    serializedVersion: 2
+    m_Bits: 128
+  XknockbackForce: 3

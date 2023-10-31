@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,23 +34,34 @@ public class swapmechanic : MonoBehaviour
 
     public void SwitchPlayer()
     {
-        if (player1Active)
+        if (player1Active)//swap to player2
         {
-            playerattack.Attack();
-            //GetComponent<Animator>().enabled = true;
+            GetComponent<playerattack>().stats = swap.p2Stats;
+            GetComponent<movement>().stats = swap.p2Stats;
+            GetComponent<skillandultimate>().stats = swap.p2Stats;
+            GetComponent<Animator>().runtimeAnimatorController = swap.player2;
+            healthPoint.Instance.swaped = true;
+            healthPoint.Instance.UpdateHealth();
+            //playerattack.Attack();
             //GetComponent<SpriteRenderer>().sprite = swap.character1
             p1.volume = 0.0f;
             p2.volume = 0.2f;
             player1Active = false;
         }
-        else
+        else // swap to player1
         {
-            playerattack.Attack();
-            //GetComponent<Animator>().enabled = false;
+            GetComponent<playerattack>().stats = swap.p1Stats;
+            GetComponent<movement>().stats = swap.p1Stats;
+            GetComponent<skillandultimate>().stats = swap.p1Stats;
+            GetComponent<Animator>().runtimeAnimatorController = swap.player1;
+            healthPoint.Instance.swaped = false;
+            healthPoint.Instance.UpdateHealth();
+            //playerattack.Attack();
             //GetComponent<SpriteRenderer>().sprite = swap.character2;
             p1.volume = 0.2f;
             p2.volume = 0.0f;
             player1Active = true;
         }
     }
+    
 }

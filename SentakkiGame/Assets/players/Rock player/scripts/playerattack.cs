@@ -21,7 +21,7 @@ public class playerattack : MonoBehaviour
 
     public float freezeframeduration;
 
-    [SerializeField] private playerstats stats;
+    public playerstats stats;
 
     [SerializeField] private Animator atkanim;
     [SerializeField] private combomanagerUI combomanagerUI;
@@ -179,7 +179,7 @@ public class playerattack : MonoBehaviour
     {
         if (!failattack)
         {
-            Time.timeScale = 0.5f;
+            Time.timeScale = 0.47f;
             //atkanim.SetFloat("slow",0.6f);
             //atkanim.speed = freezeframeduration;
         }
