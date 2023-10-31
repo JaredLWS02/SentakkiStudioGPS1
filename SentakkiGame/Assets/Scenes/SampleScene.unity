@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &23358933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 23358934}
+  m_Layer: 0
+  m_Name: enemyAttackHitBox(Melee)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &23358934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23358933}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.259, y: 0.001, z: -8.096056}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1488856920}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &37318481
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +609,6 @@ MonoBehaviour:
   maxHealthAmount: 100
   currenthealthAmountP1: 0
   currenthealthAmountP2: 0
-  swaped: 0
   rb: {fileID: 269279567}
   stats: {fileID: 11400000, guid: b7bb026f83d18ff4fb1f8cb4432f98ae, type: 2}
 --- !u!114 &269279562
@@ -2786,7 +2816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &905171483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3192,7 +3222,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0040641427, y: -0.008128464}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3203,7 +3233,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9918717, y: 0.65860415}
   m_EdgeRadius: 0
 --- !u!1 &1080301142
 GameObject:
@@ -4034,6 +4064,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 23358934}
   - {fileID: 1041412593}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4049,13 +4080,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d54ffb91f925604a8c6b74105466bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 6db37132540344a4d8ba026db481bf72, type: 2}
+  stats: {fileID: 11400000, guid: 2dfe659b11030d841840b84d761a73a7, type: 2}
   target: {fileID: 269279559}
   AttackSensor: {fileID: 1041412592}
+  AttackHtibox: {fileID: 23358933}
   enemyanim: {fileID: 1488856917}
   rb: {fileID: 1488856918}
   sprite: {fileID: 0}
   attackPoint: {fileID: 1488856920}
+  attackHitbox: {fileID: 23358934}
   sizex: 2
   sizey: 2
   currentHealth: 0

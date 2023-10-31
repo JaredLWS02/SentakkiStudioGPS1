@@ -13,7 +13,6 @@ public class healthPoint : MonoBehaviour
 
     public float currenthealthAmountP1;
     public float currenthealthAmountP2;
-    public bool swaped;
     private bool hit;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private playerstats stats;
@@ -34,7 +33,6 @@ public class healthPoint : MonoBehaviour
 
     private void Start()
     {
-        swaped = false;
         currenthealthAmountP1 = maxHealthAmount;
         currenthealthAmountP2 = maxHealthAmount;
         UpdateHealth();
@@ -47,7 +45,7 @@ public class healthPoint : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if(swaped)
+        if(!swapmechanic.instance.player1Active)
         {
             currenthealthAmountP2 -= damage;
         }
@@ -68,7 +66,7 @@ public class healthPoint : MonoBehaviour
     public void RestoreHealthPoints(float amountToRestore)
 {
     Debug.Log("Restoring health: " + amountToRestore);
-        if(swaped)
+        if(!swapmechanic.instance.player1Active)
         {
             currenthealthAmountP2 += amountToRestore;
             if (currenthealthAmountP1 > maxHealthAmount || currenthealthAmountP2 > maxHealthAmount)
@@ -89,7 +87,7 @@ public class healthPoint : MonoBehaviour
     }
     public void UpdateHealth() // change P1 health
     {
-        if(swaped)
+        if(!swapmechanic.instance.player1Active)
         {
             healthBar.fillAmount = currenthealthAmountP2 / maxHealthAmount;
         }
@@ -105,20 +103,22 @@ public class healthPoint : MonoBehaviour
         GetComponent<movement>().enabled = false;
         GetComponent<playerattack>().enabled = false;
         GetComponent<skillandultimate>().enabled = false;
+        GetComponent<Animator>().Play("knockback", 0, 0);
         gameObject.layer = LayerMask.NameToLayer("ghostplayer");
         if (transform.localScale.x > 1)
         {
-            rb.AddForce(new Vector2(-stats.XknockbackForce, 3) * 4,ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(-stats.XknockbackForce, stats.YknockbackForce) * 4,ForceMode2D.Impulse);
         }
         else if(transform.localScale.x < 1)
         {
-            rb.AddForce(new Vector2(stats.XknockbackForce, 3) * 4, ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(stats.XknockbackForce, stats.YknockbackForce) * 4, ForceMode2D.Impulse);
         }
         yield return new WaitForSecondsRealtime(1f);
         rb.velocity = Vector2.zero;
         GetComponent<movement>().enabled = true;
         GetComponent<playerattack>().enabled = true;
         GetComponent<skillandultimate>().enabled = true;
+        GetComponent<Animator>().Play("idle", 0, 0);
         yield return new WaitForSecondsRealtime(1f);
         gameObject.layer = LayerMask.NameToLayer("player");
         hit = false;

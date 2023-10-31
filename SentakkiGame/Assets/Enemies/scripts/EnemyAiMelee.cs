@@ -9,10 +9,12 @@ public class EnemyAiMelee : MonoBehaviour
     [SerializeField] private enemyStats stats;
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject AttackSensor;
+    [SerializeField] private GameObject AttackHtibox;
     [SerializeField] private Animator enemyanim;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private Transform attackPoint;
+    [SerializeField] private Transform attackHitbox;
     //public float attackRange = 0.2f;
     [SerializeField] private float sizex;
     [SerializeField] private float sizey;
@@ -42,7 +44,6 @@ public class EnemyAiMelee : MonoBehaviour
         {
             Destroy(gameObject);
         }
-            enemyAttack();
         
     }
 
@@ -66,7 +67,7 @@ public class EnemyAiMelee : MonoBehaviour
     {
         // play attack animation
         // Detect enemy(player) in range of attack
-        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.position, new Vector2(sizex, sizey), angle, stats.playerLayers);
+        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackHitbox.position, new Vector2(sizex, sizey), angle, stats.playerLayers);
         //Debug.Log(hitEnemies[0]);
         //Damage the enemy(player)
         if (hitEnemies.Length > 0)
@@ -100,24 +101,26 @@ public class EnemyAiMelee : MonoBehaviour
         else
         {
             enemyanim.Play("EnemyKnockBack", 0, 0);
-            StartCoroutine(hitreset());
+            StartCoroutine(hitknockback());
             //Invoke("hitreset", 1.2f);
         }
 
     }
 
-    private IEnumerator hitreset()
+    private IEnumerator hitknockback()
     {
         if (transform.localScale.x > 1)
         {
-            rb.AddForce(-(stats.knockbackForce), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(-stats.XknockbackForce, stats.YknockbackForce) ,ForceMode2D.Impulse);
         }
         else if (transform.localScale.x < 1)
         {
-            rb.AddForce(stats.knockbackForce, ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
         }
 
-        yield return new WaitForSeconds(0.2f);
+        gameObject.layer = LayerMask.NameToLayer("ghostenemy");
+        yield return new WaitForSecondsRealtime(0.5f);
+        gameObject.layer = LayerMask.NameToLayer("enemy");
         stopmoving();
         movement.enabled = true;
         resetmove();
@@ -150,7 +153,7 @@ public class EnemyAiMelee : MonoBehaviour
     {
         if (attackPoint == null)
             return;
-        Gizmos.DrawWireCube(attackPoint.position, new Vector2(sizex, sizey));
+        Gizmos.DrawWireCube(attackHitbox.position, new Vector2(sizex, sizey));
     }
 
     IEnumerator swingAtkLeft()
@@ -158,13 +161,13 @@ public class EnemyAiMelee : MonoBehaviour
         hit = false;
         enemyanim.Play("EnemyAttack", 0, 0);
         stopmoving();
-        //movement.enabled = false;
+        movement.enabled = false;
         AttackSensor.SetActive(false);
         yield return new WaitForSeconds(1.5f);
         enemyAttack();
         yield return new WaitForSeconds(1.1f);
         stopmoving();
-        //movement.enabled = true;
+        movement.enabled = true;
         yield return new WaitForSeconds(stats.atkcooldown);
         AttackSensor.SetActive(true);
     }
@@ -174,13 +177,13 @@ public class EnemyAiMelee : MonoBehaviour
         hit = false;
         enemyanim.Play("EnemyAttack", 0, 0);
         stopmoving();
-       // movement.enabled = false;
+        movement.enabled = false;
         AttackSensor.SetActive(false);
         yield return new WaitForSeconds(1.5f);
         enemyAttack();
         yield return new WaitForSeconds(1.1f);
         stopmoving();
-        // movement.enabled = true;
+        movement.enabled = true;
         yield return new WaitForSeconds(stats.atkcooldown);
         AttackSensor.SetActive(true);
     }

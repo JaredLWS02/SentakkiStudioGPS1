@@ -37,4 +37,5 @@ public class playerstats : ScriptableObject
 
     public LayerMask groundlayer;
     public float XknockbackForce;
+    public float YknockbackForce;
 }

@@ -33,7 +33,7 @@ public class skillandultimate : MonoBehaviour
         {
             if (movement.instance.IsGrounded() && !movement.instance.isDashing)
             {
-                if(healthPoint.Instance.swaped)
+                if(!swapmechanic.instance.player1Active)
                 {
                     skillP2();
                 }
@@ -48,7 +48,7 @@ public class skillandultimate : MonoBehaviour
         {
             if (movement.instance.IsGrounded() && !movement.instance.isDashing)
             {
-                if (healthPoint.Instance.swaped)
+                if (!swapmechanic.instance.player1Active)
                 {
                     ultimateP2();
                 }

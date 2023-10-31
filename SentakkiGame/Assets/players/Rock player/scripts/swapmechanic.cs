@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class swapmechanic : MonoBehaviour
 {
+    public static swapmechanic instance;
     [SerializeField] private SwapScript swap;
     [SerializeField] private AudioSource p1;
     [SerializeField] private AudioSource p2;
@@ -18,6 +19,7 @@ public class swapmechanic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         /*        skin = swap.character1;*/
         p1.volume = 0.2f;
         p2.volume = 0.0f;
@@ -40,7 +42,6 @@ public class swapmechanic : MonoBehaviour
             GetComponent<movement>().stats = swap.p2Stats;
             GetComponent<skillandultimate>().stats = swap.p2Stats;
             GetComponent<Animator>().runtimeAnimatorController = swap.player2;
-            healthPoint.Instance.swaped = true;
             healthPoint.Instance.UpdateHealth();
             //playerattack.Attack();
             //GetComponent<SpriteRenderer>().sprite = swap.character1
@@ -54,7 +55,6 @@ public class swapmechanic : MonoBehaviour
             GetComponent<movement>().stats = swap.p1Stats;
             GetComponent<skillandultimate>().stats = swap.p1Stats;
             GetComponent<Animator>().runtimeAnimatorController = swap.player1;
-            healthPoint.Instance.swaped = false;
             healthPoint.Instance.UpdateHealth();
             //playerattack.Attack();
             //GetComponent<SpriteRenderer>().sprite = swap.character2;

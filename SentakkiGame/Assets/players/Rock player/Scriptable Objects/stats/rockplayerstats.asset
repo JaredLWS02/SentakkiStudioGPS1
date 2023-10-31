@@ -50,3 +50,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   XknockbackForce: 2
+  YknockbackForce: 3

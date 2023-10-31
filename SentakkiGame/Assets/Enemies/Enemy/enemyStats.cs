@@ -10,6 +10,7 @@ public class enemyStats : ScriptableObject
     public float dmg;
     public float chargeSpd;
     public float atkcooldown;
-    public Vector2 knockbackForce;
+    public float XknockbackForce;
+    public float YknockbackForce;
     public LayerMask playerLayers;
 }

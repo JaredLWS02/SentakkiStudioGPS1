@@ -116,11 +116,11 @@ public class EnemyAi : MonoBehaviour
     {
         if (transform.localScale.x > 1)
         {
-            rb.AddForce(-(stats.knockbackForce), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(-stats.XknockbackForce,stats.YknockbackForce), ForceMode2D.Impulse);
         }
         else if (transform.localScale.x < 1)
         {
-            rb.AddForce(stats.knockbackForce, ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
         }
         gameObject.layer = LayerMask.NameToLayer("ghostenemy");
         yield return new WaitForSecondsRealtime(0.5f);

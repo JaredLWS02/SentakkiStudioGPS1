@@ -10,7 +10,7 @@ private void OnTriggerEnter2D(Collider2D col)
 {
     if (col.CompareTag("Player"))
     {
-            if(healthPoint.Instance.swaped)
+            if(!swapmechanic.instance.player1Active)
             {
                 if (HealthBar.currenthealthAmountP2 < HealthBar.maxHealthAmount)
                 {
