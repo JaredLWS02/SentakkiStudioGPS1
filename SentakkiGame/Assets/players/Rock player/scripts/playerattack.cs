@@ -15,7 +15,7 @@ public class playerattack : MonoBehaviour
 
     private float lastclickedTime;
     private float lastcomboEnd;
-    private int combocounter;
+    public int combocounter;
 
     private Collider2D[] hitenemies;
 

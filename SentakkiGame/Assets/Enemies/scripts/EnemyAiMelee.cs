@@ -25,8 +25,6 @@ public class EnemyAiMelee : MonoBehaviour
     private Vector2 lastPos;
     private Vector2 curPos;
 
-    private bool hit;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -72,7 +70,6 @@ public class EnemyAiMelee : MonoBehaviour
         //Damage the enemy(player)
         if (hitEnemies.Length > 0)
         {
-            hit = true;
             foreach (Collider2D enemy in hitEnemies)
             {
                 healthPoint.Instance.TakeDamage(stats.dmg);
@@ -158,7 +155,6 @@ public class EnemyAiMelee : MonoBehaviour
 
     IEnumerator swingAtkLeft()
     {
-        hit = false;
         enemyanim.Play("EnemyAttack", 0, 0);
         stopmoving();
         movement.enabled = false;
@@ -174,7 +170,6 @@ public class EnemyAiMelee : MonoBehaviour
 
     IEnumerator swingAtkRight()
     {
-        hit = false;
         enemyanim.Play("EnemyAttack", 0, 0);
         stopmoving();
         movement.enabled = false;

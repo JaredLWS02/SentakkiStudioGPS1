@@ -1067,6 +1067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf8fe78afa3e23c44b332c834bedb819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combocounter: 0
   freezeframeduration: 0.6
   stats: {fileID: 11400000, guid: b7bb026f83d18ff4fb1f8cb4432f98ae, type: 2}
   atkanim: {fileID: 269279564}

@@ -39,6 +39,7 @@ public class swapmechanic : MonoBehaviour
         if (player1Active)//swap to player2
         {
             GetComponent<playerattack>().stats = swap.p2Stats;
+            GetComponent<playerattack>().combocounter = 0;
             GetComponent<movement>().stats = swap.p2Stats;
             GetComponent<skillandultimate>().stats = swap.p2Stats;
             GetComponent<Animator>().runtimeAnimatorController = swap.player2;
@@ -52,6 +53,7 @@ public class swapmechanic : MonoBehaviour
         else // swap to player1
         {
             GetComponent<playerattack>().stats = swap.p1Stats;
+            GetComponent<playerattack>().combocounter = 0;
             GetComponent<movement>().stats = swap.p1Stats;
             GetComponent<skillandultimate>().stats = swap.p1Stats;
             GetComponent<Animator>().runtimeAnimatorController = swap.player1;
