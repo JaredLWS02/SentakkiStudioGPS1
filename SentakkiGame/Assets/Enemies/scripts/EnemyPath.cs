@@ -9,6 +9,7 @@ public class EnemyPath : MonoBehaviour
     public float speed;
     public Animator anim;
     public bool isFacingRight;
+    [SerializeField] private float distanceOffset;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class EnemyPath : MonoBehaviour
 
         Vector3 scale = transform.localScale;
 
-        if(target.transform.position.x > transform.position.x) // right
+        if(target.transform.position.x > (transform.position.x + distanceOffset)) // right
         {
             flip = true;
             //scale.x = Mathf.Abs(scale.x) * -1 * (flip? - 1 : 1);
@@ -31,7 +32,7 @@ public class EnemyPath : MonoBehaviour
            // transform.eulerAngles = new Vector3(0, 0, 0);
             transform.localScale = new Vector2(4, 4);
         }
-        else // left
+        else if (target.transform.position.x < (transform.position.x - distanceOffset)) // left
         {
             flip = false;
             //scale.x = Mathf.Abs(scale.x) * (flip? -1 : 1);
