@@ -1,53 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
 
-public class Ambush : MonoBehaviour
-{
-    private CameraScript cameraScript;
-    public GameObject enemyPrefab;
-    public Spawn spawnScript; // Reference to your Spawn script.
-    private int defeatedEnemies = 0;
-    public GameObject goui;
-    public bool ambushstart;
-
-    private void OnTriggerEnter2D(Collider2D other)
+    public class Ambush : MonoBehaviour
     {
-        if (other.CompareTag("Player"))
+        private CameraScript cameraScript;
+        public GameObject enemyPrefab;
+        public Spawn spawnScript; // Reference to your Spawn script.
+        private int defeatedEnemies = 0;
+        public GameObject goui;
+        public bool ambushstart;
+
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Player entered the trigger.");
-            cameraScript = Camera.main.GetComponent<CameraScript>();
-
-            if (cameraScript != null)
+            if (other.CompareTag("Player"))
             {
-                cameraScript.StopFollowing();
+                Debug.Log("Player entered the trigger.");
+                cameraScript = Camera.main.GetComponent<CameraScript>();
 
-                Debug.Log("Camera stopped following.");
+                if (cameraScript != null)
+                {
+                    cameraScript.StopFollowing();
 
-                // Spawn 6 enemies using the Spawn script.
-                spawnScript.SpawnEnemiesFromAbove(6);
+                    Debug.Log("Camera stopped following.");
 
-                Debug.Log("Ambush event triggered.");
+                    // Spawn 6 enemies using the Spawn script.
+                    spawnScript.SpawnEnemiesFromAbove(6);
 
-                gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    Debug.Log("Ambush event triggered.");
+
+                    gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                }
+                else
+                {
+                    Debug.LogWarning("CameraScript not found on the main camera.");
+                }
             }
-            else
+        }
+
+
+        public void EnemyDefeated()
+        {
+            defeatedEnemies++;
+
+            if (defeatedEnemies >= 6)
             {
-                Debug.LogWarning("CameraScript not found on the main camera.");
+                goui.SetActive(true);
+                cameraScript.ResumeFollowing();
+                Spawn.instance.ResumeSpawning();
             }
         }
     }
-
-
-    public void EnemyDefeated()
-    {
-        defeatedEnemies++;
-
-        if (defeatedEnemies >= 6)
-        {
-            goui.SetActive(true);
-            cameraScript.ResumeFollowing(); // Update this line to match your CameraScript method.
-            Spawn.instance.ResumeSpawning();
-        }
-    }
-}

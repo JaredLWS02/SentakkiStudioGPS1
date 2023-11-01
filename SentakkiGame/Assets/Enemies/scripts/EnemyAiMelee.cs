@@ -73,7 +73,7 @@ public class EnemyAiMelee : MonoBehaviour
             foreach (Collider2D enemy in hitEnemies)
             {
                 healthPoint.Instance.TakeDamage(stats.dmg);
-                Debug.Log("Player hit!!!" + enemy.name);
+                //Debug.Log("Player hit!!!" + enemy.name);
             }
         }
     }
@@ -136,12 +136,12 @@ public class EnemyAiMelee : MonoBehaviour
             if (transform.localScale.x >= 1)
             {
                 StartCoroutine(swingAtkRight());
-                Debug.Log("Moved right");
+                //Debug.Log("Moved right");
             }
             else
             {
                 StartCoroutine(swingAtkLeft());
-                Debug.Log("Moved left");
+                //Debug.Log("Moved left");
             }
         }
     }
