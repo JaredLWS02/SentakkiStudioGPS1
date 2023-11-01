@@ -35,6 +35,11 @@ public class movement : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.instance.isPaused)
+        {
+            return;
+        }
+
         if (isDashing)
         {
             if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())

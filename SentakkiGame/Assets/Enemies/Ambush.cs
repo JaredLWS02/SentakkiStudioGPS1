@@ -7,11 +7,15 @@
         private CameraScript cameraScript;
         public GameObject enemyPrefab;
         public Spawn spawnScript; // Reference to your Spawn script.
-        private int defeatedEnemies = 0;
+        public int defeatedEnemies = 0;
         public GameObject goui;
         public bool ambushstart;
 
-        private void OnTriggerEnter2D(Collider2D other)
+    public void Update()
+    {
+        EnemyDefeated();
+    }
+    private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
             {
@@ -41,7 +45,6 @@
 
         public void EnemyDefeated()
         {
-            defeatedEnemies++;
 
             if (defeatedEnemies >= 6)
             {

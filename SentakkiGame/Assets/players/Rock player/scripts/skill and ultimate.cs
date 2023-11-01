@@ -29,6 +29,11 @@ public class skillandultimate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.instance.isPaused || animationskill.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.U) && gaugePoint.gaugePointAmount > 32)
         {
             if (movement.instance.IsGrounded() && !movement.instance.isDashing)
@@ -82,7 +87,15 @@ public class skillandultimate : MonoBehaviour
             }
             foreach (Collider2D enemy in hitenemiesSkill)
             {
-                enemy.GetComponent<EnemyAi>().takeDamage(stats.skilldmg);
+                if(enemy.CompareTag("enemy"))
+                {
+                    enemy.GetComponent<EnemyAi>().takeDamage(stats.skilldmg);
+                }
+
+                if (enemy.CompareTag("enemyMelee"))
+                {
+                    enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.skilldmg);
+                }
                 combomanagerUI.innercomboUI++;
                 combomanagerUI.checkcombostatus();
             }

@@ -15,7 +15,7 @@ public class swapmechanic : MonoBehaviour
     [SerializeField] private Animator animplayer2;
     [SerializeField] private playerattack playerattack;
 
-    public bool player1Active = true;
+    public bool player1Active;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +23,7 @@ public class swapmechanic : MonoBehaviour
         /*        skin = swap.character1;*/
         p1.volume = 0.2f;
         p2.volume = 0.0f;
+        player1Active = true;
     }
 
     // Update is called once per frame
@@ -43,12 +44,12 @@ public class swapmechanic : MonoBehaviour
             GetComponent<movement>().stats = swap.p2Stats;
             GetComponent<skillandultimate>().stats = swap.p2Stats;
             GetComponent<Animator>().runtimeAnimatorController = swap.player2;
-            healthPoint.Instance.UpdateHealth();
             //playerattack.Attack();
             //GetComponent<SpriteRenderer>().sprite = swap.character1
             p1.volume = 0.0f;
             p2.volume = 0.2f;
             player1Active = false;
+            healthPoint.Instance.UpdateHealth();
         }
         else // swap to player1
         {
@@ -57,12 +58,12 @@ public class swapmechanic : MonoBehaviour
             GetComponent<movement>().stats = swap.p1Stats;
             GetComponent<skillandultimate>().stats = swap.p1Stats;
             GetComponent<Animator>().runtimeAnimatorController = swap.player1;
-            healthPoint.Instance.UpdateHealth();
             //playerattack.Attack();
             //GetComponent<SpriteRenderer>().sprite = swap.character2;
             p1.volume = 0.2f;
             p2.volume = 0.0f;
             player1Active = true;
+            healthPoint.Instance.UpdateHealth();
         }
     }
     

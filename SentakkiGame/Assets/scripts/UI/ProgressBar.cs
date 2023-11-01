@@ -6,6 +6,8 @@ using UnityEngine.UI;
 //[ExecuteInEditMode()]
 public class ProgressBar : MonoBehaviour
 {
+
+    public static ProgressBar instance;
     public int maximum;
     public int minimum;
     public int current;
@@ -16,6 +18,7 @@ public class ProgressBar : MonoBehaviour
 
     void Start()
     {
+        instance = this;
         current = minimum; // Initialize the current value
     }
 

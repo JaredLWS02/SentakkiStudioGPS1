@@ -17,9 +17,11 @@ public class Spawn : MonoBehaviour
 
     private bool isSpawningPaused = false;
     public GameObject player;
-    public float enemycounter = 0;
+    public int enemycounter = 0;
     private bool isspawning;
+    int i;
 
+    public List<GameObject> enemyClone;
     public void PauseSpawning()
     {
         isSpawningPaused = true;
@@ -57,6 +59,7 @@ public class Spawn : MonoBehaviour
         GameObject selectedEnemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
 
         GameObject newEnemy = Instantiate(selectedEnemyPrefab, spawnPosition, Quaternion.identity);
+        enemyClone.Add(newEnemy);
         Debug.Log("spawn");
         enemycounter += 1;
 
@@ -68,6 +71,15 @@ public class Spawn : MonoBehaviour
     public void SpawnEnemiesFromAbove(int numberOfEnemies)
     {
         PauseSpawning();
+        foreach (GameObject enemy in enemyClone)
+        {
+            if(enemy != null)
+            {
+                Destroy(enemy);
+            }
+        }
+        enemyClone.Clear();
+
         // Implement logic to spawn 'numberOfEnemies' from above.
         for (int i = 0; i < numberOfEnemies; i++)
         {

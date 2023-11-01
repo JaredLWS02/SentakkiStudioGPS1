@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: rockplayerstats
   m_EditorClassIdentifier: 
   maxhealth: 100
-  atkdmg: 1
+  atkdmg: 100
   atkcooldown: 0.5
   atkrange: 1
   skilldmg: 30
@@ -28,7 +28,7 @@ MonoBehaviour:
     m_Bits: 512
   healthrestore: 10
   gaugerestoreItem: 30
-  gaugerestoreHit: 10
+  gaugerestoreHit: 3
   combo:
   - {fileID: 11400000, guid: 70b8fb5aa0c9a4443aba1b4fa6fa5ddb, type: 2}
   - {fileID: 11400000, guid: bba4b968e267ab04aa54481ac82d4c83, type: 2}

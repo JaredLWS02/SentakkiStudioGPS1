@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.SceneTemplate;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyAiMelee : MonoBehaviour
 {
@@ -94,6 +95,7 @@ public class EnemyAiMelee : MonoBehaviour
             movement.enabled = false;
             AttackSensor.SetActive(false);
             Spawn.instance.enemycounter -= 1;
+            ProgressBar.instance.UpdateProgressBar();
         }
         else
         {
@@ -116,9 +118,9 @@ public class EnemyAiMelee : MonoBehaviour
         }
 
         gameObject.layer = LayerMask.NameToLayer("ghostenemy");
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.4f);
         gameObject.layer = LayerMask.NameToLayer("enemy");
-        stopmoving();
+        //stopmoving();
         movement.enabled = true;
         resetmove();
         yield return new WaitForSeconds(stats.atkcooldown / 2);

@@ -52,6 +52,32 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &-7181106197921754615
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: death
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: fbfc37dbfd33d7a4281728087d1b199a, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &-7133230626275876473
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -199,7 +225,7 @@ AnimatorStateMachine:
     m_Position: {x: 200, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7104941973205636013}
-    m_Position: {x: 200, y: 420, z: 0}
+    m_Position: {x: 160, y: 390, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2464643598383416784}
     m_Position: {x: -190, y: 310, z: 0}
@@ -223,13 +249,16 @@ AnimatorStateMachine:
     m_Position: {x: 480, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6880555642518513889}
-    m_Position: {x: -50, y: 210, z: 0}
+    m_Position: {x: -70, y: 220, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -7181106197921754615}
+    m_Position: {x: -250, y: 130, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -80, y: -50, z: 0}
+  m_AnyStatePosition: {x: -200, y: -10, z: 0}
   m_EntryPosition: {x: 30, y: 100, z: 0}
   m_ExitPosition: {x: 60, y: -140, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -433,12 +462,6 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: walkcut
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -550,7 +573,7 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 1
+  m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0

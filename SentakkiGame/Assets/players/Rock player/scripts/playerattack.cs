@@ -38,6 +38,10 @@ public class playerattack : MonoBehaviour
 
     void Update()
     {
+        if(PauseMenu.instance.isPaused)
+        {
+            return;
+        }
         //Debug.DrawRay(plungeattackpoint.position, Vector2.down * 4f, Color.blue);
         // Attack input
         if (Input.GetKeyDown(KeyCode.J))
@@ -91,12 +95,12 @@ public class playerattack : MonoBehaviour
                 atkanim.Play("attack", 0, 0);
                 combocounter++;
                 lastclickedTime = Time.time;
-                comboAudioSource.Play();
-                //GaugePoint.Instance.RestoreGaugePoints(stats.gaugerestoreHit);
+                //comboAudioSource.Play();
+                GaugePoint.Instance.RestoreGaugePoints(stats.gaugerestoreHit);
 
                 if (combocounter >= stats.combo.Count)
                 {
-                    combocounter = 1;
+                    combocounter = 0;
                 }
 
                 foreach (Collider2D enemy in hitenemies)
