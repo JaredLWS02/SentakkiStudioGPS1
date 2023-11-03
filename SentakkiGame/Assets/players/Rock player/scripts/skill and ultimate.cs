@@ -15,6 +15,7 @@ public class skillandultimate : MonoBehaviour
     [SerializeField] private Animator animationskill;
     [SerializeField] private Transform skillattackpoint;
     [SerializeField] private AudioSource skillAndUltisfx;
+    [SerializeField] private AudioSource ultiReadySfx;
     [SerializeField] private combomanagerUI combomanagerUI;
     private bool failskill;
 
@@ -29,6 +30,11 @@ public class skillandultimate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.instance.isPaused || animationskill.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.U) && gaugePoint.gaugePointAmount > 32)
         {
             if (movement.instance.IsGrounded() && !movement.instance.isDashing)
@@ -44,7 +50,7 @@ public class skillandultimate : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.K) && gaugePoint.gaugePointAmount == 100)
+        if (Input.GetKeyDown(KeyCode.Y) && gaugePoint.gaugePointAmount == 100)
         {
             if (movement.instance.IsGrounded() && !movement.instance.isDashing)
             {
@@ -58,6 +64,13 @@ public class skillandultimate : MonoBehaviour
                 }
             }
         }
+
+        if(GaugePoint.Instance.gaugeBar.fillAmount >= 1 && !GaugePoint.Instance.ultiReady)
+        {
+            GaugePoint.Instance.ultiReady = true;
+            ultiReadySfx.clip = stats.ultsfx;
+            ultiReadySfx.Play();
+        }
     }
 
     void skillP1()
@@ -67,7 +80,7 @@ public class skillandultimate : MonoBehaviour
             skillAndUltisfx.clip = stats.skillsfx;
             skillAndUltisfx.Play();
             hitenemiesSkill = Physics2D.OverlapCircleAll(skillattackpoint.position, stats.skillrange, stats.enemylayer);
-            gaugePoint.TakeDamage(33);
+            gaugePoint.ReduceGauge(33);
             animationskill.runtimeAnimatorController = skillanim.animatorOV;
             animationskill.Play("skill", 0, 0);
             lastskillclickedtime = Time.time;
@@ -82,7 +95,15 @@ public class skillandultimate : MonoBehaviour
             }
             foreach (Collider2D enemy in hitenemiesSkill)
             {
-                enemy.GetComponent<EnemyAi>().takeDamage(stats.skilldmg);
+                if(enemy.CompareTag("enemy"))
+                {
+                    enemy.GetComponent<EnemyAi>().takeDamage(stats.skilldmg);
+                }
+
+                if (enemy.CompareTag("enemyMelee"))
+                {
+                    enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.skilldmg);
+                }
                 combomanagerUI.innercomboUI++;
                 combomanagerUI.checkcombostatus();
             }
@@ -94,10 +115,10 @@ public class skillandultimate : MonoBehaviour
         if (Time.time - lastskillclickedtime >= stats.skillcooldown)
         {
             Instantiate(edmobject,transform.position,Quaternion.identity);
-            //skillAndUltisfx.clip = stats.skillsfx;
-            //skillAndUltisfx.Play();
+            skillAndUltisfx.clip = stats.skillsfx;
+            skillAndUltisfx.Play();
             //hitenemiesSkill = Physics2D.OverlapCircleAll(skillattackpoint.position, stats.skillrange, stats.enemylayer);
-            gaugePoint.TakeDamage(33);
+            gaugePoint.ReduceGauge(33);
             //animationskill.runtimeAnimatorController = skillanim.animatorOV;
             //animationskill.Play("skill", 0, 0);
             lastskillclickedtime = Time.time;
@@ -117,12 +138,12 @@ public class skillandultimate : MonoBehaviour
     {
         Gizmos.DrawWireSphere(skillattackpoint.position, stats.skillrange);
     }
-    void ExitSkill()
+    private void ExitSkill()
     {
         animationskill.Play("idle", 0, 0);
     }
 
-     void Startfreezeframe()
+    private void Startfreezeframe()
     {
         if (!failskill)
         {
@@ -131,4 +152,5 @@ public class skillandultimate : MonoBehaviour
             //atkanim.speed = freezeframeduration;
         }
     }
+
 }

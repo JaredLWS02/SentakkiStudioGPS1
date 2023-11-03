@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.SceneTemplate;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyAiMelee : MonoBehaviour
 {
@@ -24,8 +23,6 @@ public class EnemyAiMelee : MonoBehaviour
     [SerializeField] private EnemyPath movement;
     private Vector2 lastPos;
     private Vector2 curPos;
-
-    private bool hit;
 
     // Start is called before the first frame update
     void Start()
@@ -72,11 +69,10 @@ public class EnemyAiMelee : MonoBehaviour
         //Damage the enemy(player)
         if (hitEnemies.Length > 0)
         {
-            hit = true;
             foreach (Collider2D enemy in hitEnemies)
             {
                 healthPoint.Instance.TakeDamage(stats.dmg);
-                Debug.Log("Player hit!!!" + enemy.name);
+                //Debug.Log("Player hit!!!" + enemy.name);
             }
         }
     }
@@ -97,6 +93,7 @@ public class EnemyAiMelee : MonoBehaviour
             movement.enabled = false;
             AttackSensor.SetActive(false);
             Spawn.instance.enemycounter -= 1;
+            ProgressBar.instance.UpdateProgressBar();
         }
         else
         {
@@ -119,9 +116,9 @@ public class EnemyAiMelee : MonoBehaviour
         }
 
         gameObject.layer = LayerMask.NameToLayer("ghostenemy");
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.4f);
         gameObject.layer = LayerMask.NameToLayer("enemy");
-        stopmoving();
+        //stopmoving();
         movement.enabled = true;
         resetmove();
         yield return new WaitForSeconds(stats.atkcooldown / 2);
@@ -139,12 +136,12 @@ public class EnemyAiMelee : MonoBehaviour
             if (transform.localScale.x >= 1)
             {
                 StartCoroutine(swingAtkRight());
-                Debug.Log("Moved right");
+                //Debug.Log("Moved right");
             }
             else
             {
                 StartCoroutine(swingAtkLeft());
-                Debug.Log("Moved left");
+                //Debug.Log("Moved left");
             }
         }
     }
@@ -158,7 +155,6 @@ public class EnemyAiMelee : MonoBehaviour
 
     IEnumerator swingAtkLeft()
     {
-        hit = false;
         enemyanim.Play("EnemyAttack", 0, 0);
         stopmoving();
         movement.enabled = false;
@@ -174,7 +170,6 @@ public class EnemyAiMelee : MonoBehaviour
 
     IEnumerator swingAtkRight()
     {
-        hit = false;
         enemyanim.Play("EnemyAttack", 0, 0);
         stopmoving();
         movement.enabled = false;

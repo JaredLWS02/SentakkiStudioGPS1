@@ -11,6 +11,7 @@ public class GaugePoint : MonoBehaviour
     public static GaugePoint Instance;
 
     public float gaugePointAmount;
+    public bool ultiReady;
 
     private void Awake()  
      {
@@ -33,17 +34,13 @@ public class GaugePoint : MonoBehaviour
 
     private void Update()
     {
-/*        if (Input.GetKeyDown(KeyCode.U) && gaugePointAmount > 32)
+        if (gaugeBar.fillAmount < 1)
         {
-            TakeDamage(33);
-        }*/
-/*        if (Input.GetKeyDown(KeyCode.K) && gaugePointAmount == 100)
-        {
-            TakeDamage(100);
-        }*/
+            ultiReady = false; 
+        }
     }
 
-    public void TakeDamage(float damage)
+    public void ReduceGauge(float damage)
     {
         gaugePointAmount -= damage;
         if (gaugePointAmount < 0)

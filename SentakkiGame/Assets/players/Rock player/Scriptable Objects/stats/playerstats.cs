@@ -10,6 +10,7 @@ public class playerstats : ScriptableObject
     public float atkdmg;
     public float atkcooldown;
     public float atkrange;
+    public AudioClip atksfx;
 
     public float skilldmg;
     public float skillcooldown;

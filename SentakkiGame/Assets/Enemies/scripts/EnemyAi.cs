@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.SceneTemplate;
 using UnityEngine;
 
 public class EnemyAi : MonoBehaviour
@@ -45,7 +43,7 @@ public class EnemyAi : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if ((rb.velocity.x >= 9 || rb.velocity.x <= -9) && !hit)
+        if ((rb.velocity.x == 10 || rb.velocity.x <= -10) && !hit)
         {
             enemyAttack();
         }
@@ -81,7 +79,7 @@ public class EnemyAi : MonoBehaviour
             foreach (Collider2D enemy in hitEnemies)
             {
                 healthPoint.Instance.TakeDamage(stats.dmg);
-                Debug.Log("Player hit!!!" + enemy.name);
+               // Debug.Log("Player hit!!!" + enemy.name);
             }
         }
     }
@@ -102,6 +100,7 @@ public class EnemyAi : MonoBehaviour
             movement.enabled = false;
             AttackSensor.SetActive(false);
             Spawn.instance.enemycounter -= 1;
+            ProgressBar.instance.UpdateProgressBar();
         }
         else
         {
@@ -123,9 +122,9 @@ public class EnemyAi : MonoBehaviour
             rb.AddForce(new Vector2(stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
         }
         gameObject.layer = LayerMask.NameToLayer("ghostenemy");
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.6f);
         gameObject.layer = LayerMask.NameToLayer("enemy");
-        stopmoving();
+        //stopmoving();
         movement.enabled = true;
         resetmove();
         yield return new WaitForSeconds(stats.atkcooldown / 2);
@@ -145,12 +144,12 @@ public class EnemyAi : MonoBehaviour
             if (transform.localScale.x >= 1)
             {
                 StartCoroutine(chargeAtkRight());
-                Debug.Log("Moved right");
+               // Debug.Log("Moved right");
             }
             else
             {
                 StartCoroutine(chargeAtkLeft());
-                Debug.Log("Moved left");
+                //Debug.Log("Moved left");
             }
         }
     }
