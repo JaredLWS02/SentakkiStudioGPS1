@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class movement : MonoBehaviour
@@ -22,6 +21,7 @@ public class movement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Animator moveanim;
+    [SerializeField] private AudioSource jumpSource;
 
     private void OnDisable()
     {
@@ -70,11 +70,12 @@ public class movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
+            jumpSource.Play();
             moveanim.Play("jump", 0, 0);
             rb.AddForce(Vector2.up * stats.jumpingPower, ForceMode2D.Impulse);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && moveKeyPress)
+        if (Input.GetKeyDown(KeyCode.I) && canDash && moveKeyPress)
         {
             StartCoroutine(Dash());
         }

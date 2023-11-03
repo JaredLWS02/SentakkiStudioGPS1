@@ -96,33 +96,51 @@ public class healthPoint : MonoBehaviour
         {
             healthBar.fillAmount = currenthealthAmountP1 / maxHealthAmount;
         }
+
+        if (healthBar.fillAmount <= 0 )
+        {
+            GetComponent<Animator>().Play("death", 0, 0);
+        }
     }
 
     private IEnumerator Knockback()
     {
-        Debug.Log("knock");
+        if(healthBar.fillAmount > 0)
+        {
+            Debug.Log("knock");
+            GetComponent<movement>().enabled = false;
+            GetComponent<playerattack>().enabled = false;
+            GetComponent<skillandultimate>().enabled = false;
+            GetComponent<Animator>().Play("knockback", 0, 0);
+            gameObject.layer = LayerMask.NameToLayer("ghostplayer");
+            Time.timeScale = 1.0f;
+            if (transform.localScale.x > 1)
+            {
+                rb.AddForce(new Vector2(-statsP1.XknockbackForce, statsP1.YknockbackForce) * 4, ForceMode2D.Impulse);
+            }
+            else if (transform.localScale.x < 1)
+            {
+                rb.AddForce(new Vector2(statsP1.XknockbackForce, statsP1.YknockbackForce) * 4, ForceMode2D.Impulse);
+            }
+            yield return new WaitForSecondsRealtime(1f);
+            rb.velocity = Vector2.zero;
+            GetComponent<movement>().enabled = true;
+            GetComponent<playerattack>().enabled = true;
+            GetComponent<skillandultimate>().enabled = true;
+            GetComponent<Animator>().Play("idle", 0, 0);
+            yield return new WaitForSecondsRealtime(1f);
+            gameObject.layer = LayerMask.NameToLayer("player");
+            hit = false;
+        }
+    }
+
+    private void ded()
+    {
+        StopAllCoroutines();
+        gameObject.layer = LayerMask.NameToLayer("ghostplayer");
         GetComponent<movement>().enabled = false;
         GetComponent<playerattack>().enabled = false;
         GetComponent<skillandultimate>().enabled = false;
-        GetComponent<Animator>().Play("knockback", 0, 0);
-        gameObject.layer = LayerMask.NameToLayer("ghostplayer");
-        Time.timeScale = 1.0f;
-        if (transform.localScale.x > 1)
-        {
-            rb.AddForce(new Vector2(-statsP1.XknockbackForce, statsP1.YknockbackForce) * 4,ForceMode2D.Impulse);
-        }
-        else if(transform.localScale.x < 1)
-        {
-            rb.AddForce(new Vector2(statsP1.XknockbackForce, statsP1.YknockbackForce) * 4, ForceMode2D.Impulse);
-        }
-        yield return new WaitForSecondsRealtime(1f);
-        rb.velocity = Vector2.zero;
-        GetComponent<movement>().enabled = true;
-        GetComponent<playerattack>().enabled = true;
-        GetComponent<skillandultimate>().enabled = true;
-        GetComponent<Animator>().Play("idle", 0, 0);
-        yield return new WaitForSecondsRealtime(1f);
-        gameObject.layer = LayerMask.NameToLayer("player");
-        hit = false;
+        GetComponent<swapmechanic>().enabled = false;
     }
 }

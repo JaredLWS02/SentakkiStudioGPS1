@@ -15,6 +15,7 @@ public class playerattack : MonoBehaviour
 
     private float lastclickedTime;
     private float lastcomboEnd;
+    public float extra;
     public int combocounter;
 
     private Collider2D[] hitenemies;
@@ -25,11 +26,11 @@ public class playerattack : MonoBehaviour
 
     [SerializeField] private Animator atkanim;
     [SerializeField] private combomanagerUI combomanagerUI;
-    [SerializeField] private AudioSource comboAudioSource;
     [SerializeField] private Transform attackpoint;
     [SerializeField] private Transform plungeattackpoint;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private AudioSource combosource;
+    [SerializeField] private AudioSource atksource;
 
     void Start()
     {
@@ -38,7 +39,7 @@ public class playerattack : MonoBehaviour
 
     void Update()
     {
-        if(PauseMenu.instance.isPaused)
+        if(PauseMenu.instance.isPaused || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("skill"))
         {
             return;
         }
@@ -52,10 +53,10 @@ public class playerattack : MonoBehaviour
                 {
                     Attack();
                 }
-                else
-                {
-                    PlungeAttack();
-                }
+                //else
+                //{
+                //    PlungeAttack();
+                //}
             }
         }
 
@@ -91,12 +92,18 @@ public class playerattack : MonoBehaviour
                 //Debug.Log("attack combo");
                 atkanim.runtimeAnimatorController = stats.combo[combocounter].animatorOV;
                 combosource.clip = stats.combosfx[combocounter];
-                combosource.Play();
+                atksource.clip = stats.atksfx;
+                if (hitenemies.Length >= 1)
+                {
+                    combosource.Play();
+                }
+                else
+                {
+                    atksource.Play();
+                }
                 atkanim.Play("attack", 0, 0);
                 combocounter++;
                 lastclickedTime = Time.time;
-                //comboAudioSource.Play();
-                GaugePoint.Instance.RestoreGaugePoints(stats.gaugerestoreHit);
 
                 if (combocounter >= stats.combo.Count)
                 {
@@ -114,6 +121,7 @@ public class playerattack : MonoBehaviour
                         enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.atkdmg);
                     }
 
+                    GaugePoint.Instance.RestoreGaugePoints(stats.gaugerestoreHit + extra);
                     combomanagerUI.innercomboUI++;
                     combomanagerUI.checkcombostatus();
                 }
@@ -161,7 +169,20 @@ public class playerattack : MonoBehaviour
         if(atkanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && atkanim.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
         {
             reseted = false;
-            Invoke("EndCombo", 2);
+
+            if(combomanagerUI.innercomboUI >= 0 && combomanagerUI.innercomboUI <= 18)
+            {
+                Invoke("EndCombo", 2);
+            }
+            else if (combomanagerUI.innercomboUI >=18 && combomanagerUI.innercomboUI <= 24)
+            {
+                Invoke("EndCombo", 1f);
+            }
+            else if (combomanagerUI.innercomboUI > 24)
+            {
+                Invoke("EndCombo", 0.5f);
+            }
+
         }
     }
 

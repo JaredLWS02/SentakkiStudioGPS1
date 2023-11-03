@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/move and attack.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
+    path: Assets/Scenes/mainmenu.unity
     guid: aa510438410cc52489f3b8cb98194929
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/play.unity
     guid: e3e7eee38b9aae94ba9ba3360d922ddc
+  - enabled: 1
+    path: Assets/Scenes/death.unity
+    guid: 3ac7b119ef341264faa26715ed8500d9
+  - enabled: 1
+    path: Assets/Scenes/stageClear.unity
+    guid: 6504426fff5c58e49811018427300574
   m_configObjects: {}

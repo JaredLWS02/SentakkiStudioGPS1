@@ -7,17 +7,12 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void GoToSettingsMenu()
-    {
-        SceneManager.LoadScene("SettingMenu");
+        scenemanager.instance.switchPlay();
     }
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        scenemanager.instance.switchmenu();
     }
 
     public void QuitGame()

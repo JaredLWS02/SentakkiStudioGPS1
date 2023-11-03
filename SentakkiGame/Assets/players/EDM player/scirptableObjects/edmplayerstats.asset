@@ -16,27 +16,30 @@ MonoBehaviour:
   atkdmg: 10
   atkcooldown: 0.5
   atkrange: 1
+  atksfx: {fileID: 8300000, guid: 075f3c9c3e1735a4a8202bc2990df6eb, type: 3}
   skilldmg: 30
   skillcooldown: 1
   skillrange: 3
-  skillsfx: {fileID: 8300000, guid: 9aba6f674a09b604ca1f0b6af23bb34f, type: 3}
+  skillsfx: {fileID: 8300000, guid: 2ac26a5b32910294cbd03cafb9823394, type: 3}
   ultdmg: 50
   ultrange: 0
-  ultsfx: {fileID: 0}
+  ultsfx: {fileID: 8300000, guid: fa5867843ae9e6b4fa1d94dcb579ed13, type: 3}
   enemylayer:
     serializedVersion: 2
     m_Bits: 512
   healthrestore: 10
   gaugerestoreItem: 30
-  gaugerestoreHit: 10
+  gaugerestoreHit: 1
   combo:
   - {fileID: 11400000, guid: 70b8fb5aa0c9a4443aba1b4fa6fa5ddb, type: 2}
   - {fileID: 11400000, guid: bba4b968e267ab04aa54481ac82d4c83, type: 2}
   - {fileID: 11400000, guid: c7ab03bc9c3d5e74a9efe643da910490, type: 2}
   combosfx:
-  - {fileID: 8300000, guid: dc5c4a79c462ccf4ebf7ddb1a9fe80ce, type: 3}
-  - {fileID: 8300000, guid: d3decba2da42034478db2642e0133227, type: 3}
-  - {fileID: 8300000, guid: 3822ba01e3010454ca633d267e461cf7, type: 3}
+  - {fileID: 8300000, guid: 383df1dd59f09dd4bb9ba1f3422aab2c, type: 3}
+  - {fileID: 8300000, guid: 634424059e55c744fb67099892aafabc, type: 3}
+  - {fileID: 8300000, guid: a1915dec3f476fe40ba8b8b2907bda41, type: 3}
+  - {fileID: 8300000, guid: 82b19f0bcaaf17a4aa620d70f76b96e9, type: 3}
+  - {fileID: 8300000, guid: 4cf9277816383e1448e1e4915584b6c1, type: 3}
   speed: 10
   jumpingPower: 20
   dashingPower: 5

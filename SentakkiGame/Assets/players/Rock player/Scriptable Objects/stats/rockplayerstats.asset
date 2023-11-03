@@ -12,23 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fded09839600d345b0f9c1354f9d7c8, type: 3}
   m_Name: rockplayerstats
   m_EditorClassIdentifier: 
-  maxhealth: 100
-  atkdmg: 100
+  maxhealth: 10
+  atkdmg: 20
   atkcooldown: 0.5
   atkrange: 1
+  atksfx: {fileID: 8300000, guid: a67244edacbf03741866fd3be85d556c, type: 3}
   skilldmg: 30
   skillcooldown: 1
-  skillrange: 3
+  skillrange: 2
   skillsfx: {fileID: 8300000, guid: 9aba6f674a09b604ca1f0b6af23bb34f, type: 3}
   ultdmg: 50
   ultrange: 0
-  ultsfx: {fileID: 0}
+  ultsfx: {fileID: 8300000, guid: 8228f6163b1557244ac66bd00bbe3464, type: 3}
   enemylayer:
     serializedVersion: 2
     m_Bits: 512
   healthrestore: 10
   gaugerestoreItem: 30
-  gaugerestoreHit: 3
+  gaugerestoreHit: 1
   combo:
   - {fileID: 11400000, guid: 70b8fb5aa0c9a4443aba1b4fa6fa5ddb, type: 2}
   - {fileID: 11400000, guid: bba4b968e267ab04aa54481ac82d4c83, type: 2}

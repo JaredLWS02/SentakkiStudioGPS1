@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,9 +10,11 @@ public class swapmechanic : MonoBehaviour
     [SerializeField] private SwapScript swap;
     [SerializeField] private AudioSource p1;
     [SerializeField] private AudioSource p2;
+    [SerializeField] private AudioSource swapSource;
     [SerializeField] private movement playerControl;
-    [SerializeField] private Animator animplayer2;
     [SerializeField] private playerattack playerattack;
+
+    private float lastswapTime;
 
     public bool player1Active;
     // Start is called before the first frame update
@@ -29,9 +30,12 @@ public class swapmechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Q) && (Time.time - lastswapTime ) >= swap.swapcooldown)
         {
+            swapSource.Play();
             SwitchPlayer();
+
+            lastswapTime = Time.time;
         }
     }
 

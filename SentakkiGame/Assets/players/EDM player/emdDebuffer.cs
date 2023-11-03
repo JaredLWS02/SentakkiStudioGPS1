@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
-using UnityEditor.Timeline;
 using UnityEngine;
 
 public class emdDebuffer : MonoBehaviour
@@ -17,26 +15,14 @@ public class emdDebuffer : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         if (player.transform.localScale.x > 1)
         {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 3), ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(5, 4), ForceMode2D.Impulse);
         }
         else
         {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(-6, 3), ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(-5, 4), ForceMode2D.Impulse);
         }
         Invoke("kill", 10f);
     }
-
-
-    //private void slowdown()
-    //{
-    //    hitenemy = Physics2D.OverlapCircleAll(transform.position, size,stats.enemylayer);
-
-    //    foreach (Collider2D coll in hitenemy)
-    //    {
-    //        coll.GetComponent<EnemyPath>().speed = 1;
-    //    }
-
-    //}
 
     private void kill()
     {
