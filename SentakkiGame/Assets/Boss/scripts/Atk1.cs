@@ -90,7 +90,7 @@ public class Atk1 : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(5);
         atk3.SetActive(true);
-        yield return new WaitForSecondsRealtime(10);
+        yield return new WaitForSecondsRealtime(15);
         atk3.SetActive(false);
         col2d.enabled = true;
     }

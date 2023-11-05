@@ -29,7 +29,7 @@ public class AOEDmg : MonoBehaviour
             foreach (Collider2D enemy in hitEnemies)
             {
                 healthPoint.Instance.TakeDamage(5);
-                Debug.Log("Player hit!!!" + enemy.name);
+                Debug.Log("Player hit AOE!!!" + enemy.name);
             }
         }
     }
