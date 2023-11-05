@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Atk1 : MonoBehaviour
 {
+    [SerializeField] private GameObject atk3;
     [SerializeField] private BoxCollider2D col2d;
     [SerializeField] private GameObject[] atk1Warning;
     [SerializeField] private GameObject[] atk1;
@@ -87,7 +88,10 @@ public class Atk1 : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);//26
         atk1[0].SetActive(false);
 
-        yield return new WaitForSecondsRealtime(15);
+        yield return new WaitForSecondsRealtime(5);
+        atk3.SetActive(true);
+        yield return new WaitForSecondsRealtime(10);
+        atk3.SetActive(false);
         col2d.enabled = true;
     }
 }
