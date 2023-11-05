@@ -44,6 +44,7 @@ public class movement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
             {
+                jumpSource.Play();
                 moveanim.Play("jump", 0, 0);
                 rb.AddForce(Vector2.up * stats.jumpingPower, ForceMode2D.Impulse);
             }

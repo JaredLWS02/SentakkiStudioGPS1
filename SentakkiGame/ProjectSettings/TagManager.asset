@@ -11,6 +11,9 @@ TagManager:
   - interactables
   - enemy
   - enemyMelee
+  - hp
+  - mp
+  - skill
   layers:
   - Default
   - TransparentFX

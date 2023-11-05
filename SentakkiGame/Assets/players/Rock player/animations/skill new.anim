@@ -34,7 +34,7 @@ AnimationClip:
       value: {fileID: -304470276, guid: 3973057873f6b7d4f8b1a091f37e4444, type: 3}
     - time: 0.5
       value: {fileID: 595301902, guid: 3973057873f6b7d4f8b1a091f37e4444, type: 3}
-    - time: 0.6666667
+    - time: 0.5833333
       value: {fileID: -373939195, guid: 3973057873f6b7d4f8b1a091f37e4444, type: 3}
     attribute: m_Sprite
     path: 
@@ -71,7 +71,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.75
+    m_StopTime: 0.6666666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -98,28 +98,28 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5
+  - time: 0.41666666
     functionName: Startfreezeframe
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6666667
-    functionName: enablemovement
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.6666667
+  - time: 0.5
     functionName: endfreezeframe
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6666667
+  - time: 0.5833333
+    functionName: enablemovement
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5833333
     functionName: ExitSkill
     data: 
     objectReferenceParameter: {fileID: 0}

@@ -68,7 +68,7 @@ public class skillandultimate : MonoBehaviour
         if(GaugePoint.Instance.gaugeBar.fillAmount >= 1 && !GaugePoint.Instance.ultiReady)
         {
             GaugePoint.Instance.ultiReady = true;
-            ultiReadySfx.clip = stats.ultsfx;
+            ultiReadySfx.clip = stats.ultReadysfx;
             ultiReadySfx.Play();
         }
     }
@@ -81,7 +81,7 @@ public class skillandultimate : MonoBehaviour
             skillAndUltisfx.Play();
             hitenemiesSkill = Physics2D.OverlapCircleAll(skillattackpoint.position, stats.skillrange, stats.enemylayer);
             gaugePoint.ReduceGauge(33);
-            animationskill.runtimeAnimatorController = skillanim.animatorOV;
+            //animationskill.runtimeAnimatorController = skillanim.animatorOV;
             animationskill.Play("skill", 0, 0);
             lastskillclickedtime = Time.time;
 
@@ -120,14 +120,14 @@ public class skillandultimate : MonoBehaviour
             //hitenemiesSkill = Physics2D.OverlapCircleAll(skillattackpoint.position, stats.skillrange, stats.enemylayer);
             gaugePoint.ReduceGauge(33);
             //animationskill.runtimeAnimatorController = skillanim.animatorOV;
-            //animationskill.Play("skill", 0, 0);
+            animationskill.Play("skill", 0, 0);
             lastskillclickedtime = Time.time;
         }
     }
 
     void ultimateP1()
     {
-        
+       
     }
 
     void ultimateP2()

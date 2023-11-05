@@ -17,5 +17,5 @@ MonoBehaviour:
   character1: {fileID: -954184109, guid: 0bec168c7e1dfde4ab7e699bfed85c91, type: 3}
   character2: {fileID: 0}
   player1: {fileID: 9100000, guid: 59a96d7e2da53f44c9fe60a6c2dc8def, type: 2}
-  player2: {fileID: 9100000, guid: 3e0716e0de600ee4b8813b1458effb02, type: 2}
+  player2: {fileID: 9100000, guid: 183b961b75162554a926b10697741029, type: 2}
   swapcooldown: 2

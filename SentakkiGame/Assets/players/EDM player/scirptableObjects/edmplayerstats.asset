@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: edmplayerstats
   m_EditorClassIdentifier: 
   maxhealth: 100
-  atkdmg: 10
+  atkdmg: 20
   atkcooldown: 0.5
   atkrange: 1
   atksfx: {fileID: 8300000, guid: 075f3c9c3e1735a4a8202bc2990df6eb, type: 3}
@@ -24,16 +24,17 @@ MonoBehaviour:
   ultdmg: 50
   ultrange: 0
   ultsfx: {fileID: 8300000, guid: fa5867843ae9e6b4fa1d94dcb579ed13, type: 3}
+  ultReadysfx: {fileID: 8300000, guid: 06cd1f40018397c4e928299e1267d8d6, type: 3}
   enemylayer:
     serializedVersion: 2
     m_Bits: 512
   healthrestore: 10
-  gaugerestoreItem: 30
+  gaugerestoreItem: 100
   gaugerestoreHit: 1
   combo:
-  - {fileID: 11400000, guid: 70b8fb5aa0c9a4443aba1b4fa6fa5ddb, type: 2}
-  - {fileID: 11400000, guid: bba4b968e267ab04aa54481ac82d4c83, type: 2}
-  - {fileID: 11400000, guid: c7ab03bc9c3d5e74a9efe643da910490, type: 2}
+  - {fileID: 11400000, guid: 8104217a63b9d4c4cbb1203deff2d836, type: 2}
+  - {fileID: 11400000, guid: 5e8012cdb90931a4aa899bd4a57cb183, type: 2}
+  - {fileID: 11400000, guid: 7590b052cf86e8f489b1242b3a085333, type: 2}
   combosfx:
   - {fileID: 8300000, guid: 383df1dd59f09dd4bb9ba1f3422aab2c, type: 3}
   - {fileID: 8300000, guid: 634424059e55c744fb67099892aafabc, type: 3}

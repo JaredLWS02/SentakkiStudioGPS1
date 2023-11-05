@@ -24,10 +24,11 @@ public class EnemyAi : MonoBehaviour
     private Vector2 curPos;
 
     private bool hit;
-
+    public float chargepower;
     // Start is called before the first frame update
     void Start()
     {
+        chargepower = stats.chargeSpd;
         currentHealth = stats.maxhp;
     }
 
@@ -171,7 +172,7 @@ public class EnemyAi : MonoBehaviour
         AttackSensor.SetActive(false);
         yield return new WaitForSeconds(1.5f);
         //AttackHtibox.SetActive(true);
-        rb.AddForce(new Vector2(-2 * stats.chargeSpd, 0), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(-2 * chargepower, 0), ForceMode2D.Impulse);
         //enemyAttack();
         yield return new WaitForSeconds(1.1f);
         //AttackHtibox.SetActive(false);
@@ -190,7 +191,7 @@ public class EnemyAi : MonoBehaviour
         AttackSensor.SetActive(false);
         yield return new WaitForSeconds(1.5f);
         //AttackHtibox.SetActive(true);
-        rb.AddForce(new Vector2(2 * stats.chargeSpd, 0), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(2 * chargepower, 0), ForceMode2D.Impulse);
         //enemyAttack();
         yield return new WaitForSeconds(1.1f);
         //AttackHtibox.SetActive(false);

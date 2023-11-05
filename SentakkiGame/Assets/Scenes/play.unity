@@ -734,7 +734,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 7850462055688195506}
   spawnScript: {fileID: 905171483}
-  defeatedEnemies: 0
   goui: {fileID: 1080301142}
   ambushstart: 0
 --- !u!4 &173479997
@@ -844,7 +843,7 @@ GameObject:
   - component: {fileID: 201080312}
   m_Layer: 0
   m_Name: HP pot
-  m_TagString: Untagged
+  m_TagString: hp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1035,11 +1034,13 @@ Transform:
   - {fileID: 920748667}
   - {fileID: 851695564}
   - {fileID: 1927231811}
+  - {fileID: 753615442}
   - {fileID: 851656153}
+  - {fileID: 292598548}
+  - {fileID: 1258307929}
+  - {fileID: 1341290474}
   - {fileID: 2097000716}
   - {fileID: 446224124}
-  - {fileID: 292598548}
-  - {fileID: 1341290474}
   - {fileID: 616479715}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1283,7 +1284,7 @@ Animator:
   m_GameObject: {fileID: 269279559}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 59a96d7e2da53f44c9fe60a6c2dc8def, type: 2}
+  m_Controller: {fileID: 9100000, guid: 183b961b75162554a926b10697741029, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1349,8 +1350,8 @@ BoxCollider2D:
   m_Offset: {x: -0.0112501085, y: -0.010440826}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.55, y: 0.55}
+    pivot: {x: 0.46330735, y: 0.5140794}
+    oldSize: {x: 0.58, y: 0.55}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1447,7 +1448,7 @@ Transform:
   m_GameObject: {fileID: 269279559}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.51, y: -2.16, z: 0}
+  m_LocalPosition: {x: -4.51, y: -1.88, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1508,7 +1509,7 @@ GameObject:
   - component: {fileID: 292598548}
   - component: {fileID: 292598549}
   m_Layer: 0
-  m_Name: atkSfx
+  m_Name: atkSfx (no hit)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3279,7 +3280,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 06cd1f40018397c4e928299e1267d8d6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9d438670dc4bda645b4b45d7b430bbb8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.528
   m_Pitch: 1
@@ -3446,6 +3447,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &753615441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 753615442}
+  m_Layer: 0
+  m_Name: ----------------------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &753615442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753615441}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.6582208, y: 1.6074831, z: 0.21241537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201877761}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &778381099
 GameObject:
@@ -3747,7 +3779,7 @@ Transform:
   m_GameObject: {fileID: 802857955}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3477, y: -3.86, z: 0}
+  m_LocalPosition: {x: 3.3477, y: -3.67, z: 0}
   m_LocalScale: {x: 56.695004, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4010,7 +4042,7 @@ GameObject:
   - component: {fileID: 851656153}
   - component: {fileID: 851656154}
   m_Layer: 0
-  m_Name: combosfx
+  m_Name: combosfx (hit)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4546,7 +4578,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 8869006305162616559, guid: cca0816203d9eb149b4964534d425c39, type: 3}
   - {fileID: 169497297300367892, guid: 03eea029af8734a43bef1092b0385e7b, type: 3}
-  AmbushEnemyPrefabs: {fileID: 0}
+  spawnInterval: 3.5
   player: {fileID: 269279559}
   enemycounter: 0
   enemyClone: []
@@ -5616,6 +5648,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1258307928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1258307929}
+  m_Layer: 0
+  m_Name: ---------------------- (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1258307929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258307928}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.6582208, y: 1.6074831, z: 0.21241537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201877761}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1298171901
 GameObject:
   m_ObjectHideFlags: 0
@@ -6283,7 +6346,7 @@ GameObject:
   - component: {fileID: 1622419110}
   m_Layer: 0
   m_Name: MP pot
-  m_TagString: Untagged
+  m_TagString: mp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7940,7 +8003,7 @@ GameObject:
   - component: {fileID: 2097000717}
   m_Layer: 0
   m_Name: skill and Ulti sfx
-  m_TagString: Untagged
+  m_TagString: skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8488,13 +8551,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4936204771733058343, guid: 31d3f07d5cfba094783d32fa1cfde4f4, type: 3}
+      propertyPath: skillsfx
+      value: 
+      objectReference: {fileID: 2097000717}
     - target: {fileID: 8429564180714512490, guid: 31d3f07d5cfba094783d32fa1cfde4f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8429564180714512490, guid: 31d3f07d5cfba094783d32fa1cfde4f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.56
+      value: -2.37
       objectReference: {fileID: 0}
     - target: {fileID: 8429564180714512490, guid: 31d3f07d5cfba094783d32fa1cfde4f4, type: 3}
       propertyPath: m_LocalPosition.z
