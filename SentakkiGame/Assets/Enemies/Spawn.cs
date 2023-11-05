@@ -9,8 +9,6 @@ public class Spawn : MonoBehaviour
     private GameObject[] enemyPrefabs;
     [SerializeField]
 
-    private GameObject AmbushEnemyPrefabs;
-
     private float spawnInterval = 3.5f;
 
     private Camera mainCamera;
@@ -19,7 +17,6 @@ public class Spawn : MonoBehaviour
     public GameObject player;
     public int enemycounter = 0;
     private bool isspawning;
-    int i;
 
     public List<GameObject> enemyClone;
     public void PauseSpawning()
@@ -42,7 +39,7 @@ public class Spawn : MonoBehaviour
 
     private void Update()
     {
-        if (!isSpawningPaused && enemycounter <= 3 && !isspawning)
+        if (!isSpawningPaused && enemycounter < 3 && !isspawning)
         {
             StartCoroutine(SpawnEnemiesContinuously());
         }
@@ -93,7 +90,10 @@ public class Spawn : MonoBehaviour
 
             GameObject newEnemy = Instantiate(selectedEnemyPrefab, spawnPosition, Quaternion.identity);
 
-            // You may also need to adjust other properties of the spawned enemy.
+            //declare a list above 
+            //add enemies spawn in instantiate into the list
+            //refer to line 61 on how to do it
+
         }
     }
 }

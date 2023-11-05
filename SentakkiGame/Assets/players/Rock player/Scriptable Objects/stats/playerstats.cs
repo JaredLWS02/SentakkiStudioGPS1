@@ -20,6 +20,7 @@ public class playerstats : ScriptableObject
     public float ultdmg;
     public float ultrange;
     public AudioClip ultsfx;
+    public AudioClip ultReadysfx;
 
     public LayerMask enemylayer;
     public float healthrestore;

@@ -24,11 +24,12 @@ MonoBehaviour:
   ultdmg: 50
   ultrange: 0
   ultsfx: {fileID: 8300000, guid: 8228f6163b1557244ac66bd00bbe3464, type: 3}
+  ultReadysfx: {fileID: 8300000, guid: 9d438670dc4bda645b4b45d7b430bbb8, type: 3}
   enemylayer:
     serializedVersion: 2
     m_Bits: 512
   healthrestore: 10
-  gaugerestoreItem: 30
+  gaugerestoreItem: 100
   gaugerestoreHit: 1
   combo:
   - {fileID: 11400000, guid: 70b8fb5aa0c9a4443aba1b4fa6fa5ddb, type: 2}

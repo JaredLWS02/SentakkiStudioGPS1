@@ -6,11 +6,11 @@ public class RecoverySystem : MonoBehaviour
     [SerializeField] private healthPoint HealthBar;
     [SerializeField] private GaugePoint gaugePoint;
 
-private void OnTriggerEnter2D(Collider2D col)
-{
-    if (col.CompareTag("Player"))
+    private void OnTriggerEnter2D(Collider2D col)
     {
-            if(!swapmechanic.instance.player1Active)
+        if (col.CompareTag("Player") && this.CompareTag("hp"))
+        {
+            if (!swapmechanic.instance.player1Active)
             {
                 if (HealthBar.currenthealthAmountP2 < HealthBar.maxHealthAmount)
                 {
@@ -26,7 +26,10 @@ private void OnTriggerEnter2D(Collider2D col)
                     HealthBar.RestoreHealthPoints(stats.healthrestore);
                 }
             }
+        }
 
+        if (col.CompareTag("Player") && this.CompareTag("mp"))
+        {
             if (gaugePoint.gaugePointAmount < gaugePoint.maxGaugePointAmount)
             {
                 Destroy(gameObject);
@@ -34,5 +37,5 @@ private void OnTriggerEnter2D(Collider2D col)
             }
 
         }
-}
+    }
 }
