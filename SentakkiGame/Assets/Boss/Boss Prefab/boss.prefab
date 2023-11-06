@@ -236,7 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854ba30627dae7a44a144d2dde300bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   col2d: {fileID: 100975305407823930}
   atk2: {fileID: 7387240790986861284, guid: 05f45a34a1a7d024580bf0d82c30acb3, type: 3}
   thrust: -5
@@ -258,7 +257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7124890980140464061
 Transform:
   m_ObjectHideFlags: 0
