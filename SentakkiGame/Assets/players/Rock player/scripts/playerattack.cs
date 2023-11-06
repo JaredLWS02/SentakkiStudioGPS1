@@ -40,7 +40,7 @@ public class playerattack : MonoBehaviour
 
     void Update()
     {
-        if(PauseMenu.instance.isPaused || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("skill"))
+        if(PauseMenu.instance.isPaused || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("skill") )
         {
             return;
         }
