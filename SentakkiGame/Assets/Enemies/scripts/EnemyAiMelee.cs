@@ -23,13 +23,11 @@ public class EnemyAiMelee : MonoBehaviour
     [SerializeField] private EnemyPath movement;
     private Vector2 lastPos;
     private Vector2 curPos;
-    [SerializeField] private AudioSource hitsfx;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = stats.maxhp;
-        hitsfx = GameObject.FindGameObjectWithTag("hitsfx").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -71,7 +69,6 @@ public class EnemyAiMelee : MonoBehaviour
         //Damage the enemy(player)
         if (hitEnemies.Length > 0)
         {
-            hitsfx.Play();
             foreach (Collider2D enemy in hitEnemies)
             {
                 healthPoint.Instance.TakeDamage(stats.dmg);
@@ -124,6 +121,7 @@ public class EnemyAiMelee : MonoBehaviour
         //stopmoving();
         movement.enabled = true;
         resetmove();
+        yield return new WaitForSeconds(stats.atkcooldown / 2);
         AttackSensor.SetActive(true);
     }
     public void stopmoving()
@@ -161,7 +159,7 @@ public class EnemyAiMelee : MonoBehaviour
         stopmoving();
         movement.enabled = false;
         AttackSensor.SetActive(false);
-        yield return new WaitForSeconds(stats.chargetime);
+        yield return new WaitForSeconds(1.5f);
         enemyAttack();
         yield return new WaitForSeconds(1.1f);
         stopmoving();
@@ -176,7 +174,7 @@ public class EnemyAiMelee : MonoBehaviour
         stopmoving();
         movement.enabled = false;
         AttackSensor.SetActive(false);
-        yield return new WaitForSeconds(stats.chargetime);
+        yield return new WaitForSeconds(1.5f);
         enemyAttack();
         yield return new WaitForSeconds(1.1f);
         stopmoving();

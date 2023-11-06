@@ -24,15 +24,12 @@ public class EnemyAi : MonoBehaviour
     private Vector2 curPos;
 
     private bool hit;
-    private bool charging;
     public float chargepower;
-    [SerializeField] private AudioSource hitsfx;
     // Start is called before the first frame update
     void Start()
     {
         chargepower = stats.chargeSpd;
         currentHealth = stats.maxhp;
-        hitsfx = GameObject.FindGameObjectWithTag("hitsfx").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -47,12 +44,10 @@ public class EnemyAi : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (charging && !hit)
+        if ((rb.velocity.x == 10 || rb.velocity.x <= -10) && !hit)
         {
             enemyAttack();
         }
-
-        
     }
 
 /*    void FixedUpdate()
@@ -76,15 +71,14 @@ public class EnemyAi : MonoBehaviour
     {
         // play attack animation
         // Detect enemy(player) in range of attack
-        Collider2D[] hitPlayer = Physics2D.OverlapBoxAll(attackHitbox.position, new Vector2(sizex, sizey), angle, stats.playerLayers);
+        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackHitbox.position, new Vector2(sizex, sizey), angle, stats.playerLayers);
         //Debug.Log(hitEnemies[0]);
         //Damage the enemy(player)
-        if(hitPlayer.Length > 0)
+        if(hitEnemies.Length > 0)
         {
             hit = true;
-            foreach (Collider2D player in hitPlayer)
+            foreach (Collider2D enemy in hitEnemies)
             {
-                hitsfx.Play();
                 healthPoint.Instance.TakeDamage(stats.dmg);
                // Debug.Log("Player hit!!!" + enemy.name);
             }
@@ -98,7 +92,6 @@ public class EnemyAi : MonoBehaviour
         // knockback
         // take damage
         StopAllCoroutines();
-        charging = false;
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -130,11 +123,12 @@ public class EnemyAi : MonoBehaviour
             rb.AddForce(new Vector2(stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
         }
         gameObject.layer = LayerMask.NameToLayer("ghostenemy");
-        yield return new WaitForSecondsRealtime(0.4f);
+        yield return new WaitForSecondsRealtime(0.6f);
         gameObject.layer = LayerMask.NameToLayer("enemy");
         //stopmoving();
         movement.enabled = true;
         resetmove();
+        yield return new WaitForSeconds(stats.atkcooldown / 2);
         AttackSensor.SetActive(true);
     }
 
@@ -176,13 +170,11 @@ public class EnemyAi : MonoBehaviour
         stopmoving();
         movement.enabled = false;
         AttackSensor.SetActive(false);
-        yield return new WaitForSeconds(stats.chargetime);
-        charging = true;
+        yield return new WaitForSeconds(1.5f);
         //AttackHtibox.SetActive(true);
         rb.AddForce(new Vector2(-2 * chargepower, 0), ForceMode2D.Impulse);
         //enemyAttack();
         yield return new WaitForSeconds(1.1f);
-        charging = false;
         //AttackHtibox.SetActive(false);
         stopmoving();
         movement.enabled = true;
@@ -197,11 +189,9 @@ public class EnemyAi : MonoBehaviour
         stopmoving();
         movement.enabled = false;
         AttackSensor.SetActive(false);
-        yield return new WaitForSeconds(stats.chargetime);
-        charging = true;
+        yield return new WaitForSeconds(1.5f);
         //AttackHtibox.SetActive(true);
         rb.AddForce(new Vector2(2 * chargepower, 0), ForceMode2D.Impulse);
-        charging = false;
         //enemyAttack();
         yield return new WaitForSeconds(1.1f);
         //AttackHtibox.SetActive(false);

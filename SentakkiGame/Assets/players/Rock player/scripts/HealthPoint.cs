@@ -122,7 +122,7 @@ public class healthPoint : MonoBehaviour
             {
                 rb.AddForce(new Vector2(statsP1.XknockbackForce, statsP1.YknockbackForce) * 4, ForceMode2D.Impulse);
             }
-            yield return new WaitForSecondsRealtime(0.7f);
+            yield return new WaitForSecondsRealtime(1f);
             rb.velocity = Vector2.zero;
             GetComponent<movement>().enabled = true;
             GetComponent<playerattack>().enabled = true;

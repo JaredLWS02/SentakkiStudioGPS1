@@ -31,7 +31,6 @@ public class playerattack : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private AudioSource combosource;
     [SerializeField] private AudioSource atksource;
-    [SerializeField] private AudioSource atkhit;
 
     void Start()
     {
@@ -97,13 +96,11 @@ public class playerattack : MonoBehaviour
                 if (hitenemies.Length >= 1)
                 {
                     combosource.Play();
-                    atkhit.Play();
                 }
                 else
                 {
                     atksource.Play();
                 }
-
                 atkanim.Play("attack", 0, 0);
                 combocounter++;
                 lastclickedTime = Time.time;
@@ -175,7 +172,7 @@ public class playerattack : MonoBehaviour
 
             if(combomanagerUI.innercomboUI >= 0 && combomanagerUI.innercomboUI <= 18)
             {
-                Invoke("EndCombo", 1.5f);
+                Invoke("EndCombo", 2);
             }
             else if (combomanagerUI.innercomboUI >=18 && combomanagerUI.innercomboUI <= 24)
             {
