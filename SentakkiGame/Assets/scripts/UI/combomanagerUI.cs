@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,11 +17,12 @@ public class combomanagerUI : MonoBehaviour
     [SerializeField] public LeanTweenType tween;
     [SerializeField] private combosfxscriptableobject sfx;
     [SerializeField] private AudioSource comboAudioSource;
+    private bool invoked;
     // Start is called before the first frame update
     void Start()
     {
-        //removeAplhaCombo();
-        //removeAplhaText();
+        removeAplhaCombo();
+        combotextObject.GetComponent<Image>().CrossFadeAlpha(0, 0.3f, false);
     }
 
     // Update is called once per frame
@@ -28,83 +30,113 @@ public class combomanagerUI : MonoBehaviour
     {
         combonum.text = ("x " + innercomboUI);
         combotextObject.GetComponent<Image>().sprite = combotypes[x];
+
+        if (x == 0 && combonum.alpha >= 1)
+        {
+            removeAplhaCombo();
+            RemoveAplhaText();
+        }
     }
 
     public void checkcombostatus()
     {
-        if (innercomboUI == 0)
+        switch (innercomboUI)
         {
-            x = 0;
-            shake();
-            playerattack.extra = 0;
+            case 0:
+                {
+                    x = 0;
+                    shake();
+                    restoreAplha();
+                }
+                break;
+            case 1:
+                {
+                    x = 1;
+                    shake();
+                    restoreAplha();
+                }
+                break;
+            case 6:
+                {
+                    x = 2;
+                    shake();
+                    restoreAplha();
+                }
+                break;
+            case 12:
+                {
+                    x = 3;
+                    playerattack.extra = 1f;
+                    shake();
+                    restoreAplha();
+                }
+                break;
+            case 18:
+                {
+                    x = 4;
+                    shake();
+                    restoreAplha();
+                }
+                break;
+            case 24:
+                {
+                    x = 5;
+                    playerattack.extra = 2f;
+                    shake();
+                    restoreAplha();
+                }
+                break;
+            default:
+                {
+                    if (innercomboUI >= 24)
+                    {
+                        shake();
+                        combotextObject.GetComponent<Image>().CrossFadeAlpha(1, 0, false);
+                    }
+                }
+                break;
+
         }
-        else if (innercomboUI == 1)
-        {
-            x = 1;
-            shake();
-            //playaudio(x);
-        }
-        else if (innercomboUI == 6)
-        {
-            x = 2;
-            shake();
-            //playaudio(x);
-        }
-        else if (innercomboUI == 12)
-        {
-            x = 3;
-            playerattack.extra = 2f;
-            shake();
-            //playaudio(x);
-        }
-        else if (innercomboUI == 18)
-        {
-            x = 4;
-            shake();
-        }
-        else if (innercomboUI == 24)
-        {
-            x = 5;
-            playerattack.extra = 3f;
-            shake();
-            //playaudio(x + 1);
-        }
+
 
     }
 
     private void shake()
     {
-        LeanTween.moveX(combotextObject, 230f, 0.2f);
-        LeanTween.moveX(combotextObject, 262f, 0.1f).setEase(tween).setDelay(0.2f);
+        LeanTween.moveX(combotextObject, combotextObject.transform.position.x - 30f, 0.2f);
+        LeanTween.moveX(combotextObject, combotextObject.transform.position.x, 0.2f).setEase(tween).setDelay(0.2f);
     }
 
-    /*    public void restoreAplha()
+    public void restoreAplha()
+    {
+        combonum.CrossFadeAlpha(1f, 0f, false);
+        switch (innercomboUI)
         {
-            combonum.CrossFadeAlpha(1f, 0f, false);
-
-            switch (innercomboUI)
-            {
-                case 1:
-                case 6: 
-                case 12: 
-                case 18: 
-                case 24:
+            case 1:
+            case 6:
+            case 12:
+            case 18:
+            case 24:
+                {
+                    combotextObject.GetComponent<Image>().CrossFadeAlpha(1, 0, false);
+                    if (!invoked)
                     {
-                        combotextObject.GetComponent<TextMeshProUGUI>().CrossFadeAlpha(1f, 0f, false);
-                        Invoke("removeAplhaText", 1);
+                        Invoke("RemoveAplhaText", 2);
+                        invoked = true;
                     }
+                }
                 break;
-            }
         }
+    }
 
-        public void removeAplhaCombo()
-        {
-            combonum.CrossFadeAlpha(0f, 0.5f, false);
-        }
+    public void removeAplhaCombo()
+    {
+        combonum.CrossFadeAlpha(0f, 0.3f, false);
+    }
 
-        public void removeAplhaText()
-        {
-            combotextObject.GetComponent<TextMeshProUGUI>().CrossFadeAlpha(0f, 0.5f, false);
-
-        }*/
+    public void RemoveAplhaText()
+    {
+        combotextObject.GetComponent<Image>().CrossFadeAlpha(0, 0.3f, false);
+        invoked = false;
+    }
 }
