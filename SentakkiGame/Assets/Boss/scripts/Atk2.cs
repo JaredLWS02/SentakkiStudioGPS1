@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Atk2 : MonoBehaviour
 {
-    [SerializeField] private GameObject target;
+    private GameObject target;
     [SerializeField] private BoxCollider2D col2d;
     [SerializeField] private GameObject atk2;
     [SerializeField] private float thrust;
@@ -15,6 +15,7 @@ public class Atk2 : MonoBehaviour
     void Start()
     {
         rb = atk2.GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
