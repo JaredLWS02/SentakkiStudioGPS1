@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: edmplayerstats
   m_EditorClassIdentifier: 
   maxhealth: 100
-  atkdmg: 20
+  atkdmg: 10
   atkcooldown: 0.5
   atkrange: 1
   atksfx: {fileID: 8300000, guid: 075f3c9c3e1735a4a8202bc2990df6eb, type: 3}
-  skilldmg: 30
+  skilldmg: 0
   skillcooldown: 1
   skillrange: 3
   skillsfx: {fileID: 8300000, guid: 2ac26a5b32910294cbd03cafb9823394, type: 3}
@@ -28,7 +28,7 @@ MonoBehaviour:
   enemylayer:
     serializedVersion: 2
     m_Bits: 512
-  healthrestore: 10
+  healthrestore: 20
   gaugerestoreItem: 100
   gaugerestoreHit: 1
   combo:

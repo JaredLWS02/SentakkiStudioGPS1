@@ -20,6 +20,7 @@ public class skillandultimate : MonoBehaviour
     private bool failskill;
 
     [SerializeField] private GameObject edmobject;
+    [SerializeField] private AudioSource atkhit;
 
     // Start is called before the first frame update
     void Start()
@@ -91,8 +92,10 @@ public class skillandultimate : MonoBehaviour
             }
             else
             {
+                atkhit.Play();
                 failskill = false;
             }
+
             foreach (Collider2D enemy in hitenemiesSkill)
             {
                 if(enemy.CompareTag("enemy"))
