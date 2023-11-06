@@ -236,7 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854ba30627dae7a44a144d2dde300bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   col2d: {fileID: 100975305407823930}
   atk2: {fileID: 7387240790986861284, guid: 05f45a34a1a7d024580bf0d82c30acb3, type: 3}
   thrust: -5
@@ -634,6 +633,10 @@ MonoBehaviour:
   - {fileID: 5003598771417660317}
   - {fileID: 2442492968185358322}
   - {fileID: 8262837583655458838}
+  summon1: {fileID: 8869006305162616559, guid: cca0816203d9eb149b4964534d425c39, type: 3}
+  summon2: {fileID: 169497297300367892, guid: 03eea029af8734a43bef1092b0385e7b, type: 3}
+  spawnPoint: {fileID: 7043320201208617619}
+  pos1: {x: 0, y: 0, z: 0}
 --- !u!1 &4180685232468037209
 GameObject:
   m_ObjectHideFlags: 0
