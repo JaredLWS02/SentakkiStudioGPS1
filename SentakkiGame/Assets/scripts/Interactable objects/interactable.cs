@@ -54,9 +54,16 @@ public class interactable : MonoBehaviour
             caninteract = true;
         }
 
-        if (collision.CompareTag("enemy") && thrown)
+        if ((collision.CompareTag("enemy") || collision.CompareTag("enemyMelee"))&& thrown)
         {
-            collision.GetComponent<EnemyAi>().takeDamage(atkdmg);
+            if(collision.CompareTag("enemy"))
+            {
+                collision.GetComponent<EnemyAi>().takeDamage(atkdmg);
+            }
+            else
+            {
+                collision.GetComponent<EnemyAiMelee>().takeDamage(atkdmg);
+            }
             Destroy(gameObject);
         }
     }
