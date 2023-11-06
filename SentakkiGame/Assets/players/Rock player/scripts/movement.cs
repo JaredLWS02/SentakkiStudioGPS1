@@ -35,7 +35,7 @@ public class movement : MonoBehaviour
 
     private void Update()
     {
-        if (PauseMenu.instance.isPaused)
+        if (PauseMenu.instance.isPaused )
         {
             return;
         }
