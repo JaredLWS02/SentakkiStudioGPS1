@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1301e592bdefe464089bc2f9a8f9f044
+guid: 8bc050a6aeb167b438001d30cb0caef5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,6 +95,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -136,12 +149,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TutorialEnemy1-AttackOver-Sheet_0
+      name: TutorialEnemy1Ambush-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 85
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -150,19 +163,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 484f96ea05a559645bc4260a086d256c
-      internalID: -1241309011
+      spriteID: ee4752f6ffcdd5747b930016eefff49a
+      internalID: 242509460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TutorialEnemy1-AttackOver-Sheet_1
+      name: TutorialEnemy1Ambush-Sheet_1
       rect:
         serializedVersion: 2
-        x: 85
+        x: 64
         y: 0
-        width: 85
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -171,19 +184,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22f2923159094324a9cfa416b7f5a731
-      internalID: 1271091678
+      spriteID: 59ae21a29385e2747a3e941d5ef07d7d
+      internalID: 1862379654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TutorialEnemy1-AttackOver-Sheet_2
+      name: TutorialEnemy1Ambush-Sheet_2
       rect:
         serializedVersion: 2
-        x: 170
+        x: 128
         y: 0
-        width: 85
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -192,19 +205,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 529d4063125658944bb0274fc10e1a3c
-      internalID: 94867320
+      spriteID: 26627c4d95573aa4e9999f11d87179be
+      internalID: -1514460024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TutorialEnemy1-AttackOver-Sheet_3
+      name: TutorialEnemy1Ambush-Sheet_3
       rect:
         serializedVersion: 2
-        x: 255
+        x: 192
         y: 0
-        width: 85
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -213,8 +226,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92f5603c8dcf28f45b37e1f5c070fe15
-      internalID: 2129640480
+      spriteID: b87eb2b12270d6e43b69ca446c39d064
+      internalID: -622657164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy1Ambush-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a091112365eaa42bb313864259b684
+      internalID: -1261144382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy1Ambush-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99b6d9b64b3c2c2418f625e952c4a40b
+      internalID: 670356521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy1Ambush-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcad761957aff394eb28be319423290b
+      internalID: -1178641899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy1Ambush-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8174983b502bea74e9fe844aafc26677
+      internalID: -1550841567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy1Ambush-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab7cd10ab1a0ff4aadcf2ced9a9e2c8
+      internalID: -1852745717
       vertices: []
       indices: 
       edges: []
@@ -230,10 +348,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TutorialEnemy1-AttackOver-Sheet_0: -1241309011
-      TutorialEnemy1-AttackOver-Sheet_1: 1271091678
-      TutorialEnemy1-AttackOver-Sheet_2: 94867320
-      TutorialEnemy1-AttackOver-Sheet_3: 2129640480
+      TutorialEnemy1Ambush-Sheet_0: 242509460
+      TutorialEnemy1Ambush-Sheet_1: 1862379654
+      TutorialEnemy1Ambush-Sheet_2: -1514460024
+      TutorialEnemy1Ambush-Sheet_3: -622657164
+      TutorialEnemy1Ambush-Sheet_4: -1261144382
+      TutorialEnemy1Ambush-Sheet_5: 670356521
+      TutorialEnemy1Ambush-Sheet_6: -1178641899
+      TutorialEnemy1Ambush-Sheet_7: -1550841567
+      TutorialEnemy1Ambush-Sheet_8: -1852745717
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

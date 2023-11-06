@@ -89,6 +89,7 @@ public class Spawn : MonoBehaviour
             GameObject selectedEnemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
 
             GameObject newEnemy = Instantiate(selectedEnemyPrefab, spawnPosition, Quaternion.identity);
+            newEnemy.GetComponent<Animator>().Play("EnemyAmbush", 0, 0);
 
             //declare a list above 
             //add enemies spawn in instantiate into the list
