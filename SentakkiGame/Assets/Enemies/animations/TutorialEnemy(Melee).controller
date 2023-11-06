@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: dcefa4d043a97564b8ff2cab0b9d45b6, type: 2}
+  m_Motion: {fileID: 7400000, guid: 211c44a3a161af24dbf5419a63b94ad2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: isMoving
@@ -84,7 +84,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TutorialEnemy 1 - Idle
+  m_Name: TutorialEnemy(Melee)
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:

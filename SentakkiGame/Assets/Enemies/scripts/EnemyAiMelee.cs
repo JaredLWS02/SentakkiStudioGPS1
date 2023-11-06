@@ -192,4 +192,14 @@ public class EnemyAiMelee : MonoBehaviour
     {
         enemyanim.Play("EnemyWalk", 0, 0);
     }
+
+    public void startatk()
+    {
+        AttackSensor.SetActive(true);
+    }
+
+    public void stopatk()
+    {
+        AttackSensor.SetActive(false);
+    }
 }
