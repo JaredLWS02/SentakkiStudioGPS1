@@ -46,8 +46,8 @@ public class AOEDmg : MonoBehaviour
             }
             else
             {
-                touch();
                 StartCoroutine(Reset());
+                touch();
             }
         }
     }
