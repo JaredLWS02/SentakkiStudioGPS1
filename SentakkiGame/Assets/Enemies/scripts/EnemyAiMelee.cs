@@ -158,8 +158,8 @@ public class EnemyAiMelee : MonoBehaviour
         stopmoving();
         movement.enabled = false;
         AttackSensor.SetActive(false);
-        yield return new WaitForSeconds(1.5f);
-        enemyAttack();
+        //yield return new WaitForSeconds(1.5f);
+        //enemyAttack();
         yield return new WaitForSeconds(1.1f);
         stopmoving();
         movement.enabled = true;
@@ -173,8 +173,8 @@ public class EnemyAiMelee : MonoBehaviour
         stopmoving();
         movement.enabled = false;
         AttackSensor.SetActive(false);
-        yield return new WaitForSeconds(1.5f);
-        enemyAttack();
+        //yield return new WaitForSeconds(1.5f);
+        //enemyAttack();
         yield return new WaitForSeconds(1.1f);
         stopmoving();
         movement.enabled = true;
@@ -197,4 +197,5 @@ public class EnemyAiMelee : MonoBehaviour
     {
         AttackSensor.SetActive(false);
     }
+
 }

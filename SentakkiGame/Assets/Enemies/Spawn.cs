@@ -39,10 +39,10 @@ public class Spawn : MonoBehaviour
 
     private void Update()
     {
-        if (!isSpawningPaused && enemycounter < 3 && !isspawning)
-        {
-            StartCoroutine(SpawnEnemiesContinuously());
-        }
+        //if (!isSpawningPaused && enemycounter < 3 && !isspawning)
+        //{
+        //    StartCoroutine(SpawnEnemiesContinuously());
+        //}
     }
 
     private IEnumerator SpawnEnemiesContinuously()

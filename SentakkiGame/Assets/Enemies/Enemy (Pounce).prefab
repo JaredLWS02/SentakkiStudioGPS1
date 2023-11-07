@@ -95,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.049407214, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -106,7 +106,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.90118545, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &8869006305162616559
 GameObject:
@@ -231,7 +231,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03679447, y: 0.0015854537}
+  m_Offset: {x: -0.021876618, y: -0.03392598}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -242,7 +242,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.41650125, y: 0.66072124}
+  m_Size: {x: 0.435029, y: 0.5896984}
   m_EdgeRadius: 0
 --- !u!95 &8433838795985469621
 Animator:
@@ -278,7 +278,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 6db37132540344a4d8ba026db481bf72, type: 2}
-  target: {fileID: 0}
   AttackSensor: {fileID: 8512514215000631768}
   AttackHtibox: {fileID: 6212006304000070094}
   enemyanim: {fileID: 8433838795985469621}
