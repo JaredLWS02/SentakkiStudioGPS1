@@ -5,14 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
     public void PlayGame()
     {
-        scenemanager.instance.switchPlay();
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void GoToMainMenu()
     {
-        scenemanager.instance.switchmenu();
+        SceneManager.LoadSceneAsync(0);
+    }
+
+    public void ShowControls()
+    {
+        SceneManager.LoadSceneAsync(4);
     }
 
     public void QuitGame()
