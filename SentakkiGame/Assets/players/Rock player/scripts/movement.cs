@@ -29,6 +29,7 @@ public class movement : MonoBehaviour
     }
     private void Start()
     {
+        Time.timeScale = 1f;
         oriGravity = rb.gravityScale;
         instance = this;
     }
