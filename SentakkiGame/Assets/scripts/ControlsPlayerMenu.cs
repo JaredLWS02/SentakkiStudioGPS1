@@ -8,6 +8,8 @@ public class ControlsPlayerMenu : MonoBehaviour
     [SerializeField] private Animator atkanim;
     [SerializeField] private Animator animationskill;
     [SerializeField] private Animator moveanim;
+    [SerializeField] private Rigidbody2D rb;
+    public playerstats stats;
 
 
 
@@ -27,7 +29,7 @@ public class ControlsPlayerMenu : MonoBehaviour
 
         }
 
-         if (Input.GetKeyDown(KeyCode.I))
+         if (Input.GetKeyDown(KeyCode.U))
         {
              animationskill.Play("skill", 0, 0);
 
@@ -36,6 +38,7 @@ public class ControlsPlayerMenu : MonoBehaviour
                  if (Input.GetKeyDown(KeyCode.Space))
         {
              moveanim.Play("jump", 0, 0);
+             rb.AddForce(Vector2.up * stats.jumpingPower, ForceMode2D.Impulse);
 
         }
 
