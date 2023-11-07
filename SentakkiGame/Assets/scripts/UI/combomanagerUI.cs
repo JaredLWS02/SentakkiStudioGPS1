@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class combomanagerUI : MonoBehaviour
 {
+    public static combomanagerUI instance;
     public int innercomboUI;
     public int x;
     [SerializeField] private playerattack playerattack;
@@ -17,9 +18,12 @@ public class combomanagerUI : MonoBehaviour
     [SerializeField] private combosfxscriptableobject sfx;
     [SerializeField] private AudioSource comboAudioSource;
     private bool invoked;
+    public float comboCounter;
     // Start is called before the first frame update
     void Start()
     {
+        comboCounter = 0;
+        instance = this;
         removeAplhaCombo();
         combotextObject.GetComponent<Image>().CrossFadeAlpha(0, 0.3f, false);
     }
@@ -27,6 +31,10 @@ public class combomanagerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(innercomboUI > comboCounter)
+        {
+            comboCounter = innercomboUI;
+        }
         combonum.text = ("x " + innercomboUI);
         combotextObject.GetComponent<Image>().sprite = combotypes[x];
 

@@ -8,13 +8,13 @@ public class attackUI : MonoBehaviour
     [SerializeField] private GameObject tutorialText;
     [SerializeField] private GameObject escapetext;
     [SerializeField] private PauseMenu pause;
-    [SerializeField] private GameObject spawner;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject enemy;
     private bool caninteract;
     private bool opened;
     private bool spawned;
     public GameObject PausePanelControls;
+    private bool activated;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +24,10 @@ public class attackUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(activated)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.J) && caninteract && !opened)
         {
             PausePanelControls.SetActive(true);
@@ -47,10 +51,11 @@ public class attackUI : MonoBehaviour
             Time.timeScale = 1f;
             //spawner.SetActive(true);
             player.GetComponent<playerattack>().enabled = true;
+            activated = true;
             if(!spawned)
             {
                 spawned = true;
-                Instantiate(enemy, new Vector2(transform.position.x + 3f, (transform.position.y)), Quaternion.identity);
+                Instantiate(enemy, new Vector2(transform.position.x + 3f, transform.position.y), Quaternion.identity);
             }
         }
 

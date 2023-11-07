@@ -13,6 +13,7 @@ public class ultimateUI : MonoBehaviour
     private bool caninteract;
     private bool opened;
     public GameObject PausePanelControls;
+    private bool activated;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,11 @@ public class ultimateUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (activated)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.J) && caninteract && !opened)
         {
             PausePanelControls.SetActive(true);
@@ -45,7 +51,7 @@ public class ultimateUI : MonoBehaviour
             Time.timeScale = 1f;
             mp.SetActive(true);
             Instantiate(enemy, new Vector2(transform.position.x + 3f, (transform.position.y)), Quaternion.identity);
-            Instantiate(enemy, new Vector2(transform.position.x + 5f, (transform.position.y)), Quaternion.identity);
+            activated = true;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

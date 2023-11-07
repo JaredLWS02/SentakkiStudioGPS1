@@ -289,6 +289,7 @@ MonoBehaviour:
   sizey: 2
   currentHealth: 0
   movement: {fileID: 2473885576011572881}
+  atksfx: {fileID: 0}
   chargepower: 0
 --- !u!50 &3598896137680400149
 Rigidbody2D:

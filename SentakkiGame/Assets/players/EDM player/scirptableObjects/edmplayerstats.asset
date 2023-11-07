@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fded09839600d345b0f9c1354f9d7c8, type: 3}
   m_Name: edmplayerstats
   m_EditorClassIdentifier: 
-  maxhealth: 10
+  maxhealth: 100
   atkdmg: 10
   atkcooldown: 0.5
   atkrange: 1

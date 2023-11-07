@@ -15,6 +15,7 @@ TagManager:
   - mp
   - skill
   - mainMenuMusic
+  - sfxPlayerAndEnemy
   layers:
   - Default
   - TransparentFX

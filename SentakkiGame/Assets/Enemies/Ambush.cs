@@ -31,7 +31,7 @@
                     Debug.Log("Camera stopped following.");
 
                     // Spawn 6 enemies using the Spawn script.
-                    spawnScript.SpawnEnemiesFromAbove(5);
+                    spawnScript.SpawnEnemiesFromAbove(6);
 
                     Debug.Log("Ambush event triggered.");
 

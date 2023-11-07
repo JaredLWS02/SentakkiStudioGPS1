@@ -22,10 +22,11 @@ public class EnemyAiMelee : MonoBehaviour
     [SerializeField] private EnemyPath movement;
     private Vector2 lastPos;
     private Vector2 curPos;
-
+    [SerializeField] private AudioSource atksfx;
     // Start is called before the first frame update
     void Start()
     {
+        atksfx = GameObject.FindGameObjectWithTag("sfxPlayerAndEnemy").GetComponent<AudioSource>();
         currentHealth = stats.maxhp;
     }
 
@@ -68,6 +69,7 @@ public class EnemyAiMelee : MonoBehaviour
         //Damage the enemy(player)
         if (hitEnemies.Length > 0)
         {
+            atksfx.Play();
             foreach (Collider2D enemy in hitEnemies)
             {
                 healthPoint.Instance.TakeDamage(stats.dmg);

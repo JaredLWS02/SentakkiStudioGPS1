@@ -226,6 +226,7 @@ MonoBehaviour:
   sizey: 2
   currentHealth: 0
   movement: {fileID: 3989756459909986819}
+  atksfx: {fileID: 0}
 --- !u!1 &2728208281378710587
 GameObject:
   m_ObjectHideFlags: 0

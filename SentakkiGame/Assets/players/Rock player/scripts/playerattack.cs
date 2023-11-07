@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -31,6 +32,9 @@ public class playerattack : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private AudioSource combosource;
     [SerializeField] private AudioSource atksource;
+    [SerializeField] private AudioSource atksfx;
+
+    private bool hit;
 
     void Start()
     {
@@ -53,10 +57,12 @@ public class playerattack : MonoBehaviour
                 {
                     Attack();
                 }
-                //else
-                //{
-                //    PlungeAttack();
-                //}
+                else
+                {
+                    hit = false;
+                    atkanim.Play("plunge", 0, 0);
+                    rb.AddForce(new Vector2(0, -stats.jumpingPower * 2), ForceMode2D.Impulse);
+                }
             }
         }
 
@@ -65,7 +71,7 @@ public class playerattack : MonoBehaviour
         {
             ExitAttack();
         }
-       
+     
     }
 
     // attack mechanic
@@ -95,6 +101,7 @@ public class playerattack : MonoBehaviour
                 atksource.clip = stats.atksfx;
                 if (hitenemies.Length >= 1)
                 {
+                    atksfx.Play();
                     combosource.Play();
                 }
                 else
@@ -132,34 +139,42 @@ public class playerattack : MonoBehaviour
 
     void PlungeAttack()
     {
-        Collider2D[] enemieshit = Physics2D.OverlapBoxAll(plungeattackpoint.position, new Vector2(2,3),1f,stats.enemylayer);
-        if (enemieshit.Length >= 1)
+        if(!hit)
         {
-            failattack = false;
-            reseted = true;
-            CancelInvoke("EndCombo");
-        }
-        else
-        {
-            combocounter = 0;
-            failattack = true;
-        }
-        atkanim.Play("attack", 0, 0);
-        rb.AddForce(Vector2.down * 3);
+            Collider2D[] enemieshit = Physics2D.OverlapBoxAll(plungeattackpoint.position, new Vector2(2, 3), 1f, stats.enemylayer);
+            if (enemieshit.Length >= 1)
+            {
+                hit = true;
+                failattack = false;
+                reseted = true;
+                CancelInvoke("EndCombo");
+            }
+            else
+            {
+                combocounter = 0;
+                failattack = true;
+            }
 
-        if (combocounter >= stats.combo.Count)
-        {
-            combocounter = 1;
+            if (combocounter >= stats.combo.Count)
+            {
+                combocounter = 1;
+            }
+
+
+            foreach (Collider2D enemy in enemieshit)
+            {
+                if (enemy.CompareTag("enemy"))
+                {
+                    enemy.GetComponent<EnemyAi>().takeDamage(stats.atkdmg);
+                }
+                else if (enemy.CompareTag("enemyMelee"))
+                {
+                    enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.atkdmg);
+                }
+                combomanagerUI.innercomboUI++;
+                combomanagerUI.checkcombostatus();
+            }
         }
-
-
-        foreach (Collider2D enemy in enemieshit)
-        {
-            enemy.GetComponent<EnemyAi>().takeDamage(stats.atkdmg);
-            combomanagerUI.innercomboUI++;
-            combomanagerUI.checkcombostatus();
-        }
-
 
     }
 
@@ -227,5 +242,15 @@ public class playerattack : MonoBehaviour
     {
         Gizmos.DrawWireSphere(attackpoint.position, stats.atkrange);
         Gizmos.DrawWireCube(plungeattackpoint.position, new Vector2(2, 3));
+    }
+
+    private void disableSwap()
+    {
+        GetComponent<swapmechanic>().enabled = false;
+    }
+
+    private void enableSwap()
+    {
+        GetComponent<swapmechanic>().enabled = true;
     }
 }

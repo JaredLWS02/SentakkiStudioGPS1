@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class jumpUI : MonoBehaviour
     private bool caninteract;
     private bool opened;
     public GameObject PausePanelControls;
+    private bool activated;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,10 @@ public class jumpUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (activated)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.J) && caninteract && !opened)
         {
             PausePanelControls.SetActive(true);
@@ -41,6 +47,7 @@ public class jumpUI : MonoBehaviour
             pause.enabled = true;
             opened = false;
             Time.timeScale = 1f;
+            activated = true;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
