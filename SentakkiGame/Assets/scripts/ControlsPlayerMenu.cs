@@ -29,21 +29,23 @@ public class ControlsPlayerMenu : MonoBehaviour
 
         }
 
-         if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.H))
         {
              animationskill.Play("skill", 0, 0);
 
         }
 
-                 if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
              moveanim.Play("jump", 0, 0);
              rb.AddForce(Vector2.up * stats.jumpingPower, ForceMode2D.Impulse);
+        }
 
+        if(moveanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f)
+        {
+            atkanim.Play("idle", 0, 0);
         }
 
 
-
-        
     }
 }
