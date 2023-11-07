@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 public class EnemyAiMelee : MonoBehaviour
 {
     [SerializeField] private enemyStats stats;
-    [SerializeField] private GameObject target;
     [SerializeField] private GameObject AttackSensor;
     [SerializeField] private GameObject AttackHtibox;
     [SerializeField] private Animator enemyanim;

@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class healthPoint : MonoBehaviour
 {
@@ -142,5 +142,22 @@ public class healthPoint : MonoBehaviour
         GetComponent<playerattack>().enabled = false;
         GetComponent<skillandultimate>().enabled = false;
         GetComponent<swapmechanic>().enabled = false;
+    }
+
+    private void switchDeathScene()
+    { 
+        if(currenthealthAmountP1 <= 0 && currenthealthAmountP2 <= 0)
+        {
+            SceneManager.LoadSceneAsync(2);
+        }
+        else
+        {
+            gameObject.layer = LayerMask.NameToLayer("player");
+            swapmechanic.instance.SwitchPlayer();
+            GetComponent<movement>().enabled = true;
+            GetComponent<playerattack>().enabled = true;
+            GetComponent<skillandultimate>().enabled = true;
+            GetComponent<swapmechanic>().enabled = true;
+        }
     }
 }

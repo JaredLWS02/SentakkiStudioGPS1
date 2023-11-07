@@ -52,9 +52,14 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void Quit()
+    public void ReturnToMainMenu()
     {
         SceneManager.LoadSceneAsync(0);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
 

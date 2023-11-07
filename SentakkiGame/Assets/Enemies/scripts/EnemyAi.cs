@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyAi : MonoBehaviour
 {
     [SerializeField] private enemyStats stats;
-    [SerializeField] private GameObject target;
     [SerializeField] private GameObject AttackSensor;
     [SerializeField] private GameObject AttackHtibox;
     [SerializeField] private Animator enemyanim; 

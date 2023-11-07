@@ -52,32 +52,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-2328717410185509398
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: EnemyAtkRec
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 858ec11af188d5f40b1feb1e9dbcee29, type: 2}
-  m_Tag: attackrec
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -120,7 +94,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 23d27a983ab095648b3af5a1aee9a0cf, type: 2}
+  m_Motion: {fileID: 7400000, guid: c813df49662f26848b3a5b5a26afaa59, type: 2}
   m_Tag: death
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -172,7 +146,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3cb3626c06df7a04287a2913e66d6e33, type: 2}
+  m_Motion: {fileID: 7400000, guid: 80c4613a2ab164c4c9508122ba44a183, type: 2}
   m_Tag: enemyknock
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -188,9 +162,6 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: -2328717410185509398}
-    m_Position: {x: 570, y: 50, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 564798336360460274}
     m_Position: {x: 370, y: 230, z: 0}
   - serializedVersion: 1
@@ -201,10 +172,10 @@ AnimatorStateMachine:
     m_Position: {x: 270, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6031696096843950139}
-    m_Position: {x: 340, y: -40, z: 0}
+    m_Position: {x: 490, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8359155104917128388}
-    m_Position: {x: 100, y: 20, z: 0}
+    m_Position: {x: 200, y: 20, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
