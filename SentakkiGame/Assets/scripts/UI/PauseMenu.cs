@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject PausePanel;
     public bool isPaused;
     public AudioSource[] allAudioSources;
+    public AudioSource pause;
+    public AudioSource unpause;
 
     private void Start()
     {
@@ -39,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
         PausePanel.SetActive(true);
         Time.timeScale = 0;
+        pause.Play();
     }
 
     public void Continue()
@@ -50,6 +53,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         PausePanel.SetActive(false);
         Time.timeScale = 1;
+        unpause.Play();
     }
 
     public void ReturnToMainMenu()

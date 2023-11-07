@@ -182,10 +182,6 @@ public class EnemyAiMelee : MonoBehaviour
         AttackSensor.SetActive(true);
     }
 
-    public void finishattack()
-    {
-        enemyanim.Play("EnemyAtkRec", 0, 0);
-    }
 
     public void resetmove()
     {

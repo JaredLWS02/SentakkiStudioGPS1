@@ -43,7 +43,7 @@ public class EnemyAi : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if ((rb.velocity.x == 10 || rb.velocity.x <= -10) && !hit)
+        if ((rb.velocity.x == 10 || rb.velocity.x == -10) && !hit)
         {
             enemyAttack();
         }
@@ -200,10 +200,6 @@ public class EnemyAi : MonoBehaviour
         AttackSensor.SetActive(true);
     }
 
-    public void finishattack()
-    {
-        enemyanim.Play("EnemyAtkRec", 0, 0);
-    }
 
     public void resetmove()
     {
