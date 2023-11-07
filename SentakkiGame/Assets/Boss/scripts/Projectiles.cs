@@ -13,19 +13,19 @@ public class Projectiles : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    //// Update is called once per frame
+    //void Update()
+    //{
         
-    }
+    //}
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            healthPoint.Instance.TakeDamage(5);
-            Debug.Log("Player hit AOE!!!");
-            Destroy(gameObject);
-        }
-    }
+    //void OnCollisionEnter2D(Collision2D col)
+    //{
+    //    if (col.gameObject.tag == "Player")
+    //    {
+    //        healthPoint.Instance.TakeDamage(5);
+    //        Debug.Log("Player hit AOE!!!");
+    //        Destroy(gameObject);
+    //    }
+    //}
 }

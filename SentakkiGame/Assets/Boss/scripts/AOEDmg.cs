@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class AOEDmg : MonoBehaviour
@@ -7,6 +8,7 @@ public class AOEDmg : MonoBehaviour
     [SerializeField] private float sizex;
     [SerializeField] private float sizey;
     [SerializeField] private Transform attackPoint;
+    private bool isColliding = false;
     private float angle;
 
     // Start is called before the first frame update
@@ -38,7 +40,15 @@ public class AOEDmg : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            touch();
+            if (isColliding)
+            {
+                return;
+            }
+            else
+            {
+                touch();
+                StartCoroutine(Reset());
+            }
         }
     }
 
@@ -47,5 +57,11 @@ public class AOEDmg : MonoBehaviour
         if (attackPoint == null)
             return;
         Gizmos.DrawWireCube(attackPoint.position, new Vector2(sizex, sizey));
+    }
+
+    private IEnumerator Reset()
+    {
+        yield return new WaitForEndOfFrame();
+        isColliding = false;
     }
 }

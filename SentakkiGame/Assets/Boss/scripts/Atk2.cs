@@ -43,10 +43,11 @@ public class Atk2 : MonoBehaviour
 
     private IEnumerator TrackAtk()
     {
-        Instantiate(atk2,new Vector3(spawnLocation.x,spawnLocation.y + hOffset, 0.0f), Quaternion.identity);
-        atk2.SetActive(true);
-        yield return new WaitForSecondsRealtime(5);
-        rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
-        col2d.enabled = true;
+        yield return new WaitForSecondsRealtime(2);
+            Instantiate(atk2, new Vector3(spawnLocation.x, spawnLocation.y + hOffset, 0.0f), Quaternion.identity);
+            atk2.SetActive(true);
+            yield return new WaitForSecondsRealtime(3);
+            rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
+            col2d.enabled = true;
     }
 }
