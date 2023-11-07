@@ -100,10 +100,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 576
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -172,8 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bce6420ddc93b4b88bf692952fa3d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  rotationModifier: 360
   force: 10
 --- !u!114 &5257075268281238063
 MonoBehaviour:
@@ -187,6 +185,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4de89374ed3664892154d577b119f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizex: 0.6
-  sizey: 0.6
-  attackPoint: {fileID: 6280000161412577933}
+  dmg: 5

@@ -109,9 +109,10 @@ public class Atk1 : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1);//27
         atk3.SetActive(true);
-        summon();
-        yield return new WaitForSecondsRealtime(20);//47
+        yield return new WaitForSecondsRealtime(15);//42
         atk3.SetActive(false);
+        summon();
+        yield return new WaitForSecondsRealtime(10);//52
         col2d.enabled = true;
     }
 }

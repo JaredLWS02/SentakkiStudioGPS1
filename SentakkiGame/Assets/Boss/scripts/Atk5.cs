@@ -38,7 +38,7 @@ public class Atk5 : MonoBehaviour
 
     private IEnumerator atk5()
     {
-        yield return new WaitForSecondsRealtime(45);
+        yield return new WaitForSecondsRealtime(50);
         origin.SetActive(true);
         origin2.SetActive(true);
         yield return new WaitForSecondsRealtime(1);
