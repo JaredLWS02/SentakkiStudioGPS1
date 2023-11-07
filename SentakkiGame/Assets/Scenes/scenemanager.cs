@@ -43,4 +43,9 @@ public class scenemanager : MonoBehaviour
         SceneManager.LoadScene(Scene.stageClear.ToString());
     }
 
+    public void switchControls()    
+    {
+        SceneManager.LoadScene(Scene.controls.ToString());
+    }
+
 }
