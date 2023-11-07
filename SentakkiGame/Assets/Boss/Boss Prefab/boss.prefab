@@ -182,10 +182,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 576
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -227,9 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4de89374ed3664892154d577b119f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizex: 3.5
-  sizey: 11
-  attackPoint: {fileID: 6102934632568393300}
+  dmg: 30
 --- !u!1 &1881311505499307074
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,9 +334,9 @@ GameObject:
   - component: {fileID: 7122110275130773640}
   - component: {fileID: 2524943312344255754}
   - component: {fileID: 6747129394475328419}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss
-  m_TagString: enemy
+  m_TagString: boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -471,7 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e452b371a7c3840850d732ef6afae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossStats: {fileID: 11400000, guid: 43a38364860063e4b9ac92731e1a8aad, type: 2}
+  maxHp: 1000
   curHp: 0
 --- !u!1 &2442492968185358322
 GameObject:
@@ -571,10 +569,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 576
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -616,9 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4de89374ed3664892154d577b119f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizex: 3.5
-  sizey: 11
-  attackPoint: {fileID: 6040292576917114771}
+  dmg: 30
 --- !u!1 &3459379370881572969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,10 +1012,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 576
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -1061,9 +1057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4de89374ed3664892154d577b119f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizex: 3.5
-  sizey: 11
-  attackPoint: {fileID: 6426848472346605032}
+  dmg: 30
 --- !u!1 &5003598771417660317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,10 +1156,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 576
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -1207,9 +1201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4de89374ed3664892154d577b119f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizex: 3.5
-  sizey: 11
-  attackPoint: {fileID: 3934586086171975137}
+  dmg: 30
 --- !u!1 &5676799781060005934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,9 +1778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4de89374ed3664892154d577b119f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizex: 3.3
-  sizey: 3.3
-  attackPoint: {fileID: 3801665251048419153}
+  dmg: 0
 --- !u!1 &8262837583655458838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1887,10 +1877,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 576
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -1932,9 +1922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4de89374ed3664892154d577b119f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizex: 3.5
-  sizey: 11
-  attackPoint: {fileID: 1372242657843883231}
+  dmg: 30
 --- !u!1 &8398799094814557078
 GameObject:
   m_ObjectHideFlags: 0
