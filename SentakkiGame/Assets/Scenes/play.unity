@@ -360,7 +360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &173479995
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3887,7 +3887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &905171483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7075,73 +7075,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 643146647379127634, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 576
-      objectReference: {fileID: 0}
-    - target: {fileID: 643146647379127634, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_IncludeLayers.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 762768400537174173, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: dmg
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 915213420488014577, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: dmg
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 2376353264878339724, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
       propertyPath: m_Name
       value: boss
       objectReference: {fileID: 0}
     - target: {fileID: 2376353264878339724, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2376353264878339724, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2376353264878339724, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_TagString
-      value: boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 3523665958945203149, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 576
-      objectReference: {fileID: 0}
-    - target: {fileID: 3523665958945203149, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_IncludeLayers.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 4718332774656604919, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: dmg
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5033996500681285635, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 576
-      objectReference: {fileID: 0}
-    - target: {fileID: 5033996500681285635, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_IncludeLayers.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 5514164263616890572, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 576
-      objectReference: {fileID: 0}
-    - target: {fileID: 5514164263616890572, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_IncludeLayers.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 5821362871664161410, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: dmg
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6747129394475328419, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: maxHp
-      value: 1000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7124890980140464061, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7182,18 +7122,6 @@ PrefabInstance:
     - target: {fileID: 7124890980140464061, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8159333161684385614, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: dmg
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8477518574456432065, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 576
-      objectReference: {fileID: 0}
-    - target: {fileID: 8477518574456432065, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_IncludeLayers.m_Bits
-      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
