@@ -18,4 +18,4 @@ MonoBehaviour:
   character2: {fileID: 0}
   player1: {fileID: 9100000, guid: 59a96d7e2da53f44c9fe60a6c2dc8def, type: 2}
   player2: {fileID: 9100000, guid: 183b961b75162554a926b10697741029, type: 2}
-  swapcooldown: 2
+  swapcooldown: 3

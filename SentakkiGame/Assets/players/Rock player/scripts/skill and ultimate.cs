@@ -35,7 +35,7 @@ public class skillandultimate : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.U) && gaugePoint.gaugePointAmount > 32)
+        if (Input.GetKeyDown(KeyCode.H) && gaugePoint.gaugePointAmount > 32)
         {
             if (movement.instance.IsGrounded() && !movement.instance.isDashing)
             {
@@ -50,7 +50,7 @@ public class skillandultimate : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Y) && gaugePoint.gaugePointAmount == 100)
+        if (Input.GetKeyDown(KeyCode.U) && gaugePoint.gaugePointAmount == 100)
         {
             if (movement.instance.IsGrounded() && !movement.instance.isDashing)
             {

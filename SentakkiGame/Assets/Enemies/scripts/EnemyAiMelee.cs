@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 public class EnemyAiMelee : MonoBehaviour
 {
     [SerializeField] private enemyStats stats;
-    [SerializeField] private GameObject target;
     [SerializeField] private GameObject AttackSensor;
     [SerializeField] private GameObject AttackHtibox;
     [SerializeField] private Animator enemyanim;
@@ -23,10 +22,11 @@ public class EnemyAiMelee : MonoBehaviour
     [SerializeField] private EnemyPath movement;
     private Vector2 lastPos;
     private Vector2 curPos;
-
+    [SerializeField] private AudioSource atksfx;
     // Start is called before the first frame update
     void Start()
     {
+        atksfx = GameObject.FindGameObjectWithTag("sfxPlayerAndEnemy").GetComponent<AudioSource>();
         currentHealth = stats.maxhp;
     }
 
@@ -69,6 +69,7 @@ public class EnemyAiMelee : MonoBehaviour
         //Damage the enemy(player)
         if (hitEnemies.Length > 0)
         {
+            atksfx.Play();
             foreach (Collider2D enemy in hitEnemies)
             {
                 healthPoint.Instance.TakeDamage(stats.dmg);
@@ -159,8 +160,8 @@ public class EnemyAiMelee : MonoBehaviour
         stopmoving();
         movement.enabled = false;
         AttackSensor.SetActive(false);
-        yield return new WaitForSeconds(1.5f);
-        enemyAttack();
+        //yield return new WaitForSeconds(1.5f);
+        //enemyAttack();
         yield return new WaitForSeconds(1.1f);
         stopmoving();
         movement.enabled = true;
@@ -174,8 +175,8 @@ public class EnemyAiMelee : MonoBehaviour
         stopmoving();
         movement.enabled = false;
         AttackSensor.SetActive(false);
-        yield return new WaitForSeconds(1.5f);
-        enemyAttack();
+        //yield return new WaitForSeconds(1.5f);
+        //enemyAttack();
         yield return new WaitForSeconds(1.1f);
         stopmoving();
         movement.enabled = true;
@@ -183,13 +184,20 @@ public class EnemyAiMelee : MonoBehaviour
         AttackSensor.SetActive(true);
     }
 
-    public void finishattack()
-    {
-        enemyanim.Play("EnemyAtkRec", 0, 0);
-    }
 
     public void resetmove()
     {
         enemyanim.Play("EnemyWalk", 0, 0);
     }
+
+    public void startatk()
+    {
+        AttackSensor.SetActive(true);
+    }
+
+    public void stopatk()
+    {
+        AttackSensor.SetActive(false);
+    }
+
 }

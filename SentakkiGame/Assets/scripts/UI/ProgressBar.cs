@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 //[ExecuteInEditMode()]
 public class ProgressBar : MonoBehaviour
@@ -15,6 +16,9 @@ public class ProgressBar : MonoBehaviour
     public Image mask;
     public Spawn spawnScript;
     public CameraScript CameraScript;
+    [SerializeField] public AudioSource stage;
+
+
 
     void Start()
     {
@@ -48,6 +52,47 @@ public class ProgressBar : MonoBehaviour
         float maximumOffset = maximum - minimum;
         float fillAmount = currentOffset / maximumOffset;
         mask.fillAmount = fillAmount;
+
+        //switch(mask.fillAmount)
+        //{
+        //    case 0.2f:
+        //        {
+        //            stage.volume = 0.25f;
+        //            swapmechanic.instance.volume = 0.1f;
+        //            swapmechanic.instance.setVolume();
+        //        }
+        //        break;
+        //    case 0.4f:
+        //        {
+        //            stage.volume = 0.2f;
+        //            swapmechanic.instance.volume = 0.1f;
+        //            swapmechanic.instance.setVolume();
+        //        }
+        //        break;
+        //    case 0.6f:
+        //        {
+        //            stage.volume = 0.1f;
+        //            swapmechanic.instance.volume = 0.2f;
+        //            swapmechanic.instance.setVolume();
+
+        //        }
+        //        break;
+        //    case 0.8f:
+        //        {
+        //            stage.volume = 0.05f;
+        //            swapmechanic.instance.volume = 0.25f;
+        //            swapmechanic.instance.setVolume();
+        //        }
+        //        break;
+        //    case 1.0f:
+        //        {
+        //            stage.volume = 0;
+        //            swapmechanic.instance.volume = 0.25f;
+        //            swapmechanic.instance.setVolume();
+        //        }
+        //        break;
+        //}
+
     }
 
     void MaxProgressBar()
@@ -56,6 +101,7 @@ public class ProgressBar : MonoBehaviour
         {
             spawnScript.PauseSpawning();
             CameraScript.StopFollowing();
+            SceneManager.LoadSceneAsync(3);
             Debug.Log ("Spawn Boss");
         }
     }

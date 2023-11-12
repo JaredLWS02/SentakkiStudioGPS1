@@ -29,13 +29,14 @@ public class movement : MonoBehaviour
     }
     private void Start()
     {
+        Time.timeScale = 1f;
         oriGravity = rb.gravityScale;
         instance = this;
     }
 
     private void Update()
     {
-        if (PauseMenu.instance.isPaused)
+        if (PauseMenu.instance.isPaused )
         {
             return;
         }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyAi : MonoBehaviour
 {
     [SerializeField] private enemyStats stats;
-    [SerializeField] private GameObject target;
     [SerializeField] private GameObject AttackSensor;
     [SerializeField] private GameObject AttackHtibox;
     [SerializeField] private Animator enemyanim; 
@@ -23,11 +22,15 @@ public class EnemyAi : MonoBehaviour
     private Vector2 lastPos;
     private Vector2 curPos;
 
+    [SerializeField] private AudioSource atksfx;
+
+
     private bool hit;
     public float chargepower;
     // Start is called before the first frame update
     void Start()
     {
+        atksfx = GameObject.FindGameObjectWithTag("sfxPlayerAndEnemy").GetComponent<AudioSource>();
         chargepower = stats.chargeSpd;
         currentHealth = stats.maxhp;
     }
@@ -44,10 +47,10 @@ public class EnemyAi : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if ((rb.velocity.x == 10 || rb.velocity.x <= -10) && !hit)
-        {
-            enemyAttack();
-        }
+        //if ((rb.velocity.x >= chargepower || rb.velocity.x <= -chargepower) && !hit)
+        //{
+        //    enemyAttack();
+        //}
     }
 
 /*    void FixedUpdate()
@@ -69,18 +72,22 @@ public class EnemyAi : MonoBehaviour
 
     void enemyAttack()
     {
-        // play attack animation
-        // Detect enemy(player) in range of attack
-        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackHitbox.position, new Vector2(sizex, sizey), angle, stats.playerLayers);
-        //Debug.Log(hitEnemies[0]);
-        //Damage the enemy(player)
-        if(hitEnemies.Length > 0)
+        if(!hit)
         {
-            hit = true;
-            foreach (Collider2D enemy in hitEnemies)
+            // play attack animation
+            // Detect enemy(player) in range of attack
+            Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackHitbox.position, new Vector2(sizex, sizey), angle, stats.playerLayers);
+            //Debug.Log(hitEnemies[0]);
+            //Damage the enemy(player)
+            if (hitEnemies.Length > 0)
             {
-                healthPoint.Instance.TakeDamage(stats.dmg);
-               // Debug.Log("Player hit!!!" + enemy.name);
+                atksfx.Play();
+                hit = true;
+                foreach (Collider2D enemy in hitEnemies)
+                {
+                    healthPoint.Instance.TakeDamage(stats.dmg);
+                    // Debug.Log("Player hit!!!" + enemy.name);
+                }
             }
         }
     }
@@ -201,13 +208,19 @@ public class EnemyAi : MonoBehaviour
         AttackSensor.SetActive(true);
     }
 
-    public void finishattack()
-    {
-        enemyanim.Play("EnemyAtkRec", 0, 0);
-    }
 
     public void resetmove()
     {
         enemyanim.Play("EnemyWalk", 0, 0);
+    }
+
+    public void startatk()
+    {
+        AttackSensor.SetActive(true);
+    }
+
+    public void stopatk()
+    {
+        AttackSensor.SetActive(false);
     }
 }
