@@ -12,9 +12,9 @@ public class attackUI : MonoBehaviour
     [SerializeField] private GameObject enemy;
     private bool caninteract;
     private bool opened;
-    private bool spawned;
+
     public GameObject PausePanelControls;
-    private bool activated;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +24,7 @@ public class attackUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(activated)
-        {
-            return;
-        }
-        if (Input.GetKeyDown(KeyCode.J) && caninteract && !opened)
+        if (Input.GetKeyDown(KeyCode.F) && caninteract && !opened)
         {
             PausePanelControls.SetActive(true);
             escapetext.SetActive(true);
@@ -39,7 +35,7 @@ public class attackUI : MonoBehaviour
             Time.timeScale = 0f;
             opened = true;
         }
-        else if (Input.GetKeyDown(KeyCode.J) && opened)
+        else if (Input.GetKeyDown(KeyCode.F) && opened)
         {
             PausePanelControls.SetActive(false);
             escapetext.SetActive(false);
@@ -51,18 +47,12 @@ public class attackUI : MonoBehaviour
             Time.timeScale = 1f;
             //spawner.SetActive(true);
             player.GetComponent<playerattack>().enabled = true;
-            activated = true;
-            if(!spawned)
-            {
-                spawned = true;
-                Instantiate(enemy, new Vector2(transform.position.x + 3f, transform.position.y), Quaternion.identity);
-            }
         }
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && gameObject.CompareTag("speaker"))
         {
             prompttext.SetActive(true);
             caninteract = true;
@@ -71,7 +61,7 @@ public class attackUI : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && gameObject.CompareTag("speaker"))
         {
             prompttext.SetActive(false);
             caninteract = false;

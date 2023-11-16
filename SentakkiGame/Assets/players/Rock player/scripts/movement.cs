@@ -121,11 +121,11 @@ public class movement : MonoBehaviour
         canDash = false;
         isDashing = true;
         gameObject.layer = LayerMask.NameToLayer("ghostplayer");
-        //rb.gravityScale = 0f;
+        rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * stats.dashingPower, 0f);
         //rb.AddForce(Vector2.right * transform.localScale.x * stats.dashingPower, ForceMode2D.Impulse);
         yield return new WaitForSeconds(stats.dashingTime);
-        //rb.gravityScale = fallingGravity;
+        rb.gravityScale = oriGravity;
         isDashing = false;
         gameObject.layer = LayerMask.NameToLayer("player");
         yield return new WaitForSeconds(stats.dashingCooldown);
@@ -138,11 +138,11 @@ public class movement : MonoBehaviour
         this.enabled = true;
     }
 
-    private void gravitypull()
-    {
-        Debug.Log("switch");
-        rb.gravityScale = fallingGravity;
-    }
+    //private void gravitypull()
+    //{
+    //    Debug.Log("switch");
+    //    rb.gravityScale = fallingGravity;
+    //}
     
     private void disablemovescript()
     {

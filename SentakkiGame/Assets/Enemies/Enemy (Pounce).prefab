@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 6212006304000070094}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.215, y: 0, z: 0}
+  m_LocalPosition: {x: 0.131, y: -0.075, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.049407214, y: 0}
+  m_Offset: {x: -0.08405052, y: -0.066274166}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -106,7 +106,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.90118545, y: 1}
+  m_Size: {x: 0.8318988, y: 0.77105284}
   m_EdgeRadius: 0
 --- !u!1 &8869006305162616559
 GameObject:
@@ -187,7 +187,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: 0
   m_Sprite: {fileID: -1391786645, guid: 58ca1501399ebb346b0563195920d483, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
   sprite: {fileID: 9137647042074065758}
   attackPoint: {fileID: 8719227009357374026}
   attackHitbox: {fileID: 4870826810414225620}
-  sizex: 2
+  sizex: 1.7
   sizey: 2
   currentHealth: 0
   movement: {fileID: 2473885576011572881}

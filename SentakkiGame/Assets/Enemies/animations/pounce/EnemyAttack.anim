@@ -38,15 +38,15 @@ AnimationClip:
       value: {fileID: 2123350230, guid: ef64731c6fa76814cb1371fb1caac23c, type: 3}
     - time: 1.1666666
       value: {fileID: 1164870577, guid: ef64731c6fa76814cb1371fb1caac23c, type: 3}
-    - time: 1.25
+    - time: 1.5833334
       value: {fileID: 1127653797, guid: ef64731c6fa76814cb1371fb1caac23c, type: 3}
-    - time: 1.3333334
+    - time: 1.75
       value: {fileID: -1560789627, guid: ef64731c6fa76814cb1371fb1caac23c, type: 3}
-    - time: 1.5
+    - time: 1.9166666
       value: {fileID: 985576311, guid: ef64731c6fa76814cb1371fb1caac23c, type: 3}
-    - time: 1.8333334
+    - time: 2.25
       value: {fileID: -435634327, guid: ef64731c6fa76814cb1371fb1caac23c, type: 3}
-    - time: 2.0833333
+    - time: 2.5
       value: {fileID: 1794587020, guid: ef64731c6fa76814cb1371fb1caac23c, type: 3}
     attribute: m_Sprite
     path: 
@@ -89,7 +89,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.1666665
+    m_StopTime: 2.5833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -109,36 +109,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.5
-    functionName: enemyAttack
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.5833334
-    functionName: enemyAttack
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.6666666
-    functionName: enemyAttack
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.75
-    functionName: enemyAttack
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.8333334
-    functionName: enemyAttack
+  - time: 1.9166666
+    functionName: charge
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -159,6 +131,41 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 2.0833333
+    functionName: enemyAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.1666667
+    functionName: enemyAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.25
+    functionName: enemyAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.3333333
+    functionName: enemyAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.4166667
+    functionName: enemyAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.5833333
     functionName: resetmove
     data: 
     objectReferenceParameter: {fileID: 0}

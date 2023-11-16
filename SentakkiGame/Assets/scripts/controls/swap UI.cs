@@ -13,7 +13,6 @@ public class swapUI : MonoBehaviour
     private bool caninteract;
     private bool opened;
     public GameObject PausePanelControls;
-    private bool activated;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +22,7 @@ public class swapUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (activated)
-        {
-            return;
-        }
-        if (Input.GetKeyDown(KeyCode.J) && caninteract && !opened)
+        if (Input.GetKeyDown(KeyCode.F) && caninteract && !opened)
         {
             PausePanelControls.SetActive(true);
             escapetext.SetActive(true);
@@ -39,7 +34,7 @@ public class swapUI : MonoBehaviour
             opened = true;
             player.GetComponent<swapmechanic>().enabled = true;
         }
-        else if (Input.GetKeyDown(KeyCode.J) && opened)
+        else if (Input.GetKeyDown(KeyCode.F) && opened)
         {
             PausePanelControls.SetActive(false);
             escapetext.SetActive(false);
@@ -49,16 +44,13 @@ public class swapUI : MonoBehaviour
             pause.enabled = true;
             opened = false;
             Time.timeScale = 1f;
-            Instantiate(enemy, new Vector2(transform.position.x + 3f, (transform.position.y)), Quaternion.identity);
-            activated = true;
 
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && gameObject.CompareTag("speaker"))
         {
-            collision.gameObject.GetComponent<playerattack>().enabled = false;
             prompttext.SetActive(true);
             caninteract = true;
         }
@@ -66,9 +58,8 @@ public class swapUI : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && gameObject.CompareTag("speaker"))
         {
-            collision.gameObject.GetComponent<playerattack>().enabled = true;
             prompttext.SetActive(false);
             caninteract = false;
         }

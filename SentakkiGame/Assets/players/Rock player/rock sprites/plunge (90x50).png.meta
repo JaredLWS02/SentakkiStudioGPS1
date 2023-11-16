@@ -152,12 +152,12 @@ TextureImporter:
       name: plunge (90x50)_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
-        width: 90
+        width: 41
         height: 55
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,12 +173,12 @@ TextureImporter:
       name: plunge (90x50)_1
       rect:
         serializedVersion: 2
-        x: 90
+        x: 95
         y: 0
-        width: 90
+        width: 33
         height: 55
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: plunge (90x50)_2
       rect:
         serializedVersion: 2
-        x: 180
+        x: 187
         y: 0
-        width: 90
+        width: 52
         height: 55
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,12 +215,12 @@ TextureImporter:
       name: plunge (90x50)_3
       rect:
         serializedVersion: 2
-        x: 270
+        x: 277
         y: 0
-        width: 90
+        width: 74
         height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.39775044, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,12 +236,12 @@ TextureImporter:
       name: plunge (90x50)_4
       rect:
         serializedVersion: 2
-        x: 360
+        x: 367
         y: 0
-        width: 90
+        width: 83
         height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.33955476, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,12 +257,12 @@ TextureImporter:
       name: plunge (90x50)_5
       rect:
         serializedVersion: 2
-        x: 450
+        x: 457
         y: 0
-        width: 90
+        width: 68
         height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.41098335, y: 0.50000006}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -275,57 +275,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plunge (90x50)_6
-      rect:
-        serializedVersion: 2
-        x: 540
-        y: 0
-        width: 90
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fdb1e31a5dc74174c9988acf9d24ef69
-      internalID: -575935629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: plunge (90x50)_7
-      rect:
-        serializedVersion: 2
-        x: 630
-        y: 0
-        width: 90
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60a9cdea3b0d1474a950d711b90588bc
-      internalID: -1271412484
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: plunge (90x50)_8
       rect:
         serializedVersion: 2
-        x: 720
+        x: 632
         y: 0
-        width: 90
+        width: 87
         height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.35422137, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -333,6 +291,48 @@ TextureImporter:
       bones: []
       spriteID: ef7e39320db42364c94e863da7c9b85d
       internalID: 25879232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plunge (90x50)_10
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 0
+        width: 85
+        height: 55
+      alignment: 9
+      pivot: {x: 0.37113756, y: 0.49999997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab19272e9fe8b0e498f052ead0799db1
+      internalID: -748117693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plunge (90x50)_11
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 0
+        width: 86
+        height: 55
+      alignment: 9
+      pivot: {x: 0.32906467, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b551d79170f71a84fa577a6785a622b3
+      internalID: -1250734221
       vertices: []
       indices: 
       edges: []
@@ -350,6 +350,13 @@ TextureImporter:
     nameFileIdTable:
       plunge (90x50)_0: 420825912
       plunge (90x50)_1: 564113991
+      plunge (90x50)_10: -748117693
+      plunge (90x50)_11: -1250734221
+      plunge (90x50)_12: -1284235707
+      plunge (90x50)_13: 2100266700
+      plunge (90x50)_14: -1518928023
+      plunge (90x50)_15: 577192677
+      plunge (90x50)_16: 1516765275
       plunge (90x50)_2: -1164033226
       plunge (90x50)_3: 198438625
       plunge (90x50)_4: 1525316687
@@ -357,6 +364,7 @@ TextureImporter:
       plunge (90x50)_6: -575935629
       plunge (90x50)_7: -1271412484
       plunge (90x50)_8: 25879232
+      plunge (90x50)_9: 1204038214
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: edmplayerstats
   m_EditorClassIdentifier: 
   maxhealth: 100
-  atkdmg: 10
+  atkdmg: 20
   atkcooldown: 0.5
   atkrange: 1
   atksfx: {fileID: 8300000, guid: 075f3c9c3e1735a4a8202bc2990df6eb, type: 3}

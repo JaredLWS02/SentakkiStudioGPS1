@@ -48,12 +48,15 @@ public class swapmechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && (Time.time - lastswapTime ) >= swap.swapcooldown)
+        if(healthPoint.Instance.currenthealthAmountP1 > 0 && healthPoint.Instance.currenthealthAmountP2 > 0)
         {
-            swapSource.Play();
-            SwitchPlayer();
+            if (Input.GetKeyDown(KeyCode.Q) && (Time.time - lastswapTime ) >= swap.swapcooldown)
+            {
+                swapSource.Play();
+                SwitchPlayer();
 
-            lastswapTime = Time.time;
+                lastswapTime = Time.time;
+            }
         }
     }
 

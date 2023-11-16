@@ -55,13 +55,13 @@ public class healthPoint : MonoBehaviour
             currenthealthAmountP1 -= damage;
         }
 
+        UpdateHealth();
         if(!hit)
         {
             hit = true;
-            StartCoroutine(Knockback());
+            Knockback();
         }
 
-        UpdateHealth();
     }
 
     public void RestoreHealthPoints(float amountToRestore)
@@ -103,7 +103,7 @@ public class healthPoint : MonoBehaviour
         }
     }
 
-    private IEnumerator Knockback()
+    private void Knockback()
     {
         if(healthBar.fillAmount > 0)
         {
@@ -111,6 +111,7 @@ public class healthPoint : MonoBehaviour
             GetComponent<movement>().enabled = false;
             GetComponent<playerattack>().enabled = false;
             GetComponent<skillandultimate>().enabled = false;
+            GetComponent<swapmechanic>().enabled = false;
             GetComponent<Animator>().Play("knockback", 0, 0);
             gameObject.layer = LayerMask.NameToLayer("ghostplayer");
             Time.timeScale = 1.0f;
@@ -122,20 +123,12 @@ public class healthPoint : MonoBehaviour
             {
                 rb.AddForce(new Vector2(statsP1.XknockbackForce, statsP1.YknockbackForce) * 4, ForceMode2D.Impulse);
             }
-            yield return new WaitForSecondsRealtime(1f);
-            rb.velocity = Vector2.zero;
-            GetComponent<movement>().enabled = true;
-            GetComponent<playerattack>().enabled = true;
-            GetComponent<skillandultimate>().enabled = true;
-            GetComponent<Animator>().Play("idle", 0, 0);
-            yield return new WaitForSecondsRealtime(1f);
-            gameObject.layer = LayerMask.NameToLayer("player");
-            hit = false;
         }
     }
 
     private void ded()
     {
+        hit = false;
         StopAllCoroutines();
         gameObject.layer = LayerMask.NameToLayer("ghostplayer");
         GetComponent<movement>().enabled = false;
@@ -157,7 +150,23 @@ public class healthPoint : MonoBehaviour
             GetComponent<movement>().enabled = true;
             GetComponent<playerattack>().enabled = true;
             GetComponent<skillandultimate>().enabled = true;
-            GetComponent<swapmechanic>().enabled = false;
         }
+    }
+
+    private void returnOriState()
+    {
+        rb.velocity = Vector2.zero;
+        GetComponent<movement>().enabled = true;
+        GetComponent<playerattack>().enabled = true;
+        GetComponent<skillandultimate>().enabled = true;
+        GetComponent<swapmechanic>().enabled = true;
+        GetComponent<Animator>().Play("idle", 0, 0);
+        Invoke("removeiframe", 2);
+    }
+
+    private void removeiframe()
+    {
+        gameObject.layer = LayerMask.NameToLayer("player");
+        hit = false;
     }
 }

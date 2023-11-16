@@ -32,7 +32,7 @@ public class movementUI : MonoBehaviour
         //    Time.timeScale = 0f;
         //}
 
-        if(Input.GetKeyDown(KeyCode.J) && opened)
+        if(Input.GetKeyDown(KeyCode.F) && opened)
         {
             PausePanelControls.SetActive(false);
             escapetext.SetActive(false);

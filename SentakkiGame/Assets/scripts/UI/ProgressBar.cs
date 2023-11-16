@@ -17,6 +17,7 @@ public class ProgressBar : MonoBehaviour
     public Spawn spawnScript;
     public CameraScript CameraScript;
     [SerializeField] public AudioSource stage;
+    public float fillAmount;
 
 
 
@@ -35,23 +36,23 @@ public class ProgressBar : MonoBehaviour
             GetCurrentFill();
         }
 
-        if (current >= maximum)
-        {
-            MaxProgressBar();
-        }
     }
 
     void Update()
     {
         GetCurrentFill();
+        if (current >= maximum)
+        {
+            Invoke("MaxProgressBar",2.5f);
+        }
     }
 
     void GetCurrentFill()
     {
         float currentOffset = current - minimum;
         float maximumOffset = maximum - minimum;
-        float fillAmount = currentOffset / maximumOffset;
-        mask.fillAmount = fillAmount;
+        fillAmount = currentOffset / maximumOffset;
+        mask.fillAmount = Mathf.Lerp(mask.fillAmount,fillAmount,Time.deltaTime);
 
         //switch(mask.fillAmount)
         //{
@@ -97,12 +98,10 @@ public class ProgressBar : MonoBehaviour
 
     void MaxProgressBar()
     {
-        if (current == maximum)
-        {
             spawnScript.PauseSpawning();
             CameraScript.StopFollowing();
             SceneManager.LoadSceneAsync(3);
             Debug.Log ("Spawn Boss");
-        }
     }
+
 }
