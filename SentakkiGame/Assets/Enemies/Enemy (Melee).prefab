@@ -156,7 +156,7 @@ MonoBehaviour:
   speed: 2
   anim: {fileID: 6229290256789313358}
   isFacingRight: 1
-  distanceOffset: 0
+  distanceOffset: 1
 --- !u!61 &1808480119102139263
 BoxCollider2D:
   m_ObjectHideFlags: 0

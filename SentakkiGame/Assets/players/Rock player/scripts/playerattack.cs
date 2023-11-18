@@ -35,7 +35,7 @@ public class playerattack : MonoBehaviour
     [SerializeField] private AudioSource atksource;
     [SerializeField] private AudioSource atksfx;
     private bool hit;
-    private bool isPlunging;
+    public bool isPlunging;
     public float sizeX;
     public float sizeY;
 
@@ -231,16 +231,18 @@ public class playerattack : MonoBehaviour
     {
         if (!failattack)
         {
-            Time.timeScale = 0.47f;
+            Time.timeScale = 0.0f;
+            StartCoroutine(endfreezeframe());
             //atkanim.SetFloat("slow",0.6f);
             //atkanim.speed = freezeframeduration;
         }
     }
-    private void endfreezeframe()
+    private IEnumerator endfreezeframe()
     {
         //if (!failattack)
         //{
-            Time.timeScale = 1f;
+        yield return new WaitForSecondsRealtime(0.13f);
+        Time.timeScale = 1f;
             //atkanim.SetFloat("slow", 1f);
         //}
     }

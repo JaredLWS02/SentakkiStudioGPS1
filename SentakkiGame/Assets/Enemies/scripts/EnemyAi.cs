@@ -24,6 +24,8 @@ public class EnemyAi : MonoBehaviour
 
     [SerializeField] private AudioSource atksfx;
 
+    private float counter;
+
 
     private bool hit;
     public float chargepower;
@@ -109,22 +111,37 @@ public class EnemyAi : MonoBehaviour
         }
         else
         {
+            CancelInvoke("startatk");
+            CancelInvoke("resetCounter");
+            movement.enabled = false;
+            counter++;
+            Invoke("resetCounter", 3);
+            stopmoving();
             enemyanim.Play("EnemyKnockBack", 0, 0);
         }
 
     }
 
+    private void resetCounter()
+    {
+        counter = 0;
+    }
     private void hitknockback()
     {
         gameObject.layer = LayerMask.NameToLayer("ghostenemy");
 
-        if (transform.localScale.x > 1)
+        if(counter >= 4)
         {
-            rb.AddForce(new Vector2(-stats.XknockbackForce,stats.YknockbackForce), ForceMode2D.Impulse);
-        }
-        else if (transform.localScale.x < 1)
-        {
-            rb.AddForce(new Vector2(stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
+            counter = 0;
+            if (transform.localScale.x > 1)
+            {
+                rb.AddForce(new Vector2(-stats.XknockbackForce,stats.YknockbackForce), ForceMode2D.Impulse);
+            }
+            else if (transform.localScale.x < 1)
+            {
+                rb.AddForce(new Vector2(stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
+            }
+
         }
         //gameObject.layer = LayerMask.NameToLayer("enemy");
         //stopmoving();
@@ -140,7 +157,7 @@ public class EnemyAi : MonoBehaviour
     }
 
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D (Collider2D col)
     {
         if(col.CompareTag("Player"))
         {
@@ -167,6 +184,7 @@ public class EnemyAi : MonoBehaviour
 
     private IEnumerator chargeAtkLeft()
     {
+        CancelInvoke("startatk");
         gameObject.layer = LayerMask.NameToLayer("enemy");
         hit = false;
         enemyanim.Play("EnemyAttack", 0, 0);
@@ -187,6 +205,7 @@ public class EnemyAi : MonoBehaviour
 
     private IEnumerator chargeAtkRight()
     {
+        CancelInvoke("startatk");
         gameObject.layer = LayerMask.NameToLayer("enemy");
         hit = false;
         enemyanim.Play("EnemyAttack", 0, 0);
@@ -241,6 +260,8 @@ public class EnemyAi : MonoBehaviour
     {
         gameObject.layer = LayerMask.NameToLayer("enemy");
         resetmove();
-        AttackSensor.SetActive(true);
+        movement.enabled = true;
+        Invoke("startatk", 0.1f);
+
     }
 }

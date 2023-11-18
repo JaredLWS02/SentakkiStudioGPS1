@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemyAiMelee : MonoBehaviour
 {
@@ -23,6 +22,7 @@ public class EnemyAiMelee : MonoBehaviour
     private Vector2 lastPos;
     private Vector2 curPos;
     [SerializeField] private AudioSource atksfx;
+    private float counter;
     // Start is called before the first frame update
     void Start()
     {
@@ -96,7 +96,31 @@ public class EnemyAiMelee : MonoBehaviour
         }
         else
         {
-            enemyanim.Play("EnemyKnockBack", 0, 0);
+            //if(counter >= 4)
+            //{
+                CancelInvoke("startatk");
+                CancelInvoke("resetCounter");
+                Invoke("resetCounter", 3);
+                movement.enabled = false;
+                counter ++;
+                stopmoving();
+                //stopatk();
+                enemyanim.Play("EnemyKnockBack", 0, 0);
+            //}
+            //else
+            //{
+            //    //GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+            //    ////Invoke("resetcolor", 0.2f);
+            //    counter++;
+            //    stopatk();
+            //    Invoke("resetCounter", 2);
+            //    //stopmoving();
+            //    //AttackSensor.SetActive(true);
+            //    if(counter < 2)
+            //    {
+            //        enemyanim.Play("EnemyNoKnockback", 0, 0);
+            //    }
+            //}
         }
 
     }
@@ -104,13 +128,17 @@ public class EnemyAiMelee : MonoBehaviour
     private void hitknockback()
     {
         gameObject.layer = LayerMask.NameToLayer("ghostenemy");
-        if (transform.localScale.x > 1)
+        if(counter >= 4)
         {
-            rb.AddForce(new Vector2(-stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
-        }
-        else if (transform.localScale.x < 1)
-        {
-            rb.AddForce(new Vector2(stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
+            counter = 0;
+            if (transform.localScale.x > 1)
+            {
+                rb.AddForce(new Vector2(-stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
+            }
+            else if (transform.localScale.x < 1)
+            {
+                rb.AddForce(new Vector2(stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
+            }
         }
 
         //yield return new WaitForSecondsRealtime(0.4f);
@@ -121,9 +149,21 @@ public class EnemyAiMelee : MonoBehaviour
         //yield return new WaitForSeconds(stats.atkcooldown / 2);
         //AttackSensor.SetActive(true);
     }
+
     public void stopmoving()
     {
         rb.velocity = Vector2.zero;
+    }
+    
+    private void resetCounter()
+    {
+        counter = 0;
+    }
+
+    private void resetcolor()
+    {
+        GetComponent<SpriteRenderer>().color = new Color(1, 1,1);
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -152,22 +192,7 @@ public class EnemyAiMelee : MonoBehaviour
 
     IEnumerator swingAtkLeft()
     {
-        gameObject.layer = LayerMask.NameToLayer("enemy");
-        enemyanim.Play("EnemyAttack", 0, 0);
-        stopmoving();
-        movement.enabled = false;
-        AttackSensor.SetActive(false);
-        //yield return new WaitForSeconds(1.5f);
-        //enemyAttack();
-        yield return new WaitForSeconds(1.1f);
-        stopmoving();
-        movement.enabled = true;
-        yield return new WaitForSeconds(stats.atkcooldown);
-        AttackSensor.SetActive(true);
-    }
-
-    IEnumerator swingAtkRight()
-    {
+        CancelInvoke("startatk");
         gameObject.layer = LayerMask.NameToLayer("enemy");
         enemyanim.Play("EnemyAttack", 0, 0);
         stopmoving();
@@ -178,6 +203,22 @@ public class EnemyAiMelee : MonoBehaviour
         //yield return new WaitForSeconds(1.1f);
         //stopmoving();
         //movement.enabled = true;
+        yield return new WaitForSeconds(stats.atkcooldown);
+        AttackSensor.SetActive(true);
+    }
+
+    IEnumerator swingAtkRight()
+    {
+        CancelInvoke("startatk");
+        gameObject.layer = LayerMask.NameToLayer("enemy");
+        enemyanim.Play("EnemyAttack", 0, 0);
+        stopmoving();
+        movement.enabled = false;
+        AttackSensor.SetActive(false);
+        //yield return new WaitForSeconds(1.5f);
+        //enemyAttack();
+        //yield return new WaitForSeconds(1.1f);
+        //stopmoving();
         yield return new WaitForSeconds(stats.atkcooldown);
         AttackSensor.SetActive(true);
     }
@@ -202,8 +243,9 @@ public class EnemyAiMelee : MonoBehaviour
 
     public void returnToOriState()
     {
+        movement.enabled = true;
         gameObject.layer = LayerMask.NameToLayer("enemy");
         resetmove();
-        AttackSensor.SetActive(true);
+        Invoke("startatk", 0.1f);
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fded09839600d345b0f9c1354f9d7c8, type: 3}
   m_Name: rockplayerstats
   m_EditorClassIdentifier: 
-  maxhealth: 100
+  maxhealth: 1000
   atkdmg: 20
   atkcooldown: 0.5
   atkrange: 1
@@ -38,11 +38,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5ed70494886d4754b827907133baab80, type: 2}
   - {fileID: 11400000, guid: 84ec39efc90453e4a9a30c57e6ec68e5, type: 2}
   combosfx:
-  - {fileID: 8300000, guid: dc5c4a79c462ccf4ebf7ddb1a9fe80ce, type: 3}
-  - {fileID: 8300000, guid: d3decba2da42034478db2642e0133227, type: 3}
-  - {fileID: 8300000, guid: 3822ba01e3010454ca633d267e461cf7, type: 3}
-  - {fileID: 8300000, guid: a9d05758691f1224e93a7f8dc317399d, type: 3}
-  - {fileID: 8300000, guid: 97f17515fd08aaf45882f82874ce188e, type: 3}
+  - {fileID: 8300000, guid: 520cb908413d8fa468d09cc7e63fdedb, type: 3}
+  - {fileID: 8300000, guid: 520cb908413d8fa468d09cc7e63fdedb, type: 3}
+  - {fileID: 8300000, guid: 520cb908413d8fa468d09cc7e63fdedb, type: 3}
+  - {fileID: 8300000, guid: 520cb908413d8fa468d09cc7e63fdedb, type: 3}
+  - {fileID: 8300000, guid: 520cb908413d8fa468d09cc7e63fdedb, type: 3}
   speed: 6
   jumpingPower: 20
   dashingPower: 5
@@ -52,4 +52,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   XknockbackForce: 3
-  YknockbackForce: 1
+  YknockbackForce: 2

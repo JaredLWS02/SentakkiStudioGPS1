@@ -49,5 +49,5 @@ MonoBehaviour:
   groundlayer:
     serializedVersion: 2
     m_Bits: 128
-  XknockbackForce: 2
-  YknockbackForce: 3
+  XknockbackForce: 3
+  YknockbackForce: 2

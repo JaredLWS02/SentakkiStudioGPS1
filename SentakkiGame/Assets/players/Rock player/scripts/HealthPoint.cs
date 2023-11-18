@@ -110,6 +110,7 @@ public class healthPoint : MonoBehaviour
             Debug.Log("knock");
             GetComponent<movement>().enabled = false;
             GetComponent<playerattack>().enabled = false;
+            GetComponent<playerattack>().isPlunging = false;
             GetComponent<skillandultimate>().enabled = false;
             GetComponent<swapmechanic>().enabled = false;
             GetComponent<Animator>().Play("knockback", 0, 0);

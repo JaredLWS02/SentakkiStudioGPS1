@@ -335,4 +335,4 @@ MonoBehaviour:
   speed: 2
   anim: {fileID: 8433838795985469621}
   isFacingRight: 0
-  distanceOffset: 0
+  distanceOffset: 1
