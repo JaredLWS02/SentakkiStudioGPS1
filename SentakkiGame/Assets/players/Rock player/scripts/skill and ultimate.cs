@@ -21,6 +21,8 @@ public class skillandultimate : MonoBehaviour
 
     [SerializeField] private GameObject edmobject;
 
+    public bool enabledSkill;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,10 @@ public class skillandultimate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!enabledSkill)
+        {
+            return;
+        }
         if (PauseMenu.instance.isPaused || animationskill.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
         {
             return;
@@ -147,10 +153,16 @@ public class skillandultimate : MonoBehaviour
     {
         if (!failskill)
         {
-            Time.timeScale = 0.47f;
+            Time.timeScale = 0.0f;
+            StartCoroutine(Endfreezeframe());
             //atkanim.SetFloat("slow",0.6f);
             //atkanim.speed = freezeframeduration;
         }
+    }
+    private IEnumerator Endfreezeframe()
+    {
+        yield return new WaitForSecondsRealtime(0.13f);
+        Time.timeScale = 1f;
     }
 
 }

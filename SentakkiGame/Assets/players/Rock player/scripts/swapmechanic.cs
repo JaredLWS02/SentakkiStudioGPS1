@@ -31,6 +31,8 @@ public class swapmechanic : MonoBehaviour
     private Vector2 sizeP1;
     private Vector2 sizeP2;
 
+    public bool enabledSwap;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,10 @@ public class swapmechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!enabledSwap)
+        {
+            return;
+        }
         if(healthPoint.Instance.currenthealthAmountP1 > 0 && healthPoint.Instance.currenthealthAmountP2 > 0)
         {
             if (Input.GetKeyDown(KeyCode.Q) && (Time.time - lastswapTime ) >= swap.swapcooldown)

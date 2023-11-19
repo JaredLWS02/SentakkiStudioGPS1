@@ -100,12 +100,19 @@ public class EnemyAiMelee : MonoBehaviour
             //{
                 CancelInvoke("startatk");
                 CancelInvoke("resetCounter");
-                Invoke("resetCounter", 3);
+                Invoke("resetCounter", 2);
                 movement.enabled = false;
                 counter ++;
                 stopmoving();
                 //stopatk();
-                enemyanim.Play("EnemyKnockBack", 0, 0);
+                if(counter < 4)
+                {
+                    enemyanim.Play("EnemyNoKnockback", 0, 0);
+                }
+                else
+                {
+                    enemyanim.Play("EnemyKnockBack", 0, 0);
+                }
             //}
             //else
             //{
@@ -128,9 +135,7 @@ public class EnemyAiMelee : MonoBehaviour
     private void hitknockback()
     {
         gameObject.layer = LayerMask.NameToLayer("ghostenemy");
-        if(counter >= 4)
-        {
-            counter = 0;
+        counter = 0;
             if (transform.localScale.x > 1)
             {
                 rb.AddForce(new Vector2(-stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
@@ -139,7 +144,6 @@ public class EnemyAiMelee : MonoBehaviour
             {
                 rb.AddForce(new Vector2(stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
             }
-        }
 
         //yield return new WaitForSecondsRealtime(0.4f);
         //gameObject.layer = LayerMask.NameToLayer("enemy");

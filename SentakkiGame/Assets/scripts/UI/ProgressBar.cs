@@ -18,6 +18,7 @@ public class ProgressBar : MonoBehaviour
     public CameraScript CameraScript;
     [SerializeField] public AudioSource stage;
     public float fillAmount;
+    private bool loading;
 
 
 
@@ -41,8 +42,9 @@ public class ProgressBar : MonoBehaviour
     void Update()
     {
         GetCurrentFill();
-        if (current >= maximum)
+        if (current >= maximum && !loading )
         {
+            loading = true;
             Invoke("MaxProgressBar",2.5f);
         }
     }

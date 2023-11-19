@@ -43,7 +43,6 @@ public class EnemyAi : MonoBehaviour
         //lastPos.x = curPos.x;
         //curPos.x = transform.position.x;
 
-
         if (enemyanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && enemyanim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
         {
             Destroy(gameObject);
@@ -101,6 +100,8 @@ public class EnemyAi : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
+            CancelInvoke("startatk");
+            CancelInvoke("resetCounter");
             stopmoving();
             gameObject.layer = LayerMask.NameToLayer("ghostenemy");
             enemyanim.Play("EnemyDeath", 0, 0);
@@ -115,9 +116,16 @@ public class EnemyAi : MonoBehaviour
             CancelInvoke("resetCounter");
             movement.enabled = false;
             counter++;
-            Invoke("resetCounter", 3);
+            Invoke("resetCounter", 2);
             stopmoving();
-            enemyanim.Play("EnemyKnockBack", 0, 0);
+            if (counter < 4)
+            {
+                enemyanim.Play("EnemyNoKnockback", 0, 0);
+            }
+            else
+            {
+                enemyanim.Play("EnemyKnockBack", 0, 0);
+            }
         }
 
     }
@@ -129,9 +137,6 @@ public class EnemyAi : MonoBehaviour
     private void hitknockback()
     {
         gameObject.layer = LayerMask.NameToLayer("ghostenemy");
-
-        if(counter >= 4)
-        {
             counter = 0;
             if (transform.localScale.x > 1)
             {
@@ -141,8 +146,6 @@ public class EnemyAi : MonoBehaviour
             {
                 rb.AddForce(new Vector2(stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
             }
-
-        }
         //gameObject.layer = LayerMask.NameToLayer("enemy");
         //stopmoving();
         //movement.enabled = true;

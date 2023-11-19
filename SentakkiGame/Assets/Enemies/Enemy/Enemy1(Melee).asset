@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Enemy1(Melee)
   m_EditorClassIdentifier: 
   skin: {fileID: 0}
-  maxhp: 1000
-  dmg: 20
+  maxhp: 10000
+  dmg: 15
   chargeSpd: 0
   atkcooldown: 2
-  XknockbackForce: 7
+  XknockbackForce: 15
   YknockbackForce: 2
   playerLayers:
     serializedVersion: 2

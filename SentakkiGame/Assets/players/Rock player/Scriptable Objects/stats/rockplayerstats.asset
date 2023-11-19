@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fded09839600d345b0f9c1354f9d7c8, type: 3}
   m_Name: rockplayerstats
   m_EditorClassIdentifier: 
-  maxhealth: 1000
+  maxhealth: 10000
   atkdmg: 20
   atkcooldown: 0.5
-  atkrange: 1
+  atkrange: 0.5
   atksfx: {fileID: 8300000, guid: a67244edacbf03741866fd3be85d556c, type: 3}
   skilldmg: 30
   skillcooldown: 1
@@ -28,8 +28,8 @@ MonoBehaviour:
   enemylayer:
     serializedVersion: 2
     m_Bits: 512
-  healthrestore: 10
-  gaugerestoreItem: 100
+  healthrestore: 20
+  gaugerestoreItem: 33
   gaugerestoreHit: 1
   combo:
   - {fileID: 11400000, guid: 70b8fb5aa0c9a4443aba1b4fa6fa5ddb, type: 2}
@@ -46,10 +46,11 @@ MonoBehaviour:
   speed: 6
   jumpingPower: 20
   dashingPower: 5
-  dashingTime: 0.2
-  dashingCooldown: 0.5
+  dashingTime: 0.3
+  dashingCooldown: 0.6
   groundlayer:
     serializedVersion: 2
     m_Bits: 128
   XknockbackForce: 3
   YknockbackForce: 2
+  atkpointpos: {x: 0.275, y: -0.022}

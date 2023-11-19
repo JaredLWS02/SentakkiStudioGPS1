@@ -32,7 +32,6 @@ public class swapUI : MonoBehaviour
             pause.enabled = false;
             Time.timeScale = 0f;
             opened = true;
-            player.GetComponent<swapmechanic>().enabled = true;
         }
         else if (Input.GetKeyDown(KeyCode.F) && opened)
         {
@@ -44,6 +43,7 @@ public class swapUI : MonoBehaviour
             pause.enabled = true;
             opened = false;
             Time.timeScale = 1f;
+            player.GetComponent<swapmechanic>().enabledSwap= true;
 
         }
     }

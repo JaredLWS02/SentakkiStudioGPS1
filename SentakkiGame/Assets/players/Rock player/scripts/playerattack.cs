@@ -39,13 +39,20 @@ public class playerattack : MonoBehaviour
     public float sizeX;
     public float sizeY;
 
+    public bool enabledAttack;
+
     void Start()
     {
-
+        enabledAttack = false;
     }
 
     void Update()
     {
+
+        if (!enabledAttack)
+        {
+            return;
+        }
         if(PauseMenu.instance.isPaused || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("skill") )
         {
             return;
@@ -85,6 +92,7 @@ public class playerattack : MonoBehaviour
     {
         if (Time.time - lastcomboEnd > 0.5f && combocounter <= stats.combo.Count)
         {
+            attackpoint.transform.localPosition = stats.atkpointpos;
             hitenemies = Physics2D.OverlapCircleAll(attackpoint.position, stats.atkrange, stats.enemylayer);
 
             if (hitenemies.Length >= 1)

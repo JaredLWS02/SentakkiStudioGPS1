@@ -46,7 +46,8 @@ public class attackUI : MonoBehaviour
             opened = false;
             Time.timeScale = 1f;
             //spawner.SetActive(true);
-            player.GetComponent<playerattack>().enabled = true;
+            //player.GetComponent<playerattack>().enabled = true;
+            player.GetComponent<playerattack>().enabledAttack = true;
         }
 
     }

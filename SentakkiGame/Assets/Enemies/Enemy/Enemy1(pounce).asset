@@ -15,9 +15,9 @@ MonoBehaviour:
   skin: {fileID: 0}
   maxhp: 1000
   dmg: 20
-  chargeSpd: 7
-  atkcooldown: 4
-  XknockbackForce: 7
+  chargeSpd: 10
+  atkcooldown: 3
+  XknockbackForce: 10
   YknockbackForce: 2
   playerLayers:
     serializedVersion: 2

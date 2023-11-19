@@ -32,7 +32,6 @@ public class skillUI : MonoBehaviour
             pause.enabled = false;
             Time.timeScale = 0f;
             opened = true;
-            player.GetComponent<skillandultimate>().enabled = true;
         }
         else if (Input.GetKeyDown(KeyCode.F) && opened)
         {
@@ -44,6 +43,7 @@ public class skillUI : MonoBehaviour
             pause.enabled = true;
             opened = false;
             Time.timeScale = 1f;
+            player.GetComponent<skillandultimate>().enabledSkill = true;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
