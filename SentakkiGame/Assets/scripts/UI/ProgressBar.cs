@@ -41,11 +41,12 @@ public class ProgressBar : MonoBehaviour
 
     void Update()
     {
-        GetCurrentFill();
+        //GetCurrentFill();
+        mask.fillAmount = Mathf.Lerp(mask.fillAmount,fillAmount,Time.deltaTime);
         if (current >= maximum && !loading )
         {
             loading = true;
-            Invoke("MaxProgressBar",2.5f);
+            Invoke("MaxProgressBar",3f);
         }
     }
 
@@ -54,47 +55,37 @@ public class ProgressBar : MonoBehaviour
         float currentOffset = current - minimum;
         float maximumOffset = maximum - minimum;
         fillAmount = currentOffset / maximumOffset;
-        mask.fillAmount = Mathf.Lerp(mask.fillAmount,fillAmount,Time.deltaTime);
 
-        //switch(mask.fillAmount)
-        //{
-        //    case 0.2f:
-        //        {
-        //            stage.volume = 0.25f;
-        //            swapmechanic.instance.volume = 0.1f;
-        //            swapmechanic.instance.setVolume();
-        //        }
-        //        break;
-        //    case 0.4f:
-        //        {
-        //            stage.volume = 0.2f;
-        //            swapmechanic.instance.volume = 0.1f;
-        //            swapmechanic.instance.setVolume();
-        //        }
-        //        break;
-        //    case 0.6f:
-        //        {
-        //            stage.volume = 0.1f;
-        //            swapmechanic.instance.volume = 0.2f;
-        //            swapmechanic.instance.setVolume();
+        switch (current)
+        {
+            case 20:
+                {
+                    stage.volume = 0.15f;
 
-        //        }
-        //        break;
-        //    case 0.8f:
-        //        {
-        //            stage.volume = 0.05f;
-        //            swapmechanic.instance.volume = 0.25f;
-        //            swapmechanic.instance.setVolume();
-        //        }
-        //        break;
-        //    case 1.0f:
-        //        {
-        //            stage.volume = 0;
-        //            swapmechanic.instance.volume = 0.25f;
-        //            swapmechanic.instance.setVolume();
-        //        }
-        //        break;
-        //}
+                    swapmechanic.instance.SetVolume(0.08f);
+                }
+                break;
+            case 40:
+                {
+                    stage.volume = 0.1f;
+                    swapmechanic.instance.SetVolume(0.12f);
+                }
+                break;
+            case 70:
+                {
+                    stage.volume = 0.08f;
+                    swapmechanic.instance.SetVolume(0.15f);
+
+                }
+                break;
+            case 100:
+                {
+                    stage.volume = 0;
+                    swapmechanic.instance.SetVolume(0.2f);
+
+                }
+                break;
+        }
 
     }
 

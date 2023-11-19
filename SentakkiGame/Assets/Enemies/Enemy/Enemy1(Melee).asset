@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy1(Melee)
   m_EditorClassIdentifier: 
   skin: {fileID: 0}
-  maxhp: 10000
+  maxhp: 100
   dmg: 15
   chargeSpd: 0
   atkcooldown: 2

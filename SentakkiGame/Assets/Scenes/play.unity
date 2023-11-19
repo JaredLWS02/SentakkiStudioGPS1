@@ -2857,6 +2857,7 @@ MonoBehaviour:
   swap: {fileID: 11400000, guid: 97dee9f883daedd4bb7b815a75c449c6, type: 2}
   p1: {fileID: 851695565}
   p2: {fileID: 1927231812}
+  stageMusic: {fileID: 920748668}
   swapSource: {fileID: 1341290475}
   playerControl: {fileID: 269279565}
   playerattack: {fileID: 269279563}
@@ -3046,7 +3047,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a67244edacbf03741866fd3be85d556c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5141,7 +5142,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2f5f9d2392aef3940ab4d28d84135e85, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.658
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9969,9 +9970,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dc5c4a79c462ccf4ebf7ddb1a9fe80ce, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 58f80305560b1084b8c59104cf85e70c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10896,7 +10897,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 95367721817961d46b9256d1f94739e5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -18352,7 +18353,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8228f6163b1557244ac66bd00bbe3464, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

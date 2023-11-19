@@ -100,12 +100,12 @@ public class EnemyAiMelee : MonoBehaviour
             //{
                 CancelInvoke("startatk");
                 CancelInvoke("resetCounter");
-                Invoke("resetCounter", 2);
+                Invoke("resetCounter", 1);
                 movement.enabled = false;
                 counter ++;
                 stopmoving();
                 //stopatk();
-                if(counter < 4)
+                if(counter < 5)
                 {
                     enemyanim.Play("EnemyNoKnockback", 0, 0);
                 }

@@ -116,9 +116,9 @@ public class EnemyAi : MonoBehaviour
             CancelInvoke("resetCounter");
             movement.enabled = false;
             counter++;
-            Invoke("resetCounter", 2);
+            Invoke("resetCounter", 1);
             stopmoving();
-            if (counter < 4)
+            if (counter < 5)
             {
                 enemyanim.Play("EnemyNoKnockback", 0, 0);
             }
