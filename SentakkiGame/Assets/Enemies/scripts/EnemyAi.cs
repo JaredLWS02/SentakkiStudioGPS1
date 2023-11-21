@@ -267,4 +267,9 @@ public class EnemyAi : MonoBehaviour
         Invoke("startatk", 0.1f);
 
     }
+
+    private void disablemove()
+    {
+        movement.enabled = false;
+    }
 }

@@ -67,41 +67,14 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings:
-    - serializedVersion: 2
-      path: 0
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    pptrCurveMapping:
-    - {fileID: 242509460, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: 1862379654, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: -1514460024, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: -622657164, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: 1862379654, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: -1514460024, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: -622657164, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: 1862379654, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: -1514460024, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: -622657164, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: 1862379654, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: -1514460024, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: -622657164, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: -1261144382, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: 670356521, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: -1178641899, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: -1550841567, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
-    - {fileID: -1852745717, guid: 8bc050a6aeb167b438001d30cb0caef5, type: 3}
+    genericBindings: []
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.5833334
+    m_StopTime: 1.6666666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -122,20 +95,27 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: stopatk
+    functionName: disablemove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.5
+  - time: 0
+    functionName: stopmoving
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.6666666
     functionName: resetmove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.5
+  - time: 1.6666666
     functionName: startatk
     data: 
     objectReferenceParameter: {fileID: 0}
