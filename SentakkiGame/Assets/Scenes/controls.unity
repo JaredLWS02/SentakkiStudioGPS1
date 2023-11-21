@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 7505058}
   - component: {fileID: 7505057}
   - component: {fileID: 7505056}
+  - component: {fileID: 7505059}
   m_Layer: 5
   m_Name: A
   m_TagString: Untagged
@@ -256,6 +257,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7505054}
   m_CullTransparentMesh: 1
+--- !u!114 &7505059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7505054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0546181d9b77a994c8a2f55e930e47db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pressedButton: {fileID: 21300000, guid: 4896e8bc9edfb4d4fa88fdff22ff3053, type: 3}
+  originalButton: {fileID: 0}
+  buttonRenderer: {fileID: 0}
+  input: 97
 --- !u!1 &100515159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,6 +1864,7 @@ GameObject:
   - component: {fileID: 1114143796}
   - component: {fileID: 1114143795}
   - component: {fileID: 1114143801}
+  - component: {fileID: 1114143802}
   m_Layer: 8
   m_Name: player
   m_TagString: Player
@@ -2055,6 +2073,32 @@ MonoBehaviour:
   moveanim: {fileID: 1114143796}
   rb: {fileID: 1114143798}
   stats: {fileID: 11400000, guid: b7bb026f83d18ff4fb1f8cb4432f98ae, type: 2}
+--- !u!114 &1114143802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114143789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8fe78afa3e23c44b332c834bedb819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extra: 0
+  combocounter: 0
+  freezeframeduration: 0
+  stats: {fileID: 11400000, guid: b7bb026f83d18ff4fb1f8cb4432f98ae, type: 2}
+  atkanim: {fileID: 1114143796}
+  combomanagerUI: {fileID: 0}
+  attackpoint: {fileID: 1821499911}
+  plungeattackpoint: {fileID: 1078979161}
+  rb: {fileID: 1114143798}
+  combosource: {fileID: 0}
+  atksource: {fileID: 0}
+  atksfx: {fileID: 0}
+  sizeX: 1.5
+  sizeY: 2
 --- !u!1 &1174903147
 GameObject:
   m_ObjectHideFlags: 0

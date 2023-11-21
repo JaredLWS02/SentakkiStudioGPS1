@@ -16,7 +16,25 @@
         // if true, use a for loop to check on whether if the gameobject inside the list u created inside spawn script is null or not, if null you use spawnScript.NAMEOFLIST.RemoveAt()
         // after that u then check again on whether if the list is empty, if true start the corountine EnemyDefeated()
 
+        if (ambushstart == true)
+        {
+            for (int i = spawnScript.enemyList.Count - 1; i >=0; i--)
+            {
+                if(spawnScript.enemyList[i] == null)
+                {
+                    spawnScript.enemyList.RemoveAt(i);
+                }
+            }
+            if (spawnScript.enemyList.Count == 0)
+            {
+                StartCoroutine(EnemyDefeated());
+            }
+        }
+
+
+
     }
+
     private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))

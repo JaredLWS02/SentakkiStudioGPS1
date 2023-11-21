@@ -6,7 +6,7 @@ public class Spawn : MonoBehaviour
 {
     public static Spawn instance;
     [SerializeField]
-    private GameObject[] enemyPrefabs;
+    public GameObject[] enemyPrefabs;
     [SerializeField]
 
     private float spawnInterval = 3.5f;
@@ -17,6 +17,8 @@ public class Spawn : MonoBehaviour
     public GameObject player;
     public int enemycounter = 0;
     private bool isspawning;
+    public List<GameObject> enemyList = new List<GameObject>();
+
 
     public List<GameObject> enemyClone;
     public void PauseSpawning()
@@ -65,6 +67,9 @@ public class Spawn : MonoBehaviour
     }
 
     // Add this method to your Spawn script to spawn a specific number of enemies.
+
+
+
     public void SpawnEnemiesFromAbove(int numberOfEnemies)
     {
         PauseSpawning();
@@ -87,8 +92,10 @@ public class Spawn : MonoBehaviour
 
             // Randomly select an enemy prefab from the array
             GameObject selectedEnemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+            
 
             GameObject newEnemy = Instantiate(selectedEnemyPrefab, spawnPosition, Quaternion.identity);
+            enemyList.Add(newEnemy);
             newEnemy.GetComponent<Animator>().Play("EnemyAmbush", 0, 0);
 
             //declare a list above 
