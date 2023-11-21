@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxhealth: 100
   atkdmg: 10
-  atkcooldown: 0.5
-  atkrange: 1
+  atkcooldown: 0.45
+  atkrange: 1.3
   atksfx: {fileID: 8300000, guid: 075f3c9c3e1735a4a8202bc2990df6eb, type: 3}
   skilldmg: 30
   skillcooldown: 5
@@ -28,8 +28,8 @@ MonoBehaviour:
   enemylayer:
     serializedVersion: 2
     m_Bits: 512
-  healthrestore: 10
-  gaugerestoreItem: 100
+  healthrestore: 20
+  gaugerestoreItem: 33
   gaugerestoreHit: 1
   combo:
   - {fileID: 11400000, guid: 8104217a63b9d4c4cbb1203deff2d836, type: 2}
@@ -44,10 +44,11 @@ MonoBehaviour:
   speed: 8
   jumpingPower: 20
   dashingPower: 5
-  dashingTime: 0.2
-  dashingCooldown: 0.5
+  dashingTime: 0.3
+  dashingCooldown: 0.6
   groundlayer:
     serializedVersion: 2
     m_Bits: 128
-  XknockbackForce: 2
-  YknockbackForce: 3
+  XknockbackForce: 3
+  YknockbackForce: 2
+  atkpointpos: {x: 0.014, y: -0.022}

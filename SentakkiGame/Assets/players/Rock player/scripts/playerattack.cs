@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,23 +34,32 @@ public class playerattack : MonoBehaviour
     [SerializeField] private AudioSource combosource;
     [SerializeField] private AudioSource atksource;
     [SerializeField] private AudioSource atksfx;
-
     private bool hit;
+    public bool isPlunging;
+    public float sizeX;
+    public float sizeY;
+
+    public bool enabledAttack;
 
     void Start()
     {
-
+        enabledAttack = false;
     }
 
     void Update()
     {
+
+        if (!enabledAttack)
+        {
+            return;
+        }
         if(PauseMenu.instance.isPaused || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("skill") )
         {
             return;
         }
         //Debug.DrawRay(plungeattackpoint.position, Vector2.down * 4f, Color.blue);
         // Attack input
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J) && !isPlunging)
         {
             if(!movement.instance.isDashing)
             {
@@ -59,9 +69,12 @@ public class playerattack : MonoBehaviour
                 }
                 else
                 {
-                    hit = false;
-                    atkanim.Play("plunge", 0, 0);
-                    rb.AddForce(new Vector2(0, -stats.jumpingPower * 2), ForceMode2D.Impulse);
+                    if(!isPlunging)
+                    {
+                        isPlunging = true;
+                        hit = false;
+                        atkanim.Play("plunge", 0, 0);
+                    }
                 }
             }
         }
@@ -79,6 +92,7 @@ public class playerattack : MonoBehaviour
     {
         if (Time.time - lastcomboEnd > 0.5f && combocounter <= stats.combo.Count)
         {
+            attackpoint.transform.localPosition = stats.atkpointpos;
             hitenemies = Physics2D.OverlapCircleAll(attackpoint.position, stats.atkrange, stats.enemylayer);
 
             if (hitenemies.Length >= 1)
@@ -145,7 +159,7 @@ public class playerattack : MonoBehaviour
     {
         if(!hit)
         {
-            Collider2D[] enemieshit = Physics2D.OverlapBoxAll(plungeattackpoint.position, new Vector2(2, 3), 1f, stats.enemylayer);
+            Collider2D[] enemieshit = Physics2D.OverlapBoxAll(plungeattackpoint.position, new Vector2(sizeX, sizeY), 1f, stats.enemylayer);
             if (enemieshit.Length >= 1)
             {
                 hit = true;
@@ -180,6 +194,12 @@ public class playerattack : MonoBehaviour
             }
         }
 
+        if(movement.instance.IsGrounded())
+        {
+            isPlunging = false;
+            atkanim.Play("plunge", 0, 0.6f);
+        }
+
     }
 
     // reset script
@@ -189,7 +209,7 @@ public class playerattack : MonoBehaviour
         {
             reseted = false;
 
-            if(combomanagerUI.innercomboUI >= 0 && combomanagerUI.innercomboUI <= 18)
+            if (combomanagerUI.innercomboUI >= 0 && combomanagerUI.innercomboUI <= 18)
             {
                 Invoke("EndCombo", 2);
             }
@@ -223,16 +243,18 @@ public class playerattack : MonoBehaviour
     {
         if (!failattack)
         {
-            Time.timeScale = 0.47f;
+            Time.timeScale = 0.0f;
+            StartCoroutine(endfreezeframe());
             //atkanim.SetFloat("slow",0.6f);
             //atkanim.speed = freezeframeduration;
         }
     }
-    private void endfreezeframe()
+    private IEnumerator endfreezeframe()
     {
         //if (!failattack)
         //{
-            Time.timeScale = 1f;
+        yield return new WaitForSecondsRealtime(0.13f);
+        Time.timeScale = 1f;
             //atkanim.SetFloat("slow", 1f);
         //}
     }
@@ -245,7 +267,7 @@ public class playerattack : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(attackpoint.position, stats.atkrange);
-        Gizmos.DrawWireCube(plungeattackpoint.position, new Vector2(2, 3));
+        Gizmos.DrawWireCube(plungeattackpoint.position, new Vector2(sizeX, sizeY));
     }
 
     private void disableSwap()
@@ -256,5 +278,10 @@ public class playerattack : MonoBehaviour
     private void enableSwap()
     {
         GetComponent<swapmechanic>().enabled = true;
+    }
+
+    private void addDownForce()
+    {
+        rb.AddForce(new Vector2(0, -stats.jumpingPower), ForceMode2D.Impulse);
     }
 }

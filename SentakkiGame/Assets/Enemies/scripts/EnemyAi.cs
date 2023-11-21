@@ -24,6 +24,8 @@ public class EnemyAi : MonoBehaviour
 
     [SerializeField] private AudioSource atksfx;
 
+    private float counter;
+
 
     private bool hit;
     public float chargepower;
@@ -40,7 +42,6 @@ public class EnemyAi : MonoBehaviour
     {
         //lastPos.x = curPos.x;
         //curPos.x = transform.position.x;
-
 
         if (enemyanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && enemyanim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
         {
@@ -76,18 +77,15 @@ public class EnemyAi : MonoBehaviour
         {
             // play attack animation
             // Detect enemy(player) in range of attack
-            Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackHitbox.position, new Vector2(sizex, sizey), angle, stats.playerLayers);
+            Collider2D hitEnemies = Physics2D.OverlapBox(attackHitbox.position, new Vector2(sizex, sizey), angle, stats.playerLayers);
             //Debug.Log(hitEnemies[0]);
             //Damage the enemy(player)
-            if (hitEnemies.Length > 0)
+            if (hitEnemies != null)
             {
                 atksfx.Play();
                 hit = true;
-                foreach (Collider2D enemy in hitEnemies)
-                {
-                    healthPoint.Instance.TakeDamage(stats.dmg);
+                healthPoint.Instance.TakeDamage(stats.dmg);
                     // Debug.Log("Player hit!!!" + enemy.name);
-                }
             }
         }
     }
@@ -102,6 +100,8 @@ public class EnemyAi : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
+            CancelInvoke("startatk");
+            CancelInvoke("resetCounter");
             stopmoving();
             gameObject.layer = LayerMask.NameToLayer("ghostenemy");
             enemyanim.Play("EnemyDeath", 0, 0);
@@ -112,31 +112,46 @@ public class EnemyAi : MonoBehaviour
         }
         else
         {
-            enemyanim.Play("EnemyKnockBack", 0, 0);
-            StartCoroutine(hitknockback());
-            //Invoke("hitknockback", 1.2f);
+            CancelInvoke("startatk");
+            CancelInvoke("resetCounter");
+            movement.enabled = false;
+            counter++;
+            Invoke("resetCounter", 1);
+            stopmoving();
+            if (counter < 5)
+            {
+                enemyanim.Play("EnemyNoKnockback", 0, 0);
+            }
+            else
+            {
+                enemyanim.Play("EnemyKnockBack", 0, 0);
+            }
         }
 
     }
 
-    private IEnumerator hitknockback()
+    private void resetCounter()
     {
-        if (transform.localScale.x > 1)
-        {
-            rb.AddForce(new Vector2(-stats.XknockbackForce,stats.YknockbackForce), ForceMode2D.Impulse);
-        }
-        else if (transform.localScale.x < 1)
-        {
-            rb.AddForce(new Vector2(stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
-        }
+        counter = 0;
+    }
+    private void hitknockback()
+    {
         gameObject.layer = LayerMask.NameToLayer("ghostenemy");
-        yield return new WaitForSecondsRealtime(0.6f);
-        gameObject.layer = LayerMask.NameToLayer("enemy");
+            counter = 0;
+            if (transform.localScale.x > 1)
+            {
+                rb.AddForce(new Vector2(-stats.XknockbackForce,stats.YknockbackForce), ForceMode2D.Impulse);
+            }
+            else if (transform.localScale.x < 1)
+            {
+                rb.AddForce(new Vector2(stats.XknockbackForce, stats.YknockbackForce), ForceMode2D.Impulse);
+            }
+        //gameObject.layer = LayerMask.NameToLayer("enemy");
         //stopmoving();
-        movement.enabled = true;
-        resetmove();
-        yield return new WaitForSeconds(stats.atkcooldown / 2);
-        AttackSensor.SetActive(true);
+        //movement.enabled = true;
+        //resetmove();
+        //yield return new WaitForSecondsRealtime(stats.atkcooldown /2);
+        //AttackSensor.SetActive(true);
     }
 
     public void stopmoving()
@@ -145,7 +160,7 @@ public class EnemyAi : MonoBehaviour
     }
 
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D (Collider2D col)
     {
         if(col.CompareTag("Player"))
         {
@@ -172,46 +187,66 @@ public class EnemyAi : MonoBehaviour
 
     private IEnumerator chargeAtkLeft()
     {
+        CancelInvoke("startatk");
+        gameObject.layer = LayerMask.NameToLayer("enemy");
         hit = false;
         enemyanim.Play("EnemyAttack", 0, 0);
         stopmoving();
         movement.enabled = false;
         AttackSensor.SetActive(false);
-        yield return new WaitForSeconds(1.5f);
-        //AttackHtibox.SetActive(true);
-        rb.AddForce(new Vector2(-2 * chargepower, 0), ForceMode2D.Impulse);
-        //enemyAttack();
-        yield return new WaitForSeconds(1.1f);
-        //AttackHtibox.SetActive(false);
-        stopmoving();
-        movement.enabled = true;
-        yield return new WaitForSeconds(stats.atkcooldown);
+        //yield return new WaitForSeconds(1.5f);
+        ////AttackHtibox.SetActive(true);
+        //rb.AddForce(new Vector2(-2 * chargepower, 0), ForceMode2D.Impulse);
+        ////enemyAttack();
+        //yield return new WaitForSeconds(1.1f);
+        ////AttackHtibox.SetActive(false);
+        //stopmoving();
+        //movement.enabled = true;
+        yield return new WaitForSecondsRealtime(stats.atkcooldown);
         AttackSensor.SetActive(true);
     }
 
     private IEnumerator chargeAtkRight()
     {
+        CancelInvoke("startatk");
+        gameObject.layer = LayerMask.NameToLayer("enemy");
         hit = false;
         enemyanim.Play("EnemyAttack", 0, 0);
         stopmoving();
         movement.enabled = false;
         AttackSensor.SetActive(false);
-        yield return new WaitForSeconds(1.5f);
+       // yield return new WaitForSeconds(1.5f);
         //AttackHtibox.SetActive(true);
-        rb.AddForce(new Vector2(2 * chargepower, 0), ForceMode2D.Impulse);
+        //rb.AddForce(new Vector2(2 * chargepower, 0), ForceMode2D.Impulse);
         //enemyAttack();
-        yield return new WaitForSeconds(1.1f);
+        //yield return new WaitForSeconds(1.1f);
         //AttackHtibox.SetActive(false);
-        stopmoving();
-        movement.enabled = true;
-        yield return new WaitForSeconds(stats.atkcooldown);
+        //stopmoving();
+        //movement.enabled = true;
+        yield return new WaitForSecondsRealtime(stats.atkcooldown);
         AttackSensor.SetActive(true);
     }
 
 
     public void resetmove()
     {
+        stopmoving();
+        movement.enabled = true;
         enemyanim.Play("EnemyWalk", 0, 0);
+    }
+
+    public void charge()
+    {
+        if (transform.localScale.x > 1)
+        {
+            rb.AddForce(new Vector2(2 * chargepower, 0), ForceMode2D.Impulse);
+
+        }
+        else if (transform.localScale.x < 1)
+        {
+            rb.AddForce(new Vector2(-2 * chargepower, 0), ForceMode2D.Impulse);
+        }
+
     }
 
     public void startatk()
@@ -222,5 +257,14 @@ public class EnemyAi : MonoBehaviour
     public void stopatk()
     {
         AttackSensor.SetActive(false);
+    }
+
+    public void returnToOriState()
+    {
+        gameObject.layer = LayerMask.NameToLayer("enemy");
+        resetmove();
+        movement.enabled = true;
+        Invoke("startatk", 0.1f);
+
     }
 }

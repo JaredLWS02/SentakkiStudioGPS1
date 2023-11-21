@@ -22,6 +22,8 @@ public class movement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Animator moveanim;
     [SerializeField] private AudioSource jumpSource;
+    [SerializeField] private float distancebetweenImages;
+    [SerializeField] private float lastImagePosX;
 
     private void OnDisable()
     {
@@ -43,6 +45,7 @@ public class movement : MonoBehaviour
 
         if (isDashing)
         {
+            afterimage();
             if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
             {
                 jumpSource.Play();
@@ -118,14 +121,15 @@ public class movement : MonoBehaviour
     private IEnumerator Dash()
     {
         moveanim.Play("dash",0,0);
+        
         canDash = false;
         isDashing = true;
         gameObject.layer = LayerMask.NameToLayer("ghostplayer");
-        //rb.gravityScale = 0f;
+        rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * stats.dashingPower, 0f);
         //rb.AddForce(Vector2.right * transform.localScale.x * stats.dashingPower, ForceMode2D.Impulse);
         yield return new WaitForSeconds(stats.dashingTime);
-        //rb.gravityScale = fallingGravity;
+        rb.gravityScale = oriGravity;
         isDashing = false;
         gameObject.layer = LayerMask.NameToLayer("player");
         yield return new WaitForSeconds(stats.dashingCooldown);
@@ -138,18 +142,27 @@ public class movement : MonoBehaviour
         this.enabled = true;
     }
 
-    private void gravitypull()
-    {
-        Debug.Log("switch");
-        rb.gravityScale = fallingGravity;
-    }
+    //private void gravitypull()
+    //{
+    //    Debug.Log("switch");
+    //    rb.gravityScale = fallingGravity;
+    //}
     
     private void disablemovescript()
     {
         this.enabled =false;
     }
 
-
+    private void afterimage()
+    {
+        AfterImagePooling.instance.GetFromPool();
+        lastImagePosX = transform.position.x;
+        if (Mathf.Abs(transform.position.x - lastImagePosX) > distancebetweenImages)
+        {
+            AfterImagePooling.instance.GetFromPool();
+            lastImagePosX = transform.position.x;
+        }
+    }
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

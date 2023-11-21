@@ -113,7 +113,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: dash
-  m_Speed: 1.5
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -316,9 +316,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.11880869
+  m_TransitionDuration: 0.118808866
   m_TransitionOffset: 0
-  m_ExitTime: 0.88402116
+  m_ExitTime: 0.8537342
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -528,9 +528,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.034136623
+  m_TransitionDuration: 0.034136802
   m_TransitionOffset: 0
-  m_ExitTime: 0.93507355
+  m_ExitTime: 0.9802702
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -735,9 +735,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.025140107
-  m_TransitionOffset: 0
-  m_ExitTime: 0.9742985
+  m_TransitionDuration: 0.013601631
+  m_TransitionOffset: 0.021731958
+  m_ExitTime: 0.97923476
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
