@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxhealth: 100
   atkdmg: 10
-  atkcooldown: 0.45
+  atkcooldown: 0.4
   atkrange: 1.3
   atksfx: {fileID: 8300000, guid: 075f3c9c3e1735a4a8202bc2990df6eb, type: 3}
   skilldmg: 30
@@ -36,11 +36,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5e8012cdb90931a4aa899bd4a57cb183, type: 2}
   - {fileID: 11400000, guid: 7590b052cf86e8f489b1242b3a085333, type: 2}
   combosfx:
-  - {fileID: 8300000, guid: 383df1dd59f09dd4bb9ba1f3422aab2c, type: 3}
-  - {fileID: 8300000, guid: 634424059e55c744fb67099892aafabc, type: 3}
-  - {fileID: 8300000, guid: a1915dec3f476fe40ba8b8b2907bda41, type: 3}
-  - {fileID: 8300000, guid: 82b19f0bcaaf17a4aa620d70f76b96e9, type: 3}
-  - {fileID: 8300000, guid: 4cf9277816383e1448e1e4915584b6c1, type: 3}
+  - {fileID: 8300000, guid: a3de965d24ee0b646bc7f2d6bb3010ec, type: 3}
+  - {fileID: 8300000, guid: dfd87b56990cd524e9e42a1ab82abbcd, type: 3}
+  - {fileID: 8300000, guid: 37192e0055a62414da31d8a5f729066d, type: 3}
   speed: 8
   jumpingPower: 20
   dashingPower: 5
@@ -50,5 +48,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   XknockbackForce: 3
-  YknockbackForce: 2
+  YknockbackForce: 1
   atkpointpos: {x: 0.014, y: -0.022}

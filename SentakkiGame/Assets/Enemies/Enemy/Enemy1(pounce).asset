@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skin: {fileID: 0}
   maxhp: 100
-  dmg: 20
-  chargeSpd: 10
+  dmg: 10
+  chargeSpd: 9
   atkcooldown: 3
   XknockbackForce: 10
   YknockbackForce: 2

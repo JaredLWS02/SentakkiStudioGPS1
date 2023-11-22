@@ -43,7 +43,7 @@ public class playerattack : MonoBehaviour
 
     void Start()
     {
-        enabledAttack = false;
+
     }
 
     void Update()
@@ -239,6 +239,7 @@ public class playerattack : MonoBehaviour
     {
         if (!failattack)
         {
+
             Time.timeScale = 0.0f;
             StartCoroutine(endfreezeframe());
             //atkanim.SetFloat("slow",0.6f);

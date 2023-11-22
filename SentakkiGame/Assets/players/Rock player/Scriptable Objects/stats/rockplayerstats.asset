@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: rockplayerstats
   m_EditorClassIdentifier: 
   maxhealth: 100
-  atkdmg: 100
+  atkdmg: 15
   atkcooldown: 0.5
   atkrange: 0.5
   atksfx: {fileID: 8300000, guid: a67244edacbf03741866fd3be85d556c, type: 3}
@@ -52,5 +52,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   XknockbackForce: 3
-  YknockbackForce: 2
+  YknockbackForce: 1
   atkpointpos: {x: 0.275, y: -0.022}

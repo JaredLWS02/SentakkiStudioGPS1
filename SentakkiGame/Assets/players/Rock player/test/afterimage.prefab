@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6788598502771115010}
   - component: {fileID: 7900637954966241868}
-  - component: {fileID: 8770549639921416569}
   - component: {fileID: -184992452956753601}
   m_Layer: 0
   m_Name: afterimage
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5949639566658701949}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.72, y: -0.9940002, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,27 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8770549639921416569
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5949639566658701949}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0b2c8de266fb66a4d9ed993c9e01a231, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 2
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-184992452956753601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f087770c0ec7ba4a8198f2c5d33b923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeTime: 2
+  activeTime: 1
   timeActivated: 0
   alpha: 0
   alphaset: 0.8

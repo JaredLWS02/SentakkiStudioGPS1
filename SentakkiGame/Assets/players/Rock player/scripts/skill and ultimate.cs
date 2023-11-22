@@ -41,17 +41,23 @@ public class skillandultimate : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.H) && gaugePoint.gaugePointAmount > 32)
+        if (Time.time - lastskillclickedtime >= stats.skillcooldown)
         {
-            if (movement.instance.IsGrounded() && !movement.instance.isDashing)
+            if (Input.GetKeyDown(KeyCode.H) && gaugePoint.gaugePointAmount > 32)
             {
-                if(!swapmechanic.instance.player1Active)
+                if (movement.instance.IsGrounded() && !movement.instance.isDashing)
                 {
-                    skillP2();
-                }
-                else
-                {
-                    skillP1();
+                    gaugePoint.ReduceGauge(33);
+                    lastskillclickedtime = Time.time;
+                    animationskill.Play("skill", 0, 0);
+                    //if (!swapmechanic.instance.player1Active)
+                    //{
+                    //    skillP2();
+                    //}
+                    //else
+                    //{
+                    //    skillP1();
+                    //}
                 }
             }
         }
@@ -81,17 +87,15 @@ public class skillandultimate : MonoBehaviour
 
     void skillP1()
     {
-        if (Time.time - lastskillclickedtime >= stats.skillcooldown)
+        if(!failskill)
         {
             skillAndUltisfx.clip = stats.skillsfx;
             skillAndUltisfx.Play();
             hitenemiesSkill = Physics2D.OverlapCircleAll(skillattackpoint.position, stats.skillrange, stats.enemylayer);
-            gaugePoint.ReduceGauge(33);
             //animationskill.runtimeAnimatorController = skillanim.animatorOV;
-            animationskill.Play("skill", 0, 0);
-            lastskillclickedtime = Time.time;
+            //lastskillclickedtime = Time.time;
 
-            if(hitenemiesSkill.Length <= 0)
+            if (hitenemiesSkill.Length <= 0)
             {
                 failskill = true;
             }
@@ -114,21 +118,24 @@ public class skillandultimate : MonoBehaviour
                 combomanagerUI.checkcombostatus();
             }
         }
+        //if (Time.time - lastskillclickedtime >= stats.skillcooldown)
+        //{
+        //}
     }
 
     void skillP2()
     {
-        if (Time.time - lastskillclickedtime >= stats.skillcooldown)
-        {
+        //if (Time.time - lastskillclickedtime >= stats.skillcooldown)
+       //{
             Instantiate(edmobject,transform.position,Quaternion.identity);
             skillAndUltisfx.clip = stats.skillsfx;
             skillAndUltisfx.Play();
             //hitenemiesSkill = Physics2D.OverlapCircleAll(skillattackpoint.position, stats.skillrange, stats.enemylayer);
-            gaugePoint.ReduceGauge(33);
+            //gaugePoint.ReduceGauge(33);
             //animationskill.runtimeAnimatorController = skillanim.animatorOV;
-            animationskill.Play("skill", 0, 0);
-            lastskillclickedtime = Time.time;
-        }
+            //animationskill.Play("skill", 0, 0);
+            //lastskillclickedtime = Time.time;
+       //}
     }
 
     void ultimateP1()
@@ -146,6 +153,7 @@ public class skillandultimate : MonoBehaviour
     }
     private void ExitSkill()
     {
+        failskill = false;
         animationskill.Play("idle", 0, 0);
     }
 
