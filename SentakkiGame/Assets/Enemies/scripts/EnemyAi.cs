@@ -202,7 +202,7 @@ public class EnemyAi : MonoBehaviour
         ////AttackHtibox.SetActive(false);
         //stopmoving();
         //movement.enabled = true;
-        yield return new WaitForSecondsRealtime(stats.atkcooldown);
+        yield return new WaitForSeconds(stats.atkcooldown);
         AttackSensor.SetActive(true);
     }
 
@@ -223,7 +223,7 @@ public class EnemyAi : MonoBehaviour
         //AttackHtibox.SetActive(false);
         //stopmoving();
         //movement.enabled = true;
-        yield return new WaitForSecondsRealtime(stats.atkcooldown);
+        yield return new WaitForSeconds(stats.atkcooldown);
         AttackSensor.SetActive(true);
     }
 

@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movement : MonoBehaviour
+public class movementControl : MonoBehaviour
 {
-    public static movement instance;
-
+    public static movementControl instance;
     private float horizontal;
     private bool isFacingRight = true;
 
@@ -24,25 +23,17 @@ public class movement : MonoBehaviour
     [SerializeField] private AudioSource jumpSource;
     [SerializeField] private float distancebetweenImages;
     [SerializeField] private float lastImagePosX;
+    [SerializeField] private Vector2 startpos;
     private bool isjumping;
 
-    private void OnDisable()
-    {
-        rb.velocity = Vector2.zero;
-    }
     private void Start()
     {
-        Time.timeScale = 1f;
-        oriGravity = rb.gravityScale;
         instance = this;
+        oriGravity = rb.gravityScale;
     }
 
     private void Update()
     {
-        if (PauseMenu.instance.isPaused)
-        {
-            return;
-        }
         //if(isjumping && IsGrounded())
         //{
         //    moveanim.Play("jump end", 0, 0);
@@ -73,7 +64,7 @@ public class movement : MonoBehaviour
             }
 
         }
-        else 
+        else
         {
             moveKeyPress = false;
             moveanim.SetBool("move", false);
@@ -97,18 +88,18 @@ public class movement : MonoBehaviour
         }
 
         Flip();
-    }
-
-    private void FixedUpdate()
-    {
-        if (isDashing)
-        {
-            return;
-        }
-
         rb.velocity = new Vector2(horizontal * stats.speed, rb.velocity.y);
-
     }
+
+    //private void FixedUpdate()
+    //{
+    //    if (isDashing)
+    //    {
+    //        return;
+    //    }
+
+
+    //}
     public bool IsGrounded()
     {
         return Physics2D.OverlapBox(groundCheck.position, new Vector2(1.5f, 0.05f), 0f, stats.groundlayer);
@@ -116,7 +107,7 @@ public class movement : MonoBehaviour
 
     private void Flip()
     {
-        if(isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
@@ -126,11 +117,10 @@ public class movement : MonoBehaviour
     }
     private IEnumerator Dash()
     {
-        moveanim.Play("dash",0,0);
-        
+        moveanim.Play("dash", 0, 0);
+
         canDash = false;
         isDashing = true;
-        gameObject.layer = LayerMask.NameToLayer("ghostplayer");
         rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * stats.dashingPower, 0f);
         //rb.AddForce(Vector2.right * transform.localScale.x * stats.dashingPower, ForceMode2D.Impulse);
@@ -138,7 +128,7 @@ public class movement : MonoBehaviour
         rb.gravityScale = oriGravity;
         isDashing = false;
         gameObject.layer = LayerMask.NameToLayer("player");
-        yield return new WaitForSeconds(stats.dashingCooldown);
+        yield return new WaitForSecondsRealtime(stats.dashingCooldown);
         canDash = true;
     }
 
@@ -153,10 +143,10 @@ public class movement : MonoBehaviour
     //    Debug.Log("switch");
     //    rb.gravityScale = fallingGravity;
     //}
-    
+
     private void disablemovescript()
     {
-        this.enabled =false;
+        this.enabled = false;
     }
 
     private void afterimage()
@@ -177,7 +167,7 @@ public class movement : MonoBehaviour
 
     private void endjump()
     {
-        if(IsGrounded())
+        if (IsGrounded())
         {
             moveanim.Play("jump end", 0, 0);
         }

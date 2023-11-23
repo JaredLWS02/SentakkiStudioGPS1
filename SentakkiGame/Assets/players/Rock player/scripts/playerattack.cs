@@ -61,8 +61,6 @@ public class playerattack : MonoBehaviour
         // Attack input
         if (Input.GetKeyDown(KeyCode.J) && !isPlunging)
         {
-            if(!movement.instance.isDashing)
-            {
                 if (movement.instance.IsGrounded())
                 {
                     Attack();
@@ -76,7 +74,6 @@ public class playerattack : MonoBehaviour
                         atkanim.Play("plunge", 0, 0);
                     }
                 }
-            }
         }
 
         // combo interrupted
@@ -133,11 +130,11 @@ public class playerattack : MonoBehaviour
 
                 foreach (Collider2D enemy in hitenemies)
                 {
-                    if(enemy.CompareTag("enemy"))
+                    if (enemy.CompareTag("enemy"))
                     {
                         enemy.GetComponent<EnemyAi>().takeDamage(stats.atkdmg);
                     }
-                    else if(enemy.CompareTag("enemyMelee"))
+                    else if (enemy.CompareTag("enemyMelee"))
                     {
                         enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.atkdmg);
                     }

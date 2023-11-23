@@ -50,7 +50,11 @@ public class swapmechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!enabledSwap)
+        if (PauseMenu.instance.isPaused)
+        {
+            return;
+        }
+        if (!enabledSwap)
         {
             return;
         }

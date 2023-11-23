@@ -86,7 +86,7 @@ public class Spawn : MonoBehaviour
         for (int i = 0; i < numberOfEnemies; i++)
         {
             // Calculate spawn positions from above.
-            float spawnX = Random.Range(player.transform.position.x - 10, player.transform.position.x + 10); // Adjust as needed.
+            float spawnX = Random.Range(player.transform.position.x - 8, player.transform.position.x + 8); // Adjust as needed.
             float spawnY = 8f; // Spawn from above.
             Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0);
 

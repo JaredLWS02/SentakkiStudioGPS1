@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     public AudioSource[] allAudioSources;
     public AudioSource pause;
     public AudioSource unpause;
+    public AudioSource optionmusic;
 
     private void Start()
     {
@@ -42,6 +43,7 @@ public class PauseMenu : MonoBehaviour
         PausePanel.SetActive(true);
         Time.timeScale = 0;
         pause.Play();
+        optionmusic.Play();
     }
 
     public void Continue()
@@ -54,6 +56,7 @@ public class PauseMenu : MonoBehaviour
         PausePanel.SetActive(false);
         Time.timeScale = 1;
         unpause.Play();
+        optionmusic.Stop();
     }
 
     public void ReturnToMainMenu()

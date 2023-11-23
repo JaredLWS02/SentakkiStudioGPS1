@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
     public static CameraScript instance;
+    public List<GameObject> barrier;
     public float followSpeed;
     public Vector3 offset;
     public Transform target;
@@ -25,11 +27,19 @@ public class CameraScript : MonoBehaviour
 
     public void StopFollowing()
     {
+        foreach (GameObject o in barrier)
+        {
+            o.SetActive(true);
+        }
         isFollowing = false;
     }
 
     public void ResumeFollowing()
     {
+        foreach (GameObject o in barrier)
+        {
+            o.SetActive(false);
+        }
         isFollowing = true;
     }
 }

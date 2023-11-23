@@ -56,6 +56,7 @@
                     gameObject.GetComponent<BoxCollider2D>().enabled = false;
                     ambushstart = true;
                     spawnScript.enemycounter = 0;
+
                 }
                 else
                 {
@@ -71,7 +72,7 @@
             cameraScript.ResumeFollowing();
             Spawn.instance.ResumeSpawning();
             ambushstart = false;
-            yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
             goui.SetActive(false);
 
         }

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxhealth: 100
   atkdmg: 15
-  atkcooldown: 0.5
-  atkrange: 0.5
+  atkcooldown: 0.55
+  atkrange: 0.7
   atksfx: {fileID: 8300000, guid: a67244edacbf03741866fd3be85d556c, type: 3}
   skilldmg: 30
   skillcooldown: 1

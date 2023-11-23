@@ -101,8 +101,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.16666667
-    functionName: addDownForce
+  - time: 0.8333333
+    functionName: setjump
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -116,7 +116,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.8333333
-    functionName: idle
+    functionName: playidle
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

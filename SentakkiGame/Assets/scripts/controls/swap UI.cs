@@ -10,6 +10,7 @@ public class swapUI : MonoBehaviour
     [SerializeField] private PauseMenu pause;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject invisibleWall;
     private bool caninteract;
     private bool opened;
     public GameObject PausePanelControls;
@@ -24,6 +25,7 @@ public class swapUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && caninteract && !opened)
         {
+            invisibleWall.SetActive(false);
             PausePanelControls.SetActive(true);
             escapetext.SetActive(true);
             tutorialText.SetActive(true);

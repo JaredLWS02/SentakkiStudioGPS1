@@ -107,6 +107,7 @@ public class healthPoint : MonoBehaviour
     {
         if(healthBar.fillAmount > 0)
         {
+            CancelInvoke("returnOriState");
             Debug.Log("knock");
             GetComponent<movement>().enabled = false;
             GetComponent<playerattack>().enabled = false;
@@ -124,6 +125,7 @@ public class healthPoint : MonoBehaviour
             {
                 rb.AddForce(new Vector2(statsP1.XknockbackForce, statsP1.YknockbackForce) * 4, ForceMode2D.Impulse);
             }
+            Invoke("returnOriState", 0.4f);
         }
     }
 

@@ -10,6 +10,7 @@ public class skillUI : MonoBehaviour
     [SerializeField] private PauseMenu pause;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject invisisbleWall;
     private bool caninteract;
     private bool opened;
     public GameObject PausePanelControls;
@@ -24,6 +25,7 @@ public class skillUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && caninteract && !opened)
         {
+            invisisbleWall.SetActive(false);
             PausePanelControls.SetActive(true);
             escapetext.SetActive(true);
             tutorialText.SetActive(true);

@@ -9,6 +9,7 @@ public class jumpUI : MonoBehaviour
     [SerializeField] private GameObject tutorialText;
     [SerializeField] private GameObject escapetext;
     [SerializeField] private PauseMenu pause;
+    [SerializeField] private GameObject invisibleWall;
     private bool caninteract;
     private bool opened;
     public GameObject PausePanelControls;
@@ -23,6 +24,7 @@ public class jumpUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && caninteract && !opened)
         {
+            invisibleWall.SetActive(false);
             PausePanelControls.SetActive(true);
             escapetext.SetActive(true);
             tutorialText.SetActive(true);
