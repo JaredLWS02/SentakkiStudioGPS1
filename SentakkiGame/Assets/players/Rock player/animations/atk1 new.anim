@@ -21,16 +21,12 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -657177531, guid: b6589cdd778f2da40b8aa6d080f01424, type: 3}
-    - time: 0.083333336
-      value: {fileID: 1741033722, guid: b6589cdd778f2da40b8aa6d080f01424, type: 3}
-    - time: 0.16666667
       value: {fileID: 333820893, guid: b6589cdd778f2da40b8aa6d080f01424, type: 3}
-    - time: 0.25
+    - time: 0.083333336
       value: {fileID: 1389455152, guid: b6589cdd778f2da40b8aa6d080f01424, type: 3}
-    - time: 0.33333334
+    - time: 0.16666667
       value: {fileID: 765574835, guid: b6589cdd778f2da40b8aa6d080f01424, type: 3}
-    - time: 0.41666666
+    - time: 0.25
       value: {fileID: -1315860691, guid: b6589cdd778f2da40b8aa6d080f01424, type: 3}
     attribute: m_Sprite
     path: 
@@ -54,8 +50,6 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -657177531, guid: b6589cdd778f2da40b8aa6d080f01424, type: 3}
-    - {fileID: 1741033722, guid: b6589cdd778f2da40b8aa6d080f01424, type: 3}
     - {fileID: 333820893, guid: b6589cdd778f2da40b8aa6d080f01424, type: 3}
     - {fileID: 1389455152, guid: b6589cdd778f2da40b8aa6d080f01424, type: 3}
     - {fileID: 765574835, guid: b6589cdd778f2da40b8aa6d080f01424, type: 3}
@@ -65,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.33333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -85,21 +79,28 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.083333336
+  - time: 0
     functionName: disablemovement
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.25
+  - time: 0.083333336
+    functionName: moveforward
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.083333336
     functionName: startfreezeframe
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.41666666
+  - time: 0.25
     functionName: enablemovement
     data: 
     objectReferenceParameter: {fileID: 0}

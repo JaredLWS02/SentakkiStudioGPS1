@@ -17,6 +17,7 @@ public class Spawn : MonoBehaviour
     public GameObject player;
     public int enemycounter = 0;
     private bool isspawning;
+    public bool stage1spawn;
     public List<GameObject> enemyList = new List<GameObject>();
 
 
@@ -41,10 +42,10 @@ public class Spawn : MonoBehaviour
 
     private void Update()
     {
-        //if (!isSpawningPaused && enemycounter < 3 && !isspawning)
-        //{
-        //    StartCoroutine(SpawnEnemiesContinuously());
-        //}
+        if (!isSpawningPaused && enemycounter < 3 && !isspawning && stage1spawn)
+        {
+            StartCoroutine(SpawnEnemiesContinuously());
+        }
     }
 
     private IEnumerator SpawnEnemiesContinuously()

@@ -28,7 +28,14 @@ public class GaugePoint : MonoBehaviour
 
     private void Start()
     {
-        gaugePointAmount = maxGaugePointAmount;
+        if(PlayerPrefs.HasKey("Gauge"))
+        {
+            gaugePointAmount = PlayerPrefs.GetFloat("Gauge");
+        }
+        else
+        {
+            gaugePointAmount = maxGaugePointAmount;
+        }
         UpdateGauge();
     }
 

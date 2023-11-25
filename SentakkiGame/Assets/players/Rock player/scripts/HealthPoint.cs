@@ -34,8 +34,16 @@ public class healthPoint : MonoBehaviour
 
      void Start()
     {
-        currenthealthAmountP1 = statsP1.maxhealth;
-        currenthealthAmountP2 = statsP2.maxhealth;
+        if (PlayerPrefs.HasKey("hpP1") && PlayerPrefs.HasKey("hpP2"))
+        {
+            currenthealthAmountP1 = PlayerPrefs.GetFloat("hpP1");
+            currenthealthAmountP2 = PlayerPrefs.GetFloat("hpP2");
+        }
+        else
+        {
+            currenthealthAmountP1 = statsP1.maxhealth;
+            currenthealthAmountP2 = statsP2.maxhealth;
+        }
         healthBar.fillAmount = currenthealthAmountP1 / maxHealthAmount;
     }
 

@@ -148,12 +148,11 @@ public class movement : MonoBehaviour
         this.enabled = true;
     }
 
-    //private void gravitypull()
-    //{
-    //    Debug.Log("switch");
-    //    rb.gravityScale = fallingGravity;
-    //}
-    
+    private void gravitypull()
+    {
+        rb.gravityScale = fallingGravity;
+    }
+
     private void disablemovescript()
     {
         this.enabled =false;

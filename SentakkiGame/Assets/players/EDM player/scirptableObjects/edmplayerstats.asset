@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: edmplayerstats
   m_EditorClassIdentifier: 
   maxhealth: 100
-  atkdmg: 10
+  atkdmg: 15
   atkcooldown: 0.55
-  atkrange: 1.3
+  atkrange: 1.6
   atksfx: {fileID: 8300000, guid: 075f3c9c3e1735a4a8202bc2990df6eb, type: 3}
   skilldmg: 30
   skillcooldown: 5
@@ -40,7 +40,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dfd87b56990cd524e9e42a1ab82abbcd, type: 3}
   - {fileID: 8300000, guid: 37192e0055a62414da31d8a5f729066d, type: 3}
   speed: 8
-  jumpingPower: 20
+  jumpingPower: 19
   dashingPower: 5
   dashingTime: 0.3
   dashingCooldown: 0.6

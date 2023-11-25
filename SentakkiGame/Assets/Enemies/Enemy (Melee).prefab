@@ -268,7 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8235095519065372310}
   - component: {fileID: 1690334571040498665}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: sensor
   m_TagString: enemyAttackHitbox
   m_Icon: {fileID: 0}

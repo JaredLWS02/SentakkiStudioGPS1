@@ -105,7 +105,7 @@ public class EnemyAiMelee : MonoBehaviour
                 counter ++;
                 stopmoving();
                 //stopatk();
-                if(counter < 5)
+                if(counter < 3)
                 {
                     enemyanim.Play("EnemyNoKnockback", 0, 0);
                 }
@@ -251,5 +251,18 @@ public class EnemyAiMelee : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("enemy");
         resetmove();
         Invoke("startatk", 0.1f);
+    }
+
+    private void moveforward()
+    {
+        if (transform.localScale.x > 0)
+        {
+            LeanTween.moveLocalX(this.gameObject, transform.position.x - 0.6f, 0.1f).setEaseOutExpo();
+        }
+        else
+        {
+            LeanTween.moveLocalX(this.gameObject, transform.position.x + 0.6f, 0.1f).setEaseOutExpo();
+
+        }
     }
 }

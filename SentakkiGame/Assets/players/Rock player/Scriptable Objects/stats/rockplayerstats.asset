@@ -15,7 +15,7 @@ MonoBehaviour:
   maxhealth: 100
   atkdmg: 15
   atkcooldown: 0.55
-  atkrange: 0.7
+  atkrange: 1
   atksfx: {fileID: 8300000, guid: a67244edacbf03741866fd3be85d556c, type: 3}
   skilldmg: 30
   skillcooldown: 1
@@ -53,4 +53,4 @@ MonoBehaviour:
     m_Bits: 128
   XknockbackForce: 3
   YknockbackForce: 1
-  atkpointpos: {x: 0.275, y: -0.022}
+  atkpointpos: {x: 0.238, y: -0.022}

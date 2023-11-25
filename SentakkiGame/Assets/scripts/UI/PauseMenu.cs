@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     public AudioSource pause;
     public AudioSource unpause;
     public AudioSource optionmusic;
+    public GameObject optionObject;
 
     private void Start()
     {
@@ -19,15 +20,18 @@ public class PauseMenu : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if(!optionObject.activeSelf)
         {
-            if (PausePanel.activeSelf)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Continue();
-            }
-            else
-            {
-                Pause();
+                if (PausePanel.activeSelf)
+                {
+                    Continue();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
     }

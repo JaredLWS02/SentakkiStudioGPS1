@@ -9,6 +9,7 @@
         public Spawn spawnScript; // Reference to your Spawn script.
         public GameObject goui;
         public bool ambushstart;
+        public int enemyamt;
         
     public void Update()
     {
@@ -49,7 +50,7 @@
                     Debug.Log("Camera stopped following.");
 
                     // Spawn 6 enemies using the Spawn script.
-                    spawnScript.SpawnEnemiesFromAbove(5);
+                    spawnScript.SpawnEnemiesFromAbove(enemyamt);
 
                     Debug.Log("Ambush event triggered.");
 

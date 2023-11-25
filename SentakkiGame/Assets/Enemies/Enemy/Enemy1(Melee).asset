@@ -17,7 +17,7 @@ MonoBehaviour:
   dmg: 8
   chargeSpd: 0
   atkcooldown: 2
-  XknockbackForce: 15
+  XknockbackForce: 10
   YknockbackForce: 2
   playerLayers:
     serializedVersion: 2

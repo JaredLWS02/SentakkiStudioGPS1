@@ -19,11 +19,11 @@ public class swapmechanic : MonoBehaviour
     [SerializeField] private playerattack playerattack;
     [SerializeField] private GameObject p1Icon;
     [SerializeField] private GameObject p2Icon;
-    [SerializeField] private Transform swapattackpoint;
-    [SerializeField] private Collider2D[] hitenemiesSwap;
+   // [SerializeField] private Transform swapattackpoint;
+    //[SerializeField] private Collider2D[] hitenemiesSwap;
     [SerializeField] private combomanagerUI combomanagerUI;
 
-    private float lastswapTime;
+    public float lastswapTime;
 
     public bool player1Active;
     private Vector3 posP1;
@@ -31,7 +31,10 @@ public class swapmechanic : MonoBehaviour
     private Vector2 sizeP1;
     private Vector2 sizeP2;
 
+    //public Vector2 swapatkSize;
+
     public bool enabledSwap;
+    private bool hitenemy;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +68,6 @@ public class swapmechanic : MonoBehaviour
                 swapSource.Play();
                 SwitchPlayer();
 
-                lastswapTime = Time.time;
             }
         }
     }
@@ -101,6 +103,7 @@ public class swapmechanic : MonoBehaviour
             StartCoroutine(setVolumeSwap());
             healthPoint.Instance.UpdateHealth();
         }
+        lastswapTime = Time.time;
     }
 
     public IEnumerator setVolumeSwap()
@@ -190,25 +193,25 @@ public class swapmechanic : MonoBehaviour
         }
     }
     
-    public void swapAtk()
-    {
-        hitenemiesSwap = Physics2D.OverlapCircleAll(swapattackpoint.position, stats.atkrange, stats.enemylayer);
+    //public void swapAtk()
+    //{
+    //    hitenemiesSwap = Physics2D.OverlapBoxAll(swapattackpoint.position, swapatkSize,0, stats.enemylayer);
 
-        foreach (Collider2D enemy in hitenemiesSwap)
-        {
-            if (enemy.CompareTag("enemy"))
-            {
-                enemy.GetComponent<EnemyAi>().takeDamage(stats.atkdmg);
-            }
+    //    foreach (Collider2D enemy in hitenemiesSwap)
+    //    {
+    //        if (enemy.CompareTag("enemy"))
+    //        {
+    //            enemy.GetComponent<EnemyAi>().takeDamage(stats.atkdmg);
+    //        }
 
-            if (enemy.CompareTag("enemyMelee"))
-            {
-                enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.atkdmg);
-            }
-            combomanagerUI.innercomboUI++;
-            combomanagerUI.checkcombostatus();
-        }
-    }
+    //        if (enemy.CompareTag("enemyMelee"))
+    //        {
+    //            enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.atkdmg);
+    //        }
+    //        combomanagerUI.innercomboUI++;
+    //        combomanagerUI.checkcombostatus();
+    //    }
+    //}
 
     private void disableThings()
     {
@@ -226,4 +229,5 @@ public class swapmechanic : MonoBehaviour
         GetComponent<playerattack>().enabled = true;
         GetComponent<skillandultimate>().enabled = true;
     }
+
 }

@@ -118,7 +118,7 @@ public class EnemyAi : MonoBehaviour
             counter++;
             Invoke("resetCounter", 1);
             stopmoving();
-            if (counter < 5)
+            if (counter < 6)
             {
                 enemyanim.Play("EnemyNoKnockback", 0, 0);
             }
@@ -271,5 +271,18 @@ public class EnemyAi : MonoBehaviour
     private void disablemove()
     {
         movement.enabled = false;
+    }
+
+    private void moveforward()
+    {
+        if (transform.localScale.x > 0)
+        {
+            LeanTween.moveLocalX(this.gameObject, transform.position.x - 0.6f, 0.1f).setEaseOutExpo();
+        }
+        else
+        {
+            LeanTween.moveLocalX(this.gameObject, transform.position.x + 0.6f, 0.1f).setEaseOutExpo();
+
+        }
     }
 }

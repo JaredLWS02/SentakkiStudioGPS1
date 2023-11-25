@@ -9,6 +9,7 @@ public class TutorialSpawn : MonoBehaviour
     public List<GameObject> clone;
     private bool spawned = false;
     private float tracker = 0;
+    public GameObject goui;
     private void Update()
     {
         if (spawned)
@@ -25,6 +26,7 @@ public class TutorialSpawn : MonoBehaviour
         }
         if(tracker >= enemy.Count)
         {
+            StartCoroutine(popui());
             CameraScript.instance.ResumeFollowing();
             clone.Clear();
             spawned = false;
@@ -46,5 +48,12 @@ public class TutorialSpawn : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = false;
 
         }
+    }
+    private IEnumerator popui()
+    {
+        goui.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        goui.SetActive(false);
+
     }
 }

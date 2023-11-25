@@ -20,8 +20,6 @@ public class ProgressBar : MonoBehaviour
     public float fillAmount;
     private bool loading;
 
-
-
     void Start()
     {
         instance = this;
@@ -91,10 +89,15 @@ public class ProgressBar : MonoBehaviour
 
     void MaxProgressBar()
     {
-            spawnScript.PauseSpawning();
-            CameraScript.StopFollowing();
-            SceneManager.LoadSceneAsync(3);
-            Debug.Log ("Spawn Boss");
+        PlayerPrefs.SetFloat("hpP1",healthPoint.Instance.currenthealthAmountP1);
+        PlayerPrefs.SetFloat("hpP2",healthPoint.Instance.currenthealthAmountP2);
+        PlayerPrefs.SetFloat("Gauge",GaugePoint.Instance.gaugePointAmount);
+        PlayerPrefs.Save();
+
+        spawnScript.PauseSpawning();
+        CameraScript.StopFollowing();
+        SceneManager.LoadSceneAsync(3);
+        Debug.Log ("Spawn Boss");
     }
 
 }

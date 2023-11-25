@@ -40,7 +40,11 @@ public class playerattack : MonoBehaviour
     public float sizeY;
 
     public bool enabledAttack;
+    public bool moving;
 
+    [SerializeField] private Collider2D[] hitenemiesSwap;
+    [SerializeField] private Transform swapattackpoint;
+    [SerializeField] private Vector2 swapatkSize;
     void Start()
     {
 
@@ -182,6 +186,7 @@ public class playerattack : MonoBehaviour
                 {
                     enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.atkdmg);
                 }
+                GaugePoint.Instance.RestoreGaugePoints(stats.gaugerestoreHit + extra);
                 combomanagerUI.innercomboUI++;
                 combomanagerUI.checkcombostatus();
             }
@@ -194,11 +199,41 @@ public class playerattack : MonoBehaviour
         }
 
     }
+    public void SwapAtk()
+    {
+        hitenemiesSwap = Physics2D.OverlapBoxAll(swapattackpoint.position, swapatkSize, 0, stats.enemylayer);
+        if (hitenemiesSwap.Length >= 1)
+        {
+            failattack = false;
+            reseted = true;
+            CancelInvoke("EndCombo");
+        }
+        else
+        {
+            combocounter = 0;
+            failattack = true;
+        }
+
+        foreach (Collider2D enemy in hitenemiesSwap)
+        {
+            if (enemy.CompareTag("enemy"))
+            {
+                enemy.GetComponent<EnemyAi>().takeDamage(stats.atkdmg);
+            }
+
+            if (enemy.CompareTag("enemyMelee"))
+            {
+                enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.atkdmg);
+            }
+            combomanagerUI.innercomboUI++;
+            combomanagerUI.checkcombostatus();
+        }
+    }
 
     // reset script
     void ExitAttack()
     {
-        if(atkanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && atkanim.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
+        if(atkanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && (atkanim.GetCurrentAnimatorStateInfo(0).IsTag("attack") || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("swap")))
         {
             reseted = false;
 
@@ -256,13 +291,28 @@ public class playerattack : MonoBehaviour
     {
         GetComponent<movement>().enabled = true;
     }
+    private void moveforward()
+    {
+        if (transform.localScale.x > 0)
+        {
+            LeanTween.moveLocalX(this.gameObject, transform.position.x + 0.4f, 0.1f).setEaseOutExpo();
+        }
+        else
+        {
+            LeanTween.moveLocalX(this.gameObject, transform.position.x - 0.4f, 0.1f).setEaseOutExpo();
+ 
+        }
+    }
 
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(attackpoint.position, stats.atkrange);
+        Gizmos.DrawWireSphere(attackpoint.position, stats.atkrange);;
         Gizmos.DrawWireCube(plungeattackpoint.position, new Vector2(sizeX, sizeY));
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(swapattackpoint.position, swapatkSize);
     }
+
 
     private void disableSwap()
     {
@@ -276,6 +326,6 @@ public class playerattack : MonoBehaviour
 
     private void addDownForce()
     {
-        rb.AddForce(new Vector2(0, -stats.jumpingPower), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(0, -stats.jumpingPower + 2), ForceMode2D.Impulse);
     }
 }

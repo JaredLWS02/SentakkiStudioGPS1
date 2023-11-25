@@ -43,7 +43,7 @@ public class skillandultimate : MonoBehaviour
 
         if (Time.time - lastskillclickedtime >= stats.skillcooldown)
         {
-            if (Input.GetKeyDown(KeyCode.H) && gaugePoint.gaugePointAmount > 32)
+            if (Input.GetKeyDown(KeyCode.K) && gaugePoint.gaugePointAmount > 32)
             {
                 if (movement.instance.IsGrounded() && !movement.instance.isDashing)
                 {
