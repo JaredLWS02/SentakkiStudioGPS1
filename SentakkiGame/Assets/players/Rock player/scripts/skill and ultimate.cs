@@ -228,12 +228,12 @@ public class skillandultimate : MonoBehaviour
         }
         }
 
-IEnumerator DamageOverTime(Collider2D enemy, float totalDamage, float duration)
-{
-    float elapsedTime = 0f;
-    while (elapsedTime < duration)
-    {
-        float damaging = totalDamage / duration * Time.deltaTime;
+    IEnumerator DamageOverTime(Collider2D enemy, float totalDamage, float duration)
+        {
+            float elapsedTime = 0f;
+            while (elapsedTime < duration)
+            {
+            float damaging = totalDamage / duration * Time.deltaTime;
 
         if (enemy.CompareTag("enemy"))
         {
@@ -278,28 +278,29 @@ IEnumerator DamageOverTime(Collider2D enemy, float totalDamage, float duration)
     }
 
     IEnumerator DamageOverTime(Collider2D enemy, float totalDamage, float duration)
-{
-    float elapsedTime = 0f;
-    while (elapsedTime < duration)
     {
-        elapsedTime += Time.deltaTime;
-        
-        float damaging = totalDamage / duration * Time.deltaTime;
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
 
-        if (enemy.CompareTag("enemy"))
-        {
-            enemy.GetComponent<EnemyAi>().takeDamage(damaging);
-            enemy.GetComponent<StunEnemy>().Stun();
+            float damaging = totalDamage / duration * Time.deltaTime;
+
+            if(enemy.CompareTag("enemy"))
+            {
+                enemy.GetComponent<EnemyAi>().takeDamage(damaging);
+                enemy.GetComponent<StunEnemy>().Stun();
+            }
+            else if (enemy.CompareTag("enemyMelee"))
+            {
+                enemy.GetComponent<EnemyAiMelee>().takeDamage(damaging);
+                enemy.GetComponent<StunEnemy>().Stun();
+            }
+            yield return null;
+            
         }
-        else if (enemy.CompareTag("enemyMelee"))
-        {
-            enemy.GetComponent<EnemyAiMelee>().takeDamage(damaging);
-            enemy.GetComponent<StunEnemy>().Stun();
-        }
-        
-        yield return null; 
     }
-}
+
 
 
 

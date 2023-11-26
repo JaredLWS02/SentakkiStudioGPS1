@@ -28,9 +28,6 @@ public class EnemyAi : MonoBehaviour
     private bool hit;
     public float chargepower;
 
-    private bool stun = false;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -117,7 +114,6 @@ public class EnemyAi : MonoBehaviour
             enemyanim.Play("EnemyKnockBack", 0, 0);
         }
 
-        StartCoroutine(StunEnemy());
 
     }
 
@@ -251,25 +247,5 @@ public class EnemyAi : MonoBehaviour
         AttackSensor.SetActive(true);
     }
     
-    private IEnumerator StunEnemy()
-{
-    if (!stun)
-    {
-        stun = true;
 
-        // Perform actions to indicate stun (e.g., play animation)
-        // For example:
-        // enemyanim.Play("StunnedAnimation");
-
-        // Apply stun effect
-        // Disable movement or any other actions during stun
-        stopmoving();
-
-        // Wait for 3 seconds
-        yield return new WaitForSeconds(3f);
-
-        resetmove();
-        stun = false;
-    }
-}
 }
