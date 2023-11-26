@@ -101,24 +101,24 @@ public class EnemyAi : MonoBehaviour
         if (currentHealth <= 0)
         {
             CancelInvoke("startatk");
-            CancelInvoke("resetCounter");
+            //CancelInvoke("resetCounter");
             stopmoving();
             gameObject.layer = LayerMask.NameToLayer("ghostenemy");
             enemyanim.Play("EnemyDeath", 0, 0);
             movement.enabled = false;
             AttackSensor.SetActive(false);
-            Spawn.instance.enemycounter -= 1;
+            //Spawn.instance.enemycounter -= 1;
             ProgressBar.instance.UpdateProgressBar();
         }
         else
         {
             CancelInvoke("startatk");
-            CancelInvoke("resetCounter");
+            //CancelInvoke("resetCounter");
             movement.enabled = false;
             counter++;
-            Invoke("resetCounter", 1);
+            //Invoke("resetCounter", 5);
             stopmoving();
-            if (counter < 6)
+            if (counter < 5)
             {
                 enemyanim.Play("EnemyNoKnockback", 0, 0);
             }
@@ -202,7 +202,7 @@ public class EnemyAi : MonoBehaviour
         ////AttackHtibox.SetActive(false);
         //stopmoving();
         //movement.enabled = true;
-        yield return new WaitForSeconds(stats.atkcooldown);
+        yield return new WaitForSeconds(Random.Range(stats.minatkcooldown, stats.maxatkcooldown));
         AttackSensor.SetActive(true);
     }
 
@@ -223,7 +223,7 @@ public class EnemyAi : MonoBehaviour
         //AttackHtibox.SetActive(false);
         //stopmoving();
         //movement.enabled = true;
-        yield return new WaitForSeconds(stats.atkcooldown);
+        yield return new WaitForSeconds(Random.Range(stats.minatkcooldown,stats.maxatkcooldown));
         AttackSensor.SetActive(true);
     }
 
@@ -264,8 +264,7 @@ public class EnemyAi : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("enemy");
         resetmove();
         movement.enabled = true;
-        Invoke("startatk", 0.1f);
-
+        Invoke("startatk", Random.Range(0.1f, 0.2f));
     }
 
     private void disablemove()
@@ -277,11 +276,11 @@ public class EnemyAi : MonoBehaviour
     {
         if (transform.localScale.x > 0)
         {
-            LeanTween.moveLocalX(this.gameObject, transform.position.x - 0.6f, 0.1f).setEaseOutExpo();
+            LeanTween.moveLocalX(this.gameObject, transform.position.x - 0.4f, 0.1f).setEaseOutExpo();
         }
         else
         {
-            LeanTween.moveLocalX(this.gameObject, transform.position.x + 0.6f, 0.1f).setEaseOutExpo();
+            LeanTween.moveLocalX(this.gameObject, transform.position.x + 0.4f, 0.1f).setEaseOutExpo();
 
         }
     }

@@ -27,7 +27,7 @@ public class edmDebuffEffect : MonoBehaviour
 
         if (coll.CompareTag("enemy"))
         {
-            coll.GetComponent<EnemyAi>().chargepower = enemyStats.chargeSpd /2;
+            coll.GetComponent<EnemyAi>().chargepower = enemyStats.chargeSpd /2.5f;
         }
 
     }

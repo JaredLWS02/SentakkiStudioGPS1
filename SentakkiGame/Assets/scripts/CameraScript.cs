@@ -22,7 +22,7 @@ public class CameraScript : MonoBehaviour
         {
             transform.position = new Vector2(target.position.x, 0);
         }
-        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -0.56f, 145.0f),0);
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -0.56f, 350.0f),0);
     }
 
     public void StopFollowing()

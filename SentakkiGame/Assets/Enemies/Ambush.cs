@@ -5,12 +5,12 @@
     public class Ambush : MonoBehaviour
     {
         private CameraScript cameraScript;
-        public GameObject enemyPrefab;
         public Spawn spawnScript; // Reference to your Spawn script.
         public GameObject goui;
         public bool ambushstart;
         public int enemyamt;
-        
+        public bool stage1;
+
     public void Update()
     {
         // check whehter ambushstart is true or false
@@ -48,15 +48,72 @@
                     cameraScript.StopFollowing();
 
                     Debug.Log("Camera stopped following.");
+                    
+                if(stage1)
+                {
+                    int i = Random.Range(0, 10);
+                    switch(ProgressBar.instance.current)
+                    {
+                        case 12:
+                            {
+                                spawnScript.limitSpawn = 7;
+                                if (i > 8)
+                                {
+                                    spawnScript.SpawnEnemiesFromAbove(enemyamt);
+                                }
+                                else
+                                {
+                                    StartCoroutine(spawnScript.SpawnEnemiesFromAboveSlow(enemyamt));
+                                }
 
-                    // Spawn 6 enemies using the Spawn script.
+                            }
+                            break;
+                        case 38:
+                            {
+                                spawnScript.limitSpawn = 6;
+                                if (i > 6)
+                                {
+                                    spawnScript.SpawnEnemiesFromAbove(enemyamt);
+                                }
+                                else
+                                {
+                                    StartCoroutine(spawnScript.SpawnEnemiesFromAboveSlow(enemyamt));
+                                }
+
+                            }
+                            break;
+                        case 62:
+                            {
+                                spawnScript.limitSpawn = 7;
+                                if (i > 5)
+                                {
+                                    spawnScript.SpawnEnemiesFromAbove(enemyamt);
+                                }
+                                else
+                                {
+                                    StartCoroutine(spawnScript.SpawnEnemiesFromAboveSlow(enemyamt));
+                                }
+
+                            }
+                            break;
+                        case 88:
+                            {
+                                spawnScript.SpawnEnemiesFromAbove(enemyamt);
+                            }
+                            break;
+
+                    }
+                }
+                else
+                {
                     spawnScript.SpawnEnemiesFromAbove(enemyamt);
+                }
+                    // Spawn 6 enemies using the Spawn script.
 
                     Debug.Log("Ambush event triggered.");
 
                     gameObject.GetComponent<BoxCollider2D>().enabled = false;
                     ambushstart = true;
-                    spawnScript.enemycounter = 0;
 
                 }
                 else
@@ -71,9 +128,13 @@
         {
             goui.SetActive(true);
             cameraScript.ResumeFollowing();
+        if(ProgressBar.instance.current < 88)
+        {
             Spawn.instance.ResumeSpawning();
+
+        }
             ambushstart = false;
-        yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1f);
             goui.SetActive(false);
 
         }

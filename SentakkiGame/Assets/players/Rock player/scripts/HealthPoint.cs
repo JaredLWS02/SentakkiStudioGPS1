@@ -133,7 +133,6 @@ public class healthPoint : MonoBehaviour
             {
                 rb.AddForce(new Vector2(statsP1.XknockbackForce, statsP1.YknockbackForce) * 4, ForceMode2D.Impulse);
             }
-            Invoke("returnOriState", 0.4f);
         }
     }
 

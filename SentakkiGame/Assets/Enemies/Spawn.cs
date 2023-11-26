@@ -9,7 +9,8 @@ public class Spawn : MonoBehaviour
     public GameObject[] enemyPrefabs;
     [SerializeField]
 
-    private float spawnInterval = 3.5f;
+    private float spawnInterval;
+    public float limitSpawn;
 
     private Camera mainCamera;
 
@@ -22,8 +23,10 @@ public class Spawn : MonoBehaviour
 
 
     public List<GameObject> enemyClone;
+    private Vector2 spawnPosition;
     public void PauseSpawning()
     {
+        enemycounter = 0;
         isSpawningPaused = true;
     }
 
@@ -42,18 +45,33 @@ public class Spawn : MonoBehaviour
 
     private void Update()
     {
-        if (!isSpawningPaused && enemycounter < 3 && !isspawning && stage1spawn)
+        if(stage1spawn)
         {
-            StartCoroutine(SpawnEnemiesContinuously());
+            if (!isSpawningPaused && enemycounter < limitSpawn && !isspawning)
+            {
+                StartCoroutine(SpawnEnemiesContinuously());
+            }
+
         }
+
     }
 
     private IEnumerator SpawnEnemiesContinuously()
     {
         isspawning = true;
-        float spawnX = mainCamera.transform.position.x + mainCamera.orthographicSize * mainCamera.aspect + 2.0f;
-        
-        Vector3 spawnPosition = new Vector3(spawnX, player.transform.position.y, 0);
+        float rightspawnX = mainCamera.transform.position.x + mainCamera.orthographicSize * mainCamera.aspect + 1.3f;
+        float leftspawnX = mainCamera.transform.position.x - mainCamera.orthographicSize * mainCamera.aspect - 1.3f;
+
+        int i = Random.Range(0, 2);
+
+        if (i == 0)
+        {
+            spawnPosition = new Vector3(rightspawnX, -1.82f, 0);
+        }
+        else
+        {
+            spawnPosition = new Vector3(leftspawnX, -1.82f, 0);
+        }
 
         // Randomly select an enemy prefab from the array
         GameObject selectedEnemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
@@ -62,6 +80,14 @@ public class Spawn : MonoBehaviour
         enemyClone.Add(newEnemy);
         Debug.Log("spawn");
         enemycounter += 1;
+
+        for (int l = 0; l < enemyClone.Count; l++)
+        {
+            if (enemyClone[l] == null)
+            {
+                enemyClone.RemoveAt(l);
+            }
+        }
 
         yield return new WaitForSeconds(spawnInterval);
         isspawning = false;
@@ -74,14 +100,14 @@ public class Spawn : MonoBehaviour
     public void SpawnEnemiesFromAbove(int numberOfEnemies)
     {
         PauseSpawning();
-        foreach (GameObject enemy in enemyClone)
-        {
-            if(enemy != null)
-            {
-                Destroy(enemy);
-            }
-        }
-        enemyClone.Clear();
+        //foreach (GameObject enemy in enemyClone)
+        //{
+        //    if(enemy != null)
+        //    {
+        //        Destroy(enemy);
+        //    }
+        //}
+        //enemyClone.Clear();
 
         // Implement logic to spawn 'numberOfEnemies' from above.
         for (int i = 0; i < numberOfEnemies; i++)
@@ -104,5 +130,28 @@ public class Spawn : MonoBehaviour
             //refer to line 61 on how to do it
 
         }
+    }
+
+    public IEnumerator SpawnEnemiesFromAboveSlow(int numberOfEnemies)
+    {
+        PauseSpawning();
+
+        while(enemycounter < numberOfEnemies)
+        {
+        float spawnX = Random.Range(player.transform.position.x - 8, player.transform.position.x + 8); // Adjust as needed.
+        float spawnY = 7f; // Spawn from above.
+
+        Vector2 spawnPosition = new Vector2(spawnX, spawnY);
+        
+        // Randomly select an enemy prefab from the array
+        GameObject selectedEnemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+
+        GameObject newEnemy = Instantiate(selectedEnemyPrefab, spawnPosition, Quaternion.identity);
+        enemyList.Add(newEnemy);
+        enemycounter += 1;
+        newEnemy.GetComponent<Animator>().Play("EnemyAmbush", 0, 0);
+            yield return new WaitForSeconds(spawnInterval);
+        }
+
     }
 }

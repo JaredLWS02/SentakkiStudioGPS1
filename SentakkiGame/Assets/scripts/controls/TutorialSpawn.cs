@@ -41,7 +41,7 @@ public class TutorialSpawn : MonoBehaviour
             CameraScript.instance.StopFollowing();
             for(int i = 0; i<enemy.Count; i++)
             {
-                GameObject c = Instantiate(enemy[i],new Vector2(transform.position.x + 6, transform.position.y), Quaternion.identity);
+                GameObject c = Instantiate(enemy[i],new Vector2(transform.position.x + 3, transform.position.y), Quaternion.identity);
                 clone.Add(c);
             }
             spawned = true;

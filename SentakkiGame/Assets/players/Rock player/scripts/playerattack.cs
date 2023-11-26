@@ -32,7 +32,7 @@ public class playerattack : MonoBehaviour
     [SerializeField] private Transform plungeattackpoint;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private AudioSource combosource;
-    [SerializeField] private AudioSource atksource;
+    [SerializeField] private AudioSource atkmissSource;
     [SerializeField] private AudioSource atksfx;
     private bool hit;
     public bool isPlunging;
@@ -45,6 +45,7 @@ public class playerattack : MonoBehaviour
     [SerializeField] private Collider2D[] hitenemiesSwap;
     [SerializeField] private Transform swapattackpoint;
     [SerializeField] private Vector2 swapatkSize;
+    [SerializeField] private ParticleSystem hitvfx;
     void Start()
     {
 
@@ -113,7 +114,7 @@ public class playerattack : MonoBehaviour
                 //Debug.Log("attack combo");
                 atkanim.runtimeAnimatorController = stats.combo[combocounter].animatorOV;
                 combosource.clip = stats.combosfx[combocounter];
-                atksource.clip = stats.atksfx;
+                atkmissSource.clip = stats.atksfx;
                 if (hitenemies.Length >= 1)
                 {
                     atksfx.Play();
@@ -121,7 +122,7 @@ public class playerattack : MonoBehaviour
                 }
                 else
                 {
-                    atksource.Play();
+                    atkmissSource.Play();
                 }
                 atkanim.Play("attack", 0, 0);
                 combocounter++;
@@ -136,10 +137,14 @@ public class playerattack : MonoBehaviour
                 {
                     if (enemy.CompareTag("enemy"))
                     {
+                        hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>(); 
+                        hitvfx.Play();
                         enemy.GetComponent<EnemyAi>().takeDamage(stats.atkdmg);
                     }
                     else if (enemy.CompareTag("enemyMelee"))
                     {
+                        hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+                        hitvfx.Play();
                         enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.atkdmg);
                     }
 
@@ -180,10 +185,14 @@ public class playerattack : MonoBehaviour
             {
                 if (enemy.CompareTag("enemy"))
                 {
+                    hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+                    hitvfx.Play();
                     enemy.GetComponent<EnemyAi>().takeDamage(stats.atkdmg);
                 }
                 else if (enemy.CompareTag("enemyMelee"))
                 {
+                    hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+                    hitvfx.Play();
                     enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.atkdmg);
                 }
                 GaugePoint.Instance.RestoreGaugePoints(stats.gaugerestoreHit + extra);
@@ -218,11 +227,15 @@ public class playerattack : MonoBehaviour
         {
             if (enemy.CompareTag("enemy"))
             {
+                hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+                hitvfx.Play();
                 enemy.GetComponent<EnemyAi>().takeDamage(stats.atkdmg);
             }
 
             if (enemy.CompareTag("enemyMelee"))
             {
+                hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+                hitvfx.Play();
                 enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.atkdmg);
             }
             combomanagerUI.innercomboUI++;
@@ -271,7 +284,6 @@ public class playerattack : MonoBehaviour
     {
         if (!failattack)
         {
-
             Time.timeScale = 0.0f;
             StartCoroutine(endfreezeframe());
             //atkanim.SetFloat("slow",0.6f);
@@ -295,11 +307,11 @@ public class playerattack : MonoBehaviour
     {
         if (transform.localScale.x > 0)
         {
-            LeanTween.moveLocalX(this.gameObject, transform.position.x + 0.4f, 0.1f).setEaseOutExpo();
+            LeanTween.moveLocalX(this.gameObject, transform.position.x + 0.2f, 0.1f).setEaseOutExpo();
         }
         else
         {
-            LeanTween.moveLocalX(this.gameObject, transform.position.x - 0.4f, 0.1f).setEaseOutExpo();
+            LeanTween.moveLocalX(this.gameObject, transform.position.x - 0.2f, 0.1f).setEaseOutExpo();
  
         }
     }

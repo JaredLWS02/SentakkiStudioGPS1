@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fded09839600d345b0f9c1354f9d7c8, type: 3}
   m_Name: rockplayerstats
   m_EditorClassIdentifier: 
-  maxhealth: 100
-  atkdmg: 15
-  atkcooldown: 0.55
-  atkrange: 1
+  maxhealth: 10000
+  atkdmg: 1
+  atkcooldown: 0.4
+  atkrange: 0.9
   atksfx: {fileID: 8300000, guid: a67244edacbf03741866fd3be85d556c, type: 3}
   skilldmg: 30
   skillcooldown: 1
@@ -51,6 +51,6 @@ MonoBehaviour:
   groundlayer:
     serializedVersion: 2
     m_Bits: 128
-  XknockbackForce: 3
-  YknockbackForce: 1
-  atkpointpos: {x: 0.238, y: -0.022}
+  XknockbackForce: 2
+  YknockbackForce: 2
+  atkpointpos: {x: 0.305, y: -0.022}

@@ -91,7 +91,7 @@ public class EnemyAiMelee : MonoBehaviour
             enemyanim.Play("EnemyDeath", 0, 0);
             movement.enabled = false;
             AttackSensor.SetActive(false);
-            Spawn.instance.enemycounter -= 1;
+            //Spawn.instance.enemycounter -= 1;
             ProgressBar.instance.UpdateProgressBar();
         }
         else
@@ -99,8 +99,8 @@ public class EnemyAiMelee : MonoBehaviour
             //if(counter >= 4)
             //{
                 CancelInvoke("startatk");
-                CancelInvoke("resetCounter");
-                Invoke("resetCounter", 1);
+                //CancelInvoke("resetCounter");
+                //Invoke("resetCounter", 1);
                 movement.enabled = false;
                 counter ++;
                 stopmoving();
@@ -207,7 +207,7 @@ public class EnemyAiMelee : MonoBehaviour
         //yield return new WaitForSeconds(1.1f);
         //stopmoving();
         //movement.enabled = true;
-        yield return new WaitForSeconds(stats.atkcooldown);
+        yield return new WaitForSeconds(Random.Range(stats.minatkcooldown, stats.maxatkcooldown));
         AttackSensor.SetActive(true);
     }
 
@@ -223,7 +223,7 @@ public class EnemyAiMelee : MonoBehaviour
         //enemyAttack();
         //yield return new WaitForSeconds(1.1f);
         //stopmoving();
-        yield return new WaitForSeconds(stats.atkcooldown);
+        yield return new WaitForSeconds(Random.Range(stats.minatkcooldown, stats.maxatkcooldown));
         AttackSensor.SetActive(true);
     }
 
@@ -250,18 +250,18 @@ public class EnemyAiMelee : MonoBehaviour
         movement.enabled = true;
         gameObject.layer = LayerMask.NameToLayer("enemy");
         resetmove();
-        Invoke("startatk", 0.1f);
+        Invoke("startatk", Random.Range(0.1f,0.2f));
     }
 
     private void moveforward()
     {
         if (transform.localScale.x > 0)
         {
-            LeanTween.moveLocalX(this.gameObject, transform.position.x - 0.6f, 0.1f).setEaseOutExpo();
+            LeanTween.moveLocalX(this.gameObject, transform.position.x - 0.4f, 0.1f).setEaseOutExpo();
         }
         else
         {
-            LeanTween.moveLocalX(this.gameObject, transform.position.x + 0.6f, 0.1f).setEaseOutExpo();
+            LeanTween.moveLocalX(this.gameObject, transform.position.x + 0.4f, 0.1f).setEaseOutExpo();
 
         }
     }
