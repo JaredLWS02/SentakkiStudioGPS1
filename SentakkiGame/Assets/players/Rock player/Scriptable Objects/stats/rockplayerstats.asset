@@ -13,16 +13,17 @@ MonoBehaviour:
   m_Name: rockplayerstats
   m_EditorClassIdentifier: 
   maxhealth: 100
-  atkdmg: 100
-  atkcooldown: 0.5
-  atkrange: 0.5
+  atkdmg: 15
+  atkcooldown: 0.4
+  atkrange: 0.9
   atksfx: {fileID: 8300000, guid: a67244edacbf03741866fd3be85d556c, type: 3}
   skilldmg: 30
   skillcooldown: 1
   skillrange: 2
   skillsfx: {fileID: 8300000, guid: 9aba6f674a09b604ca1f0b6af23bb34f, type: 3}
-  ultdmg: 50
-  ultrange: 0
+  ultdmg: 1
+  Rockultrange: 5
+  edmUltRange: {x: 15.5, y: 2}
   ultsfx: {fileID: 8300000, guid: 8228f6163b1557244ac66bd00bbe3464, type: 3}
   ultReadysfx: {fileID: 8300000, guid: 9d438670dc4bda645b4b45d7b430bbb8, type: 3}
   enemylayer:
@@ -51,6 +52,6 @@ MonoBehaviour:
   groundlayer:
     serializedVersion: 2
     m_Bits: 128
-  XknockbackForce: 3
+  XknockbackForce: 2
   YknockbackForce: 2
-  atkpointpos: {x: 0.275, y: -0.022}
+  atkpointpos: {x: 0.305, y: -0.022}

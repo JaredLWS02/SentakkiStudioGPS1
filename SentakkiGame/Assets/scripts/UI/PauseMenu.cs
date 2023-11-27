@@ -11,6 +11,9 @@ public class PauseMenu : MonoBehaviour
     public AudioSource[] allAudioSources;
     public AudioSource pause;
     public AudioSource unpause;
+    public AudioSource optionmusic;
+    public GameObject optionObject;
+    public float tempPause;
 
     private void Start()
     {
@@ -18,21 +21,25 @@ public class PauseMenu : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if(!optionObject.activeSelf)
         {
-            if (PausePanel.activeSelf)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Continue();
-            }
-            else
-            {
-                Pause();
+                if (PausePanel.activeSelf)
+                {
+                    Continue();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
     }
 
     public void Pause ()
     {
+        tempPause = Time.timeScale;
         allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
         foreach (AudioSource audioS in allAudioSources)
         {
@@ -42,6 +49,7 @@ public class PauseMenu : MonoBehaviour
         PausePanel.SetActive(true);
         Time.timeScale = 0;
         pause.Play();
+        optionmusic.Play();
     }
 
     public void Continue()
@@ -52,8 +60,9 @@ public class PauseMenu : MonoBehaviour
         }
         isPaused = false;
         PausePanel.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = tempPause;
         unpause.Play();
+        optionmusic.Stop();
     }
 
     public void ReturnToMainMenu()

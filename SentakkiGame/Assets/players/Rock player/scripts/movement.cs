@@ -24,6 +24,7 @@ public class movement : MonoBehaviour
     [SerializeField] private AudioSource jumpSource;
     [SerializeField] private float distancebetweenImages;
     [SerializeField] private float lastImagePosX;
+    private bool isjumping;
 
     private void OnDisable()
     {
@@ -38,18 +39,23 @@ public class movement : MonoBehaviour
 
     private void Update()
     {
-        if (PauseMenu.instance.isPaused )
+        if (PauseMenu.instance.isPaused)
         {
             return;
         }
+        //if(isjumping && IsGrounded())
+        //{
+        //    moveanim.Play("jump end", 0, 0);
+        //    rb.gravityScale = oriGravity;
 
+        //}
         if (isDashing)
         {
             afterimage();
             if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
             {
                 jumpSource.Play();
-                moveanim.Play("jump", 0, 0);
+                moveanim.Play("jump start", 0, 0);
                 rb.AddForce(Vector2.up * stats.jumpingPower, ForceMode2D.Impulse);
             }
             return;
@@ -76,7 +82,7 @@ public class movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             jumpSource.Play();
-            moveanim.Play("jump", 0, 0);
+            moveanim.Play("jump start", 0, 0);
             rb.AddForce(Vector2.up * stats.jumpingPower, ForceMode2D.Impulse);
         }
 
@@ -142,12 +148,11 @@ public class movement : MonoBehaviour
         this.enabled = true;
     }
 
-    //private void gravitypull()
-    //{
-    //    Debug.Log("switch");
-    //    rb.gravityScale = fallingGravity;
-    //}
-    
+    private void gravitypull()
+    {
+        rb.gravityScale = fallingGravity;
+    }
+
     private void disablemovescript()
     {
         this.enabled =false;
@@ -167,5 +172,13 @@ public class movement : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(groundCheck.position, new Vector2(1.5f, 0.05f));
+    }
+
+    private void endjump()
+    {
+        if(IsGrounded())
+        {
+            moveanim.Play("jump end", 0, 0);
+        }
     }
 }

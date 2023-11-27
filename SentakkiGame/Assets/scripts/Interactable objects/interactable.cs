@@ -23,7 +23,7 @@ public class interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J) && caninteract)
+        if (Input.GetKeyDown(KeyCode.E) && caninteract)
         {
             checkside();
         }
@@ -54,9 +54,16 @@ public class interactable : MonoBehaviour
             caninteract = true;
         }
 
-        if (collision.CompareTag("enemy") && thrown)
+        if ((collision.CompareTag("enemy") || collision.CompareTag("enemyMelee") )&& thrown)
         {
-            collision.GetComponent<EnemyAi>().takeDamage(atkdmg);
+            if(collision.CompareTag("enemy"))
+            {
+                collision.GetComponent<EnemyAi>().takeDamage(atkdmg);
+            }
+            else if (collision.CompareTag("enemyMelee"))
+            {
+                collision.GetComponent<EnemyAiMelee>().takeDamage(atkdmg);
+            }
             Destroy(gameObject);
         }
     }

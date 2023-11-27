@@ -22,12 +22,12 @@ public class edmDebuffEffect : MonoBehaviour
     {
         if (coll.CompareTag("enemyMelee") || coll.CompareTag("enemy"))
         {
-            coll.GetComponent<EnemyPath>().speed = 1;
+            coll.GetComponent<EnemyPath>().speed = coll.GetComponent<EnemyPath>().speed / 2;
         }
 
         if (coll.CompareTag("enemy"))
         {
-            coll.GetComponent<EnemyAi>().chargepower = enemyStats.chargeSpd /2;
+            coll.GetComponent<EnemyAi>().chargepower = enemyStats.chargeSpd /2.5f;
         }
 
     }
@@ -36,7 +36,7 @@ public class edmDebuffEffect : MonoBehaviour
     {
         if (coll.CompareTag("enemy") || coll.CompareTag("enemyMelee"))
         {
-            coll.GetComponent<EnemyPath>().speed = 2;
+            coll.GetComponent<EnemyPath>().speed = coll.GetComponent<EnemyPath>().speed * 2;
         }
 
         if (coll.CompareTag("enemy"))

@@ -7,12 +7,11 @@ using UnityEngine.SceneManagement;
 //[ExecuteInEditMode()]
 public class ProgressBar : MonoBehaviour
 {
-
     public static ProgressBar instance;
     public int maximum;
     public int minimum;
-    public int current;
-    public int incrementAmount = 10;
+    public float current;
+    public float incrementAmount;
     public Image mask;
     public Spawn spawnScript;
     public CameraScript CameraScript;
@@ -20,7 +19,7 @@ public class ProgressBar : MonoBehaviour
     public float fillAmount;
     private bool loading;
 
-
+    public bool stage1;
 
     void Start()
     {
@@ -43,11 +42,12 @@ public class ProgressBar : MonoBehaviour
     {
         //GetCurrentFill();
         mask.fillAmount = Mathf.Lerp(mask.fillAmount,fillAmount,Time.deltaTime);
-        if (current >= maximum && !loading )
-        {
-            loading = true;
-            Invoke("MaxProgressBar",3f);
-        }
+        //if (current >= maximum && !loading)
+        //{
+        //    loading = true;
+        //    MaxProgressBar();
+        //    Invoke("MaxProgressBar", 3f);
+        //}
     }
 
     void GetCurrentFill()
@@ -61,8 +61,8 @@ public class ProgressBar : MonoBehaviour
             case 20:
                 {
                     stage.volume = 0.15f;
-
                     swapmechanic.instance.SetVolume(0.08f);
+
                 }
                 break;
             case 40:
@@ -89,12 +89,17 @@ public class ProgressBar : MonoBehaviour
 
     }
 
-    void MaxProgressBar()
-    {
-            spawnScript.PauseSpawning();
-            CameraScript.StopFollowing();
-            SceneManager.LoadSceneAsync(3);
-            Debug.Log ("Spawn Boss");
-    }
+    //void MaxProgressBar()
+    //{
+    //    //PlayerPrefs.SetFloat("hpP1",healthPoint.Instance.currenthealthAmountP1);
+    //    //PlayerPrefs.SetFloat("hpP2",healthPoint.Instance.currenthealthAmountP2);
+    //    //PlayerPrefs.SetFloat("Gauge",GaugePoint.Instance.gaugePointAmount);
+    //    //PlayerPrefs.Save();
+
+    //    spawnScript.PauseSpawning();
+    //    CameraScript.StopFollowing();
+    //    //SceneManager.LoadSceneAsync(3);
+    //    //Debug.Log ("Spawn Boss");
+    //}
 
 }

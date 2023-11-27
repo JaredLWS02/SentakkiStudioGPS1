@@ -23,6 +23,8 @@ public class EnemyAiMelee : MonoBehaviour
     private Vector2 curPos;
     [SerializeField] private AudioSource atksfx;
     private float counter;
+    public bool ded;
+    private bool hit;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,8 @@ public class EnemyAiMelee : MonoBehaviour
 
         if (enemyanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && enemyanim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
         {
+            Spawn.instance.enemycounter -= 1;
+            ProgressBar.instance.UpdateProgressBar();
             Destroy(gameObject);
         }
 
@@ -62,16 +66,21 @@ public class EnemyAiMelee : MonoBehaviour
 
     void enemyAttack()
     {
-        // play attack animation
-        // Detect enemy(player) in range of attack
-        Collider2D hitEnemies = Physics2D.OverlapBox(attackHitbox.position, new Vector2(sizex, sizey), angle, stats.playerLayers);
-        //Debug.Log(hitEnemies[0]);
-        //Damage the enemy(player)
-        if (hitEnemies != null)
+        if(!hit)
         {
-            atksfx.Play();
-            healthPoint.Instance.TakeDamage(stats.dmg);
-                //Debug.Log("Player hit!!!" + enemy.name);
+            // play attack animation
+            // Detect enemy(player) in range of attack
+            Collider2D hitEnemies = Physics2D.OverlapBox(attackHitbox.position, new Vector2(sizex, sizey), angle, stats.playerLayers);
+            //Debug.Log(hitEnemies[0]);
+            //Damage the enemy(player)
+            if (hitEnemies != null)
+            {
+                atksfx.Play();
+                hit = true;
+                healthPoint.Instance.TakeDamage(stats.dmg);
+                    //Debug.Log("Player hit!!!" + enemy.name);
+
+            }
 
         }
     }
@@ -84,50 +93,30 @@ public class EnemyAiMelee : MonoBehaviour
         // take damage
         StopAllCoroutines();
         currentHealth -= damage;
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 )
         {
+            CancelInvoke("startatk");
+            CancelInvoke("resetCounter");
             stopmoving();
             gameObject.layer = LayerMask.NameToLayer("ghostenemy");
             enemyanim.Play("EnemyDeath", 0, 0);
             movement.enabled = false;
             AttackSensor.SetActive(false);
-            Spawn.instance.enemycounter -= 1;
-            ProgressBar.instance.UpdateProgressBar();
         }
         else
         {
-            //if(counter >= 4)
-            //{
-                CancelInvoke("startatk");
-                CancelInvoke("resetCounter");
-                Invoke("resetCounter", 1);
-                movement.enabled = false;
-                counter ++;
-                stopmoving();
-                //stopatk();
-                if(counter < 5)
-                {
-                    enemyanim.Play("EnemyNoKnockback", 0, 0);
-                }
-                else
-                {
-                    enemyanim.Play("EnemyKnockBack", 0, 0);
-                }
-            //}
-            //else
-            //{
-            //    //GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
-            //    ////Invoke("resetcolor", 0.2f);
-            //    counter++;
-            //    stopatk();
-            //    Invoke("resetCounter", 2);
-            //    //stopmoving();
-            //    //AttackSensor.SetActive(true);
-            //    if(counter < 2)
-            //    {
-            //        enemyanim.Play("EnemyNoKnockback", 0, 0);
-            //    }
-            //}
+            CancelInvoke("startatk");
+            movement.enabled = false;
+            counter ++;
+            stopmoving();
+            if(counter < 3)
+            {
+                enemyanim.Play("EnemyNoKnockback", 0, 0);
+            }
+            else
+            {
+                enemyanim.Play("EnemyKnockBack", 0, 0);
+            }
         }
 
     }
@@ -196,6 +185,7 @@ public class EnemyAiMelee : MonoBehaviour
 
     IEnumerator swingAtkLeft()
     {
+        hit = false;
         CancelInvoke("startatk");
         gameObject.layer = LayerMask.NameToLayer("enemy");
         enemyanim.Play("EnemyAttack", 0, 0);
@@ -207,12 +197,13 @@ public class EnemyAiMelee : MonoBehaviour
         //yield return new WaitForSeconds(1.1f);
         //stopmoving();
         //movement.enabled = true;
-        yield return new WaitForSeconds(stats.atkcooldown);
+        yield return new WaitForSeconds(Random.Range(stats.minatkcooldown, stats.maxatkcooldown));
         AttackSensor.SetActive(true);
     }
 
     IEnumerator swingAtkRight()
     {
+        hit = false;
         CancelInvoke("startatk");
         gameObject.layer = LayerMask.NameToLayer("enemy");
         enemyanim.Play("EnemyAttack", 0, 0);
@@ -223,7 +214,7 @@ public class EnemyAiMelee : MonoBehaviour
         //enemyAttack();
         //yield return new WaitForSeconds(1.1f);
         //stopmoving();
-        yield return new WaitForSeconds(stats.atkcooldown);
+        yield return new WaitForSeconds(Random.Range(stats.minatkcooldown, stats.maxatkcooldown));
         AttackSensor.SetActive(true);
     }
 
@@ -247,9 +238,30 @@ public class EnemyAiMelee : MonoBehaviour
 
     public void returnToOriState()
     {
-        movement.enabled = true;
-        gameObject.layer = LayerMask.NameToLayer("enemy");
-        resetmove();
-        Invoke("startatk", 0.1f);
+        if (!GetComponent<StunEnemy>().stunned)
+        {
+            movement.enabled = true;
+            gameObject.layer = LayerMask.NameToLayer("enemy");
+            resetmove();
+            Invoke("startatk", Random.Range(0.3f, 0.4f));
+        }
+        else
+        {
+            gameObject.layer = LayerMask.NameToLayer("enemy");
+            enemyanim.Play("EnemyStun", 0, 0);
+        }
+    }
+
+    private void moveforward()
+    {
+        if (transform.localScale.x > 0)
+        {
+            LeanTween.moveLocalX(this.gameObject, transform.position.x - 0.4f, 0.1f).setEaseOutExpo();
+        }
+        else
+        {
+            LeanTween.moveLocalX(this.gameObject, transform.position.x + 0.4f, 0.1f).setEaseOutExpo();
+
+        }
     }
 }
