@@ -29,6 +29,8 @@ public class EnemyAi : MonoBehaviour
 
     private bool hit;
     public float chargepower;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -127,6 +129,7 @@ public class EnemyAi : MonoBehaviour
                 enemyanim.Play("EnemyKnockBack", 0, 0);
             }
         }
+
 
     }
 
@@ -284,4 +287,6 @@ public class EnemyAi : MonoBehaviour
 
         }
     }
+    
+
 }
