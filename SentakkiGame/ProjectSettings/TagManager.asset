@@ -19,6 +19,8 @@ TagManager:
   - speaker
   - edmSkill
   - ControlPlayer
+  - boss
+  - BossSpawner
   layers:
   - Default
   - TransparentFX
