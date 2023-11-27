@@ -23,6 +23,8 @@ public class VolumeSetting : MonoBehaviour
             SetMusicVolume();
             SetSFXVolume();
         }
+        volumeChanged.Stop();
+
     }
 
     public void SetMusicVolume()
@@ -64,7 +66,6 @@ public class VolumeSetting : MonoBehaviour
 
         SetMusicVolume();
         SetSFXVolume();
-
     }   
 
 

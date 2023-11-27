@@ -40,7 +40,6 @@ public class attackUI : MonoBehaviour
             //PauseMenu.instance.isPaused = true;
             //pause.enabled = false;
             //Time.timeScale = 0f;
-            opened = true;
         }
         //else if (Input.GetKeyDown(KeyCode.F) && opened)
         //{

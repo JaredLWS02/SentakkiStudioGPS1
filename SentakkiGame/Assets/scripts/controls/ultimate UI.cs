@@ -24,32 +24,32 @@ public class ultimateUI : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.F) && caninteract && !opened)
+        if (Input.GetKeyDown(KeyCode.F) && caninteract)
         {
-            invisibleWall.SetActive(false);
-            PausePanelControls.SetActive(true);
-            escapetext.SetActive(true);
-            tutorialText.SetActive(true);
-
-            PauseMenu.instance.isPaused = true;
-            pause.enabled = false;
-            Time.timeScale = 0f;
-            opened = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.F) && opened)
-        {
-            PausePanelControls.SetActive(false);
-            escapetext.SetActive(false);
-            tutorialText.SetActive(false);
-
-            PauseMenu.instance.isPaused = false;
-            pause.enabled = true;
-            opened = false;
-            Time.timeScale = 1f;
+            LeanTween.scaleX(tutorialText, 1.38f, 0.3f);
+            LeanTween.scaleY(tutorialText, 1.26f, 0.3f);
             mp.SetActive(true);
+            invisibleWall.SetActive(false);
+            prompttext.SetActive(false);
         }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
+            //    pause.enabled = false;
+            //    Time.timeScale = 0f;
+            //    opened = true;
+            //}
+            //else if (Input.GetKeyDown(KeyCode.F) && opened)
+            //{
+            //    PausePanelControls.SetActive(false);
+            //    escapetext.SetActive(false);
+            //    tutorialText.SetActive(false);
+
+            //    PauseMenu.instance.isPaused = false;
+            //    pause.enabled = true;
+            //    opened = false;
+            //    Time.timeScale = 1f;
+            //    mp.SetActive(true);
+            //}
+        }
+        private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && gameObject.CompareTag("speaker"))
         {
@@ -62,6 +62,8 @@ public class ultimateUI : MonoBehaviour
     {
         if (collision.CompareTag("Player") && gameObject.CompareTag("speaker"))
         {
+            LeanTween.scaleX(tutorialText, 0, 0.3f);
+            LeanTween.scaleY(tutorialText, 0, 0.3f);
             prompttext.SetActive(false);
             caninteract = false;
         }

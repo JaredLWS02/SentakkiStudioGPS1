@@ -95,6 +95,7 @@ public class EnemyAiMelee : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0 )
         {
+            ded = true;
             CancelInvoke("startatk");
             CancelInvoke("resetCounter");
             stopmoving();

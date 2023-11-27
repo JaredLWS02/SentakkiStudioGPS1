@@ -1905,6 +1905,7 @@ MonoBehaviour:
   musicSlider: {fileID: 909301249}
   SFXSlider: {fileID: 1543173119}
   volumeChanged: {fileID: 1660597036}
+  canvasControl: {fileID: 0}
 --- !u!1 &990444127
 GameObject:
   m_ObjectHideFlags: 0
@@ -3278,7 +3279,7 @@ GameObject:
   - component: {fileID: 1660597037}
   - component: {fileID: 1660597036}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: sfxChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -22,6 +22,7 @@ public class skillandultimate : MonoBehaviour
     [SerializeField] private AudioSource ultiReadySfx;
     [SerializeField] private combomanagerUI combomanagerUI;
     [SerializeField] private float edmUltDuration;
+    private ParticleSystem hitvfx;
     private bool failHit;
     public float sizeX;
     public float sizeY;
@@ -245,11 +246,15 @@ public class skillandultimate : MonoBehaviour
 
                 if (enemy.CompareTag("enemy"))
                 {
+                    hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+                    hitvfx.Play();
                     enemy.GetComponent<EnemyAi>().takeDamage(damaging);
                     //enemy.GetComponent<StunEnemy>().Stun();
                 }
                 else if (enemy.CompareTag("enemyMelee"))
                 {
+                    hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+                    hitvfx.Play();
                     enemy.GetComponent<EnemyAiMelee>().takeDamage(damaging);
                     //enemy.GetComponent<StunEnemy>().Stun();
                 }
@@ -282,6 +287,8 @@ public class skillandultimate : MonoBehaviour
             if (enemy.CompareTag("enemy"))
             {
                 {
+                    hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+                    hitvfx.Play();
                     enemy.GetComponent<EnemyAi>().takeDamage(stats.ultdmg);
                     enemy.GetComponent<StunEnemy>().Stun();
                 }
@@ -291,6 +298,8 @@ public class skillandultimate : MonoBehaviour
             if (enemy.CompareTag("enemyMelee"))
             {
                 {
+                    hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+                    hitvfx.Play();
                     enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.ultdmg);
                     enemy.GetComponent<StunEnemy>().Stun();
                 }

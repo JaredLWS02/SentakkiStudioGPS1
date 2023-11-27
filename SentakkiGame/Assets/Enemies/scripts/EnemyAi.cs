@@ -106,6 +106,7 @@ public class EnemyAi : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            ded = true;
             CancelInvoke("startatk");
             CancelInvoke("resetCounter");
             stopmoving();
