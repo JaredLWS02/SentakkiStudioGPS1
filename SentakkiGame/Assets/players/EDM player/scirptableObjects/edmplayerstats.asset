@@ -15,15 +15,16 @@ MonoBehaviour:
   maxhealth: 100
   atkdmg: 15
   atkcooldown: 0.4
-  atkrange: 1.6
+  atkrange: 3.1
   atksfx: {fileID: 8300000, guid: 075f3c9c3e1735a4a8202bc2990df6eb, type: 3}
   skilldmg: 30
   skillcooldown: 5
   skillrange: 3
-  skillsfx: {fileID: 8300000, guid: 2ac26a5b32910294cbd03cafb9823394, type: 3}
-  ultdmg: 50
-  ultrange: 0
-  ultsfx: {fileID: 8300000, guid: fa5867843ae9e6b4fa1d94dcb579ed13, type: 3}
+  skillsfx: {fileID: 8300000, guid: f01e7fd2ef080a7488dc9d66d50487bc, type: 3}
+  ultdmg: 100
+  Rockultrange: 6
+  edmUltRange: {x: 17, y: 2}
+  ultsfx: {fileID: 8300000, guid: 2e36e67e154148342af4de74a806b582, type: 3}
   ultReadysfx: {fileID: 8300000, guid: 06cd1f40018397c4e928299e1267d8d6, type: 3}
   enemylayer:
     serializedVersion: 2
@@ -49,4 +50,4 @@ MonoBehaviour:
     m_Bits: 128
   XknockbackForce: 2
   YknockbackForce: 2
-  atkpointpos: {x: 0.014, y: -0.022}
+  atkpointpos: {x: 0.135, y: -0.022}

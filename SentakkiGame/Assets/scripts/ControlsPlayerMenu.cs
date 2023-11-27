@@ -26,6 +26,7 @@ public class ControlsPlayerMenu : MonoBehaviour
     public GameObject leftbarrier;
     public GameObject topbarrier;
     public GameObject bottombarrier;
+    public GameObject edmbeam;
 
     public bool jumping;
     public bool move;
@@ -162,9 +163,7 @@ public class ControlsPlayerMenu : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.U) && !isPlaying)
         {
-            //isPlaying = true;
-
-            //anim.Play("skill", 0, 0);
+            Ultimate();
         }
 
 
@@ -250,6 +249,14 @@ public class ControlsPlayerMenu : MonoBehaviour
          skillSource.clip = stats.skillsfx;
          skillSource.Play();
          anim.Play("skill", 0, 0);
+    }
+
+    public void Ultimate()
+    {
+        isPlaying = true;
+        skillSource.clip = stats.ultsfx;
+        skillSource.Play();
+        anim.Play("ulti", 0, 0);
     }
     public void Attack()
     {
@@ -358,13 +365,23 @@ public class ControlsPlayerMenu : MonoBehaviour
     }
     private void afterimage()
     {
-        AfterImagePooling.instance.GetFromPool();
+        AfterImagePoolingControls.instance.GetFromPool();
         lastImagePosX = transform.position.x;
         if (Mathf.Abs(transform.position.x - lastImagePosX) > distancebetweenImages)
         {
             AfterImagePooling.instance.GetFromPool();
             lastImagePosX = transform.position.x;
         }
+    }
+
+    private void enableBeam()
+    {
+        edmbeam.SetActive(true);
+    }
+
+    private void disableBeam()
+    {
+        edmbeam.SetActive(false);
     }
     #endregion
 }

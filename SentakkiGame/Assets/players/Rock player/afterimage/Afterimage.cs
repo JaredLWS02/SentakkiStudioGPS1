@@ -42,42 +42,5 @@ public class Afterimage : MonoBehaviour
             AfterImagePooling.instance.AddToPool(gameObject);
             }
     }
-    //public movement movement;
-    //public float timeBtwspawns;
-    //public float startimeBtwSpawns;
-
-    //public GameObject echo;
-    // Start is called before the first frame update
-    //void Start()
-    //{
-
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    if(movement.isDashing)
-    //    {
-    //        if (timeBtwspawns <= 0)
-    //        {
-    //            if (transform.localScale.x >= 1)
-    //            {
-    //                var clone = Instantiate(echo, transform.position, Quaternion.identity);
-    //                Destroy(clone, 1);
-    //            }
-    //            else
-    //            {
-    //                var clone = Instantiate(echo, transform.position, Quaternion.Euler(0, 180, 0));
-    //                Destroy(clone, 1);
-    //            }
-
-    //            timeBtwspawns = startimeBtwSpawns;
-    //        }
-    //        else
-    //        {
-    //            timeBtwspawns -= Time.deltaTime;
-    //        }
-    //    }
-
-    //}
+  
 }

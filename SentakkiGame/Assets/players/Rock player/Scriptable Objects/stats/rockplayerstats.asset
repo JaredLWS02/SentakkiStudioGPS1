@@ -21,8 +21,9 @@ MonoBehaviour:
   skillcooldown: 1
   skillrange: 2
   skillsfx: {fileID: 8300000, guid: 9aba6f674a09b604ca1f0b6af23bb34f, type: 3}
-  ultdmg: 50
-  ultrange: 7
+  ultdmg: 1
+  Rockultrange: 5
+  edmUltRange: {x: 15.5, y: 2}
   ultsfx: {fileID: 8300000, guid: 8228f6163b1557244ac66bd00bbe3464, type: 3}
   ultReadysfx: {fileID: 8300000, guid: 9d438670dc4bda645b4b45d7b430bbb8, type: 3}
   enemylayer:

@@ -8,7 +8,7 @@ public class CameraScript : MonoBehaviour
     public static CameraScript instance;
     public List<GameObject> barrier;
     public float followSpeed;
-    public Vector3 offset;
+    public Vector2 offset;
     public Transform target;
 
     private bool isFollowing = true;
@@ -20,7 +20,7 @@ public class CameraScript : MonoBehaviour
     {
         if (isFollowing && target != null)
         {
-            transform.position = new Vector2(target.position.x, 0);
+            transform.position = new Vector2(target.position.x, 0) + offset;
         }
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, -0.56f, 350.0f),0);
     }

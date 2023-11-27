@@ -10,9 +10,11 @@ public class emdDebuffer : MonoBehaviour
     [SerializeField] private float forceY;
     [SerializeField] private GameObject debuffer;
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private AudioSource edmdebufferSfx;
     // Start is called before the first frame update
     void Start()
     {
+        edmdebufferSfx = GameObject.FindWithTag("edmSkill").GetComponent<AudioSource>();
         player = GameObject.FindWithTag("Player");
         if (player.transform.localScale.x > 1)
         {
@@ -41,6 +43,7 @@ public class emdDebuffer : MonoBehaviour
 
     private void EnableDebuff()
     {
+        edmdebufferSfx.Play();
         debuffer.SetActive(true);
     }
 

@@ -18,7 +18,8 @@ public class playerstats : ScriptableObject
     public AudioClip skillsfx;
 
     public float ultdmg;
-    public float ultrange;
+    public float Rockultrange;
+    public Vector2 edmUltRange;
     public AudioClip ultsfx;
     public AudioClip ultReadysfx;
 

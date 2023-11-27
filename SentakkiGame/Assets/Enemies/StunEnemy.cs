@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class StunEnemy : MonoBehaviour
 {
     public GameObject enemy;
+    public bool stunned;
 
 
     private void Start()
@@ -12,48 +13,63 @@ public class StunEnemy : MonoBehaviour
 
     }
 
-    public void Stun()
+    private void Update()
     {
+        if (enemy.CompareTag("enemy"))
         {
-            if (enemy.GetComponent<Rigidbody2D>().velocity != Vector2.zero)
+            if(enemy.GetComponent<EnemyAi>().ded)
             {
-                enemy.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                Invoke("ReleaseStun", 3f);
+                CancelInvoke("ReleaseStun");
             }
-
-            if (enemy.CompareTag("enemy"))
+        }
+        else if (enemy.CompareTag("enemyMelee"))
+        {
+            if (enemy.GetComponent<EnemyAiMelee>().ded)
             {
-                enemy.GetComponent<EnemyPath>().enabled = false;
-                enemy.GetComponent<EnemyAi>().enabled = false;  
+                CancelInvoke("ReleaseStun");
             }
-            
-             if (enemy.CompareTag("enemyMelee"))
-            {
-                enemy.GetComponent<EnemyPath>().enabled = false;
-                enemy.GetComponent<EnemyAiMelee>().enabled = false;
-                Debug.Log ("Stun");
-            }
-
         }
     }
-
-    private void ReleaseStun()
+    public void Stun()
     {
-        {
+         Invoke("ReleaseStun", 4f);
+
+         if (enemy.CompareTag("enemy"))
+         {
+            stunned = true;
             enemy.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        }
+            enemy.GetComponent<EnemyPath>().enabled = false;
+         }
+         
+          if (enemy.CompareTag("enemyMelee"))
+         {
+            stunned = true;
+            enemy.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            enemy.GetComponent<EnemyPath>().enabled = false;
+            Debug.Log ("Stun");
+         }
+    }
 
-            if (enemy.CompareTag("enemy"))
-            {
-                enemy.GetComponent<EnemyPath>().enabled = true;
-                enemy.GetComponent<EnemyPath>().enabled = true;
-            }
+    public void ReleaseStun()
+    {
+         enemy.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+         if (enemy.CompareTag("enemy"))
+         {
+            stunned = false;
 
-             if (enemy.CompareTag("enemyMelee"))
-            {
-                enemy.GetComponent<EnemyPath>().enabled = true;
-                enemy.GetComponent<EnemyAiMelee>().enabled = true;
-                Debug.Log ("Unstunned");
-            }
+            enemy.GetComponent<Animator>().Play("EnemyWalk", 0, 0);
+             enemy.GetComponent<EnemyPath>().enabled = true;
+             enemy.GetComponent<EnemyAi>().startatk();
+         }
+
+          if (enemy.CompareTag("enemyMelee"))
+         {
+            stunned = false;
+            enemy.GetComponent<Animator>().Play("EnemyWalk", 0, 0);
+            enemy.GetComponent<EnemyPath>().enabled = true;
+            enemy.GetComponent<EnemyAiMelee>().startatk();
+
+            Debug.Log ("Unstunned");
+         }
     }
 }

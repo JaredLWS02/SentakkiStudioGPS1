@@ -10,7 +10,7 @@ public class ProgressBar : MonoBehaviour
     public static ProgressBar instance;
     public int maximum;
     public int minimum;
-    public int current;
+    public float current;
     public float incrementAmount;
     public Image mask;
     public Spawn spawnScript;
@@ -32,7 +32,7 @@ public class ProgressBar : MonoBehaviour
     {
         if (current < maximum)
         {
-            current += Mathf.RoundToInt(incrementAmount);
+            current += incrementAmount;
             GetCurrentFill();
         }
 

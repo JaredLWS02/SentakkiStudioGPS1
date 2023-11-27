@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     public AudioSource unpause;
     public AudioSource optionmusic;
     public GameObject optionObject;
+    public float tempPause;
 
     private void Start()
     {
@@ -38,6 +39,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause ()
     {
+        tempPause = Time.timeScale;
         allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
         foreach (AudioSource audioS in allAudioSources)
         {
@@ -58,7 +60,7 @@ public class PauseMenu : MonoBehaviour
         }
         isPaused = false;
         PausePanel.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = tempPause;
         unpause.Play();
         optionmusic.Stop();
     }

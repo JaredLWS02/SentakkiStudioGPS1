@@ -28,6 +28,7 @@ public class EnemyAi : MonoBehaviour
 
 
     private bool hit;
+    public bool ded = false;
     public float chargepower;
 
 
@@ -47,6 +48,8 @@ public class EnemyAi : MonoBehaviour
 
         if (enemyanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && enemyanim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
         {
+            Spawn.instance.enemycounter -= 1;
+            ProgressBar.instance.UpdateProgressBar();
             Destroy(gameObject);
         }
 
@@ -100,25 +103,22 @@ public class EnemyAi : MonoBehaviour
         // take damage
         StopAllCoroutines();
         currentHealth -= damage;
+
         if (currentHealth <= 0)
         {
             CancelInvoke("startatk");
-            //CancelInvoke("resetCounter");
+            CancelInvoke("resetCounter");
             stopmoving();
             gameObject.layer = LayerMask.NameToLayer("ghostenemy");
             enemyanim.Play("EnemyDeath", 0, 0);
             movement.enabled = false;
             AttackSensor.SetActive(false);
-            //Spawn.instance.enemycounter -= 1;
-            ProgressBar.instance.UpdateProgressBar();
         }
         else
         {
             CancelInvoke("startatk");
-            //CancelInvoke("resetCounter");
             movement.enabled = false;
             counter++;
-            //Invoke("resetCounter", 5);
             stopmoving();
             if (counter < 5)
             {
@@ -264,10 +264,18 @@ public class EnemyAi : MonoBehaviour
 
     public void returnToOriState()
     {
-        gameObject.layer = LayerMask.NameToLayer("enemy");
-        resetmove();
-        movement.enabled = true;
-        Invoke("startatk", Random.Range(0.1f, 0.2f));
+        if(!GetComponent<StunEnemy>().stunned)
+        {
+            gameObject.layer = LayerMask.NameToLayer("enemy");
+            resetmove();
+            movement.enabled = true;
+            Invoke("startatk", Random.Range(0.1f, 0.2f));
+        }
+        else
+        {
+            gameObject.layer = LayerMask.NameToLayer("enemy");
+            enemyanim.Play("EnemyBeginStun", 0, 0);
+        }
     }
 
     private void disablemove()

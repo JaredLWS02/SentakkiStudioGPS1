@@ -19,10 +19,13 @@ public class extiScene : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerPrefs.SetFloat("hpP1", healthPoint.Instance.currenthealthAmountP1);
-        PlayerPrefs.SetFloat("hpP2", healthPoint.Instance.currenthealthAmountP2);
-        PlayerPrefs.SetFloat("Gauge", GaugePoint.Instance.gaugePointAmount);
-        PlayerPrefs.Save();
-        SceneManager.LoadSceneAsync(3);
+        if(collision.CompareTag("Player"))
+        {
+            PlayerPrefs.SetFloat("hpP1", healthPoint.Instance.currenthealthAmountP1);
+            PlayerPrefs.SetFloat("hpP2", healthPoint.Instance.currenthealthAmountP2);
+            PlayerPrefs.SetFloat("Gauge", GaugePoint.Instance.gaugePointAmount);
+            PlayerPrefs.Save();
+            SceneManager.LoadSceneAsync(3);
+        }
     }
 }

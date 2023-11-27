@@ -58,7 +58,7 @@ public class playerattack : MonoBehaviour
         {
             return;
         }
-        if(PauseMenu.instance.isPaused || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("skill") )
+        if(PauseMenu.instance.isPaused || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("skill") || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("ultimate"))
         {
             return;
         }
@@ -299,7 +299,7 @@ public class playerattack : MonoBehaviour
             //atkanim.SetFloat("slow", 1f);
         //}
     }
-    private void enablemovement()
+    public void enablemovement()
     {
         GetComponent<movement>().enabled = true;
     }

@@ -17,6 +17,8 @@ TagManager:
   - mainMenuMusic
   - sfxPlayerAndEnemy
   - speaker
+  - edmSkill
+  - ControlPlayer
   layers:
   - Default
   - TransparentFX

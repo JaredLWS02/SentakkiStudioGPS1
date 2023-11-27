@@ -1102,6 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4217527139ea274f9728f084be41679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraScript: {fileID: 0}
   spawnScript: {fileID: 905171483}
   goui: {fileID: 1080301142}
   ambushstart: 0
@@ -1632,6 +1633,7 @@ MonoBehaviour:
   leftbarrier: {fileID: 2140597189}
   topbarrier: {fileID: 1721249589}
   bottombarrier: {fileID: 27347610}
+  edmbeam: {fileID: 0}
   jumping: 0
   move: 0
   t1: 0.45
@@ -2408,6 +2410,7 @@ MonoBehaviour:
   unpause: {fileID: 617408313}
   optionmusic: {fileID: 927420462}
   optionObject: {fileID: 1664924860}
+  tempPause: 0
 --- !u!114 &379219380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3263,6 +3266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4217527139ea274f9728f084be41679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraScript: {fileID: 0}
   spawnScript: {fileID: 905171483}
   goui: {fileID: 1080301142}
   ambushstart: 0
@@ -3901,7 +3905,7 @@ MonoBehaviour:
   - {fileID: 179625386}
   - {fileID: 778381099}
   followSpeed: 5
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0}
   target: {fileID: 1650504102}
 --- !u!1 &541847047
 GameObject:
@@ -8180,6 +8184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4217527139ea274f9728f084be41679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraScript: {fileID: 0}
   spawnScript: {fileID: 905171483}
   goui: {fileID: 1080301142}
   ambushstart: 0
@@ -8750,6 +8755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4217527139ea274f9728f084be41679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraScript: {fileID: 0}
   spawnScript: {fileID: 905171483}
   goui: {fileID: 1080301142}
   ambushstart: 0
@@ -10142,7 +10148,7 @@ MonoBehaviour:
   combomanagerUI: {fileID: 2140706404}
   lastswapTime: 0
   player1Active: 1
-  enabledSwap: 1
+  enabledSwap: 0
 --- !u!114 &1650504095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10160,11 +10166,21 @@ MonoBehaviour:
   gaugePoint: {fileID: 1650504093}
   animationskill: {fileID: 1650504098}
   skillattackpoint: {fileID: 939017701}
+  RockUltiattackpoint: {fileID: 0}
+  EdmUltiattackpoint: {fileID: 0}
   skillAndUltisfx: {fileID: 2097000717}
+  edmUltSfx: {fileID: 0}
   ultiReadySfx: {fileID: 616479716}
   combomanagerUI: {fileID: 2140706404}
+  edmUltDuration: 0
+  sizeX: 0
+  sizeY: 0
+  damagePerSecond: 0
   edmobject: {fileID: 3201796115083163859, guid: 31d3f07d5cfba094783d32fa1cfde4f4, type: 3}
-  enabledSkill: 1
+  panel: {fileID: 0}
+  UICanvas: {fileID: 0}
+  edmUltVfx: {fileID: 0}
+  enabledSkill: 0
 --- !u!114 &1650504096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10192,11 +10208,12 @@ MonoBehaviour:
   isPlunging: 0
   sizeX: 1.5
   sizeY: 2
-  enabledAttack: 1
+  enabledAttack: 0
   moving: 0
   hitenemiesSwap: []
   swapattackpoint: {fileID: 505050972}
   swapatkSize: {x: 3.5, y: 2}
+  hitvfx: {fileID: 0}
 --- !u!114 &1650504097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14171,6 +14188,7 @@ MonoBehaviour:
   myMixer: {fileID: 24100000, guid: 40ad9cbfd58657c4691c0bfccdec614e, type: 2}
   musicSlider: {fileID: 1824661703}
   SFXSlider: {fileID: 902089987}
+  volumeChanged: {fileID: 0}
 --- !u!1001 &4076698682113284895
 PrefabInstance:
   m_ObjectHideFlags: 0

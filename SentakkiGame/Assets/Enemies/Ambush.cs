@@ -4,7 +4,7 @@
 
     public class Ambush : MonoBehaviour
     {
-        private CameraScript cameraScript;
+        public CameraScript cameraScript;
         public Spawn spawnScript; // Reference to your Spawn script.
         public GameObject goui;
         public bool ambushstart;
@@ -41,7 +41,6 @@
             if (other.CompareTag("Player"))
             {
                 Debug.Log("Player entered the trigger.");
-                cameraScript = Camera.main.GetComponent<CameraScript>();
 
                 if (cameraScript != null)
                 {
