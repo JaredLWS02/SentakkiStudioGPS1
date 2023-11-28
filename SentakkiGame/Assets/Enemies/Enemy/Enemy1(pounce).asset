@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skin: {fileID: 0}
   maxhp: 100
-  dmg: 20
-  chargeSpd: 7
-  atkcooldown: 4
-  XknockbackForce: 6
-  YknockbackForce: 1
+  dmg: 10
+  chargeSpd: 9
+  minatkcooldown: 3
+  maxatkcooldown: 4
+  XknockbackForce: 8
+  YknockbackForce: 2
   playerLayers:
     serializedVersion: 2
     m_Bits: 256

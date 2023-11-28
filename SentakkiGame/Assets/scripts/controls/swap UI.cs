@@ -10,6 +10,7 @@ public class swapUI : MonoBehaviour
     [SerializeField] private PauseMenu pause;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject invisibleWall;
     private bool caninteract;
     private bool opened;
     public GameObject PausePanelControls;
@@ -22,30 +23,27 @@ public class swapUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && caninteract && !opened)
+        if (Input.GetKeyDown(KeyCode.F) && caninteract)
         {
-            PausePanelControls.SetActive(true);
-            escapetext.SetActive(true);
-            tutorialText.SetActive(true);
-
-            PauseMenu.instance.isPaused = true;
-            pause.enabled = false;
-            Time.timeScale = 0f;
-            opened = true;
-            player.GetComponent<swapmechanic>().enabled = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.F) && opened)
-        {
-            PausePanelControls.SetActive(false);
-            escapetext.SetActive(false);
-            tutorialText.SetActive(false);
-
-            PauseMenu.instance.isPaused = false;
-            pause.enabled = true;
-            opened = false;
-            Time.timeScale = 1f;
+            LeanTween.scaleX(tutorialText, 1.38f, 0.3f);
+            LeanTween.scaleY(tutorialText, 1.26f, 0.3f);
+            player.GetComponent<swapmechanic>().enabledSwap= true;
+            invisibleWall.SetActive(false);
+            prompttext.SetActive(false);
 
         }
+        //else if (Input.GetKeyDown(KeyCode.F) && opened)
+        //{
+        //    PausePanelControls.SetActive(false);
+        //    escapetext.SetActive(false);
+        //    tutorialText.SetActive(false);
+
+        //    PauseMenu.instance.isPaused = false;
+        //    pause.enabled = true;
+        //    opened = false;
+        //    Time.timeScale = 1f;
+
+        //}
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -60,6 +58,8 @@ public class swapUI : MonoBehaviour
     {
         if (collision.CompareTag("Player") && gameObject.CompareTag("speaker"))
         {
+            LeanTween.scaleX(tutorialText, 0, 0.3f);
+            LeanTween.scaleY(tutorialText, 0, 0.3f);
             prompttext.SetActive(false);
             caninteract = false;
         }

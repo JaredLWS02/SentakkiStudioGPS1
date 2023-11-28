@@ -18,7 +18,8 @@ public class playerstats : ScriptableObject
     public AudioClip skillsfx;
 
     public float ultdmg;
-    public float ultrange;
+    public float Rockultrange;
+    public Vector2 edmUltRange;
     public AudioClip ultsfx;
     public AudioClip ultReadysfx;
 
@@ -40,4 +41,5 @@ public class playerstats : ScriptableObject
     public LayerMask groundlayer;
     public float XknockbackForce;
     public float YknockbackForce;
+    public Vector2 atkpointpos;
 }

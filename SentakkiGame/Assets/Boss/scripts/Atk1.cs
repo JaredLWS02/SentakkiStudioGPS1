@@ -5,6 +5,7 @@ using UnityEngine;
 public class Atk1 : MonoBehaviour
 {
     [SerializeField] private GameObject atk3;
+    [SerializeField] private GameObject atk2;
     [SerializeField] private BoxCollider2D col2d;
     [SerializeField] private GameObject[] atk1Warning;
     [SerializeField] private GameObject[] atk1;
@@ -18,7 +19,7 @@ public class Atk1 : MonoBehaviour
         pos1 = spawnPoint.position;
     }
 
-    void summon()
+    void summon()//atk 4
     {
         Instantiate(summon1, new Vector3(pos1.x - 5.0f, pos1.y, pos1.z), Quaternion.identity);
         Instantiate(summon2, new Vector3(pos1.x + 5.0f, pos1.y, pos1.z), Quaternion.identity);
@@ -30,6 +31,7 @@ public class Atk1 : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            atk2.SetActive(true);
             col2d.enabled = false;
             if (col2d.enabled == false)
             {
@@ -105,12 +107,12 @@ public class Atk1 : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);//26
         atk1[0].SetActive(false);
 
-        yield return new WaitForSecondsRealtime(5);//31
-        summon();
-        yield return new WaitForSecondsRealtime(1);//32
+        yield return new WaitForSecondsRealtime(1);//27
         atk3.SetActive(true);
-        yield return new WaitForSecondsRealtime(15);//47
+        yield return new WaitForSecondsRealtime(15);//42
         atk3.SetActive(false);
+        summon();
+        yield return new WaitForSecondsRealtime(10);//52
         col2d.enabled = true;
     }
 }

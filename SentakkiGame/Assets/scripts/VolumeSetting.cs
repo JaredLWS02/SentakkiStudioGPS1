@@ -12,7 +12,7 @@ public class VolumeSetting : MonoBehaviour
     [SerializeField] private AudioSource volumeChanged;
     private float prevSFXVolume;
 
-    public void start()
+    public void Start()
     {
         if (PlayerPrefs.HasKey("musicVolume") && PlayerPrefs.HasKey("SFXVolume"))
         {
@@ -23,6 +23,8 @@ public class VolumeSetting : MonoBehaviour
             SetMusicVolume();
             SetSFXVolume();
         }
+        volumeChanged.Stop();
+
     }
 
     public void SetMusicVolume()
@@ -64,7 +66,6 @@ public class VolumeSetting : MonoBehaviour
 
         SetMusicVolume();
         SetSFXVolume();
-
     }   
 
 

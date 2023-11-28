@@ -17,6 +17,11 @@ TagManager:
   - mainMenuMusic
   - sfxPlayerAndEnemy
   - speaker
+  - edmSkill
+  - ControlPlayer
+  - boss
+  - BossSpawner
+  - stageMusic
   layers:
   - Default
   - TransparentFX
@@ -30,7 +35,7 @@ TagManager:
   - enemy
   - ghostenemy
   - edmobject
-  - 
+  - boarder
   - 
   - 
   - 
@@ -53,4 +58,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: player
+    uniqueID: 3164477603
     locked: 0

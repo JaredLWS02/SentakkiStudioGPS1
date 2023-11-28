@@ -220,7 +220,7 @@ TextureImporter:
         width: 75
         height: 55
       alignment: 9
-      pivot: {x: 0.29019085, y: 0.5}
+      pivot: {x: 0.12466634, y: 0.5000002}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -241,7 +241,7 @@ TextureImporter:
         width: 82
         height: 55
       alignment: 9
-      pivot: {x: 0.36145243, y: 0.5}
+      pivot: {x: 0.09930681, y: 0.50000006}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,12 +257,12 @@ TextureImporter:
       name: attack3_6
       rect:
         serializedVersion: 2
-        x: 584
+        x: 582
         y: 0
-        width: 63
+        width: 78
         height: 55
       alignment: 9
-      pivot: {x: 0.31184605, y: 0.50000006}
+      pivot: {x: -0.0009645161, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

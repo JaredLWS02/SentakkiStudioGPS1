@@ -4,12 +4,16 @@
 
     public class Ambush : MonoBehaviour
     {
-        private CameraScript cameraScript;
-        public GameObject enemyPrefab;
+        public CameraScript cameraScript;
         public Spawn spawnScript; // Reference to your Spawn script.
         public GameObject goui;
-        public bool ambushstart;
-        
+        public GameObject lockbg;
+        public GameObject normbg;
+    public bool ambushstart;
+        public int enemyamt;
+        public bool stage1;
+        private float tracker;
+
     public void Update()
     {
         // check whehter ambushstart is true or false
@@ -18,16 +22,21 @@
 
         if (ambushstart == true)
         {
-            for (int i = spawnScript.enemyList.Count - 1; i >=0; i--)
+            for (int i = 0; i < spawnScript.enemyList.Count; i++)
             {
                 if(spawnScript.enemyList[i] == null)
                 {
+                    tracker++;
                     spawnScript.enemyList.RemoveAt(i);
                 }
             }
-            if (spawnScript.enemyList.Count == 0)
+            if (tracker >= enemyamt)
             {
-                StartCoroutine(EnemyDefeated());
+                normbg.SetActive(true);
+                ambushstart = false;
+                lockbg.GetComponent<SpriteRenderer>().sortingOrder = -5;
+                LeanTween.moveLocalY(lockbg, -9.92f, 2f).setEaseInOutQuart().setOnComplete(EnemyDefeated);
+                spawnScript.enemyList.Clear();
             }
         }
 
@@ -40,22 +49,82 @@
             if (other.CompareTag("Player"))
             {
                 Debug.Log("Player entered the trigger.");
-                cameraScript = Camera.main.GetComponent<CameraScript>();
 
                 if (cameraScript != null)
                 {
+                    lockbg.transform.position = Camera.main.transform.position;
+                    normbg.SetActive(false);
+                    tracker = 0;
                     cameraScript.StopFollowing();
 
                     Debug.Log("Camera stopped following.");
+                    
+                if(stage1)
+                {
+                    LeanTween.moveLocalY(lockbg, -0.12f, 1f).setEaseInElastic();
+                    int i = Random.Range(0, 10);
+                    switch(ProgressBar.instance.current)
+                    {
+                        case 12:
+                            {
+                                if (i > 8)
+                                {
+                                    spawnScript.SpawnEnemiesFromAbove(enemyamt);
+                                }
+                                else
+                                {
+                                    StartCoroutine(spawnScript.SpawnEnemiesFromAboveSlow(enemyamt));
+                                }
 
+                            }
+                            break;
+                        case 36f:
+                            {
+                                if (i > 6)
+                                {
+                                    spawnScript.SpawnEnemiesFromAbove(enemyamt);
+                                }
+                                else
+                                {
+                                    StartCoroutine(spawnScript.SpawnEnemiesFromAboveSlow(enemyamt));
+                                }
+
+                            }
+                            break;
+                        case 60f:
+                            {
+                                spawnScript.limitSpawn = 9;
+                                if (i > 5)
+                                {
+                                    spawnScript.SpawnEnemiesFromAbove(enemyamt);
+                                }
+                                else
+                                {
+                                    StartCoroutine(spawnScript.SpawnEnemiesFromAboveSlow(enemyamt));
+                                }
+
+                            }
+                            break;
+                        case 85.5f:
+                            {
+                                spawnScript.SpawnEnemiesFromAbove(enemyamt);
+                            }
+                            break;
+
+                    }
+                }
+                else
+                {
+                    LeanTween.moveLocalY(lockbg, -0.74f, 1f).setEaseOutElastic();
+                    spawnScript.SpawnEnemiesFromAbove(enemyamt);
+                }
                     // Spawn 6 enemies using the Spawn script.
-                    spawnScript.SpawnEnemiesFromAbove(5);
 
                     Debug.Log("Ambush event triggered.");
 
                     gameObject.GetComponent<BoxCollider2D>().enabled = false;
                     ambushstart = true;
-                    spawnScript.enemycounter = 0;
+
                 }
                 else
                 {
@@ -65,14 +134,27 @@
         }
 
 
-        public IEnumerator EnemyDefeated()
+        public void EnemyDefeated()
         {
+            tracker = 0;
             goui.SetActive(true);
             cameraScript.ResumeFollowing();
-            Spawn.instance.ResumeSpawning();
-            ambushstart = false;
-            yield return new WaitForSecondsRealtime(1f);
-            goui.SetActive(false);
+            if(ProgressBar.instance.current < 85.5f)
+            {
+                Spawn.instance.ResumeSpawning();
 
+            }
+            ambushstart = false;
+            Invoke("disableUI", 2);
         }
+
+    private void disableUI()
+    {
+        if(stage1)
+        {
+            lockbg.GetComponent<SpriteRenderer>().sortingOrder = -1;
+        }
+        goui.SetActive(false);
+
     }
+}

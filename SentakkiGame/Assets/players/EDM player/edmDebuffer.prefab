@@ -76,9 +76,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1130489693
+  m_SortingLayer: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 648254061, guid: 5bbc1af4972d49a4b9a4e42ea02551db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -149,7 +149,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0044534206, y: -0.044291414}
+  m_Offset: {x: 0.0044534206, y: -0.048201554}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -160,7 +160,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2547957, y: 0.17349286}
+  m_Size: {x: 0.2547957, y: 0.18131314}
   m_EdgeRadius: 0
 --- !u!114 &4936204771733058343
 MonoBehaviour:
@@ -178,10 +178,11 @@ MonoBehaviour:
   player: {fileID: 0}
   hitenemy: []
   stats: {fileID: 11400000, guid: 181447bb8b161c44db94565e45d52797, type: 2}
-  forceX: 5
+  forceX: 6
   forceY: 4
   debuffer: {fileID: 4874613714009370296}
   groundCheck: {fileID: 740318871331522769}
+  edmdebufferSfx: {fileID: 0}
 --- !u!95 &7677147036762427709
 Animator:
   serializedVersion: 5
@@ -228,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 4500747666593354706}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.134, z: 0.005463487}
+  m_LocalPosition: {x: 0, y: -0.143, z: 0.005463487}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -263,7 +264,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8429564180714512490}
@@ -306,11 +307,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1130489693
+  m_SortingLayer: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: c3def5e7734f9534ab3185b500d67280, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.47058824}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.47843137}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

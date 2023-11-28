@@ -5,7 +5,14 @@ public class RecoverySystem : MonoBehaviour
     [SerializeField] private playerstats stats;
     [SerializeField] private healthPoint HealthBar;
     [SerializeField] private GaugePoint gaugePoint;
+    private GameObject player;
 
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+        HealthBar = player.GetComponent<healthPoint>();
+        gaugePoint = player.GetComponent<GaugePoint>();
+    }
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player") && this.CompareTag("hp"))

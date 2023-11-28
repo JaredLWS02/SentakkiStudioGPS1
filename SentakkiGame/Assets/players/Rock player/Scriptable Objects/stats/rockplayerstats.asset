@@ -14,23 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxhealth: 100
   atkdmg: 20
-  atkcooldown: 0.5
-  atkrange: 1
+  atkcooldown: 0.4
+  atkrange: 1.2
   atksfx: {fileID: 8300000, guid: a67244edacbf03741866fd3be85d556c, type: 3}
   skilldmg: 30
   skillcooldown: 1
   skillrange: 2
   skillsfx: {fileID: 8300000, guid: 9aba6f674a09b604ca1f0b6af23bb34f, type: 3}
-  ultdmg: 50
-  ultrange: 7
-  ultsfx: {fileID: 8300000, guid: 8228f6163b1557244ac66bd00bbe3464, type: 3}
+  ultdmg: 40
+  Rockultrange: 5
+  edmUltRange: {x: 16.5, y: 2}
+  ultsfx: {fileID: 8300000, guid: 60ac1dce7d970894e9245fe681dc45d5, type: 3}
   ultReadysfx: {fileID: 8300000, guid: 9d438670dc4bda645b4b45d7b430bbb8, type: 3}
   enemylayer:
     serializedVersion: 2
     m_Bits: 512
-  healthrestore: 10
-  gaugerestoreItem: 100
-  gaugerestoreHit: 1
+  healthrestore: 20
+  gaugerestoreItem: 33
+  gaugerestoreHit: 0.5
   combo:
   - {fileID: 11400000, guid: 70b8fb5aa0c9a4443aba1b4fa6fa5ddb, type: 2}
   - {fileID: 11400000, guid: bba4b968e267ab04aa54481ac82d4c83, type: 2}
@@ -38,18 +39,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5ed70494886d4754b827907133baab80, type: 2}
   - {fileID: 11400000, guid: 84ec39efc90453e4a9a30c57e6ec68e5, type: 2}
   combosfx:
-  - {fileID: 8300000, guid: dc5c4a79c462ccf4ebf7ddb1a9fe80ce, type: 3}
-  - {fileID: 8300000, guid: d3decba2da42034478db2642e0133227, type: 3}
-  - {fileID: 8300000, guid: 3822ba01e3010454ca633d267e461cf7, type: 3}
-  - {fileID: 8300000, guid: a9d05758691f1224e93a7f8dc317399d, type: 3}
-  - {fileID: 8300000, guid: 97f17515fd08aaf45882f82874ce188e, type: 3}
-  speed: 6
+  - {fileID: 8300000, guid: 58f80305560b1084b8c59104cf85e70c, type: 3}
+  - {fileID: 8300000, guid: d715108517811fa4ba86a319116f2124, type: 3}
+  - {fileID: 8300000, guid: 0ecea7d9f9444354ab6cf54626f96232, type: 3}
+  - {fileID: 8300000, guid: 8ff477b20d5af3b47b9dedf230e3a50a, type: 3}
+  - {fileID: 8300000, guid: c89e8d2e0b603ea4e9394089f600e0f2, type: 3}
+  speed: 7
   jumpingPower: 20
   dashingPower: 5
-  dashingTime: 0.2
-  dashingCooldown: 0.5
+  dashingTime: 0.3
+  dashingCooldown: 0.6
   groundlayer:
     serializedVersion: 2
     m_Bits: 128
-  XknockbackForce: 3
-  YknockbackForce: 1
+  XknockbackForce: 2
+  YknockbackForce: 2
+  atkpointpos: {x: 0.33, y: -0.022}

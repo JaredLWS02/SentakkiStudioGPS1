@@ -125,6 +125,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.25
+    functionName: startfreezeframe
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.33333334
     functionName: PlungeAttack
     data: 
@@ -140,6 +147,13 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.8333333
+    functionName: idle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.8333333
     functionName: enablemovement
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -148,13 +162,6 @@ AnimationClip:
     messageOptions: 0
   - time: 0.8333333
     functionName: enableSwap
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.8333333
-    functionName: idle
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -13,7 +13,7 @@ public class EnemyPath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.Find("player");
+        target = GameObject.FindWithTag("Player");
         anim = gameObject.GetComponent<Animator>();
         float tempSpeed = speed;
     }
@@ -21,6 +21,10 @@ public class EnemyPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.instance.isPaused)
+        {
+            return;
+        }
 
         Vector3 scale = transform.localScale;
 
