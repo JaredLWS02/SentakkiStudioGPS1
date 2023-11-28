@@ -7,9 +7,12 @@
         public CameraScript cameraScript;
         public Spawn spawnScript; // Reference to your Spawn script.
         public GameObject goui;
-        public bool ambushstart;
+        public GameObject lockbg;
+        public GameObject normbg;
+    public bool ambushstart;
         public int enemyamt;
         public bool stage1;
+        private float tracker;
 
     public void Update()
     {
@@ -19,16 +22,21 @@
 
         if (ambushstart == true)
         {
-            for (int i = spawnScript.enemyList.Count - 1; i >=0; i--)
+            for (int i = 0; i < spawnScript.enemyList.Count; i++)
             {
                 if(spawnScript.enemyList[i] == null)
                 {
+                    tracker++;
                     spawnScript.enemyList.RemoveAt(i);
                 }
             }
-            if (spawnScript.enemyList.Count == 0)
+            if (tracker >= enemyamt)
             {
-                StartCoroutine(EnemyDefeated());
+                normbg.SetActive(true);
+                ambushstart = false;
+                lockbg.GetComponent<SpriteRenderer>().sortingOrder = -5;
+                LeanTween.moveLocalY(lockbg, -9.92f, 1f).setEaseInOutQuart().setOnComplete(EnemyDefeated);
+                spawnScript.enemyList.Clear();
             }
         }
 
@@ -44,18 +52,21 @@
 
                 if (cameraScript != null)
                 {
+                    lockbg.transform.position = Camera.main.transform.position;
+                    normbg.SetActive(false);
+                    tracker = 0;
                     cameraScript.StopFollowing();
 
                     Debug.Log("Camera stopped following.");
                     
                 if(stage1)
                 {
+                    LeanTween.moveLocalY(lockbg, -0.12f, 1f).setEaseOutElastic();
                     int i = Random.Range(0, 10);
                     switch(ProgressBar.instance.current)
                     {
                         case 12:
                             {
-                                spawnScript.limitSpawn = 7;
                                 if (i > 8)
                                 {
                                     spawnScript.SpawnEnemiesFromAbove(enemyamt);
@@ -67,9 +78,8 @@
 
                             }
                             break;
-                        case 38:
+                        case 36f:
                             {
-                                spawnScript.limitSpawn = 6;
                                 if (i > 6)
                                 {
                                     spawnScript.SpawnEnemiesFromAbove(enemyamt);
@@ -81,9 +91,9 @@
 
                             }
                             break;
-                        case 62:
+                        case 60f:
                             {
-                                spawnScript.limitSpawn = 7;
+                                spawnScript.limitSpawn = 9;
                                 if (i > 5)
                                 {
                                     spawnScript.SpawnEnemiesFromAbove(enemyamt);
@@ -95,7 +105,7 @@
 
                             }
                             break;
-                        case 88:
+                        case 85.5f:
                             {
                                 spawnScript.SpawnEnemiesFromAbove(enemyamt);
                             }
@@ -105,6 +115,7 @@
                 }
                 else
                 {
+                    LeanTween.moveLocalY(lockbg, -0.74f, 1f).setEaseOutElastic();
                     spawnScript.SpawnEnemiesFromAbove(enemyamt);
                 }
                     // Spawn 6 enemies using the Spawn script.
@@ -123,18 +134,27 @@
         }
 
 
-        public IEnumerator EnemyDefeated()
+        public void EnemyDefeated()
         {
+            tracker = 0;
             goui.SetActive(true);
             cameraScript.ResumeFollowing();
-        if(ProgressBar.instance.current < 88)
-        {
-            Spawn.instance.ResumeSpawning();
+            if(ProgressBar.instance.current < 85.5f)
+            {
+                Spawn.instance.ResumeSpawning();
 
-        }
+            }
             ambushstart = false;
-            yield return new WaitForSeconds(1f);
-            goui.SetActive(false);
-
+            Invoke("disableUI", 2);
         }
+
+    private void disableUI()
+    {
+        if(stage1)
+        {
+            lockbg.GetComponent<SpriteRenderer>().sortingOrder = -1;
+        }
+        goui.SetActive(false);
+
     }
+}

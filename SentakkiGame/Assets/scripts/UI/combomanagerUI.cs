@@ -73,7 +73,7 @@ public class combomanagerUI : MonoBehaviour
             case 12:
                 {
                     x = 3;
-                    playerattack.extra = 1f;
+                    playerattack.extra = 0.5f;
                     shake();
                     restoreAplha();
                 }
@@ -88,7 +88,7 @@ public class combomanagerUI : MonoBehaviour
             case 24:
                 {
                     x = 5;
-                    playerattack.extra = 2f;
+                    playerattack.extra = 1f;
                     shake();
                     restoreAplha();
                 }
@@ -110,8 +110,12 @@ public class combomanagerUI : MonoBehaviour
 
     private void shake()
     {
-        LeanTween.moveX(combotextObject, combotextObject.transform.position.x - 30f, 0.2f);
-        LeanTween.moveX(combotextObject, combotextObject.transform.position.x, 0.2f).setEase(tween).setDelay(0.2f);
+        if(!LeanTween.isTweening(combotextObject))
+        {
+            LeanTween.moveX(combotextObject, combotextObject.transform.position.x - 30f, 0.2f);
+            LeanTween.moveX(combotextObject, combotextObject.transform.position.x, 0.2f).setEase(tween).setDelay(0.2f);
+        }
+
     }
 
     public void restoreAplha()
@@ -128,7 +132,7 @@ public class combomanagerUI : MonoBehaviour
                     combotextObject.GetComponent<Image>().CrossFadeAlpha(1, 0, false);
                     if (!invoked)
                     {
-                        Invoke("RemoveAplhaText", 2);
+                        Invoke("RemoveAplhaText", 3);
                         invoked = true;
                     }
                 }

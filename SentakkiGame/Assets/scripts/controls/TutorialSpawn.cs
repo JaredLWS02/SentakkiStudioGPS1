@@ -10,6 +10,8 @@ public class TutorialSpawn : MonoBehaviour
     private bool spawned = false;
     private float tracker = 0;
     public GameObject goui;
+    public GameObject lockbg;
+    public GameObject normbg;
     private void Update()
     {
         if (spawned)
@@ -26,8 +28,8 @@ public class TutorialSpawn : MonoBehaviour
         }
         if(tracker >= enemy.Count)
         {
-            StartCoroutine(popui());
-            CameraScript.instance.ResumeFollowing();
+            normbg.SetActive(true);
+            LeanTween.moveLocalY(lockbg, -9.92f, 1f).setEaseInBack().setOnComplete(popui);
             clone.Clear();
             spawned = false;
             tracker = 0;
@@ -38,22 +40,46 @@ public class TutorialSpawn : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            lockbg.transform.position = Camera.main.transform.position;
+            LeanTween.moveLocalY(lockbg, -0.74f, 1f).setEaseOutBack();
+            normbg.SetActive(false);
             CameraScript.instance.StopFollowing();
-            for(int i = 0; i<enemy.Count; i++)
-            {
-                GameObject c = Instantiate(enemy[i],new Vector2(transform.position.x + 3, transform.position.y), Quaternion.identity);
-                clone.Add(c);
-            }
+            StartCoroutine(Startspawn());
             spawned = true;
             GetComponent<BoxCollider2D>().enabled = false;
 
         }
     }
-    private IEnumerator popui()
+    private void popui()
     {
+        CameraScript.instance.ResumeFollowing();
         goui.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        goui.SetActive(false);
+        Invoke("disableGoUi", 2);
+    }
 
+    private void disableGoUi()
+    {
+        goui.SetActive(false);
+    }
+
+    public IEnumerator Startspawn()
+    {
+        for (int i = 0; i < enemy.Count; i++)
+        {
+            int a = Random.Range(1, 10);
+            if(a > 5)
+            {
+                float posx = transform.position.x + 6;
+                GameObject c = Instantiate(enemy[i], new Vector2(posx, transform.position.y), Quaternion.identity);
+                clone.Add(c);
+            }
+            else
+            {
+                float posx = transform.position.x - 10;
+                GameObject c = Instantiate(enemy[i], new Vector2(posx, transform.position.y), Quaternion.identity);
+                clone.Add(c);
+            }
+            yield return new WaitForSeconds(Random.Range(2,3));
+        }
     }
 }

@@ -58,7 +58,7 @@ public class skillandultimate : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.K) && gaugePoint.gaugePointAmount > 32)
             {
-                if (movement.instance.IsGrounded() && !movement.instance.isDashing)
+                if (movement.instance.IsGrounded())
                 {
                     gaugePoint.ReduceGauge(33);
                     lastskillclickedtime = Time.time;
@@ -77,7 +77,7 @@ public class skillandultimate : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.U) && gaugePoint.gaugePointAmount == 100)
         {
-            if (movement.instance.IsGrounded() && !movement.instance.isDashing)
+            if (movement.instance.IsGrounded())
             {
                 if (!swapmechanic.instance.player1Active)
                 {
@@ -153,6 +153,7 @@ public class skillandultimate : MonoBehaviour
 
     void ultimateP1()
     {
+        GetComponent<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
         Time.timeScale = 0.5f;
         gaugePoint.ReduceGauge(100);
         panel.SetActive(true);
@@ -163,6 +164,7 @@ public class skillandultimate : MonoBehaviour
 
     void ultimateP2()
     {
+        GetComponent<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
         Time.timeScale = 0.5f;
         gaugePoint.ReduceGauge(100);
         panel.SetActive(true);
@@ -205,6 +207,7 @@ public class skillandultimate : MonoBehaviour
 
     private void edmUlt()
     {
+        GetComponent<Animator>().updateMode = AnimatorUpdateMode.Normal;
         UICanvas.SetActive(true);
         Time.timeScale = 1f;
         edmUltSfx.Play();
@@ -224,17 +227,17 @@ public class skillandultimate : MonoBehaviour
             if (enemy.CompareTag("enemy"))
             {
                 StartCoroutine(DamageOverTime(enemy, stats.ultdmg, edmUltDuration));
+                combomanagerUI.innercomboUI++;
+                combomanagerUI.checkcombostatus();
 
             }
 
             if (enemy.CompareTag("enemyMelee"))
             {
                 StartCoroutine(DamageOverTime(enemy, stats.ultdmg, edmUltDuration));
+                combomanagerUI.innercomboUI++;
+                combomanagerUI.checkcombostatus();
             }
-
-
-            combomanagerUI.innercomboUI++;
-            combomanagerUI.checkcombostatus();
         }
 
         IEnumerator DamageOverTime(Collider2D enemy, float totalDamage, float duration)
@@ -249,14 +252,12 @@ public class skillandultimate : MonoBehaviour
                     hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
                     hitvfx.Play();
                     enemy.GetComponent<EnemyAi>().takeDamage(damaging);
-                    //enemy.GetComponent<StunEnemy>().Stun();
                 }
                 else if (enemy.CompareTag("enemyMelee"))
                 {
                     hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
                     hitvfx.Play();
                     enemy.GetComponent<EnemyAiMelee>().takeDamage(damaging);
-                    //enemy.GetComponent<StunEnemy>().Stun();
                 }
 
                 elapsedTime += Time.deltaTime;
@@ -267,6 +268,7 @@ public class skillandultimate : MonoBehaviour
     }
     private void rockUlt()
     {
+        GetComponent<Animator>().updateMode = AnimatorUpdateMode.Normal;
         UICanvas.SetActive(true);
         Time.timeScale = 1f;
         hitenemiesUlti = Physics2D.OverlapCircleAll(RockUltiattackpoint.position, stats.Rockultrange, stats.enemylayer);
@@ -317,7 +319,6 @@ public class skillandultimate : MonoBehaviour
 
     private void disableIframe()
     {
-        //CameraScript.instance.ResumeFollowing();
         gameObject.layer = LayerMask.NameToLayer("player");
         GetComponent<swapmechanic>().enabled = true;
     }

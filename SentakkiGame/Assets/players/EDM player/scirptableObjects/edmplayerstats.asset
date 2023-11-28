@@ -15,13 +15,13 @@ MonoBehaviour:
   maxhealth: 100
   atkdmg: 15
   atkcooldown: 0.4
-  atkrange: 3.1
+  atkrange: 2.5
   atksfx: {fileID: 8300000, guid: 075f3c9c3e1735a4a8202bc2990df6eb, type: 3}
   skilldmg: 30
   skillcooldown: 5
   skillrange: 3
   skillsfx: {fileID: 8300000, guid: f01e7fd2ef080a7488dc9d66d50487bc, type: 3}
-  ultdmg: 70
+  ultdmg: 55
   Rockultrange: 6
   edmUltRange: {x: 17, y: 2}
   ultsfx: {fileID: 8300000, guid: 2e36e67e154148342af4de74a806b582, type: 3}

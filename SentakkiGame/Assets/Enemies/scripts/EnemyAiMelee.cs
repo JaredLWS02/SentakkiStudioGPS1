@@ -41,7 +41,6 @@ public class EnemyAiMelee : MonoBehaviour
 
         if (enemyanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && enemyanim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
         {
-            Spawn.instance.enemycounter -= 1;
             ProgressBar.instance.UpdateProgressBar();
             Destroy(gameObject);
         }

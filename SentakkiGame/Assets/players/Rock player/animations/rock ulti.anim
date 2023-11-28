@@ -32,9 +32,9 @@ AnimationClip:
       value: {fileID: 379740949, guid: c0992e95f7f85ca44844ca59da16e3b6, type: 3}
     - time: 0.5833333
       value: {fileID: -769288400, guid: c0992e95f7f85ca44844ca59da16e3b6, type: 3}
-    - time: 0.6666667
-      value: {fileID: -530325542, guid: c0992e95f7f85ca44844ca59da16e3b6, type: 3}
     - time: 0.75
+      value: {fileID: -530325542, guid: c0992e95f7f85ca44844ca59da16e3b6, type: 3}
+    - time: 0.9166667
       value: {fileID: -1091887867, guid: c0992e95f7f85ca44844ca59da16e3b6, type: 3}
     attribute: m_Sprite
     path: 
@@ -71,7 +71,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8333333
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -92,14 +92,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: enableIframe
+    functionName: disablemovement
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: disablemovement
+    functionName: enableIframe
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -126,21 +126,21 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.75
+  - time: 0.8333333
     functionName: disableIframe
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.8333333
+  - time: 0.9166667
     functionName: ExitSkill
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.8333333
+  - time: 0.9166667
     functionName: enablemovement
     data: 
     objectReferenceParameter: {fileID: 0}

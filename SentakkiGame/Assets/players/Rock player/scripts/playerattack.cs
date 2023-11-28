@@ -248,9 +248,9 @@ public class playerattack : MonoBehaviour
     }
 
     // reset script
-    void ExitAttack()
+    public void ExitAttack()
     {
-        if(atkanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && (atkanim.GetCurrentAnimatorStateInfo(0).IsTag("attack") || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("swap")))
+        if(atkanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && (atkanim.GetCurrentAnimatorStateInfo(0).IsTag("attack") || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("swap") || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("skill") || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("ulti")))
         {
             reseted = false;
 
@@ -260,11 +260,11 @@ public class playerattack : MonoBehaviour
             }
             else if (combomanagerUI.innercomboUI >=18 && combomanagerUI.innercomboUI <= 24)
             {
-                Invoke("EndCombo", 1f);
+                Invoke("EndCombo", 1.5f);
             }
             else if (combomanagerUI.innercomboUI > 24)
             {
-                Invoke("EndCombo", 0.5f);
+                Invoke("EndCombo", 1f);
             }
 
         }

@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
 
     public void ShowControls()
     {
-        SceneManager.LoadSceneAsync(4);
+        SceneManager.LoadSceneAsync(5);
     }
 
     public void QuitGame()

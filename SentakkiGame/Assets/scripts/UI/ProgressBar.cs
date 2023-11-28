@@ -14,7 +14,6 @@ public class ProgressBar : MonoBehaviour
     public float incrementAmount;
     public Image mask;
     public Spawn spawnScript;
-    public CameraScript CameraScript;
     [SerializeField] public AudioSource stage;
     public float fillAmount;
     private bool loading;
@@ -56,7 +55,42 @@ public class ProgressBar : MonoBehaviour
         float maximumOffset = maximum - minimum;
         fillAmount = currentOffset / maximumOffset;
 
-        switch (current)
+        if(stage1)
+        {
+            switch (current)
+            {
+                case 24.0f:
+                    {
+                        stage.volume = 0.15f;
+                        swapmechanic.instance.SetVolume(0.08f);
+
+                    }
+                    break;
+                case 49.5f:
+                    {
+                        stage.volume = 0.1f;
+                        swapmechanic.instance.SetVolume(0.12f);
+                    }
+                    break;
+                case 72f:
+                    {
+                        stage.volume = 0.08f;
+                        swapmechanic.instance.SetVolume(0.15f);
+
+                    }
+                    break;
+                case 85.5f:
+                    {
+                        stage.volume = 0;
+                        swapmechanic.instance.SetVolume(0.2f);
+
+                    }
+                    break;
+            }
+        }
+        else
+        {
+            switch (current)
         {
             case 20:
                 {
@@ -85,6 +119,7 @@ public class ProgressBar : MonoBehaviour
 
                 }
                 break;
+        }
         }
 
     }

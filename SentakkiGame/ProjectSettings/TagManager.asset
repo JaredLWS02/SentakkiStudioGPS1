@@ -21,6 +21,7 @@ TagManager:
   - ControlPlayer
   - boss
   - BossSpawner
+  - stageMusic
   layers:
   - Default
   - TransparentFX

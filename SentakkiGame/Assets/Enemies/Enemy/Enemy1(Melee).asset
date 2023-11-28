@@ -16,9 +16,9 @@ MonoBehaviour:
   maxhp: 100
   dmg: 8
   chargeSpd: 0
-  minatkcooldown: 1.5
-  maxatkcooldown: 3
-  XknockbackForce: 7
+  minatkcooldown: 1.3
+  maxatkcooldown: 2.3
+  XknockbackForce: 8
   YknockbackForce: 2
   playerLayers:
     serializedVersion: 2
