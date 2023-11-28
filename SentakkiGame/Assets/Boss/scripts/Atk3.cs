@@ -40,13 +40,25 @@ public class Atk3 : MonoBehaviour
 
     private IEnumerator ShockAtk()
     {
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(3);//3
         smash.SetActive(true);
-        yield return new WaitForSecondsRealtime(0.2f);
+        yield return new WaitForSecondsRealtime(0.2f);//3.2
         smash.SetActive(false);
         Instantiate(atk3, new Vector3(spawnLocation3.x - 1.5f, spawnLocation3.y-2.0f, 0.0f), Quaternion.identity);
         Instantiate(atk4, new Vector3(spawnLocation3.x + 1.5f, spawnLocation3.y-2.0f, 0.0f), Quaternion.identity);
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(3);//6.2
+        smash.SetActive(true);
+        yield return new WaitForSecondsRealtime(0.2f);//6.4
+        smash.SetActive(false);
+        Instantiate(atk3, new Vector3(spawnLocation3.x - 1.5f, spawnLocation3.y - 2.0f, 0.0f), Quaternion.identity);
+        Instantiate(atk4, new Vector3(spawnLocation3.x + 1.5f, spawnLocation3.y - 2.0f, 0.0f), Quaternion.identity);
+        yield return new WaitForSecondsRealtime(3);//9.4
+        smash.SetActive(true);
+        yield return new WaitForSecondsRealtime(0.2f);//9.6
+        smash.SetActive(false);
+        Instantiate(atk3, new Vector3(spawnLocation3.x - 1.5f, spawnLocation3.y - 2.0f, 0.0f), Quaternion.identity);
+        Instantiate(atk4, new Vector3(spawnLocation3.x + 1.5f, spawnLocation3.y - 2.0f, 0.0f), Quaternion.identity);
+        yield return new WaitForSecondsRealtime(3);//12.6
         col2d.enabled = true;
     }
 }

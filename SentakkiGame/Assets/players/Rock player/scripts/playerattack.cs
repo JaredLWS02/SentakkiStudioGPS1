@@ -147,6 +147,10 @@ public class playerattack : MonoBehaviour
                         hitvfx.Play();
                         enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.atkdmg);
                     }
+                    else if(enemy.CompareTag("boss"))
+                    {
+                        enemy.GetComponent<BossHpManager>().takeDamage(stats.atkdmg);
+                    }
 
                     GaugePoint.Instance.RestoreGaugePoints(stats.gaugerestoreHit + extra);
                     combomanagerUI.innercomboUI++;
