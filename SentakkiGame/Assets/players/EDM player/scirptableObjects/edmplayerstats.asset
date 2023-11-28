@@ -23,7 +23,7 @@ MonoBehaviour:
   skillsfx: {fileID: 8300000, guid: f01e7fd2ef080a7488dc9d66d50487bc, type: 3}
   ultdmg: 55
   Rockultrange: 6
-  edmUltRange: {x: 17, y: 2}
+  edmUltRange: {x: 18, y: 2}
   ultsfx: {fileID: 8300000, guid: 2e36e67e154148342af4de74a806b582, type: 3}
   ultReadysfx: {fileID: 8300000, guid: 06cd1f40018397c4e928299e1267d8d6, type: 3}
   enemylayer:
@@ -31,7 +31,7 @@ MonoBehaviour:
     m_Bits: 512
   healthrestore: 20
   gaugerestoreItem: 33
-  gaugerestoreHit: 1
+  gaugerestoreHit: 0.5
   combo:
   - {fileID: 11400000, guid: 8104217a63b9d4c4cbb1203deff2d836, type: 2}
   - {fileID: 11400000, guid: 5e8012cdb90931a4aa899bd4a57cb183, type: 2}

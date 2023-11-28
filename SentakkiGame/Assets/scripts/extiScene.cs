@@ -22,7 +22,7 @@ public class extiScene : MonoBehaviour
             PlayerPrefs.SetFloat("hpP2", healthPoint.Instance.currenthealthAmountP2);
             PlayerPrefs.SetFloat("Gauge", GaugePoint.Instance.gaugePointAmount);
             PlayerPrefs.Save();
-            SceneManager.LoadSceneAsync(3);
+            SceneManager.LoadSceneAsync(4);
         }
     }
 

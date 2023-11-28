@@ -92,7 +92,7 @@ public class playerattack : MonoBehaviour
     // attack mechanic
     public void Attack()
     {
-        if (Time.time - lastcomboEnd > 0.5f && combocounter <= stats.combo.Count)
+        if (Time.time - lastcomboEnd > 0.2f && combocounter <= stats.combo.Count)
         {
             attackpoint.transform.localPosition = stats.atkpointpos;
             hitenemies = Physics2D.OverlapCircleAll(attackpoint.position, stats.atkrange, stats.enemylayer);
@@ -168,6 +168,7 @@ public class playerattack : MonoBehaviour
             Collider2D[] enemieshit = Physics2D.OverlapBoxAll(plungeattackpoint.position, new Vector2(sizeX, sizeY), 1f, stats.enemylayer);
             if (enemieshit.Length >= 1)
             {
+                atksfx.Play();
                 hit = true;
                 failattack = false;
                 reseted = true;
@@ -217,6 +218,7 @@ public class playerattack : MonoBehaviour
         hitenemiesSwap = Physics2D.OverlapBoxAll(swapattackpoint.position, swapatkSize, 0, stats.enemylayer);
         if (hitenemiesSwap.Length >= 1)
         {
+            atksfx.Play();
             failattack = false;
             reseted = true;
             CancelInvoke("EndCombo");
@@ -250,7 +252,7 @@ public class playerattack : MonoBehaviour
     // reset script
     public void ExitAttack()
     {
-        if(atkanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && (atkanim.GetCurrentAnimatorStateInfo(0).IsTag("attack") || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("swap") || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("skill") || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("ulti")))
+        if(atkanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && (atkanim.GetCurrentAnimatorStateInfo(0).IsTag("attack") || atkanim.GetCurrentAnimatorStateInfo(0).IsTag("swap")))
         {
             reseted = false;
 
@@ -260,11 +262,11 @@ public class playerattack : MonoBehaviour
             }
             else if (combomanagerUI.innercomboUI >=18 && combomanagerUI.innercomboUI <= 24)
             {
-                Invoke("EndCombo", 1.5f);
+                Invoke("EndCombo", 1f);
             }
             else if (combomanagerUI.innercomboUI > 24)
             {
-                Invoke("EndCombo", 1f);
+                Invoke("EndCombo", 0.8f);
             }
 
         }

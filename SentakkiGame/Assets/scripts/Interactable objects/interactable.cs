@@ -9,6 +9,7 @@ public class interactable : MonoBehaviour
     public float objectspeed;
     public float atkdmg;
     private bool thrown;
+    private Collider2D hitplayer;
     [SerializeField] private GameObject prompttext;
     [SerializeField] private Transform interactarea;
     [SerializeField] private float attackrange;
@@ -31,19 +32,31 @@ public class interactable : MonoBehaviour
 
     private void checkside()
     {
-        Collider2D hitplayer = Physics2D.OverlapCircle(interactarea.position, attackrange, playerlayer);
+        prompttext.SetActive(false);
+        hitplayer = Physics2D.OverlapCircle(interactarea.position, attackrange, playerlayer);
 
-        if(hitplayer.GetComponent<Transform>().localScale.x > 0)
+        hitplayer.GetComponent<Animator>().Play("throw", 0, 0);
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        StartCoroutine(throwing());
+    }
+
+    private IEnumerator throwing()
+    {
+        yield return new WaitForSeconds(0.45f);
+        thrown = true;
+        if (hitplayer.GetComponent<Transform>().localScale.x > 0)
         {
-            thrown = true;
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(objectspeed, 0), ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(objectspeed, 4), ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().gravityScale = 1;
         }
         else
         {
-            thrown = true;
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0 - objectspeed, 0), ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0 - objectspeed, 4), ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().gravityScale = 1;
         }
-
+        yield return new WaitForSeconds(0.15f);
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        Invoke("DestroySelf", 2);
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -80,5 +93,10 @@ public class interactable : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(interactarea.position, attackrange);
+    }
+
+    private void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }
