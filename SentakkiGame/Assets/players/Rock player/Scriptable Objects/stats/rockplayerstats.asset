@@ -15,7 +15,7 @@ MonoBehaviour:
   maxhealth: 100
   atkdmg: 20
   atkcooldown: 0.4
-  atkrange: 1.2
+  atkrange: 1.8
   atksfx: {fileID: 8300000, guid: a67244edacbf03741866fd3be85d556c, type: 3}
   skilldmg: 30
   skillcooldown: 1
