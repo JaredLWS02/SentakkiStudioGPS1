@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using UnityEngine;
 
 public class BossSpawnerScript : MonoBehaviour
@@ -8,6 +9,8 @@ public class BossSpawnerScript : MonoBehaviour
     [SerializeField] private GameObject boss;
     [SerializeField] private BoxCollider2D c2d;
     [SerializeField] private GameObject prompttext;
+    [SerializeField] private GameObject SpawnAnim;
+    [SerializeField] private GameObject Cam;
     private bool caninteract;
     private bool opened;
 
@@ -19,6 +22,8 @@ public class BossSpawnerScript : MonoBehaviour
             c2d.enabled = false;
             StartCoroutine(bossSpawn());
             opened = true;
+            Cam.transform.position = new Vector3(195, 0, 0);
+            CameraScript.instance.StopFollowing();
         }
     }
 
@@ -42,8 +47,10 @@ public class BossSpawnerScript : MonoBehaviour
 
     private IEnumerator bossSpawn()
     {
+        SpawnAnim.SetActive(true);
         //Appear with animations or fade in
         yield return new WaitForSecondsRealtime(3);
+        SpawnAnim.SetActive(false);
         boss.SetActive(true);
     }
 }

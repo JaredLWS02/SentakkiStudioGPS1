@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: BossStats
   m_EditorClassIdentifier: 
   skin: {fileID: 0}
-  maxhp: 1000
+  maxhp: 2000
   dmg: 20
-  speed: 0
   chargeSpd: 0
-  atkcooldown: 0
-  knockbackForce: {x: 0, y: 0}
+  minatkcooldown: 0
+  maxatkcooldown: 0
+  XknockbackForce: 0
+  YknockbackForce: 0
   playerLayers:
     serializedVersion: 2
     m_Bits: 0

@@ -13,10 +13,17 @@ public class Atk1 : MonoBehaviour
     [SerializeField] private GameObject summon2;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Vector3 pos1;
+    [SerializeField] private GameObject enemySpawnAnim;
 
     void Awake()
     {
         pos1 = spawnPoint.position;
+    }
+
+    void spawnAnim()
+    {
+        Instantiate(enemySpawnAnim, new Vector3(pos1.x - 5.0f, pos1.y, pos1.z), Quaternion.identity);
+        Instantiate(enemySpawnAnim, new Vector3(pos1.x + 5.0f, pos1.y, pos1.z), Quaternion.identity);
     }
 
     void summon()//atk 4
@@ -111,8 +118,10 @@ public class Atk1 : MonoBehaviour
         atk3.SetActive(true);
         yield return new WaitForSecondsRealtime(15);//42
         atk3.SetActive(false);
+        spawnAnim();
+        yield return new WaitForSecondsRealtime(1);//43
         summon();
-        yield return new WaitForSecondsRealtime(10);//52
+        yield return new WaitForSecondsRealtime(10);//53
         col2d.enabled = true;
     }
 }
