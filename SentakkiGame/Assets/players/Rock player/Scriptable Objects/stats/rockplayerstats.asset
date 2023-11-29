@@ -19,7 +19,7 @@ MonoBehaviour:
   atksfx: {fileID: 8300000, guid: a67244edacbf03741866fd3be85d556c, type: 3}
   skilldmg: 30
   skillcooldown: 1
-  skillrange: 2
+  skillrange: 3
   skillsfx: {fileID: 8300000, guid: 9aba6f674a09b604ca1f0b6af23bb34f, type: 3}
   ultdmg: 70
   Rockultrange: 5

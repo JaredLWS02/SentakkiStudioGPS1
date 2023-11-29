@@ -208,7 +208,6 @@ public class playerattack : MonoBehaviour
 
         if(movement.instance.IsGrounded())
         {
-            isPlunging = false;
             atkanim.Play("plunge", 0, 0.6f);
         }
 
@@ -340,6 +339,11 @@ public class playerattack : MonoBehaviour
     private void enableSwap()
     {
         GetComponent<swapmechanic>().enabled = true;
+    }
+
+    private void setIsPlunging()
+    {
+        isPlunging = false;
     }
 
     private void addDownForce()

@@ -5045,7 +5045,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 0.96, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5088,7 +5088,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.96, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -5130,7 +5130,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 6db37132540344a4d8ba026db481bf72, type: 2}
-  track: {fileID: 11400000, guid: 249c5d33e646c094c993a3bc3a09bd90, type: 2}
   AttackSensor: {fileID: 8512514215000631768}
   AttackHtibox: {fileID: 6212006304000070094}
   enemyanim: {fileID: 8433838795985469621}

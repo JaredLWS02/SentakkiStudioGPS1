@@ -34,7 +34,10 @@
             {
                 normbg.SetActive(true);
                 ambushstart = false;
-                lockbg.GetComponent<SpriteRenderer>().sortingOrder = -5;
+                if(stage1)
+                {
+                    lockbg.GetComponent<SpriteRenderer>().sortingOrder = -5;
+                }
                 LeanTween.moveLocalY(lockbg, -9.92f, 1f).setEaseInBack().setOnComplete(EnemyDefeated);
                 spawnScript.enemyList.Clear();
             }

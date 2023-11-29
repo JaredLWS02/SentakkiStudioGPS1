@@ -8,12 +8,12 @@ public class deletePrefsKey : MonoBehaviour
     void Awake()
     {
         Time.timeScale = 1;
-        if(PlayerPrefs.HasKey("hpP1") && PlayerPrefs.HasKey("hpP2") && PlayerPrefs.HasKey("Gauge"))
+        if((PlayerPrefs.HasKey("hpP1") && PlayerPrefs.HasKey("hpP2") && PlayerPrefs.HasKey("Gauge") )|| PlayerPrefs.HasKey("enemiesKilled"))
         {
             PlayerPrefs.DeleteKey("hpP1");
             PlayerPrefs.DeleteKey("hpP2");
             PlayerPrefs.DeleteKey("Gauge");
-            PlayerPrefs.DeleteKey("enemieskilled");
+            PlayerPrefs.DeleteKey("enemiesKilled");
         }
     }
 

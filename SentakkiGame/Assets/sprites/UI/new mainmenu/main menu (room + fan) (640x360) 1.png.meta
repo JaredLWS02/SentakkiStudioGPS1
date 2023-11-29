@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6aacf8609ebc25b4bb2b903f6594266a
+guid: b36e8af4af6f2ee4fa6dc7c6aa2a7c05
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,148 +149,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Interactable1 (100x55) _0
+      name: main menu (room + fan) (640x360) 1_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 0
         y: 0
-        width: 52
-        height: 54
+        width: 640
+        height: 360
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 312bef36eaca5454ab517b4b84786445
-      internalID: -41736965
+      spriteID: 05f7546c6102da6418ff99e499a6a1ea
+      internalID: -1309019494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Interactable1 (100x55) _1
+      name: main menu (room + fan) (640x360) 1_1
       rect:
         serializedVersion: 2
-        x: 115
+        x: 640
         y: 0
-        width: 52
-        height: 54
+        width: 640
+        height: 360
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f923fce1787de564f98e760aa25adafc
-      internalID: 235261813
+      spriteID: d8c8fa90bba9a21418169f61218809f9
+      internalID: 1092267005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Interactable1 (100x55) _2
+      name: main menu (room + fan) (640x360) 1_2
       rect:
         serializedVersion: 2
-        x: 215
+        x: 1280
         y: 0
-        width: 52
-        height: 54
+        width: 640
+        height: 360
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24bdd9971fe7b8343825e30cddd5c2b0
-      internalID: -311787167
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Interactable1 (100x55) _3
-      rect:
-        serializedVersion: 2
-        x: 305
-        y: 0
-        width: 58
-        height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd4d7e63980f0d544a4f2265987697a0
-      internalID: -1147415497
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Interactable1 (100x55) _4
-      rect:
-        serializedVersion: 2
-        x: 404
-        y: 0
-        width: 40
-        height: 53
-      alignment: 9
-      pivot: {x: 0.7255066, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ece34b2a033bd824786dcd3d80e3ec1d
-      internalID: 1559742461
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Interactable1 (100x55) _5
-      rect:
-        serializedVersion: 2
-        x: 517
-        y: 1
-        width: 78
-        height: 65
-      alignment: 9
-      pivot: {x: 0.22703591, y: 0.41209042}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4cf98a96e93cc04589ed10b7eb67b66
-      internalID: 1758163305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Interactable1 (100x55) _7
-      rect:
-        serializedVersion: 2
-        x: 617
-        y: 0
-        width: 38
-        height: 42
-      alignment: 9
-      pivot: {x: 0.488058, y: 0.662097}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82fa91202af8d3d4fb9afa89bfaeb879
-      internalID: 1603238402
+      spriteID: 767fd1e1f55d7ab4bb05558860639809
+      internalID: -1377088795
       vertices: []
       indices: 
       edges: []
@@ -306,14 +222,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Interactable1 (100x55) _0: -41736965
-      Interactable1 (100x55) _1: 235261813
-      Interactable1 (100x55) _2: -311787167
-      Interactable1 (100x55) _3: -1147415497
-      Interactable1 (100x55) _4: 1559742461
-      Interactable1 (100x55) _5: 1758163305
-      Interactable1 (100x55) _6: 1425750474
-      Interactable1 (100x55) _7: 1603238402
+      main menu (room + fan) (640x360) 1_0: -1309019494
+      main menu (room + fan) (640x360) 1_1: 1092267005
+      main menu (room + fan) (640x360) 1_2: -1377088795
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

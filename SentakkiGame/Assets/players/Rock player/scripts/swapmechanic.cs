@@ -63,13 +63,14 @@ public class swapmechanic : MonoBehaviour
         {
             return;
         }
+        float t = Time.time;
         if (!enabledSwap)
         {
             return;
         }
         if(healthPoint.Instance.currenthealthAmountP1 > 0 && healthPoint.Instance.currenthealthAmountP2 > 0)
         {
-            if (Input.GetKeyDown(KeyCode.Q) && (Time.time - lastswapTime ) >= swap.swapcooldown)
+            if (Input.GetKeyDown(KeyCode.Q) && (t - lastswapTime ) >  swap.swapcooldown)
             {
                 swapSource.Play();
                 SwitchPlayer();

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 00fefa528a284ac43baae17113b98c98
+guid: 54f4a0a943eaee841b2ee71ee36de04d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -147,49 +147,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: computer (main menu) (198x69)_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 198
-        height: 69
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 73310e0846496a64abf21268ce0af2b7
-      internalID: 586059241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: computer (main menu) (198x69)_1
-      rect:
-        serializedVersion: 2
-        x: 198
-        y: 0
-        width: 198
-        height: 69
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 544e104ab218a2347b54a5cb745ec6d5
-      internalID: 344228950
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -200,9 +158,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      computer (main menu) (198x69)_0: 586059241
-      computer (main menu) (198x69)_1: 344228950
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

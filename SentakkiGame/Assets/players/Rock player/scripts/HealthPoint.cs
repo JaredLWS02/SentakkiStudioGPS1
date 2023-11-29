@@ -169,6 +169,7 @@ public class healthPoint : MonoBehaviour
             GetComponent<movement>().enabled = true;
             GetComponent<playerattack>().enabled = true;
             GetComponent<skillandultimate>().enabled = true;
+            GetComponent<swapmechanic>().enabled = true;
         }
     }
 

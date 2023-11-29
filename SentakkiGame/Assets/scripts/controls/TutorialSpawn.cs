@@ -70,13 +70,13 @@ public class TutorialSpawn : MonoBehaviour
             if(a > 5)
             {
                 float posx = transform.position.x + 6;
-                GameObject c = Instantiate(enemy[i], new Vector2(posx, transform.position.y), Quaternion.identity);
+                GameObject c = Instantiate(enemy[i], new Vector2(posx, -1.83f), Quaternion.identity);
                 clone.Add(c);
             }
             else
             {
                 float posx = transform.position.x - 10;
-                GameObject c = Instantiate(enemy[i], new Vector2(posx, transform.position.y), Quaternion.identity);
+                GameObject c = Instantiate(enemy[i], new Vector2(posx, -1.83f), Quaternion.identity);
                 clone.Add(c);
             }
             yield return new WaitForSeconds(Random.Range(2,3));

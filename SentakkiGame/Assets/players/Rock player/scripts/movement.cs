@@ -54,6 +54,7 @@ public class movement : MonoBehaviour
             afterimage();
             if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
             {
+                GetComponent<playerattack>().isPlunging = false;
                 jumpSource.Play();
                 moveanim.Play("jump start", 0, 0);
                 rb.AddForce(Vector2.up * stats.jumpingPower, ForceMode2D.Impulse);

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 55a3d215ae5d5024da6a7c930c86bd40
+guid: 9ad170824b9ad70439ee69ffa9af93cd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,7 +149,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cabinet (main menu) (133x216)_0
+      name: cabinet (main menu) (133x216) 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dba5b5f76cbd874b908153a4cf9df3e
-      internalID: 1613750434
+      spriteID: 99b4167afc77be34fbefedad81f4f427
+      internalID: 1614252801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cabinet (main menu) (133x216)_1
+      name: cabinet (main menu) (133x216) 1_1
       rect:
         serializedVersion: 2
         x: 133
@@ -184,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bdf0fb79c82638449883b51f5889a8d
-      internalID: -919298868
+      spriteID: de5adc9da4fea6b4cb0caf93fd7bd36b
+      internalID: -1450199232
       vertices: []
       indices: 
       edges: []
@@ -201,8 +201,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cabinet (main menu) (133x216)_0: 1613750434
-      cabinet (main menu) (133x216)_1: -919298868
+      cabinet (main menu) (133x216) 1_0: 1614252801
+      cabinet (main menu) (133x216) 1_1: -1450199232
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
