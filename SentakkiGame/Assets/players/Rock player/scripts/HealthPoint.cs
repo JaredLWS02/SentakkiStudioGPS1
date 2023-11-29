@@ -151,7 +151,16 @@ public class healthPoint : MonoBehaviour
     { 
         if(currenthealthAmountP1 <= 0 && currenthealthAmountP2 <= 0)
         {
-            SceneManager.LoadSceneAsync(2);
+            PlayerPrefs.DeleteKey("enemiesKilled");
+
+            if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(3))
+            {
+                scenemanager.instance.switchDeathTutorialStage();
+            }
+            else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(6))
+            {
+                scenemanager.instance.switchDeathStage1();
+            }
         }
         else
         {

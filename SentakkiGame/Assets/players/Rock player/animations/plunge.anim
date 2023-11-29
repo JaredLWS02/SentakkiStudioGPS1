@@ -111,6 +111,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0
+    functionName: enableIframe
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.16666667
     functionName: addDownForce
     data: 
@@ -119,14 +126,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.25
-    functionName: PlungeAttack
+    functionName: startfreezeframe
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.25
-    functionName: startfreezeframe
+    functionName: PlungeAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -141,6 +148,13 @@ AnimationClip:
     messageOptions: 0
   - time: 0.41666666
     functionName: PlungeAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6666667
+    functionName: disableIframe
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

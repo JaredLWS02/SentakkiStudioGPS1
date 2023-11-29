@@ -25,6 +25,7 @@ public class EnemyAiMelee : MonoBehaviour
     private float counter;
     public bool ded;
     private bool hit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,15 @@ public class EnemyAiMelee : MonoBehaviour
         if (enemyanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && enemyanim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
         {
             ProgressBar.instance.UpdateProgressBar();
+            if (!PlayerPrefs.HasKey("enemiesKilled"))
+            {
+                PlayerPrefs.SetInt("enemiesKilled", 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("enemiesKilled", PlayerPrefs.GetInt("enemiesKilled") + 1);
+            }
+            PlayerPrefs.Save();
             Destroy(gameObject);
         }
 

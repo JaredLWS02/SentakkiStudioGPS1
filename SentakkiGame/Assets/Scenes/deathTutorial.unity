@@ -270,9 +270,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 131568370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfc521db5d409c6439436c4359dd420d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f923eb2d4d0b224bac41cadd9e59a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p1stats: {fileID: 0}
+  p2stats: {fileID: 0}
 --- !u!1 &189583731
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,9 +552,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Exit Game
-
-'
+  m_text: Return to Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64d8eaabd45986640856d23df01094f0, type: 2}
   m_sharedMaterial: {fileID: -4693823985783675967, guid: 64d8eaabd45986640856d23df01094f0, type: 2}
@@ -665,7 +665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.5, y: -61.90914}
+  m_AnchoredPosition: {x: -4.5, y: -47}
   m_SizeDelta: {x: 290.1965, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1194149820
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 4e9233640db918f41bbd472c24292f01, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 33c9a7eaa828d1b4aaaeea009ce00e66, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 33c9a7eaa828d1b4aaaeea009ce00e66, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -713,8 +713,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 131568372}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_TargetAssemblyTypeName: scenemanager, Assembly-CSharp
+        m_MethodName: switchtoTutorialStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -796,7 +796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 29, y: 47}
+  m_AnchoredPosition: {x: 45, y: 109}
   m_SizeDelta: {x: 659.6119, y: 261.1373}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1331712992
@@ -854,7 +854,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1163,8 +1163,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.0322266, y: -119}
-  m_SizeDelta: {x: 400, y: 75}
+  m_AnchoredPosition: {x: -4.4, y: -129.6}
+  m_SizeDelta: {x: 594.6863, y: 149.5251}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1937725173
 MonoBehaviour:
@@ -1195,8 +1195,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 4e9233640db918f41bbd472c24292f01, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 33c9a7eaa828d1b4aaaeea009ce00e66, type: 3}
+    m_HighlightedSprite: {fileID: 112323987, guid: 4fe2c2659a70b4c42b7638fefb163569, type: 3}
+    m_PressedSprite: {fileID: -53606282, guid: 4fe2c2659a70b4c42b7638fefb163569, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1211,8 +1211,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 131568372}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: GoToMainMenu
+        m_TargetAssemblyTypeName: scenemanager, Assembly-CSharp
+        m_MethodName: switchmenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1242,7 +1242,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5e6ec4963fac9334a8662b5cea900c88, type: 3}
+  m_Sprite: {fileID: 2100799184, guid: 4fe2c2659a70b4c42b7638fefb163569, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -43,6 +43,7 @@ public class GaugePoint : MonoBehaviour
     {
         if (gaugeBar.fillAmount < 1)
         {
+            gaugeBar.color = new Color(1, 1, 1, 1);
             ultiReady = false; 
         }
     }
@@ -72,5 +73,9 @@ public class GaugePoint : MonoBehaviour
     {
         Debug.Log(gaugeBar.fillAmount);
         gaugeBar.fillAmount = gaugePointAmount / maxGaugePointAmount;
+        if(gaugeBar.fillAmount >= 1)
+        {
+            gaugeBar.color = new Color(1, 0, 0, 1);
+        }
     }
 }

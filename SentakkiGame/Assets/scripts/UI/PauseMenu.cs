@@ -67,18 +67,4 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = tempPause;
         unpause.Play();
     }
-
-    public void ReturnToMainMenu()
-    {
-        SceneManager.LoadSceneAsync(0);
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
-    }
-
-
-
-
 }

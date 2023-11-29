@@ -49,7 +49,7 @@ public class skillandultimate : MonoBehaviour
         {
             return;
         }
-        if (PauseMenu.instance.isPaused || animationskill.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
+        if (PauseMenu.instance.isPaused || animationskill.GetCurrentAnimatorStateInfo(0).IsTag("attack") || movement.instance.isDashing)
         {
             return;
         }
@@ -58,6 +58,7 @@ public class skillandultimate : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.K) && gaugePoint.gaugePointAmount > 32)
             {
+
                 if (movement.instance.IsGrounded())
                 {
                     gaugePoint.ReduceGauge(33);

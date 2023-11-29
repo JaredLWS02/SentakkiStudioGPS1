@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 2dfe659b11030d841840b84d761a73a7, type: 2}
+  track: {fileID: 11400000, guid: 249c5d33e646c094c993a3bc3a09bd90, type: 2}
   AttackSensor: {fileID: 6588398927732334229}
   AttackHtibox: {fileID: 2728208281378710587}
   enemyanim: {fileID: 6229290256789313358}

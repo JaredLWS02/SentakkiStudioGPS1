@@ -49,7 +49,10 @@ public class Spawn : MonoBehaviour
     void Start()
     {
         instance = this;
-        CameraParent.GetComponent<CameraScript>().maxLimit = campos[listCounter];
+        if(stage1spawn)
+        {
+            CameraParent.GetComponent<CameraScript>().maxLimit = campos[listCounter];
+        }
         mainCamera = Camera.main;
     }
 

@@ -31,7 +31,6 @@ public class EnemyAi : MonoBehaviour
     public bool ded = false;
     public float chargepower;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +48,15 @@ public class EnemyAi : MonoBehaviour
         if (enemyanim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f && enemyanim.GetCurrentAnimatorStateInfo(0).IsTag("death"))
         {
             ProgressBar.instance.UpdateProgressBar();
+            if(!PlayerPrefs.HasKey("enemiesKilled"))
+            {
+                PlayerPrefs.SetInt("enemiesKilled", 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("enemiesKilled", PlayerPrefs.GetInt("enemiesKilled") + 1);
+            }
+            PlayerPrefs.Save();
             Destroy(gameObject);
         }
 

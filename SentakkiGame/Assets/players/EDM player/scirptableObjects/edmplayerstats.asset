@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fded09839600d345b0f9c1354f9d7c8, type: 3}
   m_Name: edmplayerstats
   m_EditorClassIdentifier: 
-  maxhealth: 100
+  maxhealth: 10
   atkdmg: 15
   atkcooldown: 0.4
   atkrange: 2.5
@@ -21,7 +21,7 @@ MonoBehaviour:
   skillcooldown: 5
   skillrange: 3
   skillsfx: {fileID: 8300000, guid: f01e7fd2ef080a7488dc9d66d50487bc, type: 3}
-  ultdmg: 55
+  ultdmg: 50
   Rockultrange: 6
   edmUltRange: {x: 18, y: 2}
   ultsfx: {fileID: 8300000, guid: 2e36e67e154148342af4de74a806b582, type: 3}

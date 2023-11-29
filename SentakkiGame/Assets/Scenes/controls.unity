@@ -1504,8 +1504,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 64d8eaabd45986640856d23df01094f0, type: 2}
+  m_sharedMaterial: {fileID: -4693823985783675967, guid: 64d8eaabd45986640856d23df01094f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2142,8 +2142,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 64d8eaabd45986640856d23df01094f0, type: 2}
+  m_sharedMaterial: {fileID: -4693823985783675967, guid: 64d8eaabd45986640856d23df01094f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3137,7 +3137,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -9074035635572710335, guid: 40ad9cbfd58657c4691c0bfccdec614e, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5235fa75aae6ed9449f2e27ced50e14a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6927,7 +6927,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 0858e0280bad4a241afdd9e3ad11d4cd, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 4896e8bc9edfb4d4fa88fdff22ff3053, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 4896e8bc9edfb4d4fa88fdff22ff3053, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal

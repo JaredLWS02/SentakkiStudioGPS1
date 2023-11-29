@@ -48,6 +48,12 @@ public class swapmechanic : MonoBehaviour
         p1.volume = 0.0f;
         p2.volume = 0.0f;
         player1Active = true;
+
+        if(healthPoint.Instance.currenthealthAmountP1 < 0)
+        {
+            swapSource.Play();
+            SwitchPlayer();
+        }
     }
 
     // Update is called once per frame

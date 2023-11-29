@@ -35,7 +35,7 @@
                 normbg.SetActive(true);
                 ambushstart = false;
                 lockbg.GetComponent<SpriteRenderer>().sortingOrder = -5;
-                LeanTween.moveLocalY(lockbg, -9.92f, 2f).setEaseInOutQuart().setOnComplete(EnemyDefeated);
+                LeanTween.moveLocalY(lockbg, -9.92f, 1f).setEaseInBack().setOnComplete(EnemyDefeated);
                 spawnScript.enemyList.Clear();
             }
         }
@@ -61,7 +61,7 @@
                     
                 if(stage1)
                 {
-                    LeanTween.moveLocalY(lockbg, -0.12f, 1f).setEaseInElastic();
+                    LeanTween.moveLocalY(lockbg, -0.12f, 1.5f).setEaseOutBack();
                     int i = Random.Range(0, 10);
                     switch(ProgressBar.instance.current)
                     {
@@ -115,7 +115,7 @@
                 }
                 else
                 {
-                    LeanTween.moveLocalY(lockbg, -0.74f, 1f).setEaseOutElastic();
+                    LeanTween.moveLocalY(lockbg, -0.74f, 1.5f).setEaseOutBack();
                     spawnScript.SpawnEnemiesFromAbove(enemyamt);
                 }
                     // Spawn 6 enemies using the Spawn script.

@@ -41,7 +41,7 @@ public class TutorialSpawn : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             lockbg.transform.position = Camera.main.transform.position;
-            LeanTween.moveLocalY(lockbg, -0.74f, 1f).setEaseOutBack();
+            LeanTween.moveLocalY(lockbg, -0.74f, 1.5f).setEaseOutBack();
             normbg.SetActive(false);
             CameraScript.instance.StopFollowing();
             StartCoroutine(Startspawn());
