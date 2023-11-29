@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class interactable : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class interactable : MonoBehaviour
     private bool thrown;
     private Collider2D hitplayer;
     [SerializeField] private GameObject prompttext;
+    [SerializeField] private GameObject shadow;
+    [SerializeField] private AudioSource sfx;
     [SerializeField] private Transform interactarea;
     [SerializeField] private float attackrange;
     [SerializeField] private LayerMask playerlayer;
@@ -18,6 +21,7 @@ public class interactable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sfx = GameObject.FindGameObjectWithTag("sfxPlayerAndEnemy").GetComponent<AudioSource>();
         prompttext.SetActive(false);
     }
 
@@ -33,16 +37,24 @@ public class interactable : MonoBehaviour
     private void checkside()
     {
         prompttext.SetActive(false);
+        shadow.SetActive(false);
         hitplayer = Physics2D.OverlapCircle(interactarea.position, attackrange, playerlayer);
 
-        hitplayer.GetComponent<Animator>().Play("throw", 0, 0);
+        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(3))
+        {
+            hitplayer.GetComponent<Animator>().Play("throwRadio", 0, 0);
+        }
+        else
+        {
+            hitplayer.GetComponent<Animator>().Play("throwDaruma", 0, 0);
+        }
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
         StartCoroutine(throwing());
     }
 
     private IEnumerator throwing()
     {
-        yield return new WaitForSeconds(0.45f);
+        yield return new WaitForSeconds(0.4f);
         thrown = true;
         if (hitplayer.GetComponent<Transform>().localScale.x > 0)
         {
@@ -54,7 +66,7 @@ public class interactable : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0 - objectspeed, 4), ForceMode2D.Impulse);
             GetComponent<Rigidbody2D>().gravityScale = 1;
         }
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.1f);
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         Invoke("DestroySelf", 2);
 
@@ -71,10 +83,12 @@ public class interactable : MonoBehaviour
         {
             if(collision.CompareTag("enemy"))
             {
+                sfx.Play();
                 collision.GetComponent<EnemyAi>().takeDamage(atkdmg);
             }
             else if (collision.CompareTag("enemyMelee"))
             {
+                sfx.Play();
                 collision.GetComponent<EnemyAiMelee>().takeDamage(atkdmg);
             }
             Destroy(gameObject);

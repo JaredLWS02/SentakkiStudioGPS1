@@ -361,4 +361,5 @@ public class skillandultimate : MonoBehaviour
         edmUltVfx.SetActive(false);
         animationskill.Play("ult end", 0, 0);
     }
+
 }

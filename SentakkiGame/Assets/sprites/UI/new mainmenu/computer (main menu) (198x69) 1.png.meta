@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0dfedc6eec66cc847b28d3e9b028c0e4
+guid: 4dad79411b02be942ba4986adc53b07f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: main menu (room + fan) (640x360)_0
+      name: computer (main menu) (198x69) 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 640
-        height: 360
+        width: 198
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce1ba5c701ebdb14683f9396354b01f5
-      internalID: 772907873
+      spriteID: 6c408c673ce6c214c9dea651b8e24e34
+      internalID: 1969399546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: main menu (room + fan) (640x360)_1
+      name: computer (main menu) (198x69) 1_1
       rect:
         serializedVersion: 2
-        x: 640
+        x: 198
         y: 0
-        width: 640
-        height: 360
+        width: 198
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,29 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24f40afb4e67a8f49b7bf908176be544
-      internalID: -1781313438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: main menu (room + fan) (640x360)_2
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 640
-        height: 360
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c9ce965b68d9b6c4ca05d3ed5f9b05b6
-      internalID: -70858109
+      spriteID: bba09f26c3a35d94e87f772816519721
+      internalID: -1907750860
       vertices: []
       indices: 
       edges: []
@@ -222,9 +201,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      main menu (room + fan) (640x360)_0: 772907873
-      main menu (room + fan) (640x360)_1: -1781313438
-      main menu (room + fan) (640x360)_2: -70858109
+      computer (main menu) (198x69) 1_0: 1969399546
+      computer (main menu) (198x69) 1_1: -1907750860
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

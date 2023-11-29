@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ef64731c6fa76814cb1371fb1caac23c
+guid: 7e662376fad2218448e2010154cf3dd9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,295 +149,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TutorialEnemy1Attack-Sheet(96x64)_0
+      name: Interactable2_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 15
         y: 0
-        width: 96
-        height: 64
-      alignment: 9
-      pivot: {x: 0.3358445, y: 0.5}
+        width: 55
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c10c3df4e3f7724b8041d237d01e3ec
-      internalID: 871260367
+      spriteID: 129d354c2f5937e498f604c1792ab6c9
+      internalID: 1779258885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TutorialEnemy1Attack-Sheet(96x64)_1
+      name: Interactable2_1
       rect:
         serializedVersion: 2
-        x: 96
+        x: 115
         y: 0
-        width: 96
-        height: 64
-      alignment: 9
-      pivot: {x: 0.3358445, y: 0.5}
+        width: 55
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd328b4289763e144a8f30151a0597ed
-      internalID: -186463199
+      spriteID: 241b1a7519edfc94aadfa557b7d2a7fb
+      internalID: 677568474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TutorialEnemy1Attack-Sheet(96x64)_2
+      name: Interactable2_2
       rect:
         serializedVersion: 2
-        x: 192
+        x: 215
         y: 0
-        width: 96
-        height: 64
-      alignment: 9
-      pivot: {x: 0.3358445, y: 0.5}
+        width: 55
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7857dbb6270259408ad49fd53740573
-      internalID: -1315561246
+      spriteID: 78f8a96d3d91d914ba7b799c6cf95fe8
+      internalID: -240755679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TutorialEnemy1Attack-Sheet(96x64)_3
+      name: Interactable2_3
       rect:
         serializedVersion: 2
-        x: 288
+        x: 303
         y: 0
-        width: 96
-        height: 64
-      alignment: 9
-      pivot: {x: 0.3358445, y: 0.5}
+        width: 61
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54ccb96ebb8e00446acf2da5e059ed02
-      internalID: 831860426
+      spriteID: 9b7007825072a5942b04b1db43f7ad3a
+      internalID: 525159838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TutorialEnemy1Attack-Sheet(96x64)_4
+      name: Interactable2_4
       rect:
         serializedVersion: 2
-        x: 384
+        x: 403
         y: 0
-        width: 96
-        height: 64
+        width: 41
+        height: 54
       alignment: 9
-      pivot: {x: 0.3358445, y: 0.5}
+      pivot: {x: 0.63904923, y: 0.5000001}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bd2d7ce62439804b8536ffdac8d3a40
-      internalID: -111530403
+      spriteID: 17b3f367ce4220641b9b9e23d774e354
+      internalID: -160711999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TutorialEnemy1Attack-Sheet(96x64)_5
+      name: Interactable2_5
       rect:
         serializedVersion: 2
-        x: 480
+        x: 517
         y: 0
-        width: 96
-        height: 64
+        width: 76
+        height: 71
       alignment: 9
-      pivot: {x: 0.3358445, y: 0.5}
+      pivot: {x: 0.1836323, y: 0.37610474}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efbfeebee5eec094498a8a31690d34b2
-      internalID: 932303818
+      spriteID: 33b6700f1b6e58e42b8a825865b6e353
+      internalID: 1469290874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TutorialEnemy1Attack-Sheet(96x64)_6
+      name: Interactable2_7
       rect:
         serializedVersion: 2
-        x: 576
+        x: 617
         y: 0
-        width: 96
-        height: 64
+        width: 38
+        height: 42
       alignment: 9
-      pivot: {x: 0.3358445, y: 0.5}
+      pivot: {x: 0.4691371, y: 0.6256657}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 639b7ed6324bd1a4dac2c5350d54aabe
-      internalID: -152647148
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TutorialEnemy1Attack-Sheet(96x64)_7
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 0
-        width: 96
-        height: 64
-      alignment: 9
-      pivot: {x: 0.3358445, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b14165690d513804a940246235f7c517
-      internalID: 2123350230
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TutorialEnemy1Attack-Sheet(96x64)_8
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 96
-        height: 64
-      alignment: 9
-      pivot: {x: 0.3358445, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cc699425ba8fa246a07c07fd20a90cb
-      internalID: 1164870577
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TutorialEnemy1Attack-Sheet(96x64)_9
-      rect:
-        serializedVersion: 2
-        x: 864
-        y: 0
-        width: 96
-        height: 64
-      alignment: 9
-      pivot: {x: 0.3358445, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5ae2629e677d9a345b7c9cd63ad7adf8
-      internalID: 1127653797
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TutorialEnemy1Attack-Sheet(96x64)_10
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 96
-        height: 64
-      alignment: 9
-      pivot: {x: 0.3358445, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fb1f887f122cdfa4c9df9ea1b78907dc
-      internalID: -1560789627
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TutorialEnemy1Attack-Sheet(96x64)_11
-      rect:
-        serializedVersion: 2
-        x: 1056
-        y: 0
-        width: 96
-        height: 64
-      alignment: 9
-      pivot: {x: 0.3358445, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d3cc70de9fe3e64ab2e3e33e0f1a1ab
-      internalID: 985576311
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TutorialEnemy1Attack-Sheet(96x64)_12
-      rect:
-        serializedVersion: 2
-        x: 1152
-        y: 0
-        width: 96
-        height: 64
-      alignment: 9
-      pivot: {x: 0.3358445, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e45b46e3e2451614db49c9700527ca10
-      internalID: -435634327
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TutorialEnemy1Attack-Sheet(96x64)_13
-      rect:
-        serializedVersion: 2
-        x: 1248
-        y: 0
-        width: 96
-        height: 64
-      alignment: 9
-      pivot: {x: 0.3358445, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e238df81600a915439d2ef823c820a84
-      internalID: 1794587020
+      spriteID: 023b9386eefc80942b487f6447025f40
+      internalID: 1492317184
       vertices: []
       indices: 
       edges: []
@@ -453,20 +306,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TutorialEnemy1Attack-Sheet(96x64)_0: 871260367
-      TutorialEnemy1Attack-Sheet(96x64)_1: -186463199
-      TutorialEnemy1Attack-Sheet(96x64)_10: -1560789627
-      TutorialEnemy1Attack-Sheet(96x64)_11: 985576311
-      TutorialEnemy1Attack-Sheet(96x64)_12: -435634327
-      TutorialEnemy1Attack-Sheet(96x64)_13: 1794587020
-      TutorialEnemy1Attack-Sheet(96x64)_2: -1315561246
-      TutorialEnemy1Attack-Sheet(96x64)_3: 831860426
-      TutorialEnemy1Attack-Sheet(96x64)_4: -111530403
-      TutorialEnemy1Attack-Sheet(96x64)_5: 932303818
-      TutorialEnemy1Attack-Sheet(96x64)_6: -152647148
-      TutorialEnemy1Attack-Sheet(96x64)_7: 2123350230
-      TutorialEnemy1Attack-Sheet(96x64)_8: 1164870577
-      TutorialEnemy1Attack-Sheet(96x64)_9: 1127653797
+      Interactable2_0: 1779258885
+      Interactable2_1: 677568474
+      Interactable2_2: -240755679
+      Interactable2_3: 525159838
+      Interactable2_4: -160711999
+      Interactable2_5: 1469290874
+      Interactable2_6: 1728709853
+      Interactable2_7: 1492317184
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

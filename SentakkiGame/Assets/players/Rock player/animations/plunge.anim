@@ -98,13 +98,6 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: disableSwap
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0
     functionName: disablemovement
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -112,7 +105,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: enableIframe
+    functionName: disableSwap
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -126,14 +119,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.25
-    functionName: startfreezeframe
+    functionName: PlungeAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.25
-    functionName: PlungeAttack
+    functionName: startfreezeframe
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -153,15 +146,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6666667
-    functionName: disableIframe
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.8333333
-    functionName: idle
+  - time: 0.75
+    functionName: enableSwap
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -175,7 +161,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.8333333
-    functionName: enableSwap
+    functionName: idle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.8333333
+    functionName: setIsPlunging
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
