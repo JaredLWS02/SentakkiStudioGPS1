@@ -40,9 +40,13 @@ public class Dialogue : MonoBehaviour
             ShowNextLine();
         }
 
-        if (index >= 2)
+        if (index >= 2 && index < 5)
         {
             imaged.sprite = imageChoices[0];
+        }
+        else if(index >= 5)
+        {
+            imaged.sprite = imageChoices[1];
         }
     }
 
@@ -63,7 +67,7 @@ public class Dialogue : MonoBehaviour
                 }
                 else
                 {
-                    textComponent.color = Color.blue; // Reset color to white for other lines
+                    textComponent.color = new Color(0,0.96f,0.71f); // Reset color to white for other lines
                 }
                 yield return new WaitForSeconds(textSpeed);
             }

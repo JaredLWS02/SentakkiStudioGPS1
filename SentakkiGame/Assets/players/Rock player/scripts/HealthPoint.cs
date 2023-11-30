@@ -156,11 +156,11 @@ public class healthPoint : MonoBehaviour
         {
             PlayerPrefs.DeleteKey("enemiesKilled");
 
-            if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(3))
+            if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(4))
             {
                 scenemanager.instance.switchDeathTutorialStage();
             }
-            else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(6))
+            else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(7))
             {
                 scenemanager.instance.switchDeathStage1();
             }

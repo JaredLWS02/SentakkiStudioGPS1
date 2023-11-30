@@ -57,7 +57,7 @@ public class BossSpawnerScript : MonoBehaviour
     {
         SpawnAnim.SetActive(true);
         //Appear with animations or fade in
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSeconds(3);
         SpawnAnim.SetActive(false);
         boss.SetActive(true);
     }
