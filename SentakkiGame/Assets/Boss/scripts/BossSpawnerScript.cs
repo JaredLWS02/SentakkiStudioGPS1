@@ -11,6 +11,10 @@ public class BossSpawnerScript : MonoBehaviour
     [SerializeField] private GameObject prompttext;
     [SerializeField] private GameObject SpawnAnim;
     [SerializeField] private GameObject Cam;
+    [SerializeField] private AudioClip bossmusic;
+    [SerializeField] private AudioSource stageMusic;
+    [SerializeField] private AudioSource p1Music;
+    [SerializeField] private AudioSource p2Music;
     private bool caninteract;
     private bool opened;
 
@@ -21,6 +25,11 @@ public class BossSpawnerScript : MonoBehaviour
             rend.enabled = false;
             c2d.enabled = false;
             StartCoroutine(bossSpawn());
+            p1Music.Stop();
+            p2Music.Stop();
+            stageMusic.Stop();
+            stageMusic.clip = bossmusic;
+            stageMusic.Play();
             opened = true;
             Cam.transform.position = new Vector3(195, 0, 0);
             CameraScript.instance.StopFollowing();
