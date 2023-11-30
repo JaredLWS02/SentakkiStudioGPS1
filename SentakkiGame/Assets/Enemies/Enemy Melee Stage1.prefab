@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: -1130489693
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1875500626, guid: 0b111e55d6f9b6f47a68008f4a939ab6, type: 3}
+  m_Sprite: {fileID: -877057689, guid: 724b112c8ad843d44b2c65ae1a2e30af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   attackPoint: {fileID: 7606513003935755840}
   attackHitbox: {fileID: 4987146535570130110}
-  sizex: 1.7
+  sizex: 1.5
   sizey: 1.7
   currentHealth: 0
   movement: {fileID: 3989756459909986819}
