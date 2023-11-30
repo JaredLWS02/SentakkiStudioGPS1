@@ -258,6 +258,7 @@ MonoBehaviour:
   imaged: {fileID: 1937982606}
   imageChoices:
   - {fileID: 21300000, guid: fa2c62114a045794b8250451a8d5ff42, type: 3}
+  - {fileID: 21300000, guid: 86693bab80799c44686903b0ae4b8374, type: 3}
   starttext: {fileID: 1759266935}
 --- !u!114 &157279722
 MonoBehaviour:
