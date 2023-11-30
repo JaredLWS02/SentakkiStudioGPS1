@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class BossHpManager : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class BossHpManager : MonoBehaviour
     [SerializeField] private GameObject progressBarBoss;
     [SerializeField] private GameObject barfill;
     [SerializeField] private GameObject BossBarfill;
+    [SerializeField] private GameObject deathAnim;
+    [SerializeField] private GameObject StageClearCol;
 
     private void Awake()
     {
@@ -39,11 +43,15 @@ public class BossHpManager : MonoBehaviour
         if(curHp <= 0)
         {
             bossDeath();
+
         }
     }
 
     void bossDeath()
     {
         Destroy(gameObject);
+        Instantiate(deathAnim, new Vector3(195, 0, 0), Quaternion.identity);
+        Instantiate(StageClearCol, new Vector3(203.5f, -1.5f, 0), Quaternion.identity);
+
     }
 }
