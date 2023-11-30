@@ -15,6 +15,8 @@ public class BossSpawnerScript : MonoBehaviour
     [SerializeField] private AudioSource stageMusic;
     [SerializeField] private AudioSource p1Music;
     [SerializeField] private AudioSource p2Music;
+    [SerializeField] private GameObject lockwall;
+    [SerializeField] private GameObject middleground;
     private bool caninteract;
     private bool opened;
 
@@ -32,6 +34,9 @@ public class BossSpawnerScript : MonoBehaviour
             opened = true;
             Cam.transform.position = new Vector3(195, 0, 0);
             CameraScript.instance.StopFollowing();
+            middleground.SetActive(false);
+            lockwall.transform.position = Camera.main.transform.position;
+            LeanTween.moveLocalY(lockwall, -0.12f, 1.5f).setEaseOutBack();
         }
     }
 
