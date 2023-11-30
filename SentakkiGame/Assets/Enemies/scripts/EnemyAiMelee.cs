@@ -261,7 +261,10 @@ public class EnemyAiMelee : MonoBehaviour
             enemyanim.Play("EnemyStun", 0, 0);
         }
     }
-
+    private void disablemove()
+    {
+        movement.enabled = false;
+    }
     private void moveforward()
     {
         if (transform.localScale.x > 0)
@@ -273,5 +276,15 @@ public class EnemyAiMelee : MonoBehaviour
             LeanTween.moveLocalX(this.gameObject, transform.position.x + 0.4f, 0.1f).setEaseOutExpo();
 
         }
+    }
+
+    private void disablecollider()
+    {
+        GetComponent<BoxCollider2D>().enabled = false;
+    }
+
+    private void enablecollider()
+    {
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 }

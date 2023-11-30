@@ -87,7 +87,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -196,7 +196,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   attackPoint: {fileID: 7606513003935755840}
   attackHitbox: {fileID: 4987146535570130110}
-  sizex: 1.5
+  sizex: 1.7
   sizey: 1.7
   currentHealth: 0
   movement: {fileID: 3989756459909986819}
@@ -5189,7 +5189,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.26592615, y: -0.017772079}
+  m_Offset: {x: -0.28160045, y: -0.017772079}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5200,5 +5200,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3498699, y: 0.37435186}
+  m_Size: {x: 0.40649122, y: 0.37435186}
   m_EdgeRadius: 0

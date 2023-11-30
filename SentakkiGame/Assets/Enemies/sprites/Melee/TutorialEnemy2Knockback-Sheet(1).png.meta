@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d640bd558839b3a42b6e26b6226a1240
+guid: e01130da6919f844d827edefcb940205
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,7 +149,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TutorialEnemy1Knocback-Sheet_0
+      name: TutorialEnemy2Knockback-Sheet(1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35e17f7e8140c904180c69569c77d1a6
-      internalID: 719570099
+      spriteID: 9a1b6a0cf5992f04383e98c8942f4342
+      internalID: 428748164
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TutorialEnemy1Knocback-Sheet_1
+      name: TutorialEnemy2Knockback-Sheet(1)_1
       rect:
         serializedVersion: 2
         x: 64
@@ -184,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 701f145ecd2f8f548ba80361d04edade
-      internalID: -1696927094
+      spriteID: 20d6a824776b383489472bc299e4f555
+      internalID: 911428932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TutorialEnemy1Knocback-Sheet_2
+      name: TutorialEnemy2Knockback-Sheet(1)_2
       rect:
         serializedVersion: 2
         x: 128
@@ -205,8 +205,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92a0d3ddaadb7ef47a6cd5b12648eef6
-      internalID: -1732081050
+      spriteID: 8459cba42948ca044b8b30fb1d83eb5c
+      internalID: -1344625313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy2Knockback-Sheet(1)_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84fa02f0b31aac64f9607d7bfb83e3c3
+      internalID: 1320850935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy2Knockback-Sheet(1)_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6384a3baa613a924398f69116b1816e6
+      internalID: -1992961699
       vertices: []
       indices: 
       edges: []
@@ -222,9 +264,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TutorialEnemy1Knocback-Sheet_0: 719570099
-      TutorialEnemy1Knocback-Sheet_1: -1696927094
-      TutorialEnemy1Knocback-Sheet_2: -1732081050
+      TutorialEnemy2Knockback-Sheet(1)_0: 428748164
+      TutorialEnemy2Knockback-Sheet(1)_1: 911428932
+      TutorialEnemy2Knockback-Sheet(1)_2: -1344625313
+      TutorialEnemy2Knockback-Sheet(1)_3: 1320850935
+      TutorialEnemy2Knockback-Sheet(1)_4: -1992961699
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -128,7 +128,7 @@ public class EnemyAi : MonoBehaviour
             movement.enabled = false;
             counter++;
             stopmoving();
-            if (counter < 5)
+            if (counter < 4)
             {
                 enemyanim.Play("EnemyNoKnockback", 0, 0);
             }
@@ -303,6 +303,14 @@ public class EnemyAi : MonoBehaviour
 
         }
     }
-    
 
+    private void disablecollider()
+    {
+        GetComponent<BoxCollider2D>().enabled = false;
+    }
+
+    private void enablecollider()
+    {
+        GetComponent<BoxCollider2D>().enabled = true;
+    }
 }

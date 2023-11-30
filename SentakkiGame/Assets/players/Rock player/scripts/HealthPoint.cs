@@ -17,6 +17,8 @@ public class healthPoint : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private playerstats statsP1;
     [SerializeField] private playerstats statsP2;
+    [SerializeField] private ParticleSystem p;
+
 
 
     private void Awake()  
@@ -115,6 +117,7 @@ public class healthPoint : MonoBehaviour
     {
         if(healthBar.fillAmount > 0)
         {
+            p.Play();
             CancelInvoke("returnOriState");
             Debug.Log("knock");
             GetComponent<movement>().enabled = false;

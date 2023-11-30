@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fecf6b7c01826d8499b829dd2b45088f
+guid: 72fd265c513b9d340b1cf66aa3782afc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,7 +149,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TutorialEnemy2Knockback-Sheet_0
+      name: TutorialEnemy2Death-Sheet(1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49501e05181ccc34dba518f388a4364e
-      internalID: -1840368956
+      spriteID: 6bb74515b44afd5428e3a0599c441f21
+      internalID: -78173154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TutorialEnemy2Knockback-Sheet_1
+      name: TutorialEnemy2Death-Sheet(1)_1
       rect:
         serializedVersion: 2
         x: 64
@@ -184,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18957a0af253ebd418f1075f46ac9b27
-      internalID: -927770597
+      spriteID: cbfe129c5c41d4a4ea12e08ddc7ee10b
+      internalID: 2126054802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TutorialEnemy2Knockback-Sheet_2
+      name: TutorialEnemy2Death-Sheet(1)_2
       rect:
         serializedVersion: 2
         x: 128
@@ -205,8 +205,176 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfeac59c4db32d34d925f4b372fae228
-      internalID: -541415738
+      spriteID: 15872f8fe851db14ab4b3794d465fd80
+      internalID: 1223132324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy2Death-Sheet(1)_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe8d2e4da2ed17d4b9f849ddde6c0ff9
+      internalID: 1101216507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy2Death-Sheet(1)_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c95f4400a78a14aad4b5ceb33e7fcb
+      internalID: 1609751961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy2Death-Sheet(1)_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a059393e6091743a52f3f8dfa91bc6
+      internalID: -1597599533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy2Death-Sheet(1)_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec362d224d6cdd94294c6e3c8821b800
+      internalID: -358439680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy2Death-Sheet(1)_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87dc4866ecac17941bd326bfb59e348b
+      internalID: -469676936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy2Death-Sheet(1)_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5f09f123420d7047b2e8a259d9c47ac
+      internalID: -75253081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy2Death-Sheet(1)_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c09c8623d71b9674c862723b66040551
+      internalID: -1523736053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialEnemy2Death-Sheet(1)_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423667bbb6d216f45b4d473e759726e8
+      internalID: -360388711
       vertices: []
       indices: 
       edges: []
@@ -222,9 +390,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TutorialEnemy2Knockback-Sheet_0: -1840368956
-      TutorialEnemy2Knockback-Sheet_1: -927770597
-      TutorialEnemy2Knockback-Sheet_2: -541415738
+      TutorialEnemy2Death-Sheet(1)_0: -78173154
+      TutorialEnemy2Death-Sheet(1)_1: 2126054802
+      TutorialEnemy2Death-Sheet(1)_10: -360388711
+      TutorialEnemy2Death-Sheet(1)_2: 1223132324
+      TutorialEnemy2Death-Sheet(1)_3: 1101216507
+      TutorialEnemy2Death-Sheet(1)_4: 1609751961
+      TutorialEnemy2Death-Sheet(1)_5: -1597599533
+      TutorialEnemy2Death-Sheet(1)_6: -358439680
+      TutorialEnemy2Death-Sheet(1)_7: -469676936
+      TutorialEnemy2Death-Sheet(1)_8: -75253081
+      TutorialEnemy2Death-Sheet(1)_9: -1523736053
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
