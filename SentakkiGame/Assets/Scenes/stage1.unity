@@ -19465,6 +19465,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694835039}
   m_CullTransparentMesh: 1
+--- !u!212 &1722367099 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7680527217471991536, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
+  m_PrefabInstance: {fileID: 4076698682113284895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1737301662
 GameObject:
   m_ObjectHideFlags: 0
@@ -19975,6 +19980,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!212 &1769987627 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3094695336119266728, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
+  m_PrefabInstance: {fileID: 4076698682113284895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1786690935
 GameObject:
   m_ObjectHideFlags: 0
@@ -22595,6 +22605,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5862369596781417587, guid: 5d9b8f08e935e144297a9954bcb3446c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22813,6 +22827,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: boss
       objectReference: {fileID: 0}
+    - target: {fileID: 2376353264878339724, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4053401453054792417, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
       propertyPath: warningsfx
       value: 
@@ -22842,9 +22860,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 916131287}
     - target: {fileID: 6747129394475328419, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
+      propertyPath: rend1
+      value: 
+      objectReference: {fileID: 4076698682113284900}
+    - target: {fileID: 6747129394475328419, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
+      propertyPath: rend2
+      value: 
+      objectReference: {fileID: 1722367099}
+    - target: {fileID: 6747129394475328419, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
+      propertyPath: rend3
+      value: 
+      objectReference: {fileID: 1769987627}
+    - target: {fileID: 6747129394475328419, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
       propertyPath: barfill
       value: 
       objectReference: {fileID: 864607970}
+    - target: {fileID: 6747129394475328419, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
+      propertyPath: deathAnim
+      value: 
+      objectReference: {fileID: 6886401905846174769, guid: b8f3f408fb90a8847ac97a0591b3b208, type: 3}
     - target: {fileID: 6747129394475328419, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
       propertyPath: BossBarfill
       value: 
@@ -22854,9 +22888,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1099454674}
     - target: {fileID: 6747129394475328419, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
+      propertyPath: StageClearCol
+      value: 
+      objectReference: {fileID: 4970605459040676514, guid: ac07b03f3d60ad343bb2b8dba814855f, type: 3}
+    - target: {fileID: 6747129394475328419, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
       propertyPath: progressBarBoss
       value: 
       objectReference: {fileID: 1028360428}
+    - target: {fileID: 7122110275130773640, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7124890980140464061, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 195
@@ -22907,6 +22949,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2376353264878339724, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
   m_PrefabInstance: {fileID: 4076698682113284895}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &4076698682113284900 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7122110275130773640, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
+  m_PrefabInstance: {fileID: 4076698682113284895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4730833063264264110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22918,6 +22965,10 @@ PrefabInstance:
     - target: {fileID: 921250079298680463, guid: bde3aaa3348d488469f4643c5794c750, type: 3}
       propertyPath: m_Name
       value: textSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 921250079298680463, guid: bde3aaa3348d488469f4643c5794c750, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2821796069262371795, guid: bde3aaa3348d488469f4643c5794c750, type: 3}
       propertyPath: m_LocalPosition.x
