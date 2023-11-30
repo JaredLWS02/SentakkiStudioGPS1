@@ -17,12 +17,13 @@ public class scenemanager : MonoBehaviour
         HomeScreen,
         mainmenu,
         controls,
+        Dialogue,
         tutorialStage,
-        stage1,
-        deathTutorial,
-        deathStage1,
         stageClearTutorial,
+        deathTutorial,
+        stage1,
         stageClearStage1,   
+        deathStage1,
         Congrat
 
     }
@@ -34,6 +35,11 @@ public class scenemanager : MonoBehaviour
     public void switchtoTutorialStage()
     {
         SceneManager.LoadScene(Scene.tutorialStage.ToString());
+    }
+
+    public void switchtoDialogue()
+    {
+        SceneManager.LoadScene(Scene.Dialogue.ToString());
     }
 
     public void switchtoStage1()
