@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 211c44a3a161af24dbf5419a63b94ad2, type: 2}
+  m_Motion: {fileID: 7400000, guid: d96a87754ee1af749bd9bb7251431fc6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: isMoving
@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a913ad4b0bd3a4f48b9e00b5ab48e8b5, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8797cf5e6c4362c4ba731b5c6354b7ef, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -72,7 +72,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7b50b16a20c679a459c2782eb9513db4, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4949e6c84c3351c4cbb0d6a4039ed52f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -84,7 +84,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TutorialEnemy(Melee)
+  m_Name: TutorialStage1 Melee
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -120,7 +120,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c813df49662f26848b3a5b5a26afaa59, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1fa4fbccae962a14da4d65e0129a2179, type: 2}
   m_Tag: death
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -146,7 +146,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 826f3c4fbe0f61249b1db80eaf63e6f4, type: 2}
+  m_Motion: {fileID: 7400000, guid: ad72694e0fc4c5c4cab1dd0ad8097d10, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -172,7 +172,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 889d2235cabee0049b299dc9f05ca380, type: 2}
+  m_Motion: {fileID: 7400000, guid: c45604213668ead478bf28d46d750e42, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -198,7 +198,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 80c4613a2ab164c4c9508122ba44a183, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1ccba80922e3cc54d820dd9d54f831bc, type: 2}
   m_Tag: enemyknock
   m_SpeedParameter: 
   m_MirrorParameter: 

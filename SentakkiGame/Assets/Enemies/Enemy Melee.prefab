@@ -16,9 +16,8 @@ GameObject:
   - component: {fileID: 1808480119102139263}
   - component: {fileID: 4023386156296812157}
   - component: {fileID: -8450781200018144720}
-  - component: {fileID: 5535126265720631908}
   m_Layer: 9
-  m_Name: Enemy Melee Stage1
+  m_Name: Enemy Melee
   m_TagString: enemyMelee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: -1130489693
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -877057689, guid: 724b112c8ad843d44b2c65ae1a2e30af, type: 3}
+  m_Sprite: {fileID: 1193233783, guid: 0b111e55d6f9b6f47a68008f4a939ab6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,7 +130,7 @@ Animator:
   m_GameObject: {fileID: 169497297300367892}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 055af69580508094f96b02f6f6161fc8, type: 2}
+  m_Controller: {fileID: 9100000, guid: b585c5810090af045b7e9a95244857c3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -245,22 +244,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 169497297300367892}
   stunned: 0
---- !u!114 &5535126265720631908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169497297300367892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 427e69e21502d0f4f86071e365b83ea3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactables:
-  - {fileID: 6318680418508242888, guid: b48b41d22608d554f8b3eb9838a41ca5, type: 3}
-  - {fileID: 1600070976043902912, guid: a421dcbffc3aefe41895a8471fe5f219, type: 3}
-  - {fileID: 3025337401447887525, guid: d617d08a6709ad146a1b02e0ac72519f, type: 3}
 --- !u!1 &2359233412351338242
 GameObject:
   m_ObjectHideFlags: 0

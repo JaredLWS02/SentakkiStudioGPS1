@@ -7363,7 +7363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 8869006305162616559, guid: 4db62ee04243e04478310e8a5ba8a33b, type: 3}
-  - {fileID: 169497297300367892, guid: 2d713c7f5600f5646a03675f225d5060, type: 3}
+  - {fileID: 169497297300367892, guid: 03eea029af8734a43bef1092b0385e7b, type: 3}
   spawnInterval: 2
   limitSpawn: 8
   player: {fileID: 1015409520}
@@ -22817,6 +22817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: boss
       objectReference: {fileID: 0}
+    - target: {fileID: 4053401453054792417, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
+      propertyPath: summon1
+      value: 
+      objectReference: {fileID: 169497297300367892, guid: 03eea029af8734a43bef1092b0385e7b, type: 3}
     - target: {fileID: 4053401453054792417, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
       propertyPath: warningsfx
       value: 
