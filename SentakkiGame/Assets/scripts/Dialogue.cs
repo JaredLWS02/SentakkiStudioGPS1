@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Dialogue : MonoBehaviour
@@ -9,6 +10,11 @@ public class Dialogue : MonoBehaviour
     public string [] lines;
     public float textSpeed;
     private int index;
+    public Image imaged;
+    public List<Sprite> imageChoices;
+
+    private int counter;
+    private int currentImage = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +65,20 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-
+        public void NextImage()
+    {
+        counter++;
+        if (counter == 1)
+        {
+            currentImage++;
+            counter = 0;
+            if (currentImage >= imageChoices.Count)
+            {
+                currentImage = 0;
+            }
+            imaged.sprite = imageChoices[currentImage];
+        }
+    }
 
 }
 
