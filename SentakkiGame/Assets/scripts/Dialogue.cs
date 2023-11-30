@@ -7,78 +7,74 @@ using TMPro;
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
-    public string [] lines;
+    public string[] lines;
     public float textSpeed;
     private int index;
     public Image imaged;
     public List<Sprite> imageChoices;
 
-    private int counter;
-    private int currentImage = 0;
-    // Start is called before the first frame update
+    private bool showNextLine = false;
+    private bool dialogueFinished = false;
+
     void Start()
     {
         textComponent.text = string.Empty;
-        StartDialogue();
-        
+        StartCoroutine(ShowDialogue());
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (showNextLine && Input.GetMouseButtonDown(0))
         {
-            if (textComponent.text == lines[index])
-            {
-                NextLine();
-            }
-            else
-            {
-                StopAllCoroutines();
-                textComponent.text = lines[index];
-            }
+            ShowNextLine();
         }
     }
 
-    void StartDialogue()
+    IEnumerator ShowDialogue()
     {
-        index = 0;
-        StartCoroutine(TypeLine());
+        for (index = 0; index < lines.Length; index++)
+        {
+            showNextLine = false;
+            textComponent.text = string.Empty;
+
+            string line = lines[index];
+            for (int i = 0; i <= line.Length; i++)
+            {
+                textComponent.text = line.Substring(0, i);
+                yield return new WaitForSeconds(textSpeed);
+            }
+
+            yield return new WaitUntil(() => Input.GetMouseButtonDown(0)); // Wait for mouse click
+
+            showNextLine = true;
+            yield return new WaitUntil(() => Input.GetMouseButtonUp(0)); // Wait for mouse release
+        }
+
+        dialogueFinished = true;
     }
 
-    IEnumerator TypeLine()
+    void ShowNextLine()
     {
-        foreach (char c in lines [index].ToCharArray())
+        index++;
+        if (index < lines.Length)
         {
-            textComponent.text += c;
+            StartCoroutine(TypeLine(lines[index]));
+        }
+        else
+        {
+            dialogueFinished = true;
+        }
+        showNextLine = false;
+    }
+
+    IEnumerator TypeLine(string line)
+    {
+        textComponent.text = string.Empty;
+        for (int i = 0; i <= line.Length; i++)
+        {
+            textComponent.text = line.Substring(0, i);
             yield return new WaitForSeconds(textSpeed);
         }
+        showNextLine = true;
     }
-
-    void NextLine()
-    {
-        if (index< lines.Length - 1)
-        {
-            index++;
-            textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
-        }
-    }
-
-        public void NextImage()
-    {
-        counter++;
-        if (counter == 1)
-        {
-            currentImage++;
-            counter = 0;
-            if (currentImage >= imageChoices.Count)
-            {
-                currentImage = 0;
-            }
-            imaged.sprite = imageChoices[currentImage];
-        }
-    }
-
 }
-
