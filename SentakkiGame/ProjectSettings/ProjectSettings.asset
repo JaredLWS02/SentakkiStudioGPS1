@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: SentakkiGame
+  companyName: SenttakiGame
+  productName: Beat2Beat
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
@@ -158,7 +158,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.DefaultCompany.SentakkiGame
+    Standalone: com.SenttakiGame.Beat2Beat
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -321,6 +321,13 @@ PlayerSettings:
       m_Icon: {fileID: 2800000, guid: 13ae9c89eff32e54db1bb0c367534129, type: 3}
       m_Width: 16
       m_Height: 16
+      m_Kind: 0
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: 13ae9c89eff32e54db1bb0c367534129, type: 3}
+      m_Width: 128
+      m_Height: 128
       m_Kind: 0
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: iPhone

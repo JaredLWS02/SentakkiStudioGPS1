@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ public class BossHpManager : MonoBehaviour
     [SerializeField] private GameObject BossBarfill;
     [SerializeField] private GameObject deathAnim;
     [SerializeField] private GameObject StageClearCol;
+    [SerializeField] private GameObject goUi;
     [SerializeField] private SpriteRenderer rend1;
     [SerializeField] private SpriteRenderer rend2;
     [SerializeField] private SpriteRenderer rend3;
@@ -56,7 +58,7 @@ public class BossHpManager : MonoBehaviour
         Destroy(gameObject);
         Instantiate(deathAnim, new Vector3(195, 0, 0), Quaternion.identity);
         Instantiate(StageClearCol, new Vector3(203.5f, -1.5f, 0), Quaternion.identity);
-
+        goUi.SetActive(true);
     }
 
     private IEnumerator damaged()

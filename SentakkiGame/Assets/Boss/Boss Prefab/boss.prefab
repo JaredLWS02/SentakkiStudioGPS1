@@ -396,7 +396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7124890980140464061
 Transform:
   m_ObjectHideFlags: 0
@@ -532,6 +532,12 @@ MonoBehaviour:
   progressBarBoss: {fileID: 0}
   barfill: {fileID: 0}
   BossBarfill: {fileID: 0}
+  deathAnim: {fileID: 6886401905846174769, guid: b8f3f408fb90a8847ac97a0591b3b208, type: 3}
+  StageClearCol: {fileID: 4970605459040676514, guid: ac07b03f3d60ad343bb2b8dba814855f, type: 3}
+  goUi: {fileID: 0}
+  rend1: {fileID: 7122110275130773640}
+  rend2: {fileID: 7680527217471991536}
+  rend3: {fileID: 3094695336119266728}
 --- !u!1 &2442492968185358322
 GameObject:
   m_ObjectHideFlags: 0
