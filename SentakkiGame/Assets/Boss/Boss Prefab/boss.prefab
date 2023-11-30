@@ -801,6 +801,7 @@ MonoBehaviour:
   summon2: {fileID: 169497297300367892, guid: 03eea029af8734a43bef1092b0385e7b, type: 3}
   spawnPoint: {fileID: 7043320201208617619}
   pos1: {x: 0, y: 0, z: 0}
+  enemySpawnAnim: {fileID: 5489782522851026158, guid: 9c95f4c86d149ef458ee91faef8569b1, type: 3}
 --- !u!1 &3522540424554278674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,8 +1850,8 @@ Transform:
   m_GameObject: {fileID: 7477507778073630360}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 7, z: 1}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
+  m_LocalScale: {x: 2, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3801665251048419153}
@@ -1899,7 +1900,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &343900424299155566
 MonoBehaviour:
@@ -2168,7 +2169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4de89374ed3664892154d577b119f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 0
+  dmg: 15
 --- !u!1 &8262837583655458838
 GameObject:
   m_ObjectHideFlags: 0
