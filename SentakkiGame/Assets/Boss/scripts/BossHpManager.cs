@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -15,6 +16,9 @@ public class BossHpManager : MonoBehaviour
     [SerializeField] private GameObject BossBarfill;
     [SerializeField] private GameObject deathAnim;
     [SerializeField] private GameObject StageClearCol;
+    [SerializeField] private SpriteRenderer rend1;
+    [SerializeField] private SpriteRenderer rend2;
+    [SerializeField] private SpriteRenderer rend3;
 
     private void Awake()
     {
@@ -39,7 +43,7 @@ public class BossHpManager : MonoBehaviour
     public void takeDamage(float damage)
     {
         curHp -= damage;
-
+        StartCoroutine(damaged());
         if(curHp <= 0)
         {
             bossDeath();
@@ -53,5 +57,16 @@ public class BossHpManager : MonoBehaviour
         Instantiate(deathAnim, new Vector3(195, 0, 0), Quaternion.identity);
         Instantiate(StageClearCol, new Vector3(203.5f, -1.5f, 0), Quaternion.identity);
 
+    }
+
+    private IEnumerator damaged()
+    {
+        rend1.color = Color.red;
+        rend2.color = Color.red;
+        rend3.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        rend1.color = Color.white;
+        rend2.color = Color.white;
+        rend3.color = Color.white;
     }
 }
