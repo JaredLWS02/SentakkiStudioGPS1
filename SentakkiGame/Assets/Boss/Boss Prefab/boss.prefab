@@ -366,6 +366,18 @@ MonoBehaviour:
   atk2: {fileID: 7387240790986861284, guid: 05f45a34a1a7d024580bf0d82c30acb3, type: 3}
   thrust: -5
   hOffset: 5
+  atkSfx:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  noteSfx:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2376353264878339724
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,7 +711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7043320201208617619
 Transform:
   m_ObjectHideFlags: 0
@@ -802,6 +814,14 @@ MonoBehaviour:
   spawnPoint: {fileID: 7043320201208617619}
   pos1: {x: 0, y: 0, z: 0}
   enemySpawnAnim: {fileID: 5489782522851026158, guid: 9c95f4c86d149ef458ee91faef8569b1, type: 3}
+  atkSfx:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  warningsfx: {fileID: 0}
+  lightingsfx: {fileID: 0}
 --- !u!1 &3522540424554278674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4301470319183605624
 Transform:
   m_ObjectHideFlags: 0
@@ -1089,6 +1109,18 @@ MonoBehaviour:
   bullet: {fileID: 6657041277872000891, guid: 2d90289fde56e29468b173fd0551cfc0, type: 3}
   origin: {fileID: 194800141449290312}
   origin2: {fileID: 8398799094814557078}
+  atkSfx:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  noteSfx:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &4738952271776955770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,7 +1872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4396390320255797655
 Transform:
   m_ObjectHideFlags: 0
@@ -1920,6 +1952,12 @@ MonoBehaviour:
   atk4: {fileID: 4108425571245028781, guid: e5129d6e5e317a242af7ebd76b04d990, type: 3}
   speed: 3
   attackPoint3: {fileID: 4396390320255797655}
+  atkSfx:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &7787308725642483653
 GameObject:
   m_ObjectHideFlags: 0
