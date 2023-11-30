@@ -22194,10 +22194,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 5862369596781417587, guid: 5d9b8f08e935e144297a9954bcb3446c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22214,10 +22210,6 @@ PrefabInstance:
     - target: {fileID: 5173282592383575795, guid: 35fccc8fbe2a93648b501c9aa777c1a1, type: 3}
       propertyPath: m_Name
       value: prompt
-      objectReference: {fileID: 0}
-    - target: {fileID: 5173282592383575795, guid: 35fccc8fbe2a93648b501c9aa777c1a1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6729754939305465462, guid: 35fccc8fbe2a93648b501c9aa777c1a1, type: 3}
       propertyPath: m_Pivot.x
@@ -22418,27 +22410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376353264878339724, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2720289730717494936, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2771624345722867031, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881201277264195205, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3459379370881572969, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3463159138142337714, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4053401453054792417, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
       propertyPath: warningsfx
@@ -22468,14 +22440,6 @@ PrefabInstance:
       propertyPath: atkSfx.Array.data[4]
       value: 
       objectReference: {fileID: 916131287}
-    - target: {fileID: 4525865116171601416, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5160659087850389265, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7124890980140464061, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 195
@@ -22516,10 +22480,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7477507778073630360, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22541,10 +22501,6 @@ PrefabInstance:
     - target: {fileID: 921250079298680463, guid: bde3aaa3348d488469f4643c5794c750, type: 3}
       propertyPath: m_Name
       value: textSpawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 921250079298680463, guid: bde3aaa3348d488469f4643c5794c750, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2821796069262371795, guid: bde3aaa3348d488469f4643c5794c750, type: 3}
       propertyPath: m_LocalPosition.x
