@@ -40,7 +40,7 @@ public class interactable : MonoBehaviour
         shadow.SetActive(false);
         hitplayer = Physics2D.OverlapCircle(interactarea.position, attackrange, playerlayer);
 
-        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(3))
+        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(4))
         {
             hitplayer.GetComponent<Animator>().Play("throwRadio", 0, 0);
         }

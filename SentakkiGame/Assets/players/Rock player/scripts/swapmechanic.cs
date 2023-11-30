@@ -177,8 +177,8 @@ public class swapmechanic : MonoBehaviour
             p1Icon.GetComponent<RectTransform>().sizeDelta = sizeP2;
             p2Icon.GetComponent<RectTransform>().sizeDelta = sizeP1;
 
-            p1Icon.transform.SetSiblingIndex(5);
-            p2Icon.transform.SetSiblingIndex(6);
+            p1Icon.transform.SetSiblingIndex(7);
+            p2Icon.transform.SetSiblingIndex(8);
 
             p1Icon.transform.position = posP2;
             p2Icon.transform.position = posP1;
@@ -192,8 +192,8 @@ public class swapmechanic : MonoBehaviour
             p2Icon.GetComponent<RectTransform>().sizeDelta = sizeP2;
             p1Icon.GetComponent<RectTransform>().sizeDelta = sizeP1;
 
-            p1Icon.transform.SetSiblingIndex(6);
-            p2Icon.transform.SetSiblingIndex(5);
+            p1Icon.transform.SetSiblingIndex(8);
+            p2Icon.transform.SetSiblingIndex(7);
 
             p2Icon.transform.position = posP2;
             p1Icon.transform.position = posP1;

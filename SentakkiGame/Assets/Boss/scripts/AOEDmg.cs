@@ -14,4 +14,5 @@ public class AOEDmg : MonoBehaviour
             healthPoint.Instance.TakeDamage(dmg);
         }
     }
+
 }

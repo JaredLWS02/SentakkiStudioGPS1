@@ -240,8 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f923eb2d4d0b224bac41cadd9e59a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1stats: {fileID: 0}
-  p2stats: {fileID: 0}
 --- !u!1 &487698136
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +522,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboNumText: {fileID: 1058257426}
   enemyDedText: {fileID: 0}
-  track: {fileID: 0}
 --- !u!1 &850757029
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,7 +966,7 @@ Animator:
   m_GameObject: {fileID: 1351040391}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 65a083deb13589a498f03566b49483b8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6f1b45505573e50438f303f6fcd5db0b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1000,7 +997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -544219954, guid: ea8ac96e0adb51d41b03db91d7a42439, type: 3}
+  m_Sprite: {fileID: 1760023634, guid: 86b69f88f43fc1d42a9323a2d90a03fe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1682,7 +1679,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboNumText: {fileID: 1058257426}
   enemyDedText: {fileID: 1742041850}
-  track: {fileID: 11400000, guid: 249c5d33e646c094c993a3bc3a09bd90, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
