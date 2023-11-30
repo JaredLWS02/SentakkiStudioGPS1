@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921250079298680463}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 195, y: -1.7, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
@@ -91,6 +91,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
-  boss: {fileID: 2376353264878339724, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
+  boss: {fileID: 0}
   c2d: {fileID: 9109990310908449782}
-  prompttext: {fileID: 921250079298680463}
+  prompttext: {fileID: 0}
+  SpawnAnim: {fileID: 0}
+  Cam: {fileID: 0}
+  bossmusic: {fileID: 8300000, guid: 74baa38f213f5bd4da172451a1ee4f0a, type: 3}
+  stageMusic: {fileID: 0}
+  p1Music: {fileID: 0}
+  p2Music: {fileID: 0}

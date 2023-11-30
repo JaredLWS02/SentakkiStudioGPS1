@@ -43,7 +43,7 @@ MonoBehaviour:
   speed: 8
   jumpingPower: 19
   dashingPower: 5
-  dashingTime: 0.3
+  dashingTime: 0.4
   dashingCooldown: 0.6
   groundlayer:
     serializedVersion: 2

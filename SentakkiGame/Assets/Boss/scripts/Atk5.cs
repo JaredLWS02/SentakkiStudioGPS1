@@ -11,6 +11,8 @@ public class Atk5 : MonoBehaviour
     [SerializeField] private GameObject origin2;
     private Vector2 spawnPoint5;
     private Vector2 spawnPoint6;
+    [SerializeField] private List<AudioSource> atkSfx;
+    [SerializeField] private List<AudioSource> noteSfx;
 
     void Start()
     {
@@ -27,6 +29,8 @@ public class Atk5 : MonoBehaviour
             if (col2d.enabled == false)
             {
                 Debug.Log("Atk2");
+                int i = Random.Range(0, atkSfx.Count);
+                atkSfx[i].Play();
                 StartCoroutine(atk5());
             }
             else
@@ -38,19 +42,21 @@ public class Atk5 : MonoBehaviour
 
     private IEnumerator atk5()
     {
-        yield return new WaitForSecondsRealtime(50);
+        yield return new WaitForSeconds(50);
         origin.SetActive(true);
         origin2.SetActive(true);
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSeconds(1);
         for (int i = 0; i < 5; i++)
         {
+            int j = Random.Range(0, atkSfx.Count);
+            noteSfx[j].Play();
             Instantiate(bullet, spawnPoint5, Quaternion.identity);
             Instantiate(bullet, spawnPoint6, Quaternion.identity);
             yield return new WaitForSecondsRealtime(0.8f);
         }
         origin.SetActive(false);
         origin2.SetActive(false);
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSeconds(3);
         col2d.enabled = true;
     }
 }
