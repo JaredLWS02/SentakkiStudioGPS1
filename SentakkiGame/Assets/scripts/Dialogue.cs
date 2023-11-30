@@ -9,12 +9,13 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
-    private int index;
+    public int index;
     public Image imaged;
     public List<Sprite> imageChoices;
 
     private bool showNextLine = false;
     private bool dialogueFinished = false;
+    public GameObject starttext;
 
     void Start()
     {
@@ -24,9 +25,24 @@ public class Dialogue : MonoBehaviour
 
     void Update()
     {
+        if (showNextLine && index >= lines.Length)
+        {
+            starttext.SetActive(true);
+            if (Input.GetMouseButtonDown(0))
+            {
+                scenemanager.instance.switchtoTutorialStage();
+            }
+            return;
+        }
+
         if (showNextLine && Input.GetMouseButtonDown(0))
         {
             ShowNextLine();
+        }
+
+        if (index >= 2)
+        {
+            imaged.sprite = imageChoices[0];
         }
     }
 
@@ -41,6 +57,14 @@ public class Dialogue : MonoBehaviour
             for (int i = 0; i <= line.Length; i++)
             {
                 textComponent.text = line.Substring(0, i);
+                if (line.Contains("Rock:"))
+                {
+                    textComponent.color = Color.red; // Change color to red
+                }
+                else
+                {
+                    textComponent.color = Color.blue; // Reset color to white for other lines
+                }
                 yield return new WaitForSeconds(textSpeed);
             }
 
@@ -73,6 +97,14 @@ public class Dialogue : MonoBehaviour
         for (int i = 0; i <= line.Length; i++)
         {
             textComponent.text = line.Substring(0, i);
+            if (line.Contains("Rock:"))
+            {
+                textComponent.color = Color.red; // Change color to red
+            }
+            else
+            {
+                textComponent.color = Color.blue; // Reset color to white for other lines
+            }
             yield return new WaitForSeconds(textSpeed);
         }
         showNextLine = true;

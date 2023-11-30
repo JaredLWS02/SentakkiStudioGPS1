@@ -10,24 +10,15 @@ public class Skip : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SpawnButtonAfterDelay(2f));
+        StartCoroutine(SpawnButtonAfterDelay(5f));
     }
 
     IEnumerator SpawnButtonAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
 
-        Button newButton = Instantiate(buttonPrefab, Vector3.zero, Quaternion.identity);
+        Button newButton = Instantiate(buttonPrefab, spawnPosition, Quaternion.identity);
 
         newButton.transform.SetParent(GameObject.Find("Canvas").transform, false);
-
-        newButton.transform.position = spawnPosition;
-
-        newButton.onClick.AddListener(ButtonClicked);
-    }
-
-    void ButtonClicked()
-    {
-        Debug.Log("Button clicked!");
     }
 }
