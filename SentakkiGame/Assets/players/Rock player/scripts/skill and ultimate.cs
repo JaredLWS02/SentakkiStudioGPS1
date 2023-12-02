@@ -159,7 +159,7 @@ public class skillandultimate : MonoBehaviour
         gaugePoint.ReduceGauge(100);
         panel.SetActive(true);
         UICanvas.SetActive(false);
-        animationskill.Play("ulti", 0, 0);z
+        animationskill.Play("ulti", 0, 0);
     }
 
 
