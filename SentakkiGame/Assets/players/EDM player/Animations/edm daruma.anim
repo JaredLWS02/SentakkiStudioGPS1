@@ -86,13 +86,6 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: enableIframe
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0
     functionName: disableThings
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -106,7 +99,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6666667
+  - time: 0.5833333
     functionName: enableThings
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -122,13 +115,6 @@ AnimationClip:
     messageOptions: 0
   - time: 0.6666667
     functionName: enablemovement
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.6666667
-    functionName: disableIframe
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

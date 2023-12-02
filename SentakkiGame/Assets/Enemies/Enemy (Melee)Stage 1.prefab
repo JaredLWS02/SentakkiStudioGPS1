@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -8450781200018144720}
   - component: {fileID: -5280646321047757212}
   m_Layer: 9
-  m_Name: Enemy (Melee)
+  m_Name: Enemy (Melee)Stage 1
   m_TagString: enemyMelee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d54ffb91f925604a8c6b74105466bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 2dfe659b11030d841840b84d761a73a7, type: 2}
+  stats: {fileID: 11400000, guid: 8cfa8ff899474f440946bbb176721103, type: 2}
   AttackSensor: {fileID: 6588398927732334229}
   AttackHtibox: {fileID: 2728208281378710587}
   enemyanim: {fileID: 6229290256789313358}
@@ -260,7 +260,6 @@ MonoBehaviour:
   interactables:
   - {fileID: 6318680418508242888, guid: b48b41d22608d554f8b3eb9838a41ca5, type: 3}
   - {fileID: 1600070976043902912, guid: a421dcbffc3aefe41895a8471fe5f219, type: 3}
-  - {fileID: 3025337401447887525, guid: d617d08a6709ad146a1b02e0ac72519f, type: 3}
 --- !u!1 &2359233412351338242
 GameObject:
   m_ObjectHideFlags: 0

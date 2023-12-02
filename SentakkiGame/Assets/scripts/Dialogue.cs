@@ -61,7 +61,7 @@ public class Dialogue : MonoBehaviour
             for (int i = 0; i <= line.Length; i++)
             {
                 textComponent.text = line.Substring(0, i);
-                if (line.Contains("Rock:"))
+                if (line.Contains("Rokku:"))
                 {
                     textComponent.color = Color.red; // Change color to red
                 }
@@ -101,7 +101,7 @@ public class Dialogue : MonoBehaviour
         for (int i = 0; i <= line.Length; i++)
         {
             textComponent.text = line.Substring(0, i);
-            if (line.Contains("Rock:"))
+            if (line.Contains("Rokku:"))
             {
                 textComponent.color = Color.red; // Change color to red
             }

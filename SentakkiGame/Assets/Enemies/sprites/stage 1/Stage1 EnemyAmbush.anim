@@ -74,14 +74,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: disablemove
+    functionName: stopmoving
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: stopmoving
+    functionName: disablemove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -101,7 +101,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.4166666
+  - time: 1.25
     functionName: enablecollider
     data: 
     objectReferenceParameter: {fileID: 0}

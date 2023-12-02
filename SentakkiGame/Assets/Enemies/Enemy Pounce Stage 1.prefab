@@ -5130,7 +5130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecfaefa2d5222484fa883700a3c98e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 6db37132540344a4d8ba026db481bf72, type: 2}
+  stats: {fileID: 11400000, guid: 379285070054d024086e28de5960c9d2, type: 2}
   AttackSensor: {fileID: 8512514215000631768}
   AttackHtibox: {fileID: 6212006304000070094}
   enemyanim: {fileID: 8433838795985469621}
@@ -5219,4 +5219,3 @@ MonoBehaviour:
   interactables:
   - {fileID: 6318680418508242888, guid: b48b41d22608d554f8b3eb9838a41ca5, type: 3}
   - {fileID: 1600070976043902912, guid: a421dcbffc3aefe41895a8471fe5f219, type: 3}
-  - {fileID: 3025337401447887525, guid: d617d08a6709ad146a1b02e0ac72519f, type: 3}

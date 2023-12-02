@@ -22818,10 +22818,6 @@ PrefabInstance:
       value: boss
       objectReference: {fileID: 0}
     - target: {fileID: 4053401453054792417, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
-      propertyPath: summon1
-      value: 
-      objectReference: {fileID: 169497297300367892, guid: 03eea029af8734a43bef1092b0385e7b, type: 3}
-    - target: {fileID: 4053401453054792417, guid: b972d537fe23ee043adf3685f89490c9, type: 3}
       propertyPath: warningsfx
       value: 
       objectReference: {fileID: 1658670386}

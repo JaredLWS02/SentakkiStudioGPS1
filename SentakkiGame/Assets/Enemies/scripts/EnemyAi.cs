@@ -111,8 +111,10 @@ public class EnemyAi : MonoBehaviour
         StopAllCoroutines();
         currentHealth -= damage;
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !ded)
         {
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             ded = true;
             CancelInvoke("startatk");
             CancelInvoke("resetCounter");
@@ -277,7 +279,7 @@ public class EnemyAi : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer("enemy");
             resetmove();
             movement.enabled = true;
-            Invoke("startatk", Random.Range(0.1f, 0.2f));
+            startatk();
         }
         else
         {

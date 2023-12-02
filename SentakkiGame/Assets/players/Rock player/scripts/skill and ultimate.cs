@@ -159,7 +159,7 @@ public class skillandultimate : MonoBehaviour
         gaugePoint.ReduceGauge(100);
         panel.SetActive(true);
         UICanvas.SetActive(false);
-        animationskill.Play("ulti", 0, 0);
+        animationskill.Play("ulti", 0, 0);z
     }
 
 
@@ -227,91 +227,99 @@ public class skillandultimate : MonoBehaviour
         {
             if (enemy.CompareTag("enemy"))
             {
-                StartCoroutine(DamageOverTime(enemy, stats.ultdmg, edmUltDuration));
+                hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+                hitvfx.Play();
+                enemy.GetComponent<EnemyAi>().takeDamage(stats.ultdmg);
+                //StartCoroutine(DamageOverTime(enemy, stats.ultdmg, edmUltDuration));
                 combomanagerUI.innercomboUI++;
                 combomanagerUI.checkcombostatus();
+                Invoke("returnOri", edmUltDuration);
 
             }
 
             if (enemy.CompareTag("enemyMelee"))
             {
-                StartCoroutine(DamageOverTime(enemy, stats.ultdmg, edmUltDuration));
+                hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+                hitvfx.Play();
+                enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.ultdmg);
+                //StartCoroutine(DamageOverTime(enemy, stats.ultdmg, edmUltDuration));
                 combomanagerUI.innercomboUI++;
                 combomanagerUI.checkcombostatus();
+                Invoke("returnOri", edmUltDuration);
             }
         }
 
-        IEnumerator DamageOverTime(Collider2D enemy, float totalDamage, float duration)
-        {
-            float elapsedTime = 0f;
-            while (elapsedTime < duration)
-            {
-                float damaging = totalDamage / duration * Time.deltaTime;
+        //    IEnumerator DamageOverTime(Collider2D enemy, float totalDamage, float duration)
+        //    {
+        //        float elapsedTime = 0f;
+        //        while (elapsedTime < duration)
+        //        {
+        //            float damaging = totalDamage / duration * Time.deltaTime;
 
+        //            if (enemy.CompareTag("enemy"))
+        //            {
+        //                hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+        //                hitvfx.Play();
+        //                enemy.GetComponent<EnemyAi>().takeDamage(damaging);
+        //            }
+        //            else if (enemy.CompareTag("enemyMelee"))
+        //            {
+        //                hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+        //                hitvfx.Play();
+        //                enemy.GetComponent<EnemyAiMelee>().takeDamage(damaging);
+        //            }
+
+        //            elapsedTime += Time.deltaTime;
+        //            yield return null; // Wait until the next frame
+        //        }
+        //    }
+        //    Invoke("returnOri", edmUltDuration);
+        //}
+    }
+        private void rockUlt()
+        {
+            GetComponent<Animator>().updateMode = AnimatorUpdateMode.Normal;
+            UICanvas.SetActive(true);
+            Time.timeScale = 1f;
+            hitenemiesUlti = Physics2D.OverlapCircleAll(RockUltiattackpoint.position, stats.Rockultrange, stats.enemylayer);
+            skillAndUltisfx.clip = stats.ultsfx;
+            skillAndUltisfx.Play();
+
+            if (hitenemiesUlti.Length <= 0)
+            {
+                failHit = true;
+            }
+            else
+            {
+                failHit = false;
+            }
+
+            foreach (Collider2D enemy in hitenemiesUlti)
+            {
                 if (enemy.CompareTag("enemy"))
                 {
-                    hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
-                    hitvfx.Play();
-                    enemy.GetComponent<EnemyAi>().takeDamage(damaging);
-                }
-                else if (enemy.CompareTag("enemyMelee"))
-                {
-                    hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
-                    hitvfx.Play();
-                    enemy.GetComponent<EnemyAiMelee>().takeDamage(damaging);
+                    {
+                        hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+                        hitvfx.Play();
+                        enemy.GetComponent<EnemyAi>().takeDamage(stats.ultdmg);
+                        enemy.GetComponent<StunEnemy>().Stun();
+                    }
+
                 }
 
-                elapsedTime += Time.deltaTime;
-                yield return null; // Wait until the next frame
+                if (enemy.CompareTag("enemyMelee"))
+                {
+                    {
+                        hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
+                        hitvfx.Play();
+                        enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.ultdmg);
+                        enemy.GetComponent<StunEnemy>().Stun();
+                    }
+                }
+                combomanagerUI.innercomboUI++;
+                combomanagerUI.checkcombostatus();
             }
         }
-        Invoke("returnOri", edmUltDuration);
-    }
-    private void rockUlt()
-    {
-        GetComponent<Animator>().updateMode = AnimatorUpdateMode.Normal;
-        UICanvas.SetActive(true);
-        Time.timeScale = 1f;
-        hitenemiesUlti = Physics2D.OverlapCircleAll(RockUltiattackpoint.position, stats.Rockultrange, stats.enemylayer);
-        skillAndUltisfx.clip = stats.ultsfx;
-        skillAndUltisfx.Play();
-
-        if (hitenemiesUlti.Length <= 0)
-        {
-            failHit = true;
-        }
-        else
-        {
-            failHit = false;
-        }
-
-        foreach (Collider2D enemy in hitenemiesUlti)
-        {
-            if (enemy.CompareTag("enemy"))
-            {
-                {
-                    hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
-                    hitvfx.Play();
-                    enemy.GetComponent<EnemyAi>().takeDamage(stats.ultdmg);
-                    enemy.GetComponent<StunEnemy>().Stun();
-                }
-
-            }
-
-            if (enemy.CompareTag("enemyMelee"))
-            {
-                {
-                    hitvfx = enemy.transform.GetChild(2).gameObject.GetComponent<ParticleSystem>();
-                    hitvfx.Play();
-                    enemy.GetComponent<EnemyAiMelee>().takeDamage(stats.ultdmg);
-                    enemy.GetComponent<StunEnemy>().Stun();
-                }
-            }
-            combomanagerUI.innercomboUI++;
-            combomanagerUI.checkcombostatus();
-        }
-    }
-
     private void enableIframe()
     {
         gameObject.layer = LayerMask.NameToLayer("ghostplayer");

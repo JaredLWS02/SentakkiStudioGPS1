@@ -102,9 +102,11 @@ public class EnemyAiMelee : MonoBehaviour
         // take damage
         StopAllCoroutines();
         currentHealth -= damage;
-        if (currentHealth <= 0 )
+        if (currentHealth <= 0 && !ded)
         {
             ded = true;
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             CancelInvoke("startatk");
             CancelInvoke("resetCounter");
             stopmoving();
@@ -253,7 +255,7 @@ public class EnemyAiMelee : MonoBehaviour
             movement.enabled = true;
             gameObject.layer = LayerMask.NameToLayer("enemy");
             resetmove();
-            Invoke("startatk", Random.Range(0.3f, 0.4f));
+            startatk();
         }
         else
         {

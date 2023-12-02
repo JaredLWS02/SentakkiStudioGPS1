@@ -26,14 +26,14 @@ public class Atk1 : MonoBehaviour
     void spawnAnim()
     {
 
+        int i = Random.Range(0, atkSfx.Count);
+        atkSfx[i].Play();
         Instantiate(enemySpawnAnim, new Vector3(pos1.x - 5.0f, pos1.y, pos1.z), Quaternion.identity);
         Instantiate(enemySpawnAnim, new Vector3(pos1.x + 5.0f, pos1.y, pos1.z), Quaternion.identity);
     }
 
     void summon()//atk 4
     {
-        int i = Random.Range(0, atkSfx.Count);
-        atkSfx[i].Play();
         Instantiate(summon1, new Vector3(pos1.x - 5.0f, pos1.y, pos1.z), Quaternion.identity);
         Instantiate(summon2, new Vector3(pos1.x + 5.0f, pos1.y, pos1.z), Quaternion.identity);
         summon1.SetActive(true);

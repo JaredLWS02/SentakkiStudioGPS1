@@ -29,8 +29,6 @@ public class Atk5 : MonoBehaviour
             if (col2d.enabled == false)
             {
                 Debug.Log("Atk2");
-                int i = Random.Range(0, atkSfx.Count);
-                atkSfx[i].Play();
                 StartCoroutine(atk5());
             }
             else
@@ -43,6 +41,8 @@ public class Atk5 : MonoBehaviour
     private IEnumerator atk5()
     {
         yield return new WaitForSeconds(50);
+        int w = Random.Range(0, atkSfx.Count);
+        atkSfx[w].Play();
         origin.SetActive(true);
         origin2.SetActive(true);
         yield return new WaitForSeconds(1);

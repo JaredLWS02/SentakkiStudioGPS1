@@ -118,7 +118,7 @@ public class healthPoint : MonoBehaviour
         if(healthBar.fillAmount > 0)
         {
             p.Play();
-            CancelInvoke("returnOriState");
+            //CancelInvoke("returnOriState");
             Debug.Log("knock");
             GetComponent<movement>().enabled = false;
             GetComponent<playerattack>().enabled = false;
@@ -184,7 +184,7 @@ public class healthPoint : MonoBehaviour
         GetComponent<skillandultimate>().enabled = true;
         GetComponent<swapmechanic>().enabled = true;
         GetComponent<Animator>().Play("idle", 0, 0);
-        Invoke("removeiframe", 2);
+        Invoke("removeiframe", 1);
     }
 
     private void removeiframe()

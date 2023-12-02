@@ -819,7 +819,7 @@ MonoBehaviour:
   - {fileID: 5003598771417660317}
   - {fileID: 2442492968185358322}
   - {fileID: 8262837583655458838}
-  summon1: {fileID: 169497297300367892, guid: 2d713c7f5600f5646a03675f225d5060, type: 3}
+  summon1: {fileID: 169497297300367892, guid: 03eea029af8734a43bef1092b0385e7b, type: 3}
   summon2: {fileID: 8869006305162616559, guid: 4db62ee04243e04478310e8a5ba8a33b, type: 3}
   spawnPoint: {fileID: 7043320201208617619}
   pos1: {x: 0, y: 0, z: 0}

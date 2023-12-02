@@ -36,6 +36,7 @@ public class interactable : MonoBehaviour
 
     private void checkside()
     {
+        caninteract = false;
         prompttext.SetActive(false);
         shadow.SetActive(false);
         hitplayer = Physics2D.OverlapCircle(interactarea.position, attackrange, playerlayer);

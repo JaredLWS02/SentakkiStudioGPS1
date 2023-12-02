@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d54ffb91f925604a8c6b74105466bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 2dfe659b11030d841840b84d761a73a7, type: 2}
+  stats: {fileID: 11400000, guid: 8cfa8ff899474f440946bbb176721103, type: 2}
   AttackSensor: {fileID: 6588398927732334229}
   AttackHtibox: {fileID: 2728208281378710587}
   enemyanim: {fileID: 6229290256789313358}

@@ -245,14 +245,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1700234669}
   lines:
-  - "Rock: AWWW YEA LET\u2019S ROCK AND ROLL!!!!!!!!!!!!!!!!"
-  - "EDM: Would you keep it down please? I\u2019m trying to beat the level\u2026. "
-  - 'Rock: Hold on, what is that? '
-  - "EDM: Hmm, seems like a dark energy mist trying to cover up the city. That does
+  - "Rokku: AWWW YEA LET\u2019S ROCK AND ROLL!!!!!!!!!!!!!!!!"
+  - "R3vu: Would you keep it down please? I\u2019m trying to beat the level\u2026. "
+  - 'Rokku Hold on, what is that? '
+  - "R3vu: Hmm, seems like a dark energy mist trying to cover up the city. That does
     not look good\u2026 "
-  - 'Rock: BLEUGH, it sounds terrible too.'
-  - "Rock: Whatever, LET\u2019S GO THERE AND DESTROY THE MIST!!! "
-  - 'EDM: Agreed. '
+  - 'Rokku: BLEUGH, it sounds terrible too.'
+  - "Rokku: Whatever, LET\u2019S GO THERE AND DESTROY THE MIST!!! "
+  - 'R3vu: Agreed. '
   textSpeed: 0.02
   index: 0
   imaged: {fileID: 1937982606}
